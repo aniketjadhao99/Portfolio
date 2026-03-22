@@ -20,7 +20,7 @@ const Hero = () => {
            animate={{ opacity: 1, y: 0 }}
            transition={{ duration: 1.5, ease: 'easeOut' }}
         >
-          <div style={{ 
+          <div className="hero-badge" style={{ 
             display: 'inline-flex', 
             alignItems: 'center', 
             gap: '12px', 
@@ -37,7 +37,7 @@ const Hero = () => {
             </span>
           </div>
           
-          <div style={{ 
+          <div className="hero-title" style={{ 
             fontSize: 'clamp(2.5rem, 10vw, 7rem)', 
             lineHeight: '0.9', 
             fontWeight: '900',
@@ -50,7 +50,7 @@ const Hero = () => {
             </span>
           </div>
           
-          <p style={{ 
+          <p className="hero-desc" style={{ 
             maxWidth: '550px', 
             margin: '0 auto 60px', 
             fontSize: '1.1rem',
@@ -62,17 +62,18 @@ const Hero = () => {
           </p>
           
           <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <button className="btn-futuristic" style={{ padding: '15px 35px', flex: '1 1 auto', maxWidth: '300px' }}>
+            <a href="#work" className="btn-futuristic" style={{ padding: '15px 35px', flex: '1 1 auto', maxWidth: '300px', textDecoration: 'none' }}>
               REVEAL WORK
-            </button>
-            <button className="btn-futuristic" style={{ 
+            </a>
+            <a href="#contact" className="btn-futuristic" style={{ 
               border: '1px solid var(--accent-purple)', 
               color: 'var(--accent-purple)',
               padding: '15px 35px',
-              flex: '1 1 auto', maxWidth: '300px'
+              flex: '1 1 auto', maxWidth: '300px',
+              textDecoration: 'none'
             }}>
                GET IN TOUCH
-            </button>
+            </a>
           </div>
         </motion.div>
       </div>
@@ -80,6 +81,7 @@ const Hero = () => {
       
       {/* Subtle Scroll Hint */}
       <motion.div 
+        className="scroll-hint"
         animate={{ y: [0, 15, 0] }}
         transition={{ repeat: Infinity, duration: 2.5 }}
         style={{
@@ -96,6 +98,30 @@ const Hero = () => {
           <span style={{ fontSize: '0.7rem', letterSpacing: '2px', fontFamily: 'var(--font-futuristic)' }}>SCROLL</span>
           <ChevronDown size={20} />
       </motion.div>
+      <style>{`
+        @media (max-width: 768px) {
+          #home .container {
+            padding-top: 40px;
+            padding-bottom: 80px;
+          }
+          #home .hero-badge {
+            margin-bottom: 20px !important;
+          }
+          #home .hero-title {
+            margin-bottom: 25px !important;
+          }
+          #home .hero-desc {
+            margin-bottom: 35px !important;
+            font-size: 0.95rem !important;
+          }
+          #home .btn-futuristic {
+            padding: 12px 25px !important;
+          }
+          #home .scroll-hint {
+            bottom: 20px !important;
+          }
+        }
+      `}</style>
     </section>
   );
 };

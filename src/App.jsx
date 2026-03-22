@@ -49,14 +49,30 @@ function App() {
       <Preloader />
 
       {!isLoading && (
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1.5 }}
-        >
-          <ParticleBackground />
-          <ThreeModel />
+        <>
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            style={{ position: 'fixed', top: 0, left: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none' }}
+          >
+            <ParticleBackground />
+            <ThreeModel />
+            <div style={{
+              position: 'absolute',
+              inset: 0,
+              background: 'radial-gradient(circle at 50% 50%, rgba(20, 20, 24, 0) 0%, rgba(5, 5, 5, 1) 100%)',
+              zIndex: -1,
+              pointerEvents: 'none'
+            }}></div>
+          </motion.div>
 
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 1.5 }}
+            style={{ position: 'relative', zIndex: 1 }}
+          >
           {/* Custom Cursor */}
           <motion.div
             animate={{ x: mousePosition.x - 16, y: mousePosition.y - 16 }}
@@ -93,15 +109,8 @@ function App() {
           <SectionWrapper><Contact /></SectionWrapper>
           <Footer />
 
-          {/* Background elements */}
-          <div style={{
-            position: 'fixed',
-            inset: 0,
-            background: 'radial-gradient(circle at 50% 50%, rgba(20, 20, 24, 0) 0%, rgba(5, 5, 5, 1) 100%)',
-            zIndex: -2,
-            pointerEvents: 'none'
-          }}></div>
-        </motion.div>
+          </motion.div>
+        </>
       )}
     </div>
   );

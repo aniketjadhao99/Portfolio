@@ -73,15 +73,11 @@ const About = () => {
         padding: '100px 0',
         position: 'relative',
         overflow: 'hidden',
-        backgroundColor: 'var(--bg-primary)',
         borderTop: '1px solid rgba(0, 243, 255, 0.1)'
       }}>
-        <div className="container" style={{
+        <div className="container about-grid-container" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '60px',
           alignItems: 'center',
-          maxWidth: '1300px'
         }}>
           <motion.div
             variants={containerVariants}
@@ -127,7 +123,8 @@ const About = () => {
                 marginBottom: '40px',
                 fontWeight: '900',
                 color: 'var(--text-primary)',
-                lineHeight: '1.2'
+                lineHeight: '1.2',
+                textAlign: 'left'
               }}
             >
               Crafting<br />
@@ -141,8 +138,24 @@ const About = () => {
               </span>
             </motion.h2>
 
+            <motion.div variants={itemVariants} className="mobile-only-img" style={{ marginBottom: '40px' }}>
+              <img
+                src={AboutImage}
+                alt="About"
+                style={{
+                  width: '100%',
+                  maxWidth: '550px',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(188, 19, 254, 0.2)',
+                  boxShadow: '0 10px 40px rgba(188, 19, 254, 0.1)'
+                }}
+              />
+            </motion.div>
+
             {aboutInfo.map((item, index) => (
-              <motion.div key={index} variants={itemVariants} style={{ marginBottom: '30px' }}>
+              <motion.div key={index} variants={itemVariants} style={{ marginBottom: '30px', textAlign: 'left', width: '100%', boxSizing: 'border-box' }}>
                 <h3 style={{
                   fontSize: '1.1rem',
                   fontWeight: '700',
@@ -165,6 +178,7 @@ const About = () => {
           </motion.div>
 
           <motion.div
+            className="desktop-only-img"
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
@@ -181,7 +195,9 @@ const About = () => {
               alt="About"
               style={{
                 width: '100%',
+                maxWidth: '550px',
                 height: 'auto',
+                objectFit: 'contain',
                 borderRadius: '12px',
                 border: '1px solid rgba(188, 19, 254, 0.2)',
                 boxShadow: '0 10px 40px rgba(188, 19, 254, 0.1)'
@@ -191,11 +207,28 @@ const About = () => {
         </div>
 
         <style>{`
+          .about-grid-container {
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            max-width: 1300px;
+          }
           @media (max-width: 768px) {
-            #about .container {
+            .about-grid-container {
               grid-template-columns: 1fr;
               gap: 40px;
+              max-width: 100%;
             }
+            .desktop-only-img {
+              display: none !important;
+            }
+            .mobile-only-img {
+              display: flex !important;
+              justify-content: center;
+              width: 100%;
+            }
+          }
+          .mobile-only-img {
+            display: none;
           }
         `}</style>
       </section>
@@ -207,26 +240,23 @@ const About = () => {
         justifyContent: 'center',
         padding: '100px 0',
         position: 'relative',
-        backgroundColor: 'var(--bg-primary)',
         borderTop: '1px solid rgba(188, 19, 254, 0.1)'
       }}>
-        <div className="container" style={{
+        <div className="container skills-grid-container" style={{
           display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: '60px',
           alignItems: 'center',
-          maxWidth: '1300px'
         }}>
           <motion.div
+            className="desktop-only-img"
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
             viewport={{ once: true, amount: 0.3 }}
             style={{
-              height: '100%',
               display: 'flex',
               alignItems: 'center',
-              justifyContent: 'center'
+              justifyContent: 'center',
+              width: '100%'
             }}
           >
             <img
@@ -234,7 +264,9 @@ const About = () => {
               alt="Skills"
               style={{
                 width: '100%',
+                maxWidth: '550px',
                 height: 'auto',
+                objectFit: 'contain',
                 borderRadius: '12px',
                 border: '1px solid rgba(188, 19, 254, 0.2)',
                 boxShadow: '0 10px 40px rgba(188, 19, 254, 0.1)'
@@ -247,12 +279,11 @@ const About = () => {
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.3 }}
+            style={{ width: '100%', display: 'flex', flexDirection: 'column', alignItems: 'center' }}
           >
             <motion.div
               variants={itemVariants}
-              style={{
-                paddingRight: '40px'
-              }}
+              style={{ textAlign: 'center', width: '100%' }}
             >
               <div style={{
                 display: 'inline-flex',
@@ -287,7 +318,8 @@ const About = () => {
                 marginBottom: '50px',
                 fontWeight: '900',
                 color: 'var(--text-primary)',
-                lineHeight: '1.2'
+                lineHeight: '1.2',
+                textAlign: 'center'
               }}>
                 Expertise<br />
                 <span style={{
@@ -301,10 +333,31 @@ const About = () => {
               </h2>
             </motion.div>
 
+            <motion.div variants={itemVariants} className="mobile-only-img" style={{ marginBottom: '40px', width: '100%' }}>
+              <img
+                src={SkillsImage}
+                alt="Skills"
+                style={{
+                  width: '100%',
+                  maxWidth: '550px',
+                  height: 'auto',
+                  objectFit: 'contain',
+                  borderRadius: '12px',
+                  border: '1px solid rgba(188, 19, 254, 0.2)',
+                  boxShadow: '0 10px 40px rgba(188, 19, 254, 0.1)'
+                }}
+              />
+            </motion.div>
+
             <div style={{
               display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: '30px'
+              gridTemplateColumns: 'repeat(2, 1fr)',
+              gap: '20px',
+              width: '100%',
+              maxWidth: '1000px',
+              margin: '0 auto',
+              padding: '0 10px',
+              boxSizing: 'border-box'
             }}>
               {skills.map((skillGroup, index) => {
                 const Icon = skillGroup.icon;
@@ -318,25 +371,28 @@ const About = () => {
                       transform: 'translateY(-5px)'
                     }}
                     style={{
-                      padding: '30px',
+                      padding: 'clamp(10px, 2vw, 25px)',
                       border: '1px solid rgba(188, 19, 254, 0.2)',
                       borderRadius: '12px',
                       background: 'rgba(188, 19, 254, 0.02)',
                       backdropFilter: 'blur(10px)',
                       transition: 'all 0.3s ease',
-                      cursor: 'pointer'
+                      cursor: 'pointer',
+                      height: '100%',
+                      boxSizing: 'border-box'
                     }}
                   >
                     <div style={{
                       display: 'flex',
                       alignItems: 'center',
-                      gap: '12px',
+                      flexWrap: 'wrap',
+                      gap: '8px',
                       marginBottom: '16px'
                     }}>
-                      <Icon size={24} style={{ color: 'var(--accent-purple)' }} />
+                      <Icon size={22} style={{ color: 'var(--accent-purple)' }} />
                       <h3 style={{
-                        fontSize: '1rem',
-                        fontWeight: '700',
+                        fontSize: 'clamp(0.75rem, 2.5vw, 1rem)',
+                        fontWeight: '800',
                         color: 'var(--accent-cyan)',
                         textTransform: 'uppercase',
                         letterSpacing: '1px'
@@ -353,7 +409,7 @@ const About = () => {
                         <span
                           key={idx}
                           style={{
-                            fontSize: '0.9rem',
+                            fontSize: 'clamp(0.85rem, 2.5vw, 1.1rem)',
                             color: 'var(--text-secondary)',
                             paddingLeft: '10px',
                             borderLeft: '2px solid var(--accent-purple)',
@@ -380,11 +436,30 @@ const About = () => {
         </div>
 
         <style>{`
+          .skills-grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 1300px;
+            margin: 0 auto;
+          }
           @media (max-width: 768px) {
-            #skills .container {
+            .skills-grid-container {
               grid-template-columns: 1fr;
               gap: 40px;
+              padding: 0 15px;
             }
+            .desktop-only-img {
+              display: none !important;
+            }
+            .mobile-only-img {
+              display: flex !important;
+              justify-content: center;
+              width: 100%;
+            }
+          }
+          .mobile-only-img {
+            display: none;
           }
         `}</style>
       </section>

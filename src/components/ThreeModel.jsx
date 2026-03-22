@@ -116,10 +116,9 @@ const ThreeModel = () => {
         <div style={{
             width: '100%',
             height: '100vh',
-            position: 'fixed',
+            position: 'absolute',
             top: 0,
             left: 0,
-            zIndex: -1,
             pointerEvents: 'none',
             opacity: 0.5
         }}>

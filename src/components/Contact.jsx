@@ -4,7 +4,7 @@ import { Mail, MessageCircle, Send, Globe } from 'lucide-react';
 
 const Contact = () => {
     return (
-        <section id="contact">
+        <section id="contact" style={{ overflow: 'hidden' }}>
             <div className="container" style={{ position: 'relative' }}>
                 <div style={{
                     position: 'absolute',
