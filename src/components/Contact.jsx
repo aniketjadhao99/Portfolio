@@ -8,7 +8,7 @@ const Contact = () => {
             <div className="container" style={{ position: 'relative' }}>
                 <div style={{
                     position: 'absolute',
-                    width: '600px',
+                    width: 'min(600px, 100vw)',
                     height: '600px',
                     background: 'radial-gradient(circle, rgba(188, 19, 254, 0.05) 0%, transparent 70%)',
                     top: '-10%',

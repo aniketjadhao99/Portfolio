@@ -38,14 +38,14 @@ const Hero = () => {
           </div>
           
           <div style={{ 
-            fontSize: 'min(7rem, 15vw)', 
-            lineHeight: '0.85', 
+            fontSize: 'clamp(2.5rem, 10vw, 7rem)', 
+            lineHeight: '0.9', 
             fontWeight: '900',
             marginBottom: '40px',
             textAlign: 'center'
           }}>
             <GlitchText text="ANIKET JADHAO" />
-            <span style={{ fontSize: '0.35em', display: 'block', marginTop: '15px', color: 'var(--text-secondary)', letterSpacing: '8px', fontWeight: '400' }}>
+            <span style={{ fontSize: '0.35em', display: 'block', marginTop: '15px', color: 'var(--text-secondary)', letterSpacing: 'clamp(2px, 1.5vw, 8px)', fontWeight: '400' }}>
                 FULL_STACK_ARCHITECT
             </span>
           </div>

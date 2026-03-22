@@ -70,7 +70,7 @@ const About = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '100px 24px',
+        padding: '100px 0',
         position: 'relative',
         overflow: 'hidden',
         backgroundColor: 'var(--bg-primary)',
@@ -205,7 +205,7 @@ const About = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: '100px 24px',
+        padding: '100px 0',
         position: 'relative',
         backgroundColor: 'var(--bg-primary)',
         borderTop: '1px solid rgba(188, 19, 254, 0.1)'
