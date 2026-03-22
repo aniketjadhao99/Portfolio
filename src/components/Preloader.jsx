@@ -48,7 +48,7 @@ const Preloader = () => {
                     </motion.div>
 
                     <div style={{
-                        width: '300px',
+                        width: 'min(300px, 80vw)',
                         height: '2px',
                         background: 'rgba(255,255,255,0.1)',
                         position: 'relative',

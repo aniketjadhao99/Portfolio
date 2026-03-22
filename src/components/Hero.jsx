@@ -61,14 +61,15 @@ const Hero = () => {
             High-performance engineering meets custom-coded solutions. From secure examination platforms to complex logistics ecosystems, I build digital products that push the boundaries of the modern web.
           </p>
           
-          <div style={{ display: 'flex', gap: '25px', justifyContent: 'center' }}>
-            <button className="btn-futuristic" style={{ padding: '15px 35px' }}>
+          <div style={{ display: 'flex', gap: '20px', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <button className="btn-futuristic" style={{ padding: '15px 35px', flex: '1 1 auto', maxWidth: '300px' }}>
               REVEAL WORK
             </button>
             <button className="btn-futuristic" style={{ 
               border: '1px solid var(--accent-purple)', 
               color: 'var(--accent-purple)',
-              padding: '15px 35px'
+              padding: '15px 35px',
+              flex: '1 1 auto', maxWidth: '300px'
             }}>
                GET IN TOUCH
             </button>

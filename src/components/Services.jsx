@@ -143,7 +143,7 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
-                <h2 style={{ fontSize: '3.5rem', marginBottom: '20px', letterSpacing: '4px' }}>
+                <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '20px', letterSpacing: '4px' }}>
                   THE <span className="gradient-text">TECHNIQUE</span>
                 </h2>
                 <div style={{ width: '80px', height: '4px', background: 'var(--accent-purple)', margin: '0 auto 30px' }}></div>
@@ -160,8 +160,8 @@ const Services = () => {
            viewport={{ once: true }}
            style={{ 
              display: 'grid', 
-             gridTemplateColumns: 'repeat(auto-fit, minmax(380px, 1fr))', 
-             gap: '50px' 
+             gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+             gap: '30px' 
            }}
          >
            {services.map((s, i) => (

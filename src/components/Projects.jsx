@@ -163,7 +163,7 @@ const Projects = () => {
             viewport={{ once: true }}
             style={{ marginBottom: '100px' }}
           >
-             <h2 style={{ fontSize: '4rem', letterSpacing: '6px' }}>
+             <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '6px' }}>
                 SELECTED <span className="gradient-text">SYSTEMS</span>
              </h2>
              <div style={{ 
@@ -176,8 +176,8 @@ const Projects = () => {
 
           <div style={{ 
             display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
-            gap: '80px' 
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', 
+            gap: '40px' 
           }}>
             {projects.map((p, i) => (
               <ProjectCard key={i} index={i} {...p} />

@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -69,9 +70,55 @@ const Navbar = () => {
       </div>
 
 
-      <div className="mobile-toggle" style={{ display: 'none' }}>
-        <Menu />
+      <div className="mobile-toggle" style={{ display: 'none', cursor: 'pointer', zIndex: 1001 }} onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        {isMobileMenuOpen ? <X /> : <Menu />}
       </div>
+
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            className="glass"
+            style={{
+              position: 'fixed',
+              top: '80px',
+              left: '5%',
+              width: '90%',
+              padding: '20px',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '20px',
+              zIndex: 999,
+              background: 'rgba(10, 10, 12, 0.95)',
+              alignItems: 'center'
+            }}
+          >
+            {['Home', 'About', 'Services', 'Work', 'Contact'].map((item) => (
+              <a
+                key={`mobile-${item}`}
+                href={`#${item.toLowerCase()}`}
+                onClick={() => setIsMobileMenuOpen(false)}
+                style={{
+                  textDecoration: 'none',
+                  color: 'var(--text-primary)',
+                  fontFamily: 'var(--font-futuristic)',
+                  fontSize: '1.2rem',
+                  fontWeight: '700',
+                  letterSpacing: '2px',
+                  width: '100%',
+                  textAlign: 'center',
+                  padding: '10px 0',
+                  borderBottom: '1px solid var(--glass-border)'
+                }}
+              >
+                {item}
+              </a>
+            ))}
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <style>{`
         @media (max-width: 768px) {

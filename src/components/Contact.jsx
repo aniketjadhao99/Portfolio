@@ -19,7 +19,7 @@ const Contact = () => {
                 <div
                     className="glass"
                     style={{
-                        padding: '80px 40px',
+                        padding: 'clamp(40px, 8vw, 80px) clamp(20px, 5vw, 40px)',
                         textAlign: 'center',
                         maxWidth: '800px',
                         margin: '0 auto'
@@ -29,7 +29,7 @@ const Contact = () => {
                         initial={{ scale: 0.9, opacity: 0 }}
                         whileInView={{ scale: 1, opacity: 1 }}
                     >
-                        <h2 style={{ fontSize: '3rem', marginBottom: '20px' }}>
+                        <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3rem)', marginBottom: '20px' }}>
                             READY TO <span className="glow-text">SCALE?</span>
                         </h2>
                         <p style={{ color: 'var(--text-secondary)', marginBottom: '40px', fontSize: '1.2rem' }}>
