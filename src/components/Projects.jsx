@@ -163,6 +163,34 @@ const Projects = () => {
           viewport={{ once: true }}
           style={{ marginBottom: '100px' }}
         >
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '12px',
+            background: 'rgba(188, 19, 254, 0.05)',
+            padding: '10px 20px',
+            borderRadius: '100px',
+            border: '1px solid rgba(188, 19, 254, 0.2)',
+            marginBottom: '30px',
+            backdropFilter: 'blur(20px)'
+          }}>
+            <span style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--accent-purple)',
+              animation: 'pulse 2s infinite'
+            }} />
+            <span style={{
+              fontSize: '0.75rem',
+              fontWeight: '800',
+              color: 'var(--accent-purple)',
+              letterSpacing: '2px',
+              textTransform: 'uppercase'
+            }}>
+              Portfolio
+            </span>
+          </div>
           <h2 style={{ fontSize: 'clamp(2rem, 5vw, 4rem)', letterSpacing: '6px' }}>
             SELECTED <span className="gradient-text">SYSTEMS</span>
           </h2>

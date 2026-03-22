@@ -124,8 +124,8 @@ const Services = () => {
     },
     {
       icon: Shield,
-      title: "CYBER DEFENSE",
-      description: <>End-to-end encryption and penetration-hardened codebases, leveraging <strong>State-level Cyber Security</strong> training.</>
+      title: "FULL-STACK SYSTEMS",
+      description: <>Custom-engineered <strong>end-to-end</strong> solutions, specialized in high-performance web applications and data-driven logic.</>
     },
     {
       icon: Infinity,
@@ -143,6 +143,34 @@ const Services = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
             >
+                <div style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '12px',
+                  background: 'rgba(188, 19, 254, 0.05)',
+                  padding: '10px 20px',
+                  borderRadius: '100px',
+                  border: '1px solid rgba(188, 19, 254, 0.2)',
+                  marginBottom: '30px',
+                  backdropFilter: 'blur(20px)'
+                }}>
+                  <span style={{
+                    width: '8px',
+                    height: '8px',
+                    borderRadius: '50%',
+                    backgroundColor: 'var(--accent-purple)',
+                    animation: 'pulse 2s infinite'
+                  }} />
+                  <span style={{
+                    fontSize: '0.75rem',
+                    fontWeight: '800',
+                    color: 'var(--accent-purple)',
+                    letterSpacing: '2px',
+                    textTransform: 'uppercase'
+                  }}>
+                    Services
+                  </span>
+                </div>
                 <h2 style={{ fontSize: 'clamp(2rem, 5vw, 3.5rem)', marginBottom: '20px', letterSpacing: '4px' }}>
                   THE <span className="gradient-text">TECHNIQUE</span>
                 </h2>

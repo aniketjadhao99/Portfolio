@@ -7,8 +7,8 @@ import SkillsImage from '../assets/skills.png';
 const About = () => {
   const aboutInfo = [
     {
-      title: "Who I Am",
-      description: "I am Aniket Jadhao, a Full-Stack Developer and Digital Architect at MIT ACSC. As a freelance consultant, I transform traditional businesses into powerful, custom-built digital platforms."
+      title: "Who Am I",
+      description: "I am Aniket Jadhao, a Full-Stack Developer and Digital Architect. As a freelance consultant, I transform traditional businesses into powerful, custom-built digital platforms."
     },
     {
       title: "My Philosophy",
