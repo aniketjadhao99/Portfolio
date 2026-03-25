@@ -6,7 +6,7 @@ import * as THREE from 'three'
 const DigitalGlobe = ({ scrollProgress }) => {
     const pointsRef = useRef();
     const coreRef = useRef();
-    const ringsRef = useRef([]);
+
 
     // Generate points on a sphere surface for a digital globe look
     const count = 2000;
@@ -31,13 +31,7 @@ const DigitalGlobe = ({ scrollProgress }) => {
             pointsRef.current.rotation.x = time * 0.02 + scrollProgress * 2;
         }
 
-        // Animate rings with scroll influence
-        ringsRef.current.forEach((ring, i) => {
-            if (ring) {
-                ring.rotation.z = time * 0.1 + scrollProgress * (3 + i);
-                ring.rotation.x = scrollProgress * 2;
-            }
-        });
+
 
         if (coreRef.current) {
             coreRef.current.scale.setScalar(1 + Math.sin(time) * 0.03);
@@ -59,8 +53,8 @@ const DigitalGlobe = ({ scrollProgress }) => {
                 </bufferGeometry>
                 <PointMaterial
                     transparent
-                    color="#00f3ff"
-                    size={0.03}
+                    color="#d0e8ff"
+                    size={0.025}
                     sizeAttenuation={true}
                     depthWrite={false}
                     blending={THREE.AdditiveBlending}
@@ -71,25 +65,15 @@ const DigitalGlobe = ({ scrollProgress }) => {
             <mesh ref={coreRef}>
                 <sphereGeometry args={[0.7, 32, 32]} />
                 <meshStandardMaterial
-                    color="#bc13fe"
-                    emissive="#bc13fe"
-                    emissiveIntensity={3}
+                    color="#a8c8ff"
+                    emissive="#a8c8ff"
+                    emissiveIntensity={2}
                     transparent
-                    opacity={0.1}
+                    opacity={0.15}
                 />
             </mesh>
 
-            {/* Orbital Rings */}
-            {[...Array(3)].map((_, i) => (
-                <mesh
-                    key={i}
-                    ref={el => ringsRef.current[i] = el}
-                    rotation={[Math.random() * Math.PI, Math.random() * Math.PI, 0]}
-                >
-                    <torusGeometry args={[2.3 + i * 0.15, 0.008, 16, 100]} />
-                    <meshStandardMaterial color="#00f3ff" emissive="#00f3ff" emissiveIntensity={2} transparent opacity={0.15} />
-                </mesh>
-            ))}
+
 
             {/* Data Stars */}
             <Points count={400}>
@@ -126,7 +110,7 @@ const ThreeModel = () => {
                 <Suspense fallback={null}>
                     <PerspectiveCamera makeDefault position={[0, 0, 10]} />
                     <ambientLight intensity={0.4} />
-                    <pointLight position={[10, 10, 10]} intensity={2} color="#00f3ff" />
+                    <pointLight position={[10, 10, 10]} intensity={1.5} color="#c8dcff" />
 
                     <Float speed={1} rotationIntensity={0.2} floatIntensity={0.5}>
                         <DigitalGlobe scrollProgress={scrollProgress} />

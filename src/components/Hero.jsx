@@ -1,8 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Code, Sparkles, ChevronDown } from 'lucide-react';
-import GlitchText from './GlitchText';
-
 const Hero = () => {
   return (
     <section id="home" style={{ 
@@ -24,10 +22,10 @@ const Hero = () => {
             display: 'inline-flex', 
             alignItems: 'center', 
             gap: '12px', 
-            background: 'rgba(255, 255, 255, 0.03)',
+            background: 'rgba(108, 142, 191, 0.06)',
             padding: '10px 24px',
             borderRadius: '100px',
-            border: '1px solid rgba(255, 255, 255, 0.1)',
+            border: '1px solid rgba(108, 142, 191, 0.2)',
             marginBottom: '40px',
             backdropFilter: 'blur(20px)'
           }}>
@@ -44,7 +42,7 @@ const Hero = () => {
             marginBottom: '40px',
             textAlign: 'center'
           }}>
-            <GlitchText text="ANIKET JADHAO" />
+            <span>ANIKET JADHAO</span>
             <span style={{ fontSize: '0.35em', display: 'block', marginTop: '15px', color: 'var(--text-secondary)', letterSpacing: 'clamp(2px, 1.5vw, 8px)', fontWeight: '400' }}>
                 FULL_STACK_ARCHITECT
             </span>
@@ -67,7 +65,7 @@ const Hero = () => {
             </a>
             <a href="#contact" className="btn-futuristic" style={{ 
               border: '1px solid var(--accent-purple)', 
-              color: 'var(--accent-purple)',
+              color: 'var(--text-primary)',
               padding: '15px 35px',
               flex: '1 1 auto', maxWidth: '300px',
               textDecoration: 'none'
