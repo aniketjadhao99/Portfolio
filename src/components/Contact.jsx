@@ -66,7 +66,7 @@ const Contact = () => {
 
                         <div style={{ display: 'flex', flexWrap: 'wrap', gap: '30px', justifyContent: 'center' }}>
                             <a
-                                href="mailto:contact@aniket.dev"
+                                href="mailto:contact@aniket.info"
                                 className="btn-futuristic"
                                 style={{ display: 'flex', alignItems: 'center', gap: '10px', textDecoration: 'none' }}
                             >

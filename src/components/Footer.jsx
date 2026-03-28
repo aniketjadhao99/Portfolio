@@ -22,7 +22,7 @@ const Footer = () => {
                         fontWeight: '900',
                         fontSize: '1.8rem'
                     }}>
-                        ANIKET<span className="glow-text">.DEV</span>
+                        ANIKET<span className="glow-text">.INFO</span>
                     </span>
                 </div>
 
@@ -34,7 +34,7 @@ const Footer = () => {
                 </div>
 
                 <p style={{ color: 'rgba(255,255,255,0.4)', fontSize: '0.8rem', letterSpacing: '1px' }}>
-                    &copy; 2026 ANIKET.DEV - ALL RIGHTS RESERVED
+                    &copy; 2026 ANIKET.INFO - ALL RIGHTS RESERVED
                 </p>
            </div>
         </footer>

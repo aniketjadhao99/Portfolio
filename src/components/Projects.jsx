@@ -142,6 +142,34 @@ const Projects = () => {
           viewport={{ once: true }}
           className="work-header"
         >
+          <div style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '12px',
+            background: 'rgba(108, 142, 191, 0.05)',
+            padding: '10px 20px',
+            borderRadius: '100px',
+            border: '1px solid rgba(108, 142, 191, 0.2)',
+            marginBottom: '30px',
+            backdropFilter: 'blur(20px)'
+          }}>
+            <span style={{
+              width: '8px',
+              height: '8px',
+              borderRadius: '50%',
+              backgroundColor: 'var(--accent-cyan)',
+              animation: 'pulse 2s infinite'
+            }} />
+            <span style={{
+              fontSize: '0.75rem',
+              fontWeight: '800',
+              color: 'var(--accent-cyan)',
+              letterSpacing: '2px',
+              textTransform: 'uppercase'
+            }}>
+              Works
+            </span>
+          </div>
           <h2 className="work-heading">
             SELECTED <span className="gradient-text">SYSTEMS</span>
           </h2>

@@ -75,6 +75,7 @@ function App() {
           >
           {/* Custom Cursor */}
           <motion.div
+            className="custom-cursor"
             animate={{ x: mousePosition.x - 16, y: mousePosition.y - 16 }}
             transition={{ type: 'spring', damping: 20, stiffness: 150 }}
             style={{
@@ -88,6 +89,7 @@ function App() {
             }}
           />
           <motion.div
+            className="custom-cursor"
             animate={{ x: mousePosition.x - 4, y: mousePosition.y - 4 }}
             transition={{ type: 'spring', damping: 30, stiffness: 200 }}
             style={{

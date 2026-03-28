@@ -172,3 +172,9 @@ h3 {
 .reveal-text {
   animation: reveal 1.5s cubic-bezier(0.77, 0, 0.175, 1) forwards;
 }
+
+@media (max-width: 768px) {
+  .custom-cursor {
+    display: none !important;
+  }
+}

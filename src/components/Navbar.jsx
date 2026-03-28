@@ -45,7 +45,7 @@ const Navbar = () => {
           fontSize: '1.4rem',
           letterSpacing: '2px'
         }}>
-          ANIKET<span className="glow-text">.DEV</span>
+          ANIKET<span className="glow-text">.INFO</span>
         </span>
       </div>
 
