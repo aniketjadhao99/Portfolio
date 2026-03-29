@@ -27,7 +27,7 @@ const Footer = () => {
                 </div>
 
                 <div style={{ display: 'flex', gap: '30px' }}>
-                    <a href="#" style={{ color: 'var(--text-secondary)' }}><Github size={24} /></a>
+                    <a href="https://github.com/aniketjadhao99" target="_blank" rel="noopener noreferrer" style={{ color: 'var(--text-secondary)' }}><Github size={24} /></a>
                     <a href="#" style={{ color: 'var(--text-secondary)' }}><Twitter size={24} /></a>
                     <a href="#" style={{ color: 'var(--text-secondary)' }}><Linkedin size={24} /></a>
                     <a href="#" style={{ color: 'var(--text-secondary)' }}><Instagram size={24} /></a>

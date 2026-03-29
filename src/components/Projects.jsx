@@ -110,25 +110,25 @@ const Projects = () => {
     {
       title: "CYBERZSEC",
       category: "React.js | Node.js | Tailwind CSS | GSAP",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/CyberZsec",
       live: "https://cyberzsec.com/"
     },
     {
       title: "PRIYA CHAVAN MAKEUP",
       category: "HTML5 | CSS3 | JavaScript | GSAP | Framer Motion",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/Priya-Makeup-Artist",
       live: "https://priyachavanmakeupartist.in/"
     },
     {
       title: "CYBERZCOP",
       category: "React.js | Node.js | Tailwind CSS | GSAP | Web Security Protocols",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/CyberZcop",
       live: "https://cyberzsec.com/cyberzcop.html"
     },
     {
       title: "VITTHAL PHOTOS",
       category: "PHP | PostgreSQL | JavaScript | Tailwind CSS",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/Vitthal-Photos",
       live: "#"
     }
   ];
