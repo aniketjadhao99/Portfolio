@@ -127,9 +127,9 @@ const Projects = () => {
     },
     {
       title: "VITTHAL PHOTOS",
-      category: "PHP | PostgreSQL | JavaScript | Tailwind CSS",
+      category: "HTML | CSS | PHP | Python | Data Analytics",
       github: "https://github.com/aniketjadhao99/Vitthal-Photos",
-      live: "#"
+      live: "/vitthal_photos.html"
     }
   ];
 

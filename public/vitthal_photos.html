@@ -1,0 +1,1741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CS-368 Web Technology II & Data Analytics – All 30 Slip Answers</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
+  :root {
+    --bg: #0d0f1a;
+    --surface: #141726;
+    --border: #252a45;
+    --accent: #4f8ef7;
+    --accent2: #f7c948;
+    --accent3: #5ef08a;
+    --text: #dde3f5;
+    --muted: #7a84a8;
+    --code-bg: #0a0c16;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; line-height: 1.7; }
+  header { background: linear-gradient(135deg, #1a1f3a 0%, #0d0f1a 60%); border-bottom: 2px solid var(--accent); padding: 2.5rem 2rem 2rem; text-align: center; }
+  header h1 { font-size: clamp(1.4rem,3vw,2.2rem); font-weight: 800; color: var(--accent); letter-spacing: -0.5px; }
+  header p { color: var(--muted); margin-top: .4rem; font-size: .95rem; }
+  .toc { background: var(--surface); border: 1px solid var(--border); border-radius: 10px; margin: 2rem auto; max-width: 900px; padding: 1.5rem 2rem; }
+  .toc h2 { color: var(--accent2); margin-bottom: 1rem; font-size: 1.1rem; }
+  .toc-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(130px,1fr)); gap: .5rem; }
+  .toc-grid a { background: #1c2038; border: 1px solid var(--border); border-radius: 6px; color: var(--accent); padding: .4rem .8rem; font-size: .85rem; text-decoration: none; transition: background .2s; font-family: 'JetBrains Mono', monospace; }
+  .toc-grid a:hover { background: #252a4a; }
+  main { max-width: 960px; margin: 0 auto; padding: 1rem 1.5rem 4rem; }
+  .slip { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; margin-bottom: 2.5rem; overflow: hidden; }
+  .slip-header { background: linear-gradient(90deg, #1c2240 0%, #141726 100%); border-bottom: 1px solid var(--border); padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem; }
+  .slip-num { background: var(--accent); color: #fff; font-family: 'JetBrains Mono', monospace; font-size: .8rem; font-weight: 700; padding: .3rem .7rem; border-radius: 6px; white-space: nowrap; }
+  .slip-title { font-weight: 600; font-size: 1rem; color: var(--text); }
+  .slip-body { padding: 1.2rem 1.5rem; }
+  .q-label { color: var(--accent2); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .3rem; margin-top: 1.2rem; }
+  .q-label:first-child { margin-top: 0; }
+  .q-desc { color: var(--muted); font-size: .88rem; margin-bottom: .7rem; background: #0f1120; border-left: 3px solid var(--accent2); padding: .6rem 1rem; border-radius: 4px; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: .78rem; line-height: 1.6; color: #c8d6f8; margin-bottom: .5rem; }
+  .kw { color: #82aaff; }
+  .fn { color: #82cfff; }
+  .str { color: #c3e88d; }
+  .cmt { color: #546e91; font-style: italic; }
+  .tag { color: #f07178; }
+  .num { color: #f78c6c; }
+  .file-label { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--accent3); background: #071a10; border: 1px solid #1f4a2a; padding: .2rem .6rem; border-radius: 4px; display: inline-block; margin-bottom: .4rem; }
+  .note { background: #1a1422; border: 1px solid #3d2a55; border-radius: 6px; padding: .7rem 1rem; color: #c49fff; font-size: .83rem; margin-top: .5rem; }
+</style>
+</head>
+<body>
+<header>
+  <h1>CS-368 Web Technology II &amp; Data Analytics</h1>
+  <p>T.Y.B.Sc. (CS) Sem-VI — University Practical Examination May 2023 &nbsp;|&nbsp; All 30 Slip Answers</p>
+</header>
+
+<div class="toc">
+  <h2>📋 Quick Navigation</h2>
+  <div class="toc-grid">
+    <a href="#s1">Slip 1</a><a href="#s2">Slip 2</a><a href="#s3">Slip 3</a><a href="#s4">Slip 4</a><a href="#s5">Slip 5</a>
+    <a href="#s6">Slip 6</a><a href="#s7">Slip 7</a><a href="#s8">Slip 8</a><a href="#s9">Slip 9</a><a href="#s10">Slip 10</a>
+    <a href="#s11">Slip 11</a><a href="#s12">Slip 12</a><a href="#s13">Slip 13</a><a href="#s14">Slip 14</a><a href="#s15">Slip 15</a>
+    <a href="#s16">Slip 16</a><a href="#s17">Slip 17</a><a href="#s18">Slip 18</a><a href="#s19">Slip 19</a><a href="#s20">Slip 20</a>
+    <a href="#s21">Slip 21</a><a href="#s22">Slip 22</a><a href="#s23">Slip 23</a><a href="#s24">Slip 24</a><a href="#s25">Slip 25</a>
+    <a href="#s26">Slip 26</a><a href="#s27">Slip 27</a><a href="#s28">Slip 28</a><a href="#s29">Slip 29</a><a href="#s30">Slip 30</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ===== SLIP 1 ===== -->
+<div class="slip" id="s1">
+  <div class="slip-header"><span class="slip-num">SLIP 01</span><span class="slip-title">PHP Session Tracking + Linear Regression (Position_Salaries)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Session Counter [15 Marks]</div>
+    <div class="q-desc">Track number of times a web page has been accessed using Session Tracking.</div>
+    <div class="file-label">counter.php</div>
+<pre>&lt;?php
+session_start();
+if (!isset($_SESSION['count'])) {
+    $_SESSION['count'] = 0;
+}
+$_SESSION['count']++;
+echo "&lt;h2&gt;Page Visit Count: " . $_SESSION['count'] . "&lt;/h2&gt;";
+echo "&lt;p&gt;Refresh this page to increment the counter.&lt;/p&gt;";
+echo '&lt;a href="counter.php"&gt;Refresh&lt;/a&gt; | ';
+echo '&lt;a href="reset.php"&gt;Reset Counter&lt;/a&gt;';
+?&gt;</pre>
+    <div class="file-label">reset.php</div>
+<pre>&lt;?php
+session_start();
+session_destroy();
+echo "Session destroyed. &lt;a href='counter.php'&gt;Go Back&lt;/a&gt;";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Position_Salaries Linear Regression [15 Marks]</div>
+    <div class="q-desc">Create Position_Salaries dataset, split 7:3, build simple linear regression.</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">import</span> numpy <span class="kw">as</span> np
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> mean_squared_error, r2_score
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+
+<span class="cmt"># Create dataset</span>
+data = {
+    <span class="str">'Position'</span>: [<span class="str">'Business Analyst'</span>,<span class="str">'Junior Consultant'</span>,<span class="str">'Senior Consultant'</span>,
+                 <span class="str">'Manager'</span>,<span class="str">'Country Manager'</span>,<span class="str">'Region Manager'</span>,
+                 <span class="str">'Partner'</span>,<span class="str">'Senior Partner'</span>,<span class="str">'C-level'</span>,<span class="str">'CEO'</span>],
+    <span class="str">'Level'</span>: [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
+    <span class="str">'Salary'</span>: [<span class="num">45000</span>,<span class="num">50000</span>,<span class="num">60000</span>,<span class="num">80000</span>,<span class="num">110000</span>,
+               <span class="num">150000</span>,<span class="num">200000</span>,<span class="num">300000</span>,<span class="num">500000</span>,<span class="num">1000000</span>]
+}
+df = pd.DataFrame(data)
+print(df)
+
+X = df[[<span class="str">'Level'</span>]]   <span class="cmt"># Independent variable</span>
+y = df[<span class="str">'Salary'</span>]    <span class="cmt"># Target variable</span>
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=<span class="num">0.3</span>, random_state=<span class="num">42</span>)
+
+print(<span class="str">"\nTraining set:"</span>); print(X_train); print(y_train)
+print(<span class="str">"\nTesting set:"</span>);  print(X_test);  print(y_test)
+
+model = LinearRegression()
+model.fit(X_train, y_train)
+
+y_pred = model.predict(X_test)
+print(<span class="str">"\nPredictions:"</span>, y_pred)
+print(<span class="str">"R² Score:"</span>, r2_score(y_test, y_pred))
+print(<span class="str">"MSE:"</span>, mean_squared_error(y_test, y_pred))
+
+plt.scatter(X, y, color=<span class="str">'blue'</span>)
+plt.plot(X, model.predict(X), color=<span class="str">'red'</span>)
+plt.title(<span class="str">'Position Salaries – Linear Regression'</span>)
+plt.xlabel(<span class="str">'Level'</span>); plt.ylabel(<span class="str">'Salary'</span>)
+plt.show()</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 2 ===== -->
+<div class="slip" id="s2">
+  <div class="slip-header"><span class="slip-num">SLIP 02</span><span class="slip-title">PHP Cookie Preferences + Linear Regression (Salary)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Cookies for Web-Page Preferences [15 Marks]</div>
+    <div class="q-desc">Change font style, size, color, background via cookie; display on next page; apply on third page.</div>
+    <div class="file-label">page1.php – Preference Form</div>
+<pre>&lt;?php
+<span class="cmt">// Set cookies if form submitted</span>
+if (isset($_POST['save'])) {
+    setcookie("fontStyle",  $_POST['fontStyle'],  time()+3600);
+    setcookie("fontSize",   $_POST['fontSize'],   time()+3600);
+    setcookie("fontColor",  $_POST['fontColor'],  time()+3600);
+    setcookie("bgColor",    $_POST['bgColor'],    time()+3600);
+    header("Location: page2.php");
+    exit();
+}
+?&gt;
+&lt;form method="post"&gt;
+  Font Style: &lt;select name="fontStyle"&gt;
+    &lt;option&gt;Arial&lt;/option&gt;&lt;option&gt;Georgia&lt;/option&gt;&lt;option&gt;Courier New&lt;/option&gt;
+  &lt;/select&gt;&lt;br&gt;
+  Font Size: &lt;input type="number" name="fontSize" value="16"&gt;&lt;br&gt;
+  Font Color: &lt;input type="color" name="fontColor" value="#000000"&gt;&lt;br&gt;
+  Background: &lt;input type="color" name="bgColor"   value="#ffffff"&gt;&lt;br&gt;
+  &lt;input type="submit" name="save" value="Save Preferences"&gt;
+&lt;/form&gt;</pre>
+    <div class="file-label">page2.php – Display Selected Settings</div>
+<pre>&lt;?php
+$fs = $_COOKIE['fontStyle'] ?? 'Arial';
+$fz = $_COOKIE['fontSize']  ?? '16';
+$fc = $_COOKIE['fontColor'] ?? '#000';
+$bg = $_COOKIE['bgColor']   ?? '#fff';
+echo "&lt;h3&gt;Your Settings:&lt;/h3&gt;";
+echo "Font Style: $fs &lt;br&gt;Font Size: {$fz}px &lt;br&gt;Font Color: $fc &lt;br&gt;BG Color: $bg";
+echo '&lt;br&gt;&lt;a href="page3.php"&gt;See Applied Page&lt;/a&gt;';
+?&gt;</pre>
+    <div class="file-label">page3.php – Applied Implementation</div>
+<pre>&lt;?php
+$fs = $_COOKIE['fontStyle'] ?? 'Arial';
+$fz = $_COOKIE['fontSize']  ?? '16';
+$fc = $_COOKIE['fontColor'] ?? '#000';
+$bg = $_COOKIE['bgColor']   ?? '#fff';
+?&gt;
+&lt;body style="background:&lt;?=$bg?&gt;; font-family:&lt;?=$fs?&gt;;
+             font-size:&lt;?=$fz?&gt;px; color:&lt;?=$fc?&gt;;"&gt;
+  &lt;h2&gt;This page uses your saved preferences!&lt;/h2&gt;
+  &lt;p&gt;The settings from cookies are applied here.&lt;/p&gt;
+&lt;/body&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Salary Linear Regression [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
+
+data = {<span class="str">'YearsExp'</span>:[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
+        <span class="str">'Salary'</span>:  [<span class="num">30000</span>,<span class="num">35000</span>,<span class="num">40000</span>,<span class="num">45000</span>,<span class="num">50000</span>,
+                    <span class="num">55000</span>,<span class="num">60000</span>,<span class="num">65000</span>,<span class="num">70000</span>,<span class="num">80000</span>]}
+df = pd.DataFrame(data)
+X = df[[<span class="str">'YearsExp'</span>]]; y = df[<span class="str">'Salary'</span>]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">0</span>)
+model = LinearRegression().fit(X_train, y_train)
+print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 3 ===== -->
+<div class="slip" id="s3">
+  <div class="slip-header"><span class="slip-num">SLIP 03</span><span class="slip-title">PHP Session Login + Logistic Regression (User/Car)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Session-based Login (3 Attempts) [15 Marks]</div>
+    <div class="file-label">login.php</div>
+<pre>&lt;?php
+session_start();
+if (!isset($_SESSION['attempts'])) $_SESSION['attempts'] = 0;
+$msg = "";
+if (isset($_POST['login'])) {
+    if ($_SESSION['attempts'] &gt;= 3) {
+        $msg = "Too many failed attempts. Access blocked.";
+    } elseif ($_POST['user'] == 'admin' &amp;&amp; $_POST['pass'] == '1234') {
+        $_SESSION['logged'] = true;
+        header("Location: welcome.php"); exit();
+    } else {
+        $_SESSION['attempts']++;
+        $left = 3 - $_SESSION['attempts'];
+        $msg = "Invalid credentials. Attempts left: $left";
+    }
+}
+?&gt;
+&lt;h2&gt;Login&lt;/h2&gt;
+&lt;p style="color:red"&gt;&lt;?= $msg ?&gt;&lt;/p&gt;
+&lt;form method="post"&gt;
+  Username: &lt;input name="user"&gt;&lt;br&gt;
+  Password: &lt;input type="password" name="pass"&gt;&lt;br&gt;
+  &lt;input type="submit" name="login" value="Login"&gt;
+&lt;/form&gt;</pre>
+    <div class="file-label">welcome.php</div>
+<pre>&lt;?php
+session_start();
+if (!isset($_SESSION['logged'])) { header("Location: login.php"); exit(); }
+echo "&lt;h2&gt;Welcome! Login Successful.&lt;/h2&gt;";
+echo '&lt;a href="logout.php"&gt;Logout&lt;/a&gt;';
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Logistic Regression – User Car Purchase [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score, confusion_matrix
+
+data = {
+    <span class="str">'UserID'</span>:   [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
+    <span class="str">'Gender'</span>:   [<span class="str">'Male'</span>,<span class="str">'Female'</span>,<span class="str">'Female'</span>,<span class="str">'Male'</span>,<span class="str">'Female'</span>,
+                <span class="str">'Male'</span>,<span class="str">'Female'</span>,<span class="str">'Male'</span>,<span class="str">'Male'</span>,<span class="str">'Female'</span>],
+    <span class="str">'Age'</span>:      [<span class="num">19</span>,<span class="num">35</span>,<span class="num">26</span>,<span class="num">27</span>,<span class="num">19</span>,<span class="num">27</span>,<span class="num">28</span>,<span class="num">32</span>,<span class="num">25</span>,<span class="num">35</span>],
+    <span class="str">'EstSalary'</span>:[<span class="num">19000</span>,<span class="num">20000</span>,<span class="num">43000</span>,<span class="num">57000</span>,<span class="num">76000</span>,
+                <span class="num">58000</span>,<span class="num">84000</span>,<span class="num">150000</span>,<span class="num">33000</span>,<span class="num">65000</span>],
+    <span class="str">'Purchased'</span>:[<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">1</span>,<span class="num">0</span>,<span class="num">1</span>]
+}
+df = pd.DataFrame(data)
+le = LabelEncoder()
+df[<span class="str">'Gender'</span>] = le.fit_transform(df[<span class="str">'Gender'</span>])
+
+X = df[[<span class="str">'Gender'</span>,<span class="str">'Age'</span>,<span class="str">'EstSalary'</span>]]
+y = df[<span class="str">'Purchased'</span>]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">0</span>)
+
+clf = LogisticRegression()
+clf.fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+print(<span class="str">"Accuracy:"</span>, accuracy_score(y_test, y_pred))
+print(<span class="str">"Confusion Matrix:\n"</span>, confusion_matrix(y_test, y_pred))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 4 ===== -->
+<div class="slip" id="s4">
+  <div class="slip-header"><span class="slip-num">SLIP 04</span><span class="slip-title">PHP Session Employee Form + Fish Species Linear Regression</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Multi-page Employee Form [15 Marks]</div>
+    <div class="file-label">page1.php</div>
+<pre>&lt;?php session_start(); ?&gt;
+&lt;form method="post" action="page2.php"&gt;
+  Eno: &lt;input name="eno"&gt;&lt;br&gt;
+  Ename: &lt;input name="ename"&gt;&lt;br&gt;
+  Address: &lt;input name="address"&gt;&lt;br&gt;
+  &lt;input type="submit" value="Next"&gt;
+&lt;/form&gt;</pre>
+    <div class="file-label">page2.php</div>
+<pre>&lt;?php
+session_start();
+if ($_SERVER['REQUEST_METHOD']=='POST') {
+    $_SESSION['eno']     = $_POST['eno'];
+    $_SESSION['ename']   = $_POST['ename'];
+    $_SESSION['address'] = $_POST['address'];
+}
+?&gt;
+&lt;form method="post" action="page3.php"&gt;
+  Basic: &lt;input name="basic"&gt;&lt;br&gt;
+  DA: &lt;input name="da"&gt;&lt;br&gt;
+  HRA: &lt;input name="hra"&gt;&lt;br&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;</pre>
+    <div class="file-label">page3.php</div>
+<pre>&lt;?php
+session_start();
+$basic = $_POST['basic']; $da = $_POST['da']; $hra = $_POST['hra'];
+$total = $basic + $da + $hra;
+echo "&lt;table border='1'&gt;";
+echo "&lt;tr&gt;&lt;th&gt;Field&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;";
+foreach(['eno','ename','address'] as $k)
+    echo "&lt;tr&gt;&lt;td&gt;$k&lt;/td&gt;&lt;td&gt;{$_SESSION[$k]}&lt;/td&gt;&lt;/tr&gt;";
+echo "&lt;tr&gt;&lt;td&gt;Basic&lt;/td&gt;&lt;td&gt;$basic&lt;/td&gt;&lt;/tr&gt;";
+echo "&lt;tr&gt;&lt;td&gt;DA&lt;/td&gt;&lt;td&gt;$da&lt;/td&gt;&lt;/tr&gt;";
+echo "&lt;tr&gt;&lt;td&gt;HRA&lt;/td&gt;&lt;td&gt;$hra&lt;/td&gt;&lt;/tr&gt;";
+echo "&lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td&gt;$total&lt;/td&gt;&lt;/tr&gt;";
+echo "&lt;/table&gt;";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Fish Species Weight Prediction [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
+
+<span class="cmt"># Sample fish dataset (use real Fish.csv from Kaggle if available)</span>
+data = {<span class="str">'Length1'</span>:[23.2,24.0,23.9,26.3,26.5],
+        <span class="str">'Length2'</span>:[25.4,26.3,26.5,29.0,29.0],
+        <span class="str">'Length3'</span>:[30.0,31.2,31.1,33.5,34.0],
+        <span class="str">'Height'</span>: [11.5,12.4,12.3,12.7,12.4],
+        <span class="str">'Width'</span>:  [4.02,4.16,4.10,4.46,5.14],
+        <span class="str">'Weight'</span>: [242,290,340,363,430]}
+df = pd.DataFrame(data)
+
+X = df.drop(<span class="str">'Weight'</span>, axis=<span class="num">1</span>)
+y = df[<span class="str">'Weight'</span>]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>)
+model = LinearRegression().fit(X_train, y_train)
+print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 5 ===== -->
+<div class="slip" id="s5">
+  <div class="slip-header"><span class="slip-num">SLIP 05</span><span class="slip-title">XML Item File + Iris Logistic Regression</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — Create Item.xml [15 Marks]</div>
+    <div class="file-label">Item.xml</div>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Items&gt;
+  &lt;Item type="Electronics"&gt;
+    &lt;item-name&gt;Laptop&lt;/item-name&gt;
+    &lt;item-rate&gt;55000&lt;/item-rate&gt;
+    &lt;item-quantity&gt;10&lt;/item-quantity&gt;
+  &lt;/Item&gt;
+  &lt;Item type="Grocery"&gt;
+    &lt;item-name&gt;Rice&lt;/item-name&gt;
+    &lt;item-rate&gt;50&lt;/item-rate&gt;
+    &lt;item-quantity&gt;200&lt;/item-quantity&gt;
+  &lt;/Item&gt;
+  &lt;Item type="Clothing"&gt;
+    &lt;item-name&gt;T-Shirt&lt;/item-name&gt;
+    &lt;item-rate&gt;499&lt;/item-rate&gt;
+    &lt;item-quantity&gt;50&lt;/item-quantity&gt;
+  &lt;/Item&gt;
+  &lt;Item type="Furniture"&gt;
+    &lt;item-name&gt;Chair&lt;/item-name&gt;
+    &lt;item-rate&gt;3000&lt;/item-rate&gt;
+    &lt;item-quantity&gt;15&lt;/item-quantity&gt;
+  &lt;/Item&gt;
+  &lt;Item type="Stationery"&gt;
+    &lt;item-name&gt;Notebook&lt;/item-name&gt;
+    &lt;item-rate&gt;80&lt;/item-rate&gt;
+    &lt;item-quantity&gt;300&lt;/item-quantity&gt;
+  &lt;/Item&gt;
+&lt;/Items&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Iris Logistic Regression [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.datasets <span class="kw">import</span> load_iris
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score
+
+iris = load_iris()
+df = pd.DataFrame(iris.data, columns=iris.feature_names)
+df[<span class="str">'species'</span>] = iris.target_names[iris.target]
+print(df.describe())
+print(df.groupby(<span class="str">'species'</span>).describe())
+
+X = iris.data; y = iris.target
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.3</span>, random_state=<span class="num">42</span>)
+
+model = LogisticRegression(max_iter=<span class="num">200</span>)
+model.fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print(<span class="str">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 6 ===== -->
+<div class="slip" id="s6">
+  <div class="slip-header"><span class="slip-num">SLIP 06</span><span class="slip-title">PHP SimpleXML + Apriori (Custom Dataset)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Read book.xml using SimpleXML [15 Marks]</div>
+    <div class="file-label">book.xml</div>
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;library&gt;
+  &lt;book id="1"&gt;&lt;title&gt;PHP Basics&lt;/title&gt;&lt;author&gt;John&lt;/author&gt;&lt;price&gt;350&lt;/price&gt;&lt;/book&gt;
+  &lt;book id="2"&gt;&lt;title&gt;Python ML&lt;/title&gt;&lt;author&gt;Alice&lt;/author&gt;&lt;price&gt;500&lt;/price&gt;&lt;/book&gt;
+&lt;/library&gt;</pre>
+    <div class="file-label">readbook.php</div>
+<pre>&lt;?php
+$xml = simplexml_load_file("book.xml");
+foreach ($xml->book as $book) {
+    echo "ID: "    . $book['id']   . "&lt;br&gt;";
+    echo "Title: " . $book->title  . "&lt;br&gt;";
+    echo "Author: ". $book->author . "&lt;br&gt;";
+    echo "Price: " . $book->price  . "&lt;br&gt;&lt;hr&gt;";
+}
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Apriori on Custom Dataset [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+
+transactions = [
+    [<span class="str">'Bread'</span>,<span class="str">'Milk'</span>],
+    [<span class="str">'Bread'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>,<span class="str">'Eggs'</span>],
+    [<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>,<span class="str">'Coke'</span>],
+    [<span class="str">'Bread'</span>,<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>],
+    [<span class="str">'Bread'</span>,<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Coke'</span>]
+]
+te = TransactionEncoder()
+te_array = te.fit_transform(transactions)
+df = pd.DataFrame(te_array, columns=te.columns_)
+
+<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.6</span>, <span class="num">0.4</span>]:
+    print(<span class="str">f"\n--- min_sup={sup} ---"</span>)
+    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
+    print(freq)
+    rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.6</span>)
+    print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>]])</pre>
+    <div class="note">Install mlxtend: <code>pip install mlxtend</code></div>
+  </div>
+</div>
+
+<!-- ===== SLIP 7 ===== -->
+<div class="slip" id="s7">
+  <div class="slip-header"><span class="slip-num">SLIP 07</span><span class="slip-title">PHP DOM Parser (Movie.xml) + Market Basket Apriori</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP DOMDocument Parse Movie.xml [15 Marks]</div>
+    <div class="file-label">Movie.xml</div>
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;MovieInfo&gt;
+  &lt;Movie&gt;&lt;MovieNo&gt;1&lt;/MovieNo&gt;&lt;MovieTitle&gt;Inception&lt;/MovieTitle&gt;&lt;ActorName&gt;DiCaprio&lt;/ActorName&gt;&lt;ReleaseYear&gt;2010&lt;/ReleaseYear&gt;&lt;/Movie&gt;
+  &lt;Movie&gt;&lt;MovieNo&gt;2&lt;/MovieNo&gt;&lt;MovieTitle&gt;Interstellar&lt;/MovieTitle&gt;&lt;ActorName&gt;McConaughey&lt;/ActorName&gt;&lt;ReleaseYear&gt;2014&lt;/ReleaseYear&gt;&lt;/Movie&gt;
+  &lt;Movie&gt;&lt;MovieNo&gt;3&lt;/MovieNo&gt;&lt;MovieTitle&gt;Dunkirk&lt;/MovieTitle&gt;&lt;ActorName&gt;Fionn&lt;/ActorName&gt;&lt;ReleaseYear&gt;2017&lt;/ReleaseYear&gt;&lt;/Movie&gt;
+  &lt;Movie&gt;&lt;MovieNo&gt;4&lt;/MovieNo&gt;&lt;MovieTitle&gt;Avatar&lt;/MovieTitle&gt;&lt;ActorName&gt;Sam Worthington&lt;/ActorName&gt;&lt;ReleaseYear&gt;2009&lt;/ReleaseYear&gt;&lt;/Movie&gt;
+  &lt;Movie&gt;&lt;MovieNo&gt;5&lt;/MovieNo&gt;&lt;MovieTitle&gt;RRR&lt;/MovieTitle&gt;&lt;ActorName&gt;Jr NTR&lt;/ActorName&gt;&lt;ReleaseYear&gt;2022&lt;/ReleaseYear&gt;&lt;/Movie&gt;
+&lt;/MovieInfo&gt;</pre>
+    <div class="file-label">readmovie.php</div>
+<pre>&lt;?php
+$dom = new DOMDocument();
+$dom->load("Movie.xml");
+$movies = $dom->getElementsByTagName("Movie");
+echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;MovieNo&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Actor&lt;/th&gt;&lt;th&gt;Year&lt;/th&gt;&lt;/tr&gt;";
+foreach ($movies as $m) {
+    $no    = $m->getElementsByTagName("MovieNo")[0]->nodeValue;
+    $title = $m->getElementsByTagName("MovieTitle")[0]->nodeValue;
+    $actor = $m->getElementsByTagName("ActorName")[0]->nodeValue;
+    $year  = $m->getElementsByTagName("ReleaseYear")[0]->nodeValue;
+    echo "&lt;tr&gt;&lt;td&gt;$no&lt;/td&gt;&lt;td&gt;$title&lt;/td&gt;&lt;td&gt;$actor&lt;/td&gt;&lt;td&gt;$year&lt;/td&gt;&lt;/tr&gt;";
+}
+echo "&lt;/table&gt;";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Market Basket Apriori [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+
+<span class="cmt"># Load Market Basket dataset (or use sample)</span>
+transactions = [
+    [<span class="str">'Milk'</span>,<span class="str">'Bread'</span>,<span class="str">'Butter'</span>],
+    [<span class="str">'Beer'</span>,<span class="str">'Bread'</span>,<span class="str">'Diaper'</span>],
+    [<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>,<span class="str">'Coke'</span>],
+    [<span class="str">'Milk'</span>,<span class="str">'Bread'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>],
+    [<span class="str">'Bread'</span>,<span class="str">'Butter'</span>,<span class="str">'Milk'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+df.dropna(inplace=<span class="num">True</span>)
+freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
+rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
+print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 8 ===== -->
+<div class="slip" id="s8">
+  <div class="slip-header"><span class="slip-num">SLIP 08</span><span class="slip-title">JavaScript Alert/Prompt/Confirm + Groceries Apriori</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — JavaScript Alert, Prompt &amp; Confirm [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;JS Boxes&lt;/title&gt;&lt;/head&gt;
+&lt;body onload="showMsg()"&gt;
+&lt;script&gt;
+function showMsg() {
+    alert("Exams are near, have you started preparing for?");
+}
+function addNumbers() {
+    var n1 = parseFloat(prompt("Enter first number:"));
+    var n2 = parseFloat(prompt("Enter second number:"));
+    var sum = n1 + n2;
+    var ok = confirm("The sum of " + n1 + " and " + n2 + " is " + sum + ". OK?");
+    if (ok) alert("Sum = " + sum);
+}
+&lt;/script&gt;
+&lt;button onclick="addNumbers()"&gt;Add Two Numbers&lt;/button&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Groceries Apriori [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+
+<span class="cmt"># Sample groceries data (use actual Groceries.csv if available)</span>
+transactions = [
+    [<span class="str">'whole milk'</span>,<span class="str">'yogurt'</span>,<span class="str">'soda'</span>],
+    [<span class="str">'whole milk'</span>,<span class="str">'rolls/buns'</span>],
+    [<span class="str">'other vegetables'</span>,<span class="str">'whole milk'</span>,<span class="str">'butter'</span>],
+    [<span class="str">'whole milk'</span>,<span class="str">'tropical fruit'</span>],
+    [<span class="str">'rolls/buns'</span>,<span class="str">'soda'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
+print(<span class="str">"Frequent Itemsets:\n"</span>, freq)
+rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
+print(<span class="str">"Association Rules:\n"</span>, rules)</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 9 ===== -->
+<div class="slip" id="s9">
+  <div class="slip-header"><span class="slip-num">SLIP 09</span><span class="slip-title">JavaScript Form Validation + Own Transactions Apriori</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — JavaScript Membership Form Validation [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Membership Validation&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;form onsubmit="return validate()"&gt;
+  Username: &lt;input type="text" id="uname"&gt;&lt;br&gt;
+  Password: &lt;input type="password" id="pwd"&gt;&lt;br&gt;
+  &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+&lt;p id="msg" style="color:red"&gt;&lt;/p&gt;
+&lt;script&gt;
+function validate() {
+    var u = document.getElementById("uname").value.trim();
+    var p = document.getElementById("pwd").value;
+    var msg = document.getElementById("msg");
+    if (u === "") { msg.textContent = "Username is required."; return false; }
+    if (u.length &lt; 4) { msg.textContent = "Username min 4 chars."; return false; }
+    if (p.length &lt; 6) { msg.textContent = "Password min 6 chars."; return false; }
+    if (!/[A-Z]/.test(p)) { msg.textContent = "Password needs uppercase."; return false; }
+    msg.style.color = "green";
+    msg.textContent = "Validation Successful!";
+    return false; // prevent actual submit
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Own Transactions Apriori [15 Marks]</div>
+<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+transactions = [
+    [<span class="str">'Pen'</span>,<span class="str">'Notebook'</span>,<span class="str">'Eraser'</span>],
+    [<span class="str">'Pen'</span>,<span class="str">'Ruler'</span>],
+    [<span class="str">'Notebook'</span>,<span class="str">'Eraser'</span>,<span class="str">'Sharpener'</span>],
+    [<span class="str">'Pen'</span>,<span class="str">'Notebook'</span>,<span class="str">'Ruler'</span>],
+    [<span class="str">'Pen'</span>,<span class="str">'Eraser'</span>,<span class="str">'Sharpener'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
+rules = association_rules(freq, metric=<span class="str">"lift"</span>, min_threshold=<span class="num">1.0</span>)
+print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 10 ===== -->
+<div class="slip" id="s10">
+  <div class="slip-header"><span class="slip-num">SLIP 10</span><span class="slip-title">HTML jQuery before()/after() + Apriori (eggs/milk/bread)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — jQuery before() and after() [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;script src="https://code.jquery.com/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;p id="para"&gt;This is original paragraph.&lt;/p&gt;
+&lt;button id="btnBefore"&gt;Insert Before&lt;/button&gt;
+&lt;button id="btnAfter"&gt;Insert After&lt;/button&gt;
+&lt;script&gt;
+$("#btnBefore").click(function(){
+    $("#para").before("&lt;p style='color:blue'&gt;Text BEFORE paragraph.&lt;/p&gt;");
+});
+$("#btnAfter").click(function(){
+    $("#para").after("&lt;p style='color:green'&gt;Text AFTER paragraph.&lt;/p&gt;");
+});
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Apriori (eggs, milk, bread, apple) [15 Marks]</div>
+<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+transactions = [
+    [<span class="str">'eggs'</span>,<span class="str">'milk'</span>,<span class="str">'bread'</span>],
+    [<span class="str">'eggs'</span>,<span class="str">'apple'</span>],
+    [<span class="str">'milk'</span>,<span class="str">'bread'</span>],
+    [<span class="str">'apple'</span>,<span class="str">'milk'</span>],
+    [<span class="str">'milk'</span>,<span class="str">'apple'</span>,<span class="str">'bread'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.6</span>, <span class="num">0.4</span>]:
+    print(<span class="str">f"\nmin_sup={sup}"</span>)
+    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
+    print(freq)
+    rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
+    print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>]])</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 11 ===== -->
+<div class="slip" id="s11">
+  <div class="slip-header"><span class="slip-num">SLIP 11</span><span class="slip-title">JavaScript Student Name Events + Apriori (butter/eggs/milk)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — JavaScript Events (onblur, onload, onmousehover etc.) [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body onload="alert('Page Loaded!')"&gt;
+&lt;input type="text" id="sname" placeholder="Enter student name"
+  onblur="checkName()"&gt;
+&lt;img id="img1" src="https://via.placeholder.com/100"
+  onmouseover="this.style.width='150px'"
+  onmouseout="this.style.width='100px'"
+  onclick="this.style.width='200px'"&gt;
+&lt;p id="msg"&gt;&lt;/p&gt;
+&lt;script&gt;
+function checkName() {
+    var val = document.getElementById("sname").value;
+    var msg = document.getElementById("msg");
+    if (val !== "") {
+        msg.style.color = "red";
+        msg.style.fontSize = "18px";
+        msg.textContent = "Hello, " + val + "!";
+    } else {
+        document.getElementById("img1").style.display = "block";
+    }
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Apriori (butter, flour, milk, etc.) [15 Marks]</div>
+<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+transactions = [
+    [<span class="str">'butter'</span>,<span class="str">'bread'</span>,<span class="str">'milk'</span>],
+    [<span class="str">'butter'</span>,<span class="str">'flour'</span>,<span class="str">'milk'</span>,<span class="str">'sugar'</span>],
+    [<span class="str">'butter'</span>,<span class="str">'eggs'</span>,<span class="str">'milk'</span>,<span class="str">'salt'</span>],
+    [<span class="str">'eggs'</span>],
+    [<span class="str">'butter'</span>,<span class="str">'flour'</span>,<span class="str">'milk'</span>,<span class="str">'salt'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.6</span>, <span class="num">0.4</span>]:
+    print(<span class="str">f"\nmin_sup={sup}"</span>)
+    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
+    print(freq)
+    if <span class="kw">not</span> freq.empty:
+        rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
+        print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'confidence'</span>]])</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 12 ===== -->
+<div class="slip" id="s12">
+  <div class="slip-header"><span class="slip-num">SLIP 12</span><span class="slip-title">AJAX Contact.dat Table + Heights-Weights Linear Regression</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — AJAX Read contact.dat in Tabular Format [15 Marks]</div>
+    <div class="file-label">contact.dat</div>
+<pre>1,Alice,021-555,9876543210,Mumbai
+2,Bob,022-666,9123456789,Pune
+3,Carol,020-777,9988776655,Nagpur</pre>
+    <div class="file-label">index.html</div>
+<pre>&lt;button onclick="loadData()"&gt;Print Contacts&lt;/button&gt;
+&lt;div id="result"&gt;&lt;/div&gt;
+&lt;script&gt;
+function loadData() {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET","get_contacts.php",true);
+    xhr.onreadystatechange = function() {
+        if (this.readyState==4 && this.status==200)
+            document.getElementById("result").innerHTML = this.responseText;
+    };
+    xhr.send();
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">get_contacts.php</div>
+<pre>&lt;?php
+$lines = file("contact.dat", FILE_IGNORE_NEW_LINES);
+echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;SrNo&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Res No&lt;/th&gt;&lt;th&gt;Mobile&lt;/th&gt;&lt;th&gt;Address&lt;/th&gt;&lt;/tr&gt;";
+foreach ($lines as $line) {
+    $d = explode(",", $line);
+    echo "&lt;tr&gt;&lt;td&gt;{$d[0]}&lt;/td&gt;&lt;td&gt;{$d[1]}&lt;/td&gt;&lt;td&gt;{$d[2]}&lt;/td&gt;&lt;td&gt;{$d[3]}&lt;/td&gt;&lt;td&gt;{$d[4]}&lt;/td&gt;&lt;/tr&gt;";
+}
+echo "&lt;/table&gt;";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Heights-Weights Linear Regression [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
+
+data = {<span class="str">'Height'</span>:[150,160,170,175,180,185,190,155,165,172],
+        <span class="str">'Weight'</span>:[50, 60, 70, 75, 80, 85, 90, 55, 65, 72]}
+df = pd.DataFrame(data)
+X = df[[<span class="str">'Height'</span>]]; y = df[<span class="str">'Weight'</span>]
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">0</span>)
+model = LinearRegression().fit(X_train, y_train)
+print(<span class="str">"Coefficient:"</span>, model.coef_[<span class="num">0</span>])
+print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 13 ===== -->
+<div class="slip" id="s13">
+  <div class="slip-header"><span class="slip-num">SLIP 13</span><span class="slip-title">AJAX Name Greeting + Nursery Linear Regression</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — AJAX Name Greeting Server [15 Marks]</div>
+    <div class="file-label">index.html</div>
+<pre>&lt;input type="text" id="uname" oninput="greet(this.value)"
+       placeholder="Type your name"&gt;
+&lt;p id="greeting"&gt;&lt;/p&gt;
+&lt;script&gt;
+function greet(name) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET","greet.php?name="+encodeURIComponent(name),true);
+    xhr.onreadystatechange = function() {
+        if (this.readyState==4 && this.status==200)
+            document.getElementById("greeting").innerHTML = this.responseText;
+    };
+    xhr.send();
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">greet.php</div>
+<pre>&lt;?php
+$name = trim($_GET['name'] ?? '');
+$masters = ['Rohit','Virat','Dhoni','Ashwin','Harbhajan'];
+if ($name === '') echo "Stranger, please tell me your name!";
+elseif (in_array($name, $masters)) echo "Hello, master!";
+else echo ", I don't know you!";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Nursery Dataset Linear Regression [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
+
+<span class="cmt"># Download nursery.data from UCI Machine Learning Repository</span>
+url = <span class="str">"https://archive.ics.uci.edu/ml/machine-learning-databases/nursery/nursery.data"</span>
+cols = [<span class="str">'parents'</span>,<span class="str">'has_nurs'</span>,<span class="str">'form'</span>,<span class="str">'children'</span>,<span class="str">'housing'</span>,<span class="str">'finance'</span>,<span class="str">'social'</span>,<span class="str">'health'</span>,<span class="str">'class'</span>]
+df = pd.read_csv(url, names=cols)
+le = LabelEncoder()
+<span class="kw">for</span> col <span class="kw">in</span> df.columns: df[col] = le.fit_transform(df[col])
+X = df.drop(<span class="str">'class'</span>, axis=<span class="num">1</span>); y = df[<span class="str">'class'</span>]
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">42</span>)
+model = LinearRegression().fit(X_train, y_train)
+print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 14 ===== -->
+<div class="slip" id="s14">
+  <div class="slip-header"><span class="slip-num">SLIP 14</span><span class="slip-title">AJAX Teacher Table + Apriori (Fruits)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — Create TEACHER Table + AJAX Select Teacher [15 Marks]</div>
+    <div class="file-label">create_teacher.sql</div>
+<pre>CREATE TABLE TEACHER (
+  tno INT PRIMARY KEY, tname VARCHAR(50),
+  qualification VARCHAR(30), salary DECIMAL(10,2)
+);
+INSERT INTO TEACHER VALUES
+(1,'Alice','M.Sc',55000),(2,'Bob','M.Tech',60000),(3,'Carol','Ph.D',80000);</pre>
+    <div class="file-label">index.html</div>
+<pre>&lt;select id="tname" onchange="getDetails(this.value)"&gt;
+  &lt;option value=""&gt;-- Select Teacher --&lt;/option&gt;
+  &lt;option&gt;Alice&lt;/option&gt;&lt;option&gt;Bob&lt;/option&gt;&lt;option&gt;Carol&lt;/option&gt;
+&lt;/select&gt;
+&lt;div id="details"&gt;&lt;/div&gt;
+&lt;script&gt;
+function getDetails(name) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET","get_teacher.php?name="+name,true);
+    xhr.onreadystatechange = function() {
+        if (this.readyState==4 && this.status==200)
+            document.getElementById("details").innerHTML = this.responseText;
+    };
+    xhr.send();
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">get_teacher.php</div>
+<pre>&lt;?php
+$conn = mysqli_connect("localhost","root","","school");
+$name = mysqli_real_escape_string($conn, $_GET['name']);
+$res  = mysqli_query($conn, "SELECT * FROM TEACHER WHERE tname='$name'");
+$row  = mysqli_fetch_assoc($res);
+if ($row) {
+    echo "No: {$row['tno']} | Qual: {$row['qualification']} | Salary: {$row['salary']}";
+}
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Apriori (Apple, Mango, Banana, Carrots) [15 Marks]</div>
+<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+transactions = [
+    [<span class="str">'Apple'</span>,<span class="str">'Mango'</span>,<span class="str">'Banana'</span>],
+    [<span class="str">'Mango'</span>,<span class="str">'Banana'</span>,<span class="str">'Cabbage'</span>,<span class="str">'Carrots'</span>],
+    [<span class="str">'Mango'</span>,<span class="str">'Banana'</span>,<span class="str">'Carrots'</span>],
+    [<span class="str">'Mango'</span>,<span class="str">'Carrots'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.75</span>,<span class="num">0.5</span>]:
+    print(<span class="str">f"\nmin_sup={sup}"</span>)
+    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
+    print(freq)
+    rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
+    print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>]])</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 15 ===== -->
+<div class="slip" id="s15">
+  <div class="slip-header"><span class="slip-num">SLIP 15</span><span class="slip-title">AJAX Autocomplete Suggestion + Apriori (Car Dataset)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — AJAX Google-like Autocomplete [15 Marks]</div>
+    <div class="file-label">suggest.html</div>
+<pre>&lt;input type="text" id="search" oninput="fetchSuggestions(this.value)"
+       placeholder="Search..."&gt;
+&lt;ul id="suggestions"&gt;&lt;/ul&gt;
+&lt;script&gt;
+function fetchSuggestions(q) {
+    if (!q) { document.getElementById("suggestions").innerHTML=""; return; }
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET","suggest.php?q="+encodeURIComponent(q),true);
+    xhr.onreadystatechange = function() {
+        if (this.readyState==4 && this.status==200)
+            document.getElementById("suggestions").innerHTML = this.responseText;
+    };
+    xhr.send();
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">suggest.php</div>
+<pre>&lt;?php
+$suggestions = ["Apple","Apricot","Avocado","Banana","Blueberry",
+                "Cherry","Coconut","Date","Grapes","Guava"];
+$q = strtolower($_GET['q'] ?? '');
+$out = "";
+foreach ($suggestions as $s) {
+    if (str_starts_with(strtolower($s), $q))
+        $out .= "&lt;li&gt;$s&lt;/li&gt;";
+}
+echo $out ?: "&lt;li&gt;No suggestions&lt;/li&gt;";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Apriori (Car – Tata, MG, KIA, Hyundai) [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
+<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+
+data = {<span class="str">'company'</span>:[<span class="str">'Tata'</span>,<span class="str">'MG'</span>,<span class="str">'KIA'</span>,<span class="str">'Hyundai'</span>],
+        <span class="str">'model'</span>:  [<span class="str">'Nexon'</span>,<span class="str">'Astor'</span>,<span class="str">'Seltos'</span>,<span class="str">'Creta'</span>],
+        <span class="str">'year'</span>:   [<span class="num">2017</span>,<span class="num">2021</span>,<span class="num">2019</span>,<span class="num">2015</span>]}
+df = pd.DataFrame(data)
+le = LabelEncoder()
+<span class="kw">for</span> col <span class="kw">in</span> [<span class="str">'company'</span>,<span class="str">'model'</span>]: df[col] = le.fit_transform(df[col])
+print(df)
+<span class="cmt"># Treat each row as a transaction of (company, model, year-bin)</span>
+transactions = [[row[<span class="str">'company'</span>],row[<span class="str">'model'</span>]] <span class="kw">for</span> _,row <span class="kw">in</span> df.iterrows()]
+te = TransactionEncoder()
+df2 = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+freq = apriori(df2, min_support=<span class="num">0.25</span>, use_colnames=<span class="num">True</span>)
+print(freq)</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 16 ===== -->
+<div class="slip" id="s16">
+  <div class="slip-header"><span class="slip-num">SLIP 16</span><span class="slip-title">AJAX Book XML + Text Extractive Summarization</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — AJAX Book Details from XML [15 Marks]</div>
+    <div class="file-label">books.xml</div>
+<pre>&lt;?xml version="1.0"?&gt;
+&lt;books&gt;
+  &lt;book&gt;&lt;title&gt;PHP Basics&lt;/title&gt;&lt;author&gt;John&lt;/author&gt;&lt;year&gt;2020&lt;/year&gt;&lt;price&gt;350&lt;/price&gt;&lt;/book&gt;
+  &lt;book&gt;&lt;title&gt;Python ML&lt;/title&gt;&lt;author&gt;Alice&lt;/author&gt;&lt;year&gt;2021&lt;/year&gt;&lt;price&gt;500&lt;/price&gt;&lt;/book&gt;
+  &lt;book&gt;&lt;title&gt;Data Science&lt;/title&gt;&lt;author&gt;Bob&lt;/author&gt;&lt;year&gt;2022&lt;/year&gt;&lt;price&gt;600&lt;/price&gt;&lt;/book&gt;
+&lt;/books&gt;</pre>
+    <div class="file-label">index.html</div>
+<pre>&lt;select onchange="getBook(this.value)"&gt;
+  &lt;option value=""&gt;Select Book&lt;/option&gt;
+  &lt;option&gt;PHP Basics&lt;/option&gt;
+  &lt;option&gt;Python ML&lt;/option&gt;
+  &lt;option&gt;Data Science&lt;/option&gt;
+&lt;/select&gt;
+&lt;div id="info"&gt;&lt;/div&gt;
+&lt;script&gt;
+function getBook(title) {
+    var xhr = new XMLHttpRequest();
+    xhr.open("GET","get_book.php?title="+encodeURIComponent(title),true);
+    xhr.onreadystatechange = function(){
+        if(this.readyState==4 && this.status==200)
+            document.getElementById("info").innerHTML=this.responseText;
+    };
+    xhr.send();
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">get_book.php</div>
+<pre>&lt;?php
+$xml = simplexml_load_file("books.xml");
+$title = $_GET['title'];
+foreach ($xml->book as $b) {
+    if ((string)$b->title == $title) {
+        echo "Author: {$b->author}&lt;br&gt;Year: {$b->year}&lt;br&gt;Price: {$b->price}";
+    }
+}
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Extractive Summarization [15 Marks]</div>
+<pre><span class="kw">import</span> re, nltk
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> sent_tokenize, word_tokenize
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+<span class="kw">from</span> collections <span class="kw">import</span> Counter
+
+nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+
+text = <span class="str">"""Natural Language Processing is a subfield of artificial intelligence.
+It focuses on the interaction between computers and humans through language.
+NLP tasks include text classification, sentiment analysis, and summarization.
+Machine learning models are widely used in NLP applications."""</span>
+
+<span class="cmt"># Preprocess</span>
+clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>, <span class="str">''</span>, text).lower()
+words = word_tokenize(clean)
+stop = set(stopwords.words(<span class="str">'english'</span>))
+filtered = [w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w <span class="kw">not</span> <span class="kw">in</span> stop]
+freq = Counter(filtered)
+
+<span class="cmt"># Score sentences</span>
+sentences = sent_tokenize(text)
+scores = {}
+<span class="kw">for</span> s <span class="kw">in</span> sentences:
+    <span class="kw">for</span> w <span class="kw">in</span> word_tokenize(s.lower()):
+        <span class="kw">if</span> w <span class="kw">in</span> freq: scores[s] = scores.get(s,<span class="num">0</span>) + freq[w]
+
+top_n = <span class="num">2</span>
+summary = sorted(scores, key=scores.get, reverse=<span class="num">True</span>)[:top_n]
+print(<span class="str">"Summary:"</span>, <span class="str">' '</span>.join(summary))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 17 ===== -->
+<div class="slip" id="s17">
+  <div class="slip-header"><span class="slip-num">SLIP 17</span><span class="slip-title">JS Hello Good Morning + Extractive Summarization</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — JavaScript Hello Good Morning + Student Registration Form [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;&lt;title&gt;Student Registration&lt;/title&gt;&lt;/head&gt;
+&lt;body onload="greet()"&gt;
+&lt;script&gt;
+function greet() { alert("Hello! Good Morning!"); }
+function validateForm() {
+    var name  = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var roll  = document.getElementById("roll").value;
+    if (!name||!email||!roll) { alert("All fields required!"); return false; }
+    alert("Registered Successfully!");
+    return false;
+}
+&lt;/script&gt;
+&lt;h2&gt;Student Registration Form&lt;/h2&gt;
+&lt;form onsubmit="return validateForm()"&gt;
+  Name:  &lt;input type="text"  id="name"&gt;&lt;br&gt;
+  Email: &lt;input type="email" id="email"&gt;&lt;br&gt;
+  Roll:  &lt;input type="text"  id="roll"&gt;&lt;br&gt;
+  &lt;input type="submit" value="Register"&gt;
+&lt;/form&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Extractive Summarization (Motivational Text) [15 Marks]</div>
+<pre><span class="kw">import</span> re, nltk
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> sent_tokenize, word_tokenize
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+<span class="kw">from</span> collections <span class="kw">import</span> Counter
+
+nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+
+text = <span class="str">"""So keep working. Keep striving. Never give up.
+Fall down seven times get up eight.
+Ease is a greater threat to progress than hardship.
+So keep moving keep growing keep learning. See you at work."""</span>
+
+clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>,<span class="str">''</span>,text).lower()
+words = word_tokenize(clean)
+stop = set(stopwords.words(<span class="str">'english'</span>))
+freq = Counter(w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w <span class="kw">not</span> <span class="kw">in</span> stop)
+
+sentences = sent_tokenize(text)
+scores = {s: sum(freq.get(w.lower(),<span class="num">0</span>) <span class="kw">for</span> w <span class="kw">in</span> word_tokenize(s)) <span class="kw">for</span> s <span class="kw">in</span> sentences}
+summary = sorted(scores, key=scores.get, reverse=<span class="num">True</span>)[:2]
+print(<span class="str">"Summary:\n"</span> + <span class="str">' '</span>.join(summary))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 18 ===== -->
+<div class="slip" id="s18">
+  <div class="slip-header"><span class="slip-num">SLIP 18</span><span class="slip-title">JS Fibonacci onclick + Word Cloud / Frequency Distribution</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — JavaScript Fibonacci on onclick [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Fibonacci&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+N: &lt;input type="number" id="n" value="10"&gt;
+&lt;button onclick="fibonacci()"&gt;Generate&lt;/button&gt;
+&lt;p id="result"&gt;&lt;/p&gt;
+&lt;script&gt;
+function fibonacci() {
+    var n = parseInt(document.getElementById("n").value);
+    var a=0, b=1, seq=[a,b];
+    for(var i=2;i&lt;n;i++){var c=a+b;seq.push(c);a=b;b=c;}
+    document.getElementById("result").textContent = seq.slice(0,n).join(", ");
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Stopword Removal, Tokenize, Word Frequency, WordCloud [15 Marks]</div>
+<pre><span class="kw">import</span> re, nltk, matplotlib.pyplot <span class="kw">as</span> plt
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize, sent_tokenize
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+<span class="kw">from</span> collections <span class="kw">import</span> Counter
+<span class="kw">from</span> wordcloud <span class="kw">import</span> WordCloud
+
+nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+
+text = <span class="str">"""Natural language processing enables machines to understand human language.
+Machine learning models help NLP tasks like sentiment analysis and summarization.
+Deep learning has greatly improved natural language understanding."""</span>
+
+sentences = sent_tokenize(text)
+words = word_tokenize(text.lower())
+stop = set(stopwords.words(<span class="str">'english'</span>))
+filtered = [w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w.isalpha() <span class="kw">and</span> w <span class="kw">not</span> <span class="kw">in</span> stop]
+freq = Counter(filtered)
+
+print(<span class="str">"Sentences:"</span>, sentences)
+print(<span class="str">"Top words:"</span>, freq.most_common(<span class="num">10</span>))
+
+plt.bar(*zip(*freq.most_common(<span class="num">10</span>)))
+plt.xticks(rotation=<span class="num">45</span>); plt.title(<span class="str">"Word Frequency"</span>); plt.tight_layout(); plt.show()
+
+wc = WordCloud(width=<span class="num">800</span>, height=<span class="num">400</span>).generate(<span class="str">' '</span>.join(filtered))
+plt.imshow(wc, interpolation=<span class="str">'bilinear'</span>); plt.axis(<span class="str">'off'</span>)
+plt.title(<span class="str">"Word Cloud"</span>); plt.show()</pre>
+    <div class="note">Install: <code>pip install wordcloud</code></div>
+  </div>
+</div>
+
+<!-- ===== SLIP 19 ===== -->
+<div class="slip" id="s19">
+  <div class="slip-header"><span class="slip-num">SLIP 19</span><span class="slip-title">JS Password Validation (onSubmit) + Movie Review Sentiment</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — JavaScript Validate Username &amp; Password on onSubmit [15 Marks]</div>
+<pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Login&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;form onsubmit="return validate()"&gt;
+  User: &lt;input type="text"     id="u"&gt;&lt;br&gt;
+  Pass: &lt;input type="password" id="p"&gt;&lt;br&gt;
+  &lt;input type="submit" value="Login"&gt;
+&lt;/form&gt;
+&lt;p id="m" style="color:red"&gt;&lt;/p&gt;
+&lt;script&gt;
+function validate() {
+    var u=document.getElementById("u").value;
+    var p=document.getElementById("p").value;
+    var m=document.getElementById("m");
+    if(!u||!p){m.textContent="Fields required!";return false;}
+    if(u!=="admin"){m.textContent="Unknown user!";return false;}
+    if(p.length&lt;6){m.textContent="Password too short!";return false;}
+    m.style.color="green";m.textContent="Login successful!";return false;
+}
+&lt;/script&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Movie Review Sentiment Analysis + WordCloud [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd, re, nltk
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+<span class="kw">from</span> nltk.sentiment <span class="kw">import</span> SentimentIntensityAnalyzer
+<span class="kw">from</span> wordcloud <span class="kw">import</span> WordCloud
+<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
+
+nltk.download(<span class="str">'vader_lexicon'</span>); nltk.download(<span class="str">'stopwords'</span>)
+
+<span class="cmt"># Load dataset (sample if Kaggle file unavailable)</span>
+reviews = [<span class="str">"The movie was fantastic and thrilling!"</span>,
+           <span class="str">"Worst movie ever. Complete waste of time."</span>,
+           <span class="str">"It was okay, nothing special."</span>,
+           <span class="str">"Absolutely loved the performances."</span>,
+           <span class="str">"Boring and predictable plot."</span>]
+
+sia = SentimentIntensityAnalyzer()
+results = []
+<span class="kw">for</span> r <span class="kw">in</span> reviews:
+    s = sia.polarity_scores(r)
+    label = <span class="str">'positive'</span> <span class="kw">if</span> s[<span class="str">'compound'</span>]&gt;=<span class="num">0.05</span> <span class="kw">else</span> (<span class="str">'negative'</span> <span class="kw">if</span> s[<span class="str">'compound'</span>]&lt;=-<span class="num">0.05</span> <span class="kw">else</span> <span class="str">'neutral'</span>)
+    results.append((r, label))
+    print(r, <span class="str">"→"</span>, label)
+
+all_text = <span class="str">' '</span>.join(reviews)
+wc = WordCloud(width=<span class="num">800</span>, height=<span class="num">400</span>).generate(all_text)
+plt.imshow(wc, interpolation=<span class="str">'bilinear'</span>); plt.axis(<span class="str">'off'</span>); plt.show()</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 20 ===== -->
+<div class="slip" id="s20">
+  <div class="slip-header"><span class="slip-num">SLIP 20</span><span class="slip-title">Create student.xml + NLP Stopword Removal</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — Create student.xml with 5 students [15 Marks]</div>
+    <div class="file-label">student.xml</div>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;students&gt;
+  &lt;student id="1"&gt;&lt;name&gt;Alice&lt;/name&gt;&lt;age&gt;20&lt;/age&gt;&lt;course&gt;CS&lt;/course&gt;&lt;/student&gt;
+  &lt;student id="2"&gt;&lt;name&gt;Bob&lt;/name&gt;&lt;age&gt;21&lt;/age&gt;&lt;course&gt;IT&lt;/course&gt;&lt;/student&gt;
+  &lt;student id="3"&gt;&lt;name&gt;Carol&lt;/name&gt;&lt;age&gt;22&lt;/age&gt;&lt;course&gt;CS&lt;/course&gt;&lt;/student&gt;
+  &lt;student id="4"&gt;&lt;name&gt;Dave&lt;/name&gt;&lt;age&gt;20&lt;/age&gt;&lt;course&gt;BCA&lt;/course&gt;&lt;/student&gt;
+  &lt;student id="5"&gt;&lt;name&gt;Eve&lt;/name&gt;&lt;age&gt;23&lt;/age&gt;&lt;course&gt;CS&lt;/course&gt;&lt;/student&gt;
+&lt;/students&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Remove Stopwords from Paragraph [15 Marks]</div>
+<pre><span class="kw">import</span> nltk
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+
+nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+
+text = <span class="str">"""Hello all, Welcome to Python Programming Academy.
+Python Programming Academy is a nice platform to learn new programming skills.
+It is difficult to get enrolled in this Academy."""</span>
+
+words = word_tokenize(text)
+stop = set(stopwords.words(<span class="str">'english'</span>))
+filtered = [w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w.lower() <span class="kw">not</span> <span class="kw">in</span> stop <span class="kw">and</span> w.isalpha()]
+print(<span class="str">"Original:"</span>, words)
+print(<span class="str">"After stopword removal:"</span>, filtered)</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 21 ===== -->
+<div class="slip" id="s21">
+  <div class="slip-header"><span class="slip-num">SLIP 21</span><span class="slip-title">CodeIgniter JS Positive/Negative + Linear Regression (User Data)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — CodeIgniter + JS Check Positive/Negative [15 Marks]</div>
+    <div class="file-label">assets/js/check.js</div>
+<pre>function checkNumber() {
+    var n = parseFloat(document.getElementById("num").value);
+    var msg = document.getElementById("msg");
+    if (isNaN(n))      msg.textContent = "Enter a valid number.";
+    else if (n &gt; 0)    msg.textContent = n + " is Positive.";
+    else if (n &lt; 0)    msg.textContent = n + " is Negative.";
+    else               msg.textContent = "Number is Zero.";
+}</pre>
+    <div class="file-label">application/views/check_view.php</div>
+<pre>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
+&lt;script src="&lt;?=base_url('assets/js/check.js')?&gt;"&gt;&lt;/script&gt;
+&lt;/head&gt;&lt;body&gt;
+  &lt;input type="number" id="num" placeholder="Enter number"&gt;
+  &lt;button onclick="checkNumber()"&gt;Check&lt;/button&gt;
+  &lt;p id="msg"&gt;&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;</pre>
+    <div class="file-label">application/controllers/Check.php</div>
+<pre>&lt;?php
+class Check extends CI_Controller {
+    public function index() { $this->load->view('check_view'); }
+}
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Linear Regression for User Data [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score, mean_squared_error
+
+data = {<span class="str">'Age'</span>:    [<span class="num">22</span>,<span class="num">25</span>,<span class="num">30</span>,<span class="num">35</span>,<span class="num">40</span>,<span class="num">45</span>,<span class="num">50</span>,<span class="num">55</span>,<span class="num">60</span>,<span class="num">65</span>],
+        <span class="str">'Salary'</span>: [<span class="num">25000</span>,<span class="num">30000</span>,<span class="num">40000</span>,<span class="num">50000</span>,<span class="num">60000</span>,
+                   <span class="num">70000</span>,<span class="num">80000</span>,<span class="num">90000</span>,<span class="num">100000</span>,<span class="num">110000</span>]}
+df = pd.DataFrame(data)
+X = df[[<span class="str">'Age'</span>]]; y = df[<span class="str">'Salary'</span>]
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">0</span>)
+model = LinearRegression().fit(X_train, y_train)
+y_pred = model.predict(X_test)
+print(<span class="str">"Predictions:"</span>, y_pred)
+print(<span class="str">"R²:"</span>, r2_score(y_test, y_pred))
+print(<span class="str">"MSE:"</span>, mean_squared_error(y_test, y_pred))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 22 ===== -->
+<div class="slip" id="s22">
+  <div class="slip-header"><span class="slip-num">SLIP 22</span><span class="slip-title">CodeIgniter Insert Student + NLP Stopword Removal</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — CodeIgniter: Connect DB, Create Student Table, Insert 5 Records [15 Marks]</div>
+    <div class="file-label">application/config/database.php (key settings)</div>
+<pre>$db['default']['hostname'] = 'localhost';
+$db['default']['username'] = 'root';
+$db['default']['password'] = '';
+$db['default']['database'] = 'student_db';
+$db['default']['dbdriver'] = 'mysqli';</pre>
+    <div class="file-label">application/models/Student_model.php</div>
+<pre>&lt;?php
+class Student_model extends CI_Model {
+    public function insert_students() {
+        $students = [
+            ['rollno'=>1,'name'=>'Alice','class'=>'TY'],
+            ['rollno'=>2,'name'=>'Bob',  'class'=>'SY'],
+            ['rollno'=>3,'name'=>'Carol','class'=>'FY'],
+            ['rollno'=>4,'name'=>'Dave', 'class'=>'TY'],
+            ['rollno'=>5,'name'=>'Eve',  'class'=>'SY'],
+        ];
+        foreach ($students as $s) $this->db->insert('student', $s);
+        return "5 records inserted.";
+    }
+}
+?&gt;</pre>
+    <div class="file-label">application/controllers/Students.php</div>
+<pre>&lt;?php
+class Students extends CI_Controller {
+    public function index() {
+        $this->load->model('Student_model');
+        $msg = $this->Student_model->insert_students();
+        echo $msg;
+    }
+}
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Stopword Removal [15 Marks]</div>
+<pre><span class="kw">import</span> nltk
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+
+nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+text = <span class="str">"This is a sample sentence and we will remove stopwords from it."</span>
+tokens = word_tokenize(text)
+stop = set(stopwords.words(<span class="str">'english'</span>))
+cleaned = [w <span class="kw">for</span> w <span class="kw">in</span> tokens <span class="kw">if</span> w.lower() <span class="kw">not</span> <span class="kw">in</span> stop]
+print(<span class="str">"Cleaned:"</span>, cleaned)</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 23 ===== -->
+<div class="slip" id="s23">
+  <div class="slip-header"><span class="slip-num">SLIP 23</span><span class="slip-title">CodeIgniter Display Student Records + Text Preprocessing</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — CodeIgniter Display All Student Records [15 Marks]</div>
+    <div class="file-label">application/models/Student_model.php</div>
+<pre>&lt;?php
+class Student_model extends CI_Model {
+    public function get_all() {
+        return $this->db->get('student')->result_array();
+    }
+}
+?&gt;</pre>
+    <div class="file-label">application/controllers/Students.php</div>
+<pre>&lt;?php
+class Students extends CI_Controller {
+    public function index() {
+        $this->load->model('Student_model');
+        $data['students'] = $this->Student_model->get_all();
+        $this->load->view('student_view', $data);
+    }
+}
+?&gt;</pre>
+    <div class="file-label">application/views/student_view.php</div>
+<pre>&lt;table border="1"&gt;
+  &lt;tr&gt;&lt;th&gt;Roll No&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Class&lt;/th&gt;&lt;/tr&gt;
+  &lt;?php foreach($students as $s): ?&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;?=$s['rollno']?&gt;&lt;/td&gt;&lt;td&gt;&lt;?=$s['name']?&gt;&lt;/td&gt;&lt;td&gt;&lt;?=$s['class']?&gt;&lt;/td&gt;&lt;/tr&gt;
+  &lt;?php endforeach; ?&gt;
+&lt;/table&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Remove Special Characters &amp; Digits from Text [15 Marks]</div>
+<pre><span class="kw">import</span> re, nltk
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
+
+nltk.download(<span class="str">'punkt'</span>)
+text = <span class="str">"Hello! This is text123. Remove special@chars &amp; digits456 here."</span>
+clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>, <span class="str">''</span>, text)
+print(<span class="str">"Cleaned Text:"</span>, clean.strip())
+tokens = word_tokenize(clean)
+print(<span class="str">"Tokens:"</span>, tokens)</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 24 ===== -->
+<div class="slip" id="s24">
+  <div class="slip-header"><span class="slip-num">SLIP 24</span><span class="slip-title">PHP student.xml Course Filter + YouTube Data Analysis</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Create student.xml, Filter by Course [15 Marks]</div>
+    <div class="file-label">create_student.php</div>
+<pre>&lt;?php
+$dom = new DOMDocument('1.0','UTF-8');
+$root = $dom->createElement('students');
+$students = [
+    ['roll'=>1,'name'=>'Alice','address'=>'Pune','college'=>'ABC','course'=>'CS'],
+    ['roll'=>2,'name'=>'Bob',  'address'=>'Mumbai','college'=>'XYZ','course'=>'IT'],
+    ['roll'=>3,'name'=>'Carol','address'=>'Nashik','college'=>'PQR','course'=>'CS'],
+    ['roll'=>4,'name'=>'Dave', 'address'=>'Nagpur','college'=>'LMN','course'=>'BCA'],
+    ['roll'=>5,'name'=>'Eve',  'address'=>'Pune','college'=>'ABC','course'=>'CS'],
+];
+foreach ($students as $s) {
+    $student = $dom->createElement('student');
+    foreach ($s as $k => $v) $student->appendChild($dom->createElement($k, $v));
+    $root->appendChild($student);
+}
+$dom->appendChild($root);
+$dom->save('student.xml');
+echo "student.xml created.";
+?&gt;</pre>
+    <div class="file-label">search.php</div>
+<pre>&lt;?php
+$xml = simplexml_load_file('student.xml');
+$course = $_GET['course'] ?? 'CS';
+echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;Roll&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Address&lt;/th&gt;&lt;th&gt;College&lt;/th&gt;&lt;/tr&gt;";
+foreach ($xml->student as $s) {
+    if ($s->course == $course)
+        echo "&lt;tr&gt;&lt;td&gt;{$s->roll}&lt;/td&gt;&lt;td&gt;{$s->name}&lt;/td&gt;&lt;td&gt;{$s->address}&lt;/td&gt;&lt;td&gt;{$s->college}&lt;/td&gt;&lt;/tr&gt;";
+}
+echo "&lt;/table&gt;";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: YouTube India Dataset Analysis [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+<span class="cmt"># Download from Kaggle: datasnaek/youtube-new → INvideos.csv</span>
+df = pd.read_csv(<span class="str">'INvideos.csv'</span>, encoding=<span class="str">'latin-1'</span>)
+print(df.head()); print(df.info())
+
+<span class="cmt"># Data cleaning</span>
+df.dropna(inplace=<span class="num">True</span>)
+df.drop_duplicates(inplace=<span class="num">True</span>)
+
+<span class="cmt"># Analysis</span>
+print(<span class="str">"Total Views:"</span>,   df[<span class="str">'views'</span>].sum())
+print(<span class="str">"Total Likes:"</span>,   df[<span class="str">'likes'</span>].sum())
+print(<span class="str">"Total Dislikes:"</span>,df[<span class="str">'dislikes'</span>].sum())
+print(<span class="str">"Total Comments:"</span>,df[<span class="str">'comment_count'</span>].sum())</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 25 ===== -->
+<div class="slip" id="s25">
+  <div class="slip-header"><span class="slip-num">SLIP 25</span><span class="slip-title">Create cricket.xml + YouTube COVID Sentiment Analysis</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Create cricket.xml + Add India Team [15 Marks]</div>
+    <div class="file-label">create_cricket.php</div>
+<pre>&lt;?php
+$dom = new DOMDocument('1.0','UTF-8');
+$dom->formatOutput = true;
+$root = $dom->createElement('CricketTeam');
+
+function addTeam($dom, $root, $country, $players) {
+    $team = $dom->createElement('Team');
+    $team->setAttribute('country', $country);
+    foreach ($players as $p) {
+        $player = $dom->createElement('player', $p['name']);
+        $runs   = $dom->createElement('runs',   $p['runs']);
+        $wicket = $dom->createElement('wicket', $p['wicket']);
+        $team->appendChild($player);
+        $team->appendChild($runs);
+        $team->appendChild($wicket);
+    }
+    $root->appendChild($team);
+}
+
+addTeam($dom, $root, 'Australia', [
+    ['name'=>'Smith', 'runs'=>3000, 'wicket'=>5],
+    ['name'=>'Warner','runs'=>4500, 'wicket'=>0]
+]);
+addTeam($dom, $root, 'India', [
+    ['name'=>'Kohli', 'runs'=>7000, 'wicket'=>4],
+    ['name'=>'Rohit', 'runs'=>5000, 'wicket'=>2]
+]);
+
+$dom->appendChild($root);
+$dom->save('cricket.xml');
+echo "cricket.xml created!";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: YouTube COVID Comments Sentiment [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd, nltk, re
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
+<span class="kw">from</span> nltk.sentiment <span class="kw">import</span> SentimentIntensityAnalyzer
+
+nltk.download(<span class="str">'vader_lexicon'</span>); nltk.download(<span class="str">'punkt'</span>)
+
+<span class="cmt"># Load dataset (covid_2021_1.csv from Kaggle)</span>
+df = pd.read_csv(<span class="str">'covid_2021_1.csv'</span>, encoding=<span class="str">'latin-1'</span>)
+df.dropna(subset=[<span class="str">'comment'</span>], inplace=<span class="num">True</span>)
+df[<span class="str">'comment'</span>] = df[<span class="str">'comment'</span>].apply(<span class="kw">lambda</span> x: re.sub(r<span class="str">'[^a-zA-Z\s]'</span>,<span class="str">''</span>,str(x)))
+
+sia = SentimentIntensityAnalyzer()
+<span class="kw">def</span> sentiment(text):
+    s = sia.polarity_scores(text)[<span class="str">'compound'</span>]
+    <span class="kw">return</span> <span class="str">'positive'</span> <span class="kw">if</span> s&gt;=<span class="num">0.05</span> <span class="kw">else</span> (<span class="str">'negative'</span> <span class="kw">if</span> s&lt;=-<span class="num">0.05</span> <span class="kw">else</span> <span class="str">'neutral'</span>)
+
+df[<span class="str">'sentiment'</span>] = df[<span class="str">'comment'</span>].apply(sentiment)
+counts = df[<span class="str">'sentiment'</span>].value_counts(normalize=<span class="num">True</span>)*<span class="num">100</span>
+print(counts)</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 26 ===== -->
+<div class="slip" id="s26">
+  <div class="slip-header"><span class="slip-num">SLIP 26</span><span class="slip-title">AJAX Employee Table + Extractive Summarization</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — Create EMP Table + AJAX Select Employee [15 Marks]</div>
+    <div class="file-label">SQL</div>
+<pre>CREATE TABLE EMP (eno INT, ename VARCHAR(50), designation VARCHAR(30), salary DECIMAL(10,2));
+INSERT INTO EMP VALUES (1,'Alice','Manager',80000),(2,'Bob','Developer',60000),(3,'Carol','HR',50000);</pre>
+    <div class="file-label">index.html</div>
+<pre>&lt;select id="ename" onchange="getEmp(this.value)"&gt;
+  &lt;option&gt;-- Select --&lt;/option&gt;&lt;option&gt;Alice&lt;/option&gt;
+  &lt;option&gt;Bob&lt;/option&gt;&lt;option&gt;Carol&lt;/option&gt;
+&lt;/select&gt;
+&lt;div id="info"&gt;&lt;/div&gt;
+&lt;script&gt;
+function getEmp(name){
+    var x=new XMLHttpRequest();
+    x.open("GET","get_emp.php?name="+name,true);
+    x.onreadystatechange=function(){if(this.readyState==4)document.getElementById("info").innerHTML=this.responseText;};
+    x.send();
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">get_emp.php</div>
+<pre>&lt;?php
+$c=mysqli_connect("localhost","root","","company");
+$n=mysqli_real_escape_string($c,$_GET['name']);
+$r=mysqli_query($c,"SELECT * FROM EMP WHERE ename='$n'");
+$row=mysqli_fetch_assoc($r);
+echo "Eno:{$row['eno']} | Desig:{$row['designation']} | Salary:{$row['salary']}";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Extractive Summarization (Python Academy text) [15 Marks]</div>
+<pre><span class="kw">import</span> re, nltk
+<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> sent_tokenize, word_tokenize
+<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+<span class="kw">from</span> collections <span class="kw">import</span> Counter
+
+nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+
+text = <span class="str">"""Hello all, Welcome to Python Programming Academy.
+Python Programming Academy is a nice platform to learn new programming skills.
+It is difficult to get enrolled in this Academy."""</span>
+
+clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>,<span class="str">''</span>,text).lower()
+words = word_tokenize(clean)
+stop = set(stopwords.words(<span class="str">'english'</span>))
+freq = Counter(w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w <span class="kw">not</span> <span class="kw">in</span> stop)
+sentences = sent_tokenize(text)
+scores = {s:sum(freq.get(w.lower(),<span class="num">0</span>) <span class="kw">for</span> w <span class="kw">in</span> word_tokenize(s)) <span class="kw">for</span> s <span class="kw">in</span> sentences}
+summary = sorted(scores, key=scores.get, reverse=<span class="num">True</span>)[:2]
+print(<span class="str">"Summary:"</span>, <span class="str">' '</span>.join(summary))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 27 ===== -->
+<div class="slip" id="s27">
+  <div class="slip-header"><span class="slip-num">SLIP 27</span><span class="slip-title">HTML-AJAX-PHP Voters Validation + Own Transactions Apriori</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — Voter Validation: Name uppercase, Age ≥ 18, Nationality Indian [15 Marks]</div>
+    <div class="file-label">voter.html</div>
+<pre>&lt;form onsubmit="return validate()"&gt;
+  Name:        &lt;input id="vname"&gt;&lt;br&gt;
+  Age:         &lt;input id="vage" type="number"&gt;&lt;br&gt;
+  Nationality: &lt;input id="vnation"&gt;&lt;br&gt;
+  &lt;input type="submit" value="Validate"&gt;
+&lt;/form&gt;
+&lt;div id="res"&gt;&lt;/div&gt;
+&lt;script&gt;
+function validate() {
+    var n=document.getElementById("vname").value;
+    var a=parseInt(document.getElementById("vage").value);
+    var nat=document.getElementById("vnation").value;
+    var msg=document.getElementById("res");
+    if(!/^[A-Z\s]+$/.test(n)){msg.innerHTML="Name must be uppercase!";return false;}
+    if(a&lt;18){msg.innerHTML="Age must be 18 or above!";return false;}
+    if(nat.toLowerCase()!="indian"){msg.innerHTML="Nationality must be Indian!";return false;}
+    var xhr=new XMLHttpRequest();
+    xhr.open("POST","save_voter.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.onreadystatechange=function(){if(this.readyState==4)msg.innerHTML=this.responseText;};
+    xhr.send("name="+n+"&amp;age="+a+"&amp;nat="+nat);
+    return false;
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">save_voter.php</div>
+<pre>&lt;?php echo "Voter registered: Name={$_POST['name']}, Age={$_POST['age']}, Nationality={$_POST['nat']}"; ?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Own Transactions Apriori [15 Marks]</div>
+<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+transactions = [
+    [<span class="str">'Phone'</span>,<span class="str">'Charger'</span>,<span class="str">'Case'</span>],
+    [<span class="str">'Phone'</span>,<span class="str">'Earphones'</span>],
+    [<span class="str">'Charger'</span>,<span class="str">'Case'</span>],
+    [<span class="str">'Phone'</span>,<span class="str">'Charger'</span>,<span class="str">'Earphones'</span>],
+    [<span class="str">'Phone'</span>,<span class="str">'Case'</span>,<span class="str">'Earphones'</span>]
+]
+te = TransactionEncoder()
+df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
+freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
+rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.6</span>)
+print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 28 ===== -->
+<div class="slip" id="s28">
+  <div class="slip-header"><span class="slip-num">SLIP 28</span><span class="slip-title">PHP AJAX Login Validation + Car Dataset Linear Regression</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP AJAX Username/Password Validation with Database [15 Marks]</div>
+    <div class="file-label">index.html</div>
+<pre>&lt;input id="u" placeholder="Username"&gt;
+&lt;input id="p" type="password" placeholder="Password"&gt;
+&lt;button onclick="checkLogin()"&gt;Login&lt;/button&gt;
+&lt;p id="msg"&gt;&lt;/p&gt;
+&lt;script&gt;
+function checkLogin() {
+    var u=document.getElementById("u").value;
+    var p=document.getElementById("p").value;
+    var xhr=new XMLHttpRequest();
+    xhr.open("POST","validate.php",true);
+    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+    xhr.onreadystatechange=function(){
+        if(this.readyState==4) document.getElementById("msg").innerHTML=this.responseText;
+    };
+    xhr.send("u="+u+"&amp;p="+p);
+}
+&lt;/script&gt;</pre>
+    <div class="file-label">validate.php</div>
+<pre>&lt;?php
+$conn = mysqli_connect("localhost","root","","users_db");
+$u = mysqli_real_escape_string($conn, $_POST['u']);
+$p = md5($_POST['p']);
+$r = mysqli_query($conn,"SELECT * FROM users WHERE username='$u' AND password='$p'");
+echo mysqli_num_rows($r)&gt;0 ? "Valid User! Welcome." : "Invalid username or password.";
+?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Car Dataset Linear Regression [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
+
+data = {
+    <span class="str">'Make'</span>:   [<span class="str">'Toyota'</span>,<span class="str">'Honda'</span>,<span class="str">'Ford'</span>,<span class="str">'BMW'</span>,<span class="str">'Hyundai'</span>,<span class="str">'Toyota'</span>,<span class="str">'Honda'</span>,<span class="str">'Ford'</span>,<span class="str">'BMW'</span>,<span class="str">'Hyundai'</span>],
+    <span class="str">'Mileage'</span>:[<span class="num">15</span>,<span class="num">18</span>,<span class="num">12</span>,<span class="num">10</span>,<span class="num">20</span>,<span class="num">16</span>,<span class="num">17</span>,<span class="num">13</span>,<span class="num">11</span>,<span class="num">21</span>],
+    <span class="str">'Price'</span>:  [<span class="num">20000</span>,<span class="num">22000</span>,<span class="num">18000</span>,<span class="num">50000</span>,<span class="num">15000</span>,
+               <span class="num">21000</span>,<span class="num">23000</span>,<span class="num">19000</span>,<span class="num">52000</span>,<span class="num">16000</span>]
+}
+df = pd.DataFrame(data)
+le = LabelEncoder(); df[<span class="str">'Make'</span>] = le.fit_transform(df[<span class="str">'Make'</span>])
+X = df[[<span class="str">'Make'</span>,<span class="str">'Mileage'</span>]]; y = df[<span class="str">'Price'</span>]
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">0</span>)
+model = LinearRegression().fit(X_train, y_train)
+print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 29 ===== -->
+<div class="slip" id="s29">
+  <div class="slip-header"><span class="slip-num">SLIP 29</span><span class="slip-title">PHP Fibonacci + Digit Sum (Self-processing) + Logistic (Student Score)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — PHP Self-Processing Page: Fibonacci Series &amp; Sum of Digits [15 Marks]</div>
+    <div class="file-label">self.php</div>
+<pre>&lt;?php
+$fib_result = ""; $sum_result = "";
+if (isset($_POST['submit'])) {
+    $n = (int)$_POST['num'];
+    <span class="cmt">// Fibonacci</span>
+    $a=0; $b=1; $fib=[$a,$b];
+    for ($i=2;$i&lt;$n;$i++) { $c=$a+$b; $fib[]=$c; $a=$b; $b=$c; }
+    $fib_result = implode(", ", array_slice($fib,0,$n));
+    <span class="cmt">// Sum of digits</span>
+    $sum = array_sum(str_split(abs($n)));
+    $sum_result = $sum;
+}
+?&gt;
+&lt;form method="post"&gt;
+  Enter Number: &lt;input type="number" name="num" required&gt;
+  &lt;input type="submit" name="submit" value="Calculate"&gt;
+&lt;/form&gt;
+&lt;?php if($fib_result): ?&gt;
+  &lt;p&gt;Fibonacci Series: &lt;?= $fib_result ?&gt;&lt;/p&gt;
+  &lt;p&gt;Sum of Digits: &lt;?= $sum_result ?&gt;&lt;/p&gt;
+&lt;?php endif; ?&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Logistic Regression – Student Score Dataset [15 Marks]</div>
+<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
+<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
+<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score, classification_report
+
+data = {
+    <span class="str">'Hours_Studied'</span>:[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
+    <span class="str">'Score'</span>:        [<span class="num">20</span>,<span class="num">35</span>,<span class="num">45</span>,<span class="num">52</span>,<span class="num">60</span>,<span class="num">70</span>,<span class="num">75</span>,<span class="num">85</span>,<span class="num">92</span>,<span class="num">98</span>],
+    <span class="str">'Pass'</span>:         [<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>]
+}
+df = pd.DataFrame(data)
+X = df[[<span class="str">'Hours_Studied'</span>,<span class="str">'Score'</span>]]; y = df[<span class="str">'Pass'</span>]
+X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">42</span>)
+clf = LogisticRegression().fit(X_train, y_train)
+y_pred = clf.predict(X_test)
+print(<span class="str">"Accuracy:"</span>, accuracy_score(y_test, y_pred))
+print(classification_report(y_test, y_pred))</pre>
+  </div>
+</div>
+
+<!-- ===== SLIP 30 ===== -->
+<div class="slip" id="s30">
+  <div class="slip-header"><span class="slip-num">SLIP 30</span><span class="slip-title">XML Bookstore (Bookcategory.xml) + Apriori (eggs/milk/apple/bread)</span></div>
+  <div class="slip-body">
+    <div class="q-label">Q.1 — Create Bookcategory.xml with 3 Categories [15 Marks]</div>
+    <div class="file-label">Bookcategory.xml</div>
+<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;Bookstore&gt;
+  &lt;Category name="Yoga"&gt;
+    &lt;Book&gt;
+      &lt;Book_Title&gt;The Yoga Bible&lt;/Book_Title&gt;
+      &lt;Book_Author&gt;Christina Brown&lt;/Book_Author&gt;
+      &lt;Book_Price&gt;450&lt;/Book_Price&gt;
+    &lt;/Book&gt;
+    &lt;Book&gt;
+      &lt;Book_Title&gt;Yoga for Beginners&lt;/Book_Title&gt;
+      &lt;Book_Author&gt;Mark Stephens&lt;/Book_Author&gt;
+      &lt;Book_Price&gt;350&lt;/Book_Price&gt;
+    &lt;/Book&gt;
+  &lt;/Category&gt;
+  &lt;Category name="Story"&gt;
+    &lt;Book&gt;
+      &lt;Book_Title&gt;Harry Potter&lt;/Book_Title&gt;
+      &lt;Book_Author&gt;J.K. Rowling&lt;/Book_Author&gt;
+      &lt;Book_Price&gt;600&lt;/Book_Price&gt;
+    &lt;/Book&gt;
+    &lt;Book&gt;
+      &lt;Book_Title&gt;The Alchemist&lt;/Book_Title&gt;
+      &lt;Book_Author&gt;Paulo Coelho&lt;/Book_Author&gt;
+      &lt;Book_Price&gt;400&lt;/Book_Price&gt;
+    &lt;/Book&gt;
+  &lt;/Category&gt;
+  &lt;Category name="Technical"&gt;
+    &lt;Book&gt;
+      &lt;Book_Title&gt;Python Crash Course&lt;/Book_Title&gt;
+      &lt;Book_Author&gt;Eric Matthes&lt;/Book_Author&gt;
+      &lt;Book_Price&gt;700&lt;/Book_Price&gt;
+    &lt;/Book&gt;
+    &lt;Book&gt;
+      &lt;Book_Title&gt;Clean Code&lt;/Book_Title&gt;
+      &lt;Book_Author&gt;Robert Martin&lt;/Book_Author&gt;
+      &lt;Book_Price&gt;800&lt;/Book_Price&gt;
+    &lt;/Book&gt;
+  &lt;/Category&gt;
+&lt;/Bookstore&gt;</pre>
+
+    <div class="q-label">Q.2 — Python: Apriori (eggs, milk, apple, bread transactions) [15 Marks]</div>
+<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
+<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
+<span class="kw">import</span> pandas <span class="kw">as</span> pd
+
+transactions = [
+    [<span class="str">'eggs'</span>,<span class="str">'milk'</span>,<span class="str">'bread'</span>],
+    [<span class="str">'eggs'</span>,<span class="str">'apple'</span>],
+    [<span class="str">'milk'</span>,<span class="str">'bread'</span>],
+    [<span class="str">'apple'</span>,<span class="str">'milk'</span>],
+    [<span class="str">'milk'</span>,<span class="str">'apple'</span>,<span class="str">'bread'</span>]
+]
+te = TransactionEncoder()
+te_array = te.fit_transform(transactions)
+df = pd.DataFrame(te_array, columns=te.columns_)
+
+print(<span class="str">"=== Encoded Dataset ==="</span>)
+print(df)
+
+freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
+print(<span class="str">"\n=== Frequent Itemsets ==="</span>)
+print(freq)
+
+rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
+print(<span class="str">"\n=== Association Rules ==="</span>)
+print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
+
+    <div class="note">💡 <strong>All Apriori programs require:</strong> <code>pip install mlxtend</code> &nbsp;|&nbsp; <strong>WordCloud programs require:</strong> <code>pip install wordcloud</code></div>
+  </div>
+</div>
+
+</main>
+</body>
+</html>
