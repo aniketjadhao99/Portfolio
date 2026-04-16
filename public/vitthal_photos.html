@@ -3,19 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CS-368 Web Technology II & Data Analytics – All 30 Slip Answers</title>
+<title>Advanced Java Slips Solutions</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap');
   :root {
-    --bg: #0d0f1a;
-    --surface: #141726;
-    --border: #252a45;
-    --accent: #4f8ef7;
-    --accent2: #f7c948;
-    --accent3: #5ef08a;
-    --text: #dde3f5;
-    --muted: #7a84a8;
-    --code-bg: #0a0c16;
+    --bg: #0d0f1a; --surface: #141726; --border: #252a45; --accent: #4f8ef7;
+    --accent2: #f7c948; --accent3: #5ef08a; --text: #dde3f5; --muted: #7a84a8; --code-bg: #0a0c16;
   }
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { background: var(--bg); color: var(--text); font-family: 'Syne', sans-serif; line-height: 1.7; }
@@ -35,1707 +28,2847 @@
   .slip-body { padding: 1.2rem 1.5rem; }
   .q-label { color: var(--accent2); font-size: .78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; margin-bottom: .3rem; margin-top: 1.2rem; }
   .q-label:first-child { margin-top: 0; }
-  .q-desc { color: var(--muted); font-size: .88rem; margin-bottom: .7rem; background: #0f1120; border-left: 3px solid var(--accent2); padding: .6rem 1rem; border-radius: 4px; }
-  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: .78rem; line-height: 1.6; color: #c8d6f8; margin-bottom: .5rem; }
-  .kw { color: #82aaff; }
-  .fn { color: #82cfff; }
-  .str { color: #c3e88d; }
-  .cmt { color: #546e91; font-style: italic; }
-  .tag { color: #f07178; }
-  .num { color: #f78c6c; }
   .file-label { font-family: 'JetBrains Mono', monospace; font-size: .72rem; color: var(--accent3); background: #071a10; border: 1px solid #1f4a2a; padding: .2rem .6rem; border-radius: 4px; display: inline-block; margin-bottom: .4rem; }
-  .note { background: #1a1422; border: 1px solid #3d2a55; border-radius: 6px; padding: .7rem 1rem; color: #c49fff; font-size: .83rem; margin-top: .5rem; }
+  pre { background: var(--code-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem 1.2rem; overflow-x: auto; font-family: 'JetBrains Mono', monospace; font-size: .78rem; line-height: 1.6; color: #c8d6f8; margin-bottom: .5rem; white-space: pre-wrap; }
 </style>
 </head>
 <body>
 <header>
-  <h1>CS-368 Web Technology II &amp; Data Analytics</h1>
-  <p>T.Y.B.Sc. (CS) Sem-VI — University Practical Examination May 2023 &nbsp;|&nbsp; All 30 Slip Answers</p>
+  <h1>Advanced Java Programming</h1>
+  <p>T.Y.B.Sc. (CS) Sem-VI Solutions | All 30 Slip Practical Answers</p>
 </header>
-
 <div class="toc">
   <h2>📋 Quick Navigation</h2>
-  <div class="toc-grid">
-    <a href="#s1">Slip 1</a><a href="#s2">Slip 2</a><a href="#s3">Slip 3</a><a href="#s4">Slip 4</a><a href="#s5">Slip 5</a>
-    <a href="#s6">Slip 6</a><a href="#s7">Slip 7</a><a href="#s8">Slip 8</a><a href="#s9">Slip 9</a><a href="#s10">Slip 10</a>
-    <a href="#s11">Slip 11</a><a href="#s12">Slip 12</a><a href="#s13">Slip 13</a><a href="#s14">Slip 14</a><a href="#s15">Slip 15</a>
-    <a href="#s16">Slip 16</a><a href="#s17">Slip 17</a><a href="#s18">Slip 18</a><a href="#s19">Slip 19</a><a href="#s20">Slip 20</a>
-    <a href="#s21">Slip 21</a><a href="#s22">Slip 22</a><a href="#s23">Slip 23</a><a href="#s24">Slip 24</a><a href="#s25">Slip 25</a>
-    <a href="#s26">Slip 26</a><a href="#s27">Slip 27</a><a href="#s28">Slip 28</a><a href="#s29">Slip 29</a><a href="#s30">Slip 30</a>
-  </div>
-</div>
-
-<main>
-
-<!-- ===== SLIP 1 ===== -->
+  <div class="toc-grid"><a href="#s1">Slip 1</a><a href="#s2">Slip 2</a><a href="#s3">Slip 3</a><a href="#s4">Slip 4</a><a href="#s5">Slip 5</a><a href="#s6">Slip 6</a><a href="#s7">Slip 7</a><a href="#s8">Slip 8</a><a href="#s9">Slip 9</a><a href="#s10">Slip 10</a><a href="#s11">Slip 11</a><a href="#s12">Slip 12</a><a href="#s13">Slip 13</a><a href="#s14">Slip 14</a><a href="#s15">Slip 15</a><a href="#s16">Slip 16</a><a href="#s17">Slip 17</a><a href="#s18">Slip 18</a><a href="#s19">Slip 19</a><a href="#s20">Slip 20</a><a href="#s21">Slip 21</a><a href="#s22">Slip 22</a><a href="#s23">Slip 23</a><a href="#s24">Slip 24</a><a href="#s25">Slip 25</a><a href="#s26">Slip 26</a><a href="#s27">Slip 27</a><a href="#s28">Slip 28</a><a href="#s29">Slip 29</a><a href="#s30">Slip 30</a></div></div><main>
 <div class="slip" id="s1">
-  <div class="slip-header"><span class="slip-num">SLIP 01</span><span class="slip-title">PHP Session Tracking + Linear Regression (Position_Salaries)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Session Counter [15 Marks]</div>
-    <div class="q-desc">Track number of times a web page has been accessed using Session Tracking.</div>
-    <div class="file-label">counter.php</div>
-<pre>&lt;?php
-session_start();
-if (!isset($_SESSION['count'])) {
-    $_SESSION['count'] = 0;
-}
-$_SESSION['count']++;
-echo "&lt;h2&gt;Page Visit Count: " . $_SESSION['count'] . "&lt;/h2&gt;";
-echo "&lt;p&gt;Refresh this page to increment the counter.&lt;/p&gt;";
-echo '&lt;a href="counter.php"&gt;Refresh&lt;/a&gt; | ';
-echo '&lt;a href="reset.php"&gt;Reset Counter&lt;/a&gt;';
-?&gt;</pre>
-    <div class="file-label">reset.php</div>
-<pre>&lt;?php
-session_start();
-session_destroy();
-echo "Session destroyed. &lt;a href='counter.php'&gt;Go Back&lt;/a&gt;";
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Position_Salaries Linear Regression [15 Marks]</div>
-    <div class="q-desc">Create Position_Salaries dataset, split 7:3, build simple linear regression.</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">import</span> numpy <span class="kw">as</span> np
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> mean_squared_error, r2_score
-<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
-
-<span class="cmt"># Create dataset</span>
-data = {
-    <span class="str">'Position'</span>: [<span class="str">'Business Analyst'</span>,<span class="str">'Junior Consultant'</span>,<span class="str">'Senior Consultant'</span>,
-                 <span class="str">'Manager'</span>,<span class="str">'Country Manager'</span>,<span class="str">'Region Manager'</span>,
-                 <span class="str">'Partner'</span>,<span class="str">'Senior Partner'</span>,<span class="str">'C-level'</span>,<span class="str">'CEO'</span>],
-    <span class="str">'Level'</span>: [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
-    <span class="str">'Salary'</span>: [<span class="num">45000</span>,<span class="num">50000</span>,<span class="num">60000</span>,<span class="num">80000</span>,<span class="num">110000</span>,
-               <span class="num">150000</span>,<span class="num">200000</span>,<span class="num">300000</span>,<span class="num">500000</span>,<span class="num">1000000</span>]
-}
-df = pd.DataFrame(data)
-print(df)
-
-X = df[[<span class="str">'Level'</span>]]   <span class="cmt"># Independent variable</span>
-y = df[<span class="str">'Salary'</span>]    <span class="cmt"># Target variable</span>
-
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=<span class="num">0.3</span>, random_state=<span class="num">42</span>)
-
-print(<span class="str">"\nTraining set:"</span>); print(X_train); print(y_train)
-print(<span class="str">"\nTesting set:"</span>);  print(X_test);  print(y_test)
-
-model = LinearRegression()
-model.fit(X_train, y_train)
-
-y_pred = model.predict(X_test)
-print(<span class="str">"\nPredictions:"</span>, y_pred)
-print(<span class="str">"R² Score:"</span>, r2_score(y_test, y_pred))
-print(<span class="str">"MSE:"</span>, mean_squared_error(y_test, y_pred))
-
-plt.scatter(X, y, color=<span class="str">'blue'</span>)
-plt.plot(X, model.predict(X), color=<span class="str">'red'</span>)
-plt.title(<span class="str">'Position Salaries – Linear Regression'</span>)
-plt.xlabel(<span class="str">'Level'</span>); plt.ylabel(<span class="str">'Salary'</span>)
-plt.show()</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 2 ===== -->
-<div class="slip" id="s2">
-  <div class="slip-header"><span class="slip-num">SLIP 02</span><span class="slip-title">PHP Cookie Preferences + Linear Regression (Salary)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Cookies for Web-Page Preferences [15 Marks]</div>
-    <div class="q-desc">Change font style, size, color, background via cookie; display on next page; apply on third page.</div>
-    <div class="file-label">page1.php – Preference Form</div>
-<pre>&lt;?php
-<span class="cmt">// Set cookies if form submitted</span>
-if (isset($_POST['save'])) {
-    setcookie("fontStyle",  $_POST['fontStyle'],  time()+3600);
-    setcookie("fontSize",   $_POST['fontSize'],   time()+3600);
-    setcookie("fontColor",  $_POST['fontColor'],  time()+3600);
-    setcookie("bgColor",    $_POST['bgColor'],    time()+3600);
-    header("Location: page2.php");
-    exit();
-}
-?&gt;
-&lt;form method="post"&gt;
-  Font Style: &lt;select name="fontStyle"&gt;
-    &lt;option&gt;Arial&lt;/option&gt;&lt;option&gt;Georgia&lt;/option&gt;&lt;option&gt;Courier New&lt;/option&gt;
-  &lt;/select&gt;&lt;br&gt;
-  Font Size: &lt;input type="number" name="fontSize" value="16"&gt;&lt;br&gt;
-  Font Color: &lt;input type="color" name="fontColor" value="#000000"&gt;&lt;br&gt;
-  Background: &lt;input type="color" name="bgColor"   value="#ffffff"&gt;&lt;br&gt;
-  &lt;input type="submit" name="save" value="Save Preferences"&gt;
-&lt;/form&gt;</pre>
-    <div class="file-label">page2.php – Display Selected Settings</div>
-<pre>&lt;?php
-$fs = $_COOKIE['fontStyle'] ?? 'Arial';
-$fz = $_COOKIE['fontSize']  ?? '16';
-$fc = $_COOKIE['fontColor'] ?? '#000';
-$bg = $_COOKIE['bgColor']   ?? '#fff';
-echo "&lt;h3&gt;Your Settings:&lt;/h3&gt;";
-echo "Font Style: $fs &lt;br&gt;Font Size: {$fz}px &lt;br&gt;Font Color: $fc &lt;br&gt;BG Color: $bg";
-echo '&lt;br&gt;&lt;a href="page3.php"&gt;See Applied Page&lt;/a&gt;';
-?&gt;</pre>
-    <div class="file-label">page3.php – Applied Implementation</div>
-<pre>&lt;?php
-$fs = $_COOKIE['fontStyle'] ?? 'Arial';
-$fz = $_COOKIE['fontSize']  ?? '16';
-$fc = $_COOKIE['fontColor'] ?? '#000';
-$bg = $_COOKIE['bgColor']   ?? '#fff';
-?&gt;
-&lt;body style="background:&lt;?=$bg?&gt;; font-family:&lt;?=$fs?&gt;;
-             font-size:&lt;?=$fz?&gt;px; color:&lt;?=$fc?&gt;;"&gt;
-  &lt;h2&gt;This page uses your saved preferences!&lt;/h2&gt;
-  &lt;p&gt;The settings from cookies are applied here.&lt;/p&gt;
-&lt;/body&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Salary Linear Regression [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
-
-data = {<span class="str">'YearsExp'</span>:[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
-        <span class="str">'Salary'</span>:  [<span class="num">30000</span>,<span class="num">35000</span>,<span class="num">40000</span>,<span class="num">45000</span>,<span class="num">50000</span>,
-                    <span class="num">55000</span>,<span class="num">60000</span>,<span class="num">65000</span>,<span class="num">70000</span>,<span class="num">80000</span>]}
-df = pd.DataFrame(data)
-X = df[[<span class="str">'YearsExp'</span>]]; y = df[<span class="str">'Salary'</span>]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">0</span>)
-model = LinearRegression().fit(X_train, y_train)
-print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 3 ===== -->
-<div class="slip" id="s3">
-  <div class="slip-header"><span class="slip-num">SLIP 03</span><span class="slip-title">PHP Session Login + Logistic Regression (User/Car)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Session-based Login (3 Attempts) [15 Marks]</div>
-    <div class="file-label">login.php</div>
-<pre>&lt;?php
-session_start();
-if (!isset($_SESSION['attempts'])) $_SESSION['attempts'] = 0;
-$msg = "";
-if (isset($_POST['login'])) {
-    if ($_SESSION['attempts'] &gt;= 3) {
-        $msg = "Too many failed attempts. Access blocked.";
-    } elseif ($_POST['user'] == 'admin' &amp;&amp; $_POST['pass'] == '1234') {
-        $_SESSION['logged'] = true;
-        header("Location: welcome.php"); exit();
-    } else {
-        $_SESSION['attempts']++;
-        $left = 3 - $_SESSION['attempts'];
-        $msg = "Invalid credentials. Attempts left: $left";
+  <div class="slip-header"><span class="slip-num">SLIP 01</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>class S1Q1 extends Thread
+{
+  public void run()
+  {
+    try
+    {
+      char ch;
+      for(ch=&#x27;A&#x27;;ch&lt;=&#x27;Z&#x27;;ch++)
+      {
+        System.out.println(ch);
+        Thread.sleep(2000);
+      }
     }
+    catch(Exception e)
+    {
+      System.out.println(e);
+    }
+  }
+  public static void main(String args[])
+  {
+    S1Q1 t=new S1Q1();
+    t.start();
+  }
+}</pre><div class="q-label">Question 2</div><div class="file-label">Database</div><pre>CREATE TABLE Employee (
+    eno INT PRIMARY KEY,
+    ename TEXT,
+    designation TEXT,
+    salary REAL
+);</pre><div class="file-label">Java file</div><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+
+public class EmployeeDetails extends JFrame implements ActionListener 
+{
+    JLabel l1, l2, l3, l4;
+    JTextField t1, t2, t3, t4;
+    JButton b1, b2;
+    Connection conn;
+    PreparedStatement ps;
+
+    public EmployeeDetails() 
+    {
+        setTitle(&quot;Employee Information&quot;);
+        setSize(400, 300);
+        setLayout(new GridLayout(5, 2, 10, 10));
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        l1 = new JLabel(&quot;Employee No:&quot;);
+        l2 = new JLabel(&quot;Employee Name:&quot;);
+        l3 = new JLabel(&quot;Designation:&quot;);
+        l4 = new JLabel(&quot;Salary:&quot;);
+
+        t1 = new JTextField();
+        t2 = new JTextField();
+        t3 = new JTextField();
+        t4 = new JTextField();
+
+        b1 = new JButton(&quot;Save&quot;);
+        b2 = new JButton(&quot;Clear&quot;);
+
+        add(l1); add(t1);
+        add(l2); add(t2);
+        add(l3); add(t3);
+        add(l4); add(t4);
+        add(b1); add(b2);
+
+        b1.addActionListener(this);
+        b2.addActionListener(this);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) 
+    {
+        if (e.getSource() == b1) 
+        {
+            try 
+            {
+                Class.forName(&quot;org.postgresql.Driver&quot;);
+                conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
+                String query = &quot;INSERT INTO Employee VALUES (?, ?, ?, ?)&quot;;
+                ps = conn.prepareStatement(query);
+                ps.setInt(1, Integer.parseInt(t1.getText()));
+                ps.setString(2, t2.getText());
+                ps.setString(3, t3.getText());
+                ps.setFloat(4, Float.parseFloat(t4.getText()));
+
+                int result = ps.executeUpdate();
+                if (result &gt; 0) 
+                {
+                    JOptionPane.showMessageDialog(this, &quot;Record Saved Successfully!&quot;);
+                }
+                conn.close();
+            } 
+            catch (Exception ex) 
+            {
+                JOptionPane.showMessageDialog(this, &quot;Error: &quot; + ex.getMessage());
+            }
+        } 
+        else if (e.getSource() == b2) 
+        {
+            t1.setText(&quot;&quot;);
+            t2.setText(&quot;&quot;);
+            t3.setText(&quot;&quot;);
+            t4.setText(&quot;&quot;);
+        }
+    }
+
+    public static void main(String[] args) 
+    {
+        new EmployeeDetails();
+    }
+}</pre></div></div>
+<div class="slip" id="s2">
+  <div class="slip-header"><span class="slip-num">SLIP 02</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class S2Q1
+{
+public static void main(String[] args)
+{
+Scanner sc=new Scanner(System.in);
+System.out.println(&quot;Enter the no of Friends:&quot;);
+int n=sc.nextInt();
+HashSet&lt;String&gt; hs=new HashSet&lt;String&gt;();
+System.out.println(&quot;Enter the names of Friends:&quot;);
+for(int i=0;i&lt;n;i++)
+{
 }
-?&gt;
-&lt;h2&gt;Login&lt;/h2&gt;
-&lt;p style="color:red"&gt;&lt;?= $msg ?&gt;&lt;/p&gt;
-&lt;form method="post"&gt;
-  Username: &lt;input name="user"&gt;&lt;br&gt;
-  Password: &lt;input type="password" name="pass"&gt;&lt;br&gt;
-  &lt;input type="submit" name="login" value="Login"&gt;
-&lt;/form&gt;</pre>
-    <div class="file-label">welcome.php</div>
-<pre>&lt;?php
-session_start();
-if (!isset($_SESSION['logged'])) { header("Location: login.php"); exit(); }
-echo "&lt;h2&gt;Welcome! Login Successful.&lt;/h2&gt;";
-echo '&lt;a href="logout.php"&gt;Logout&lt;/a&gt;';
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Logistic Regression – User Car Purchase [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
-<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score, confusion_matrix
-
-data = {
-    <span class="str">'UserID'</span>:   [<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
-    <span class="str">'Gender'</span>:   [<span class="str">'Male'</span>,<span class="str">'Female'</span>,<span class="str">'Female'</span>,<span class="str">'Male'</span>,<span class="str">'Female'</span>,
-                <span class="str">'Male'</span>,<span class="str">'Female'</span>,<span class="str">'Male'</span>,<span class="str">'Male'</span>,<span class="str">'Female'</span>],
-    <span class="str">'Age'</span>:      [<span class="num">19</span>,<span class="num">35</span>,<span class="num">26</span>,<span class="num">27</span>,<span class="num">19</span>,<span class="num">27</span>,<span class="num">28</span>,<span class="num">32</span>,<span class="num">25</span>,<span class="num">35</span>],
-    <span class="str">'EstSalary'</span>:[<span class="num">19000</span>,<span class="num">20000</span>,<span class="num">43000</span>,<span class="num">57000</span>,<span class="num">76000</span>,
-                <span class="num">58000</span>,<span class="num">84000</span>,<span class="num">150000</span>,<span class="num">33000</span>,<span class="num">65000</span>],
-    <span class="str">'Purchased'</span>:[<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">1</span>,<span class="num">0</span>,<span class="num">1</span>]
+String name=sc.next();
+hs.add(name);
+System.out.println(&quot;Names of Friends:\n&quot;+hs);
+TreeSet&lt;String&gt; ts=new TreeSet&lt;String&gt;(hs);
+System.out.println(&quot;Sorted names of Friends:\n&quot;+ts);
 }
-df = pd.DataFrame(data)
-le = LabelEncoder()
-df[<span class="str">'Gender'</span>] = le.fit_transform(df[<span class="str">'Gender'</span>])
+}</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
 
-X = df[[<span class="str">'Gender'</span>,<span class="str">'Age'</span>,<span class="str">'EstSalary'</span>]]
-y = df[<span class="str">'Purchased'</span>]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">0</span>)
-
-clf = LogisticRegression()
-clf.fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-print(<span class="str">"Accuracy:"</span>, accuracy_score(y_test, y_pred))
-print(<span class="str">"Confusion Matrix:\n"</span>, confusion_matrix(y_test, y_pred))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 4 ===== -->
-<div class="slip" id="s4">
-  <div class="slip-header"><span class="slip-num">SLIP 04</span><span class="slip-title">PHP Session Employee Form + Fish Species Linear Regression</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Multi-page Employee Form [15 Marks]</div>
-    <div class="file-label">page1.php</div>
-<pre>&lt;?php session_start(); ?&gt;
-&lt;form method="post" action="page2.php"&gt;
-  Eno: &lt;input name="eno"&gt;&lt;br&gt;
-  Ename: &lt;input name="ename"&gt;&lt;br&gt;
-  Address: &lt;input name="address"&gt;&lt;br&gt;
-  &lt;input type="submit" value="Next"&gt;
-&lt;/form&gt;</pre>
-    <div class="file-label">page2.php</div>
-<pre>&lt;?php
-session_start();
-if ($_SERVER['REQUEST_METHOD']=='POST') {
-    $_SESSION['eno']     = $_POST['eno'];
-    $_SESSION['ename']   = $_POST['ename'];
-    $_SESSION['address'] = $_POST['address'];
+public class Slip2B extends HttpServlet
+{
+  public void doGet(HttpServletRequest request,HttpServletResponse response) 
+  throws IOException, ServletException
+    {
+      response.setContentType(&quot;text/html&quot;);
+      PrintWriter pw = response.getWriter();
+      pw.println(&quot;Servelt - Client Information&quot;);
+      pw.println(&quot;&lt;br&gt;Information about Http Request&quot;);
+      pw.println(&quot;&lt;br&gt;Server Name: &quot;+request.getServerName());
+      pw.println(&quot;&lt;br&gt;Server Port: &quot;+request.getServerPort());
+      pw.println(&quot;&lt;br&gt;Ip Address: &quot;+request.getRemoteAddr());
+    pw.println(&quot;&lt;br&gt;Client Browser: &quot;+request.getHeader(&quot;User-Agent&quot;));
+    }
+}</pre><div class="file-label">OR</div><pre>import java.io.*;
+import java.util.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class slip2 extends HttpServlet {
+public void service(HttpServletRequest req,HttpServletResponse res)
+throws ServletException,IOException {
+res.setContentType(&quot;text/plain&quot;);
+PrintWriter out = res.getWriter();
+ServletConfig config=getServletConfig();
+out.println(&quot;Server Name&quot;+req.getServerName());
+out.println(&quot;Server Port():&quot;+req.getServerPort());
+out.println(&quot;Client IP address:&quot;+req.getRemoteAddr());
+out.println(&quot;Client Host:&quot;+req.getRemoteHost());
+out.println(&quot;Header Info:&quot;+req.getHeader(&quot;user-Agent&quot;));
+out.println(&quot;context.getServerInfo():&quot;+config.getServletName());
 }
-?&gt;
-&lt;form method="post" action="page3.php"&gt;
-  Basic: &lt;input name="basic"&gt;&lt;br&gt;
-  DA: &lt;input name="da"&gt;&lt;br&gt;
-  HRA: &lt;input name="hra"&gt;&lt;br&gt;
-  &lt;input type="submit" value="Submit"&gt;
-&lt;/form&gt;</pre>
-    <div class="file-label">page3.php</div>
-<pre>&lt;?php
-session_start();
-$basic = $_POST['basic']; $da = $_POST['da']; $hra = $_POST['hra'];
-$total = $basic + $da + $hra;
-echo "&lt;table border='1'&gt;";
-echo "&lt;tr&gt;&lt;th&gt;Field&lt;/th&gt;&lt;th&gt;Value&lt;/th&gt;&lt;/tr&gt;";
-foreach(['eno','ename','address'] as $k)
-    echo "&lt;tr&gt;&lt;td&gt;$k&lt;/td&gt;&lt;td&gt;{$_SESSION[$k]}&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;Basic&lt;/td&gt;&lt;td&gt;$basic&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;DA&lt;/td&gt;&lt;td&gt;$da&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;HRA&lt;/td&gt;&lt;td&gt;$hra&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;tr&gt;&lt;td&gt;Total&lt;/td&gt;&lt;td&gt;$total&lt;/td&gt;&lt;/tr&gt;";
-echo "&lt;/table&gt;";
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Fish Species Weight Prediction [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
-
-<span class="cmt"># Sample fish dataset (use real Fish.csv from Kaggle if available)</span>
-data = {<span class="str">'Length1'</span>:[23.2,24.0,23.9,26.3,26.5],
-        <span class="str">'Length2'</span>:[25.4,26.3,26.5,29.0,29.0],
-        <span class="str">'Length3'</span>:[30.0,31.2,31.1,33.5,34.0],
-        <span class="str">'Height'</span>: [11.5,12.4,12.3,12.7,12.4],
-        <span class="str">'Width'</span>:  [4.02,4.16,4.10,4.46,5.14],
-        <span class="str">'Weight'</span>: [242,290,340,363,430]}
-df = pd.DataFrame(data)
-
-X = df.drop(<span class="str">'Weight'</span>, axis=<span class="num">1</span>)
-y = df[<span class="str">'Weight'</span>]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">42</span>)
-model = LinearRegression().fit(X_train, y_train)
-print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 5 ===== -->
-<div class="slip" id="s5">
-  <div class="slip-header"><span class="slip-num">SLIP 05</span><span class="slip-title">XML Item File + Iris Logistic Regression</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — Create Item.xml [15 Marks]</div>
-    <div class="file-label">Item.xml</div>
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;Items&gt;
-  &lt;Item type="Electronics"&gt;
-    &lt;item-name&gt;Laptop&lt;/item-name&gt;
-    &lt;item-rate&gt;55000&lt;/item-rate&gt;
-    &lt;item-quantity&gt;10&lt;/item-quantity&gt;
-  &lt;/Item&gt;
-  &lt;Item type="Grocery"&gt;
-    &lt;item-name&gt;Rice&lt;/item-name&gt;
-    &lt;item-rate&gt;50&lt;/item-rate&gt;
-    &lt;item-quantity&gt;200&lt;/item-quantity&gt;
-  &lt;/Item&gt;
-  &lt;Item type="Clothing"&gt;
-    &lt;item-name&gt;T-Shirt&lt;/item-name&gt;
-    &lt;item-rate&gt;499&lt;/item-rate&gt;
-    &lt;item-quantity&gt;50&lt;/item-quantity&gt;
-  &lt;/Item&gt;
-  &lt;Item type="Furniture"&gt;
-    &lt;item-name&gt;Chair&lt;/item-name&gt;
-    &lt;item-rate&gt;3000&lt;/item-rate&gt;
-    &lt;item-quantity&gt;15&lt;/item-quantity&gt;
-  &lt;/Item&gt;
-  &lt;Item type="Stationery"&gt;
-    &lt;item-name&gt;Notebook&lt;/item-name&gt;
-    &lt;item-rate&gt;80&lt;/item-rate&gt;
-    &lt;item-quantity&gt;300&lt;/item-quantity&gt;
-  &lt;/Item&gt;
-&lt;/Items&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Iris Logistic Regression [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.datasets <span class="kw">import</span> load_iris
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score
-
-iris = load_iris()
-df = pd.DataFrame(iris.data, columns=iris.feature_names)
-df[<span class="str">'species'</span>] = iris.target_names[iris.target]
-print(df.describe())
-print(df.groupby(<span class="str">'species'</span>).describe())
-
-X = iris.data; y = iris.target
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.3</span>, random_state=<span class="num">42</span>)
-
-model = LogisticRegression(max_iter=<span class="num">200</span>)
-model.fit(X_train, y_train)
-y_pred = model.predict(X_test)
-print(<span class="str">"Accuracy:"</span>, accuracy_score(y_test, y_pred))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 6 ===== -->
-<div class="slip" id="s6">
-  <div class="slip-header"><span class="slip-num">SLIP 06</span><span class="slip-title">PHP SimpleXML + Apriori (Custom Dataset)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Read book.xml using SimpleXML [15 Marks]</div>
-    <div class="file-label">book.xml</div>
-<pre>&lt;?xml version="1.0"?&gt;
-&lt;library&gt;
-  &lt;book id="1"&gt;&lt;title&gt;PHP Basics&lt;/title&gt;&lt;author&gt;John&lt;/author&gt;&lt;price&gt;350&lt;/price&gt;&lt;/book&gt;
-  &lt;book id="2"&gt;&lt;title&gt;Python ML&lt;/title&gt;&lt;author&gt;Alice&lt;/author&gt;&lt;price&gt;500&lt;/price&gt;&lt;/book&gt;
-&lt;/library&gt;</pre>
-    <div class="file-label">readbook.php</div>
-<pre>&lt;?php
-$xml = simplexml_load_file("book.xml");
-foreach ($xml->book as $book) {
-    echo "ID: "    . $book['id']   . "&lt;br&gt;";
-    echo "Title: " . $book->title  . "&lt;br&gt;";
-    echo "Author: ". $book->author . "&lt;br&gt;";
-    echo "Price: " . $book->price  . "&lt;br&gt;&lt;hr&gt;";
-}
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Apriori on Custom Dataset [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-
-transactions = [
-    [<span class="str">'Bread'</span>,<span class="str">'Milk'</span>],
-    [<span class="str">'Bread'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>,<span class="str">'Eggs'</span>],
-    [<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>,<span class="str">'Coke'</span>],
-    [<span class="str">'Bread'</span>,<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>],
-    [<span class="str">'Bread'</span>,<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Coke'</span>]
-]
-te = TransactionEncoder()
-te_array = te.fit_transform(transactions)
-df = pd.DataFrame(te_array, columns=te.columns_)
-
-<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.6</span>, <span class="num">0.4</span>]:
-    print(<span class="str">f"\n--- min_sup={sup} ---"</span>)
-    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
-    print(freq)
-    rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.6</span>)
-    print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>]])</pre>
-    <div class="note">Install mlxtend: <code>pip install mlxtend</code></div>
-  </div>
-</div>
-
-<!-- ===== SLIP 7 ===== -->
-<div class="slip" id="s7">
-  <div class="slip-header"><span class="slip-num">SLIP 07</span><span class="slip-title">PHP DOM Parser (Movie.xml) + Market Basket Apriori</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP DOMDocument Parse Movie.xml [15 Marks]</div>
-    <div class="file-label">Movie.xml</div>
-<pre>&lt;?xml version="1.0"?&gt;
-&lt;MovieInfo&gt;
-  &lt;Movie&gt;&lt;MovieNo&gt;1&lt;/MovieNo&gt;&lt;MovieTitle&gt;Inception&lt;/MovieTitle&gt;&lt;ActorName&gt;DiCaprio&lt;/ActorName&gt;&lt;ReleaseYear&gt;2010&lt;/ReleaseYear&gt;&lt;/Movie&gt;
-  &lt;Movie&gt;&lt;MovieNo&gt;2&lt;/MovieNo&gt;&lt;MovieTitle&gt;Interstellar&lt;/MovieTitle&gt;&lt;ActorName&gt;McConaughey&lt;/ActorName&gt;&lt;ReleaseYear&gt;2014&lt;/ReleaseYear&gt;&lt;/Movie&gt;
-  &lt;Movie&gt;&lt;MovieNo&gt;3&lt;/MovieNo&gt;&lt;MovieTitle&gt;Dunkirk&lt;/MovieTitle&gt;&lt;ActorName&gt;Fionn&lt;/ActorName&gt;&lt;ReleaseYear&gt;2017&lt;/ReleaseYear&gt;&lt;/Movie&gt;
-  &lt;Movie&gt;&lt;MovieNo&gt;4&lt;/MovieNo&gt;&lt;MovieTitle&gt;Avatar&lt;/MovieTitle&gt;&lt;ActorName&gt;Sam Worthington&lt;/ActorName&gt;&lt;ReleaseYear&gt;2009&lt;/ReleaseYear&gt;&lt;/Movie&gt;
-  &lt;Movie&gt;&lt;MovieNo&gt;5&lt;/MovieNo&gt;&lt;MovieTitle&gt;RRR&lt;/MovieTitle&gt;&lt;ActorName&gt;Jr NTR&lt;/ActorName&gt;&lt;ReleaseYear&gt;2022&lt;/ReleaseYear&gt;&lt;/Movie&gt;
-&lt;/MovieInfo&gt;</pre>
-    <div class="file-label">readmovie.php</div>
-<pre>&lt;?php
-$dom = new DOMDocument();
-$dom->load("Movie.xml");
-$movies = $dom->getElementsByTagName("Movie");
-echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;MovieNo&lt;/th&gt;&lt;th&gt;Title&lt;/th&gt;&lt;th&gt;Actor&lt;/th&gt;&lt;th&gt;Year&lt;/th&gt;&lt;/tr&gt;";
-foreach ($movies as $m) {
-    $no    = $m->getElementsByTagName("MovieNo")[0]->nodeValue;
-    $title = $m->getElementsByTagName("MovieTitle")[0]->nodeValue;
-    $actor = $m->getElementsByTagName("ActorName")[0]->nodeValue;
-    $year  = $m->getElementsByTagName("ReleaseYear")[0]->nodeValue;
-    echo "&lt;tr&gt;&lt;td&gt;$no&lt;/td&gt;&lt;td&gt;$title&lt;/td&gt;&lt;td&gt;$actor&lt;/td&gt;&lt;td&gt;$year&lt;/td&gt;&lt;/tr&gt;";
-}
-echo "&lt;/table&gt;";
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Market Basket Apriori [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-
-<span class="cmt"># Load Market Basket dataset (or use sample)</span>
-transactions = [
-    [<span class="str">'Milk'</span>,<span class="str">'Bread'</span>,<span class="str">'Butter'</span>],
-    [<span class="str">'Beer'</span>,<span class="str">'Bread'</span>,<span class="str">'Diaper'</span>],
-    [<span class="str">'Milk'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>,<span class="str">'Coke'</span>],
-    [<span class="str">'Milk'</span>,<span class="str">'Bread'</span>,<span class="str">'Diaper'</span>,<span class="str">'Beer'</span>],
-    [<span class="str">'Bread'</span>,<span class="str">'Butter'</span>,<span class="str">'Milk'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-df.dropna(inplace=<span class="num">True</span>)
-freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
-rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
-print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 8 ===== -->
-<div class="slip" id="s8">
-  <div class="slip-header"><span class="slip-num">SLIP 08</span><span class="slip-title">JavaScript Alert/Prompt/Confirm + Groceries Apriori</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — JavaScript Alert, Prompt &amp; Confirm [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;JS Boxes&lt;/title&gt;&lt;/head&gt;
-&lt;body onload="showMsg()"&gt;
-&lt;script&gt;
-function showMsg() {
-    alert("Exams are near, have you started preparing for?");
-}
-function addNumbers() {
-    var n1 = parseFloat(prompt("Enter first number:"));
-    var n2 = parseFloat(prompt("Enter second number:"));
-    var sum = n1 + n2;
-    var ok = confirm("The sum of " + n1 + " and " + n2 + " is " + sum + ". OK?");
-    if (ok) alert("Sum = " + sum);
-}
-&lt;/script&gt;
-&lt;button onclick="addNumbers()"&gt;Add Two Numbers&lt;/button&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Groceries Apriori [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-
-<span class="cmt"># Sample groceries data (use actual Groceries.csv if available)</span>
-transactions = [
-    [<span class="str">'whole milk'</span>,<span class="str">'yogurt'</span>,<span class="str">'soda'</span>],
-    [<span class="str">'whole milk'</span>,<span class="str">'rolls/buns'</span>],
-    [<span class="str">'other vegetables'</span>,<span class="str">'whole milk'</span>,<span class="str">'butter'</span>],
-    [<span class="str">'whole milk'</span>,<span class="str">'tropical fruit'</span>],
-    [<span class="str">'rolls/buns'</span>,<span class="str">'soda'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
-print(<span class="str">"Frequent Itemsets:\n"</span>, freq)
-rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
-print(<span class="str">"Association Rules:\n"</span>, rules)</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 9 ===== -->
-<div class="slip" id="s9">
-  <div class="slip-header"><span class="slip-num">SLIP 09</span><span class="slip-title">JavaScript Form Validation + Own Transactions Apriori</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — JavaScript Membership Form Validation [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;Membership Validation&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;form onsubmit="return validate()"&gt;
-  Username: &lt;input type="text" id="uname"&gt;&lt;br&gt;
-  Password: &lt;input type="password" id="pwd"&gt;&lt;br&gt;
-  &lt;input type="submit" value="Register"&gt;
-&lt;/form&gt;
-&lt;p id="msg" style="color:red"&gt;&lt;/p&gt;
-&lt;script&gt;
-function validate() {
-    var u = document.getElementById("uname").value.trim();
-    var p = document.getElementById("pwd").value;
-    var msg = document.getElementById("msg");
-    if (u === "") { msg.textContent = "Username is required."; return false; }
-    if (u.length &lt; 4) { msg.textContent = "Username min 4 chars."; return false; }
-    if (p.length &lt; 6) { msg.textContent = "Password min 6 chars."; return false; }
-    if (!/[A-Z]/.test(p)) { msg.textContent = "Password needs uppercase."; return false; }
-    msg.style.color = "green";
-    msg.textContent = "Validation Successful!";
-    return false; // prevent actual submit
-}
-&lt;/script&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Own Transactions Apriori [15 Marks]</div>
-<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-<span class="kw">import</span> pandas <span class="kw">as</span> pd
-
-transactions = [
-    [<span class="str">'Pen'</span>,<span class="str">'Notebook'</span>,<span class="str">'Eraser'</span>],
-    [<span class="str">'Pen'</span>,<span class="str">'Ruler'</span>],
-    [<span class="str">'Notebook'</span>,<span class="str">'Eraser'</span>,<span class="str">'Sharpener'</span>],
-    [<span class="str">'Pen'</span>,<span class="str">'Notebook'</span>,<span class="str">'Ruler'</span>],
-    [<span class="str">'Pen'</span>,<span class="str">'Eraser'</span>,<span class="str">'Sharpener'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
-rules = association_rules(freq, metric=<span class="str">"lift"</span>, min_threshold=<span class="num">1.0</span>)
-print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 10 ===== -->
-<div class="slip" id="s10">
-  <div class="slip-header"><span class="slip-num">SLIP 10</span><span class="slip-title">HTML jQuery before()/after() + Apriori (eggs/milk/bread)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — jQuery before() and after() [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;&lt;head&gt;
-&lt;script src="https://code.jquery.com/jquery-3.6.0.min.js"&gt;&lt;/script&gt;
+}</pre></div></div>
+<div class="slip" id="s3">
+  <div class="slip-header"><span class="slip-num">SLIP 03</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Patient.html
+&lt;html&gt;
+&lt;head&gt;
+&lt;title&gt; Patient &lt;/title&gt;
 &lt;/head&gt;
 &lt;body&gt;
-&lt;p id="para"&gt;This is original paragraph.&lt;/p&gt;
-&lt;button id="btnBefore"&gt;Insert Before&lt;/button&gt;
-&lt;button id="btnAfter"&gt;Insert After&lt;/button&gt;
-&lt;script&gt;
-$("#btnBefore").click(function(){
-    $("#para").before("&lt;p style='color:blue'&gt;Text BEFORE paragraph.&lt;/p&gt;");
-});
-$("#btnAfter").click(function(){
-    $("#para").after("&lt;p style='color:green'&gt;Text AFTER paragraph.&lt;/p&gt;");
-});
-&lt;/script&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
+&lt;form method = &quot;post&quot; action = &quot;patient.jsp&quot;&gt;
+Enter Number: &lt;input type = &quot;text&quot; name = &quot;num&quot;&gt; &lt;br&gt;
+Enter Name: &lt;input type = &quot;text&quot; name = &quot;name&quot;&gt; &lt;br&gt;
+Enter Age: &lt;input type = &quot;text&quot; name = &quot;age&quot;&gt; &lt;br&gt;
+Enter Address: &lt;input type = &quot;text&quot; name = &quot;address&quot;&gt; &lt;br&gt;
+&lt;input type = &quot;submit&quot; name = &quot;submit&quot; value = &quot;submit&quot;&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
 
-    <div class="q-label">Q.2 — Python: Apriori (eggs, milk, bread, apple) [15 Marks]</div>
-<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-<span class="kw">import</span> pandas <span class="kw">as</span> pd
-
-transactions = [
-    [<span class="str">'eggs'</span>,<span class="str">'milk'</span>,<span class="str">'bread'</span>],
-    [<span class="str">'eggs'</span>,<span class="str">'apple'</span>],
-    [<span class="str">'milk'</span>,<span class="str">'bread'</span>],
-    [<span class="str">'apple'</span>,<span class="str">'milk'</span>],
-    [<span class="str">'milk'</span>,<span class="str">'apple'</span>,<span class="str">'bread'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.6</span>, <span class="num">0.4</span>]:
-    print(<span class="str">f"\nmin_sup={sup}"</span>)
-    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
-    print(freq)
-    rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
-    print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>]])</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 11 ===== -->
-<div class="slip" id="s11">
-  <div class="slip-header"><span class="slip-num">SLIP 11</span><span class="slip-title">JavaScript Student Name Events + Apriori (butter/eggs/milk)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — JavaScript Events (onblur, onload, onmousehover etc.) [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
+Patient.jsp
 &lt;html&gt;
-&lt;body onload="alert('Page Loaded!')"&gt;
-&lt;input type="text" id="sname" placeholder="Enter student name"
-  onblur="checkName()"&gt;
-&lt;img id="img1" src="https://via.placeholder.com/100"
-  onmouseover="this.style.width='150px'"
-  onmouseout="this.style.width='100px'"
-  onclick="this.style.width='200px'"&gt;
-&lt;p id="msg"&gt;&lt;/p&gt;
-&lt;script&gt;
-function checkName() {
-    var val = document.getElementById("sname").value;
-    var msg = document.getElementById("msg");
-    if (val !== "") {
-        msg.style.color = "red";
-        msg.style.fontSize = "18px";
-        msg.textContent = "Hello, " + val + "!";
-    } else {
-        document.getElementById("img1").style.display = "block";
+&lt;head&gt;
+&lt;title&gt; Hello User &lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;% String num = request.getParameter(&quot;num&quot;);
+String name = request.getParameter(&quot;name&quot;);
+String age = request.getParameter(&quot;age&quot;);
+String address = request.getParameter(&quot;address&quot;);
+%&gt;
+&lt;table border = &quot;1&quot;&gt;
+&lt;tr&gt;
+&lt;th&gt; No. &lt;/th&gt;
+&lt;td&gt; &lt;% out.print(num); %&gt; &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt; Name &lt;/th&gt;
+&lt;td&gt; &lt;% out.print(name); %&gt; &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt; Age &lt;/th&gt;
+&lt;td&gt; &lt;% out.print(age); %&gt; &lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;th&gt; Address &lt;/th&gt;
+&lt;td&gt; &lt;% out.print(address); %&gt; &lt;/td&gt;
+&lt;/tr&gt;
+&lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+class S3Q2
+{
+public static void main(String[] args)
+{
+LinkedList&lt;String&gt; ls=new LinkedList&lt;String&gt;();
+ls.add(&quot;Apple&quot;);
+ls.add(&quot;Banana&quot;);
+ls.add(&quot;Orange&quot;);
+ls.add(&quot;Grapes&quot;);
+ls.add(&quot;Coconut&quot;);
+System.out.println(&quot;Original Linkedlist:\n&quot; +ls);
+ls.removeFirst();
+System.out.println(&quot;After Deleting first element:\n&quot;+ls);
+Iterator iterator=ls.descendingIterator();
+while(iterator.hasNext())
+{
+System.out.println(iterator.next());
+}
+}
+}</pre></div></div>
+<div class="slip" id="s4">
+  <div class="slip-header"><span class="slip-num">SLIP 04</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
+import java.awt.*;
+
+public class example 
+{
+
+    public static void main(String[] args) 
+    {
+        JFrame f = new JFrame(&quot;Blink Text&quot;);
+        JLabel l = new JLabel(&quot;HELLO WORLD&quot;);
+        f.add(l);
+        f.setSize(400, 200);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        f.setVisible(true);
+
+        Runnable r = new Runnable() 
+        {
+            public void run() 
+            {
+                try 
+                {
+                    while (true) 
+                    {
+                        
+                        l.setVisible(!l.isVisible());
+                        Thread.sleep(500);
+                    }
+                } 
+                catch (Exception e) 
+                {
+                }
+            }
+        };
+
+        Thread t = new Thread(r);
+        t.start();
     }
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+class S4Q2
+{
+public static void main(String[] args)
+{
+Scanner sc=new Scanner(System.in);
+HashMap&lt;String,Integer&gt; hm=new HashMap&lt;String,integer&gt;();
+hm.put(&quot;Mumbai&quot;,22);
+hm.put(&quot;Pune&quot;,20);
+hm.put(&quot;Nagpur&quot;,712);
+hm.put(&quot;Delhi&quot;,11);
+System.out.println(&quot;Enter city name to add:&quot;);
+String city=sc.next();
+if(!hm.contains(city))
+{
+System.out.println(&quot;Enter STD code:&quot;);
+int n=sc.nextInt();
+hm.put(city,code);
+System.out.println(&quot;Added Successfully&quot;);
 }
-&lt;/script&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Apriori (butter, flour, milk, etc.) [15 Marks]</div>
-<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-<span class="kw">import</span> pandas <span class="kw">as</span> pd
-
-transactions = [
-    [<span class="str">'butter'</span>,<span class="str">'bread'</span>,<span class="str">'milk'</span>],
-    [<span class="str">'butter'</span>,<span class="str">'flour'</span>,<span class="str">'milk'</span>,<span class="str">'sugar'</span>],
-    [<span class="str">'butter'</span>,<span class="str">'eggs'</span>,<span class="str">'milk'</span>,<span class="str">'salt'</span>],
-    [<span class="str">'eggs'</span>],
-    [<span class="str">'butter'</span>,<span class="str">'flour'</span>,<span class="str">'milk'</span>,<span class="str">'salt'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.6</span>, <span class="num">0.4</span>]:
-    print(<span class="str">f"\nmin_sup={sup}"</span>)
-    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
-    print(freq)
-    if <span class="kw">not</span> freq.empty:
-        rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
-        print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'confidence'</span>]])</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 12 ===== -->
-<div class="slip" id="s12">
-  <div class="slip-header"><span class="slip-num">SLIP 12</span><span class="slip-title">AJAX Contact.dat Table + Heights-Weights Linear Regression</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — AJAX Read contact.dat in Tabular Format [15 Marks]</div>
-    <div class="file-label">contact.dat</div>
-<pre>1,Alice,021-555,9876543210,Mumbai
-2,Bob,022-666,9123456789,Pune
-3,Carol,020-777,9988776655,Nagpur</pre>
-    <div class="file-label">index.html</div>
-<pre>&lt;button onclick="loadData()"&gt;Print Contacts&lt;/button&gt;
-&lt;div id="result"&gt;&lt;/div&gt;
-&lt;script&gt;
-function loadData() {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET","get_contacts.php",true);
-    xhr.onreadystatechange = function() {
-        if (this.readyState==4 && this.status==200)
-            document.getElementById("result").innerHTML = this.responseText;
-    };
-    xhr.send();
+else
+{
 }
-&lt;/script&gt;</pre>
-    <div class="file-label">get_contacts.php</div>
-<pre>&lt;?php
-$lines = file("contact.dat", FILE_IGNORE_NEW_LINES);
-echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;SrNo&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Res No&lt;/th&gt;&lt;th&gt;Mobile&lt;/th&gt;&lt;th&gt;Address&lt;/th&gt;&lt;/tr&gt;";
-foreach ($lines as $line) {
-    $d = explode(",", $line);
-    echo "&lt;tr&gt;&lt;td&gt;{$d[0]}&lt;/td&gt;&lt;td&gt;{$d[1]}&lt;/td&gt;&lt;td&gt;{$d[2]}&lt;/td&gt;&lt;td&gt;{$d[3]}&lt;/td&gt;&lt;td&gt;{$d[4]}&lt;/td&gt;&lt;/tr&gt;";
+System.out.println(&quot;city does not exist&quot;);
+System.out.println(&quot;Enter city name to remove:&quot;);
+String city1=sc.next();
+if(!hm.contains(city1))
+{
+System.out.println(&quot;City does not exist&quot;);
 }
-echo "&lt;/table&gt;";
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Heights-Weights Linear Regression [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
-
-data = {<span class="str">'Height'</span>:[150,160,170,175,180,185,190,155,165,172],
-        <span class="str">'Weight'</span>:[50, 60, 70, 75, 80, 85, 90, 55, 65, 72]}
-df = pd.DataFrame(data)
-X = df[[<span class="str">'Height'</span>]]; y = df[<span class="str">'Weight'</span>]
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=<span class="num">0.2</span>, random_state=<span class="num">0</span>)
-model = LinearRegression().fit(X_train, y_train)
-print(<span class="str">"Coefficient:"</span>, model.coef_[<span class="num">0</span>])
-print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 13 ===== -->
-<div class="slip" id="s13">
-  <div class="slip-header"><span class="slip-num">SLIP 13</span><span class="slip-title">AJAX Name Greeting + Nursery Linear Regression</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — AJAX Name Greeting Server [15 Marks]</div>
-    <div class="file-label">index.html</div>
-<pre>&lt;input type="text" id="uname" oninput="greet(this.value)"
-       placeholder="Type your name"&gt;
-&lt;p id="greeting"&gt;&lt;/p&gt;
-&lt;script&gt;
-function greet(name) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET","greet.php?name="+encodeURIComponent(name),true);
-    xhr.onreadystatechange = function() {
-        if (this.readyState==4 && this.status==200)
-            document.getElementById("greeting").innerHTML = this.responseText;
-    };
-    xhr.send();
+else
+{
 }
-&lt;/script&gt;</pre>
-    <div class="file-label">greet.php</div>
-<pre>&lt;?php
-$name = trim($_GET['name'] ?? '');
-$masters = ['Rohit','Virat','Dhoni','Ashwin','Harbhajan'];
-if ($name === '') echo "Stranger, please tell me your name!";
-elseif (in_array($name, $masters)) echo "Hello, master!";
-else echo ", I don't know you!";
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Nursery Dataset Linear Regression [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
-
-<span class="cmt"># Download nursery.data from UCI Machine Learning Repository</span>
-url = <span class="str">"https://archive.ics.uci.edu/ml/machine-learning-databases/nursery/nursery.data"</span>
-cols = [<span class="str">'parents'</span>,<span class="str">'has_nurs'</span>,<span class="str">'form'</span>,<span class="str">'children'</span>,<span class="str">'housing'</span>,<span class="str">'finance'</span>,<span class="str">'social'</span>,<span class="str">'health'</span>,<span class="str">'class'</span>]
-df = pd.read_csv(url, names=cols)
-le = LabelEncoder()
-<span class="kw">for</span> col <span class="kw">in</span> df.columns: df[col] = le.fit_transform(df[col])
-X = df.drop(<span class="str">'class'</span>, axis=<span class="num">1</span>); y = df[<span class="str">'class'</span>]
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">42</span>)
-model = LinearRegression().fit(X_train, y_train)
-print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 14 ===== -->
-<div class="slip" id="s14">
-  <div class="slip-header"><span class="slip-num">SLIP 14</span><span class="slip-title">AJAX Teacher Table + Apriori (Fruits)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — Create TEACHER Table + AJAX Select Teacher [15 Marks]</div>
-    <div class="file-label">create_teacher.sql</div>
-<pre>CREATE TABLE TEACHER (
-  tno INT PRIMARY KEY, tname VARCHAR(50),
-  qualification VARCHAR(30), salary DECIMAL(10,2)
+hm.remove(city1);
+System.out.println(&quot;Enter city name to search:&quot;);
+String city2=sc.next();
+if(hm.contains(city2))
+{
+System.out.println(&quot;Code of&quot;+city2+&quot;is:&quot;+hm.get(city2));
+}
+else
+{
+System.out.println(&quot;City does not exist&quot;);
+}
+}
+}</pre></div></div>
+<div class="slip" id="s5">
+  <div class="slip-header"><span class="slip-num">SLIP 05</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class s5_1
+{
+System.out.println(&quot;City does not exist&quot;);
+public static void main(String args[])
+{
+Hashtable&lt;Long, String&gt; ht = new Hashtable&lt;&gt;();
+ht.put(8000000020L, &quot;Asawari&quot;);
+ht.put(8020007788L, &quot;Vaishali&quot;);
+ht.put(7780000020L, &quot;Bhakti&quot;);
+Enumeration&lt;Long&gt; keys = ht.keys();
+System.out.println(&quot;Student details:&quot;);
+while (keys.hasMoreElements())
+{
+Long mobile = keys.nextElement();
+String name = ht.get(mobile);
+System.out.println(&quot;Mobile no: &quot; + mobile + &quot; Name: &quot; + name);
+}
+}
+}</pre><div class="q-label">Question 2</div><div class="file-label">Database</div><pre>CREATE TABLE Questions (
+    qid SERIAL PRIMARY KEY,
+    question TEXT,
+    option1 TEXT,
+    option2 TEXT,
+    option3 TEXT,
+    option4 TEXT,
+    answer TEXT
 );
-INSERT INTO TEACHER VALUES
-(1,'Alice','M.Sc',55000),(2,'Bob','M.Tech',60000),(3,'Carol','Ph.D',80000);</pre>
-    <div class="file-label">index.html</div>
-<pre>&lt;select id="tname" onchange="getDetails(this.value)"&gt;
-  &lt;option value=""&gt;-- Select Teacher --&lt;/option&gt;
-  &lt;option&gt;Alice&lt;/option&gt;&lt;option&gt;Bob&lt;/option&gt;&lt;option&gt;Carol&lt;/option&gt;
-&lt;/select&gt;
-&lt;div id="details"&gt;&lt;/div&gt;
-&lt;script&gt;
-function getDetails(name) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET","get_teacher.php?name="+name,true);
-    xhr.onreadystatechange = function() {
-        if (this.readyState==4 && this.status==200)
-            document.getElementById("details").innerHTML = this.responseText;
-    };
-    xhr.send();
-}
-&lt;/script&gt;</pre>
-    <div class="file-label">get_teacher.php</div>
-<pre>&lt;?php
-$conn = mysqli_connect("localhost","root","","school");
-$name = mysqli_real_escape_string($conn, $_GET['name']);
-$res  = mysqli_query($conn, "SELECT * FROM TEACHER WHERE tname='$name'");
-$row  = mysqli_fetch_assoc($res);
-if ($row) {
-    echo "No: {$row['tno']} | Qual: {$row['qualification']} | Salary: {$row['salary']}";
-}
-?&gt;</pre>
 
-    <div class="q-label">Q.2 — Python: Apriori (Apple, Mango, Banana, Carrots) [15 Marks]</div>
-<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-<span class="kw">import</span> pandas <span class="kw">as</span> pd
-
-transactions = [
-    [<span class="str">'Apple'</span>,<span class="str">'Mango'</span>,<span class="str">'Banana'</span>],
-    [<span class="str">'Mango'</span>,<span class="str">'Banana'</span>,<span class="str">'Cabbage'</span>,<span class="str">'Carrots'</span>],
-    [<span class="str">'Mango'</span>,<span class="str">'Banana'</span>,<span class="str">'Carrots'</span>],
-    [<span class="str">'Mango'</span>,<span class="str">'Carrots'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-<span class="kw">for</span> sup <span class="kw">in</span> [<span class="num">0.75</span>,<span class="num">0.5</span>]:
-    print(<span class="str">f"\nmin_sup={sup}"</span>)
-    freq = apriori(df, min_support=sup, use_colnames=<span class="num">True</span>)
-    print(freq)
-    rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
-    print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>]])</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 15 ===== -->
-<div class="slip" id="s15">
-  <div class="slip-header"><span class="slip-num">SLIP 15</span><span class="slip-title">AJAX Autocomplete Suggestion + Apriori (Car Dataset)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — AJAX Google-like Autocomplete [15 Marks]</div>
-    <div class="file-label">suggest.html</div>
-<pre>&lt;input type="text" id="search" oninput="fetchSuggestions(this.value)"
-       placeholder="Search..."&gt;
-&lt;ul id="suggestions"&gt;&lt;/ul&gt;
-&lt;script&gt;
-function fetchSuggestions(q) {
-    if (!q) { document.getElementById("suggestions").innerHTML=""; return; }
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET","suggest.php?q="+encodeURIComponent(q),true);
-    xhr.onreadystatechange = function() {
-        if (this.readyState==4 && this.status==200)
-            document.getElementById("suggestions").innerHTML = this.responseText;
-    };
-    xhr.send();
-}
-&lt;/script&gt;</pre>
-    <div class="file-label">suggest.php</div>
-<pre>&lt;?php
-$suggestions = ["Apple","Apricot","Avocado","Banana","Blueberry",
-                "Cherry","Coconut","Date","Grapes","Guava"];
-$q = strtolower($_GET['q'] ?? '');
-$out = "";
-foreach ($suggestions as $s) {
-    if (str_starts_with(strtolower($s), $q))
-        $out .= "&lt;li&gt;$s&lt;/li&gt;";
-}
-echo $out ?: "&lt;li&gt;No suggestions&lt;/li&gt;";
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Apriori (Car – Tata, MG, KIA, Hyundai) [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
-<span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-
-data = {<span class="str">'company'</span>:[<span class="str">'Tata'</span>,<span class="str">'MG'</span>,<span class="str">'KIA'</span>,<span class="str">'Hyundai'</span>],
-        <span class="str">'model'</span>:  [<span class="str">'Nexon'</span>,<span class="str">'Astor'</span>,<span class="str">'Seltos'</span>,<span class="str">'Creta'</span>],
-        <span class="str">'year'</span>:   [<span class="num">2017</span>,<span class="num">2021</span>,<span class="num">2019</span>,<span class="num">2015</span>]}
-df = pd.DataFrame(data)
-le = LabelEncoder()
-<span class="kw">for</span> col <span class="kw">in</span> [<span class="str">'company'</span>,<span class="str">'model'</span>]: df[col] = le.fit_transform(df[col])
-print(df)
-<span class="cmt"># Treat each row as a transaction of (company, model, year-bin)</span>
-transactions = [[row[<span class="str">'company'</span>],row[<span class="str">'model'</span>]] <span class="kw">for</span> _,row <span class="kw">in</span> df.iterrows()]
-te = TransactionEncoder()
-df2 = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-freq = apriori(df2, min_support=<span class="num">0.25</span>, use_colnames=<span class="num">True</span>)
-print(freq)</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 16 ===== -->
-<div class="slip" id="s16">
-  <div class="slip-header"><span class="slip-num">SLIP 16</span><span class="slip-title">AJAX Book XML + Text Extractive Summarization</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — AJAX Book Details from XML [15 Marks]</div>
-    <div class="file-label">books.xml</div>
-<pre>&lt;?xml version="1.0"?&gt;
-&lt;books&gt;
-  &lt;book&gt;&lt;title&gt;PHP Basics&lt;/title&gt;&lt;author&gt;John&lt;/author&gt;&lt;year&gt;2020&lt;/year&gt;&lt;price&gt;350&lt;/price&gt;&lt;/book&gt;
-  &lt;book&gt;&lt;title&gt;Python ML&lt;/title&gt;&lt;author&gt;Alice&lt;/author&gt;&lt;year&gt;2021&lt;/year&gt;&lt;price&gt;500&lt;/price&gt;&lt;/book&gt;
-  &lt;book&gt;&lt;title&gt;Data Science&lt;/title&gt;&lt;author&gt;Bob&lt;/author&gt;&lt;year&gt;2022&lt;/year&gt;&lt;price&gt;600&lt;/price&gt;&lt;/book&gt;
-&lt;/books&gt;</pre>
-    <div class="file-label">index.html</div>
-<pre>&lt;select onchange="getBook(this.value)"&gt;
-  &lt;option value=""&gt;Select Book&lt;/option&gt;
-  &lt;option&gt;PHP Basics&lt;/option&gt;
-  &lt;option&gt;Python ML&lt;/option&gt;
-  &lt;option&gt;Data Science&lt;/option&gt;
-&lt;/select&gt;
-&lt;div id="info"&gt;&lt;/div&gt;
-&lt;script&gt;
-function getBook(title) {
-    var xhr = new XMLHttpRequest();
-    xhr.open("GET","get_book.php?title="+encodeURIComponent(title),true);
-    xhr.onreadystatechange = function(){
-        if(this.readyState==4 && this.status==200)
-            document.getElementById("info").innerHTML=this.responseText;
-    };
-    xhr.send();
-}
-&lt;/script&gt;</pre>
-    <div class="file-label">get_book.php</div>
-<pre>&lt;?php
-$xml = simplexml_load_file("books.xml");
-$title = $_GET['title'];
-foreach ($xml->book as $b) {
-    if ((string)$b->title == $title) {
-        echo "Author: {$b->author}&lt;br&gt;Year: {$b->year}&lt;br&gt;Price: {$b->price}";
-    }
-}
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Extractive Summarization [15 Marks]</div>
-<pre><span class="kw">import</span> re, nltk
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> sent_tokenize, word_tokenize
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
-<span class="kw">from</span> collections <span class="kw">import</span> Counter
-
-nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
-
-text = <span class="str">"""Natural Language Processing is a subfield of artificial intelligence.
-It focuses on the interaction between computers and humans through language.
-NLP tasks include text classification, sentiment analysis, and summarization.
-Machine learning models are widely used in NLP applications."""</span>
-
-<span class="cmt"># Preprocess</span>
-clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>, <span class="str">''</span>, text).lower()
-words = word_tokenize(clean)
-stop = set(stopwords.words(<span class="str">'english'</span>))
-filtered = [w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w <span class="kw">not</span> <span class="kw">in</span> stop]
-freq = Counter(filtered)
-
-<span class="cmt"># Score sentences</span>
-sentences = sent_tokenize(text)
-scores = {}
-<span class="kw">for</span> s <span class="kw">in</span> sentences:
-    <span class="kw">for</span> w <span class="kw">in</span> word_tokenize(s.lower()):
-        <span class="kw">if</span> w <span class="kw">in</span> freq: scores[s] = scores.get(s,<span class="num">0</span>) + freq[w]
-
-top_n = <span class="num">2</span>
-summary = sorted(scores, key=scores.get, reverse=<span class="num">True</span>)[:top_n]
-print(<span class="str">"Summary:"</span>, <span class="str">' '</span>.join(summary))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 17 ===== -->
-<div class="slip" id="s17">
-  <div class="slip-header"><span class="slip-num">SLIP 17</span><span class="slip-title">JS Hello Good Morning + Extractive Summarization</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — JavaScript Hello Good Morning + Student Registration Form [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
+INSERT INTO Questions (question, option1, option2, option3, option4, answer) VALUES
+(&#x27;Which of these is not a Java feature?&#x27;, &#x27;Dynamic&#x27;, &#x27;Architecture Neutral&#x27;, &#x27;Use of pointers&#x27;, &#x27;Object Oriented&#x27;, &#x27;Use of pointers&#x27;),
+(&#x27;Which package contains the Random class?&#x27;, &#x27;java.util&#x27;, &#x27;java.lang&#x27;, &#x27;java.io&#x27;, &#x27;java.net&#x27;, &#x27;java.util&#x27;),
+(&#x27;JSP stands for?&#x27;, &#x27;Java Server Page&#x27;, &#x27;Java Simple Page&#x27;, &#x27;Java System Page&#x27;, &#x27;Java Smart Page&#x27;, &#x27;Java Server Page&#x27;);</pre><div class="file-label">Jsp file</div><pre>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;%@ page import=&quot;java.sql.*, java.util.*&quot; %&gt;
+&lt;!DOCTYPE html&gt;
 &lt;html&gt;
-&lt;head&gt;&lt;title&gt;Student Registration&lt;/title&gt;&lt;/head&gt;
-&lt;body onload="greet()"&gt;
-&lt;script&gt;
-function greet() { alert("Hello! Good Morning!"); }
-function validateForm() {
-    var name  = document.getElementById("name").value;
-    var email = document.getElementById("email").value;
-    var roll  = document.getElementById("roll").value;
-    if (!name||!email||!roll) { alert("All fields required!"); return false; }
-    alert("Registered Successfully!");
-    return false;
+&lt;head&gt;
+    &lt;title&gt;Online MCQ Test&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div style=&quot;margin: 50px auto; width: 50%; border: 1px solid #000; padding: 20px;&quot;&gt;
+        &lt;h2&gt;Multiple Choice Test&lt;/h2&gt;
+        &lt;hr&gt;
+        &lt;%
+            // Initialize session variables
+            Integer count = (Integer) session.getAttribute(&quot;count&quot;);
+            Integer score = (Integer) session.getAttribute(&quot;score&quot;);
+            List&lt;Integer&gt; qIds = (List&lt;Integer&gt;) session.getAttribute(&quot;qIds&quot;);
+
+            // First time loading the test
+            if (count == null) {
+                count = 0;
+                score = 0;
+                qIds = new ArrayList&lt;&gt;();
+                
+                try {
+                    Class.forName(&quot;org.postgresql.Driver&quot;);
+                    Connection conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
+                    Statement st = conn.createStatement();
+                    // Get all IDs and shuffle them for randomness
+                    ResultSet rs = st.executeQuery(&quot;SELECT qid FROM Questions&quot;);
+                    while(rs.next()) {
+                        qIds.add(rs.getInt(&quot;qid&quot;));
+                    }
+                    Collections.shuffle(qIds);
+                    session.setAttribute(&quot;qIds&quot;, qIds);
+                    conn.close();
+                } catch(Exception e) { out.print(e); }
+            }
+
+            // Logic for handling &#x27;Next&#x27; or &#x27;Submit&#x27;
+            String action = request.getParameter(&quot;action&quot;);
+            if (action != null) {
+                String selectedAns = request.getParameter(&quot;ans&quot;);
+                String correctAns = request.getParameter(&quot;correctAns&quot;);
+                
+                if (selectedAns != null &amp;&amp; selectedAns.equals(correctAns)) {
+                    score++;
+                }
+                
+                if (action.equals(&quot;Next&quot;)) {
+                    count++;
+                } else if (action.equals(&quot;Submit&quot;)) {
+                    out.println(&quot;&lt;h3&gt;Test Completed!&lt;/h3&gt;&quot;);
+                    out.println(&quot;&lt;h3&gt;Your Total Score: &quot; + score + &quot; / &quot; + qIds.size() + &quot;&lt;/h3&gt;&quot;);
+                    out.println(&quot;&lt;a href=&#x27;OnlineTest.jsp&#x27;&gt;Restart Test&lt;/a&gt;&quot;);
+                    session.invalidate(); // Clear session to restart
+                    return;
+                }
+            }
+
+            session.setAttribute(&quot;count&quot;, count);
+            session.setAttribute(&quot;score&quot;, score);
+
+            // Fetch current question details
+            if (qIds != null &amp;&amp; count &lt; qIds.size()) {
+                try {
+                    Connection conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
+                    PreparedStatement ps = conn.prepareStatement(&quot;SELECT * FROM Questions WHERE qid=?&quot;);
+                    ps.setInt(1, qIds.get(count));
+                    ResultSet rs = ps.executeQuery();
+                    
+                    if (rs.next()) {
+        %&gt;
+                        &lt;form action=&quot;OnlineTest.jsp&quot; method=&quot;post&quot;&gt;
+                            &lt;p&gt;&lt;b&gt;Question &lt;%= count + 1 %&gt;:&lt;/b&gt; &lt;%= rs.getString(&quot;question&quot;) %&gt;&lt;/p&gt;
+                            &lt;input type=&quot;hidden&quot; name=&quot;correctAns&quot; value=&quot;&lt;%= rs.getString(&quot;answer&quot;) %&gt;&quot;&gt;
+                            
+                            &lt;input type=&quot;radio&quot; name=&quot;ans&quot; value=&quot;&lt;%= rs.getString(&quot;option1&quot;) %&gt;&quot;&gt; &lt;%= rs.getString(&quot;option1&quot;) %&gt;&lt;br&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;ans&quot; value=&quot;&lt;%= rs.getString(&quot;option2&quot;) %&gt;&quot;&gt; &lt;%= rs.getString(&quot;option2&quot;) %&gt;&lt;br&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;ans&quot; value=&quot;&lt;%= rs.getString(&quot;option3&quot;) %&gt;&quot;&gt; &lt;%= rs.getString(&quot;option3&quot;) %&gt;&lt;br&gt;
+                            &lt;input type=&quot;radio&quot; name=&quot;ans&quot; value=&quot;&lt;%= rs.getString(&quot;option4&quot;) %&gt;&quot;&gt; &lt;%= rs.getString(&quot;option4&quot;) %&gt;&lt;br&gt;&lt;br&gt;
+
+                            &lt;% if (count &lt; qIds.size() - 1) { %&gt;
+                                &lt;input type=&quot;submit&quot; name=&quot;action&quot; value=&quot;Next&quot;&gt;
+                            &lt;% } else { %&gt;
+                                &lt;input type=&quot;submit&quot; name=&quot;action&quot; value=&quot;Submit&quot;&gt;
+                            &lt;% } %&gt;
+                        &lt;/form&gt;
+        &lt;%
+                    }
+                    conn.close();
+                } catch(Exception e) { out.print(e); }
+            }
+        %&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+<div class="slip" id="s6">
+  <div class="slip-header"><span class="slip-num">SLIP 06</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class S6Q1
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+TreeSet ts=new TreeSet();
+System.out.println(&quot;Enter number of elements:&quot;);
+int n=sc.nextInt();
+System.out.println(&quot;Enter&quot; + n + &quot;integer:&quot;);
+for(int i=0;i&lt;n;i++)
+{
+ts.add(sc.nextInt());
 }
-&lt;/script&gt;
-&lt;h2&gt;Student Registration Form&lt;/h2&gt;
-&lt;form onsubmit="return validateForm()"&gt;
-  Name:  &lt;input type="text"  id="name"&gt;&lt;br&gt;
-  Email: &lt;input type="email" id="email"&gt;&lt;br&gt;
-  Roll:  &lt;input type="text"  id="roll"&gt;&lt;br&gt;
-  &lt;input type="submit" value="Register"&gt;
-&lt;/form&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
+System.out.println(&quot;Sorted elements:&quot;+ts);
+System.out.println(&quot;Enter the elements for search:&quot;);
+int search=sc.nextInt();
+if(ts.contains(search))
+{
+System.out.println(&quot;element found in collection&quot;);
+}
+else
+{
+System.out.println(&quot;element not found in collection&quot;);
+} } }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
+import java.awt.*;
 
-    <div class="q-label">Q.2 — Python: Extractive Summarization (Motivational Text) [15 Marks]</div>
-<pre><span class="kw">import</span> re, nltk
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> sent_tokenize, word_tokenize
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
-<span class="kw">from</span> collections <span class="kw">import</span> Counter
+public class TrafficSignal extends JFrame implements Runnable {
+    private String color = &quot;RED&quot;; // Initial state
+    private Thread t;
 
-nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+    public TrafficSignal() {
+        setTitle(&quot;Traffic Signal Simulation&quot;);
+        setSize(200, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        
+        // Start the thread
+        t = new Thread(this);
+        t.start();
+        
+        setVisible(true);
+    }
 
-text = <span class="str">"""So keep working. Keep striving. Never give up.
-Fall down seven times get up eight.
-Ease is a greater threat to progress than hardship.
-So keep moving keep growing keep learning. See you at work."""</span>
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                // RED State
+                color = &quot;RED&quot;;
+                repaint();
+                Thread.sleep(5000); // Wait 5 seconds
 
-clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>,<span class="str">''</span>,text).lower()
-words = word_tokenize(clean)
-stop = set(stopwords.words(<span class="str">'english'</span>))
-freq = Counter(w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w <span class="kw">not</span> <span class="kw">in</span> stop)
+                // GREEN State
+                color = &quot;GREEN&quot;;
+                repaint();
+                Thread.sleep(5000); // Wait 5 seconds
 
-sentences = sent_tokenize(text)
-scores = {s: sum(freq.get(w.lower(),<span class="num">0</span>) <span class="kw">for</span> w <span class="kw">in</span> word_tokenize(s)) <span class="kw">for</span> s <span class="kw">in</span> sentences}
-summary = sorted(scores, key=scores.get, reverse=<span class="num">True</span>)[:2]
-print(<span class="str">"Summary:\n"</span> + <span class="str">' '</span>.join(summary))</pre>
-  </div>
-</div>
+                // YELLOW State
+                color = &quot;YELLOW&quot;;
+                repaint();
+                Thread.sleep(2000); // Wait 2 seconds
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
 
-<!-- ===== SLIP 18 ===== -->
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        
+        // Draw the signal box
+        g.setColor(Color.BLACK);
+        g.fillRect(50, 50, 100, 300);
+
+        // Draw Red Light
+        g.setColor(color.equals(&quot;RED&quot;) ? Color.RED : Color.DARK_GRAY);
+        g.fillOval(70, 70, 60, 60);
+
+        // Draw Yellow Light
+        g.setColor(color.equals(&quot;YELLOW&quot;) ? Color.YELLOW : Color.DARK_GRAY);
+        g.fillOval(70, 170, 60, 60);
+
+        // Draw Green Light
+        g.setColor(color.equals(&quot;GREEN&quot;) ? Color.GREEN : Color.DARK_GRAY);
+        g.fillOval(70, 270, 60, 60);
+    }
+
+    public static void main(String[] args) {
+        new TrafficSignal();
+    }
+}</pre></div></div>
+<div class="slip" id="s7">
+  <div class="slip-header"><span class="slip-num">SLIP 07</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.Random;
+class Square extends Thread
+{
+int x;
+Square(int n)
+{
+x = n;
+}
+public void run()
+{
+System.out.println(&quot;Square: &quot; + (x * x));
+}
+}
+class Cube extends Thread
+{
+int x;
+Cube(int n)
+{
+x = n;
+}
+public void run()
+{
+System.out.println(&quot;Cube: &quot; + (x * x * x));
+}
+}
+class S7Q1 extends Thread
+{
+public void run()
+{
+try
+{
+Random r = new Random();
+int num = r.nextInt(10); // 0-9
+System.out.println(&quot;Random number generated is: &quot; + num);
+Thread.sleep(1000);
+if (num % 2 == 0)
+{
+Square s = new Square(num);
+s.start();
+}
+else
+{
+Cube c = new Cube(num);
+c.start();
+}
+}
+catch (Exception e)
+{
+System.out.println(e);
+}
+}
+public static void main(String args[])
+{
+S7Q1 t = new S7Q1();
+t.start();
+}
+}</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
+import java.util.*;
+class Slip7B
+{
+    public static void main(String[] args) throws Exception
+    {
+        Class.forName(&quot;org.postgresql.Driver&quot;);
+        Connection con = DriverManager.getConnection
+        (&quot;jdbc:postgresql://localhost/tybcs&quot;,&quot;postgres&quot;,&quot;&quot;);
+        System.out.println(&quot;Got Connection:&quot;+con);
+        
+        
+        Statement stmt1 = con.createStatement();
+        
+String query1 =&quot;create table product(pid integer, pname text, price integer)&quot;;
+        stmt1.executeUpdate(query1);
+        System.out.println(&quot;Table Created&quot;);
+        
+        
+        
+        String query2 =&quot;insert into product values(?,?,?)&quot;;
+
+        PreparedStatement pstmt = con.prepareStatement(query2);
+        Scanner sc=new Scanner(System.in);
+        int n=5;
+        System.out.println(&quot;Enter Product Information to Insert &quot;); 
+        for(int i = 0 ;i&lt;n;i++)
+        {
+            System.out.println(&quot;Enter Pid:-&quot;);
+            int id = sr.nextInt(); 
+            System.out.println(&quot;Enter Pname:-&quot;);
+            String name = sr.next(); 
+            System.out.println(&quot;Enter Pprice:-&quot;);
+            int price = sr.nextInt();
+            pstmt.setInt(1,id);
+            pstmt.setString(2,name);
+            pstmt.setInt(3,price);
+            pstmt.executeUpdate();
+
+            System.out.println(c+&quot;  Record Updated&quot;); 
+        }
+         
+        System.out.println(&quot;Display Product Details &quot;);
+        Statement stmt2 = con.createStatement();
+        String query3=&quot;select * from product&quot;;
+        ResultSet rs = stmt2.executeQuery(query3);
+        System.out.println(rs);
+        System.out.println(&quot;Pid \t Pname \t Pprice&quot;);
+        while(rs.next())
+        {
+System.out.println(rs.getInt(1)+&quot;\t&quot;+rs.getString(2)+&quot;\t&quot;+rs.getInt(3));
+        }
+        rs.close(); 
+        con.close();
+    }
+}</pre></div></div>
+<div class="slip" id="s8">
+  <div class="slip-header"><span class="slip-num">SLIP 08</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>class demo extends Thread
+{
+String text;
+int n;
+demo(String p, int q)
+{
+text = p;
+n = q;
+}
+public void run()
+{
+try
+{
+for (int i = 1; i &lt;= n; i++)
+{
+System.out.println(text);
+}
+}
+catch (Exception e)
+{
+System.out.println(e);
+}
+}
+}
+class S8Q1
+{
+public static void main(String args[])
+{
+demo t1 = new demo(&quot;COVID19&quot;, 10);
+demo t2 = new demo(&quot;LOCKDOWN&quot;, 20);
+demo t3 = new demo(&quot;VACCINATED&quot;, 30);
+t1.setPriority(1);
+t2.setPriority(5);
+t3.setPriority(10);
+t1.start();
+t2.start();
+t3.start();
+}
+}</pre><div class="q-label">Question 2</div><div class="file-label">Html file</div><pre>&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip12B&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip8B.jsp&quot;&gt;
+        Enter No :-
+        &lt;input type=&quot;text&quot; name=&quot;no&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Check Prime&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Jsp file</div><pre>&lt;html&gt;
+&lt;body&gt;
+&lt;%
+String number = request.getParameter(&quot;number&quot;);
+int num = Integer.parseInt(number);
+boolean prime = true;
+for(int i = 2; i &lt; num; i++)
+{
+if(num % i == 0)
+{
+prime = false;
+break;
+}
+}
+out.println(&quot;Number: &quot; + num + &quot;&lt;br&gt;&quot;);
+if(prime)
+out.println(&quot;Prime Number&quot;);
+else
+out.println(&quot;Not Prime Number&quot;);
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+<div class="slip" id="s9">
+  <div class="slip-header"><span class="slip-num">SLIP 09</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class VerticalBallMovement extends JFrame implements ActionListener {
+    JButton b1;
+    BallPanel panel;
+
+    public VerticalBallMovement() {
+        setTitle(&quot;Vertical Ball Movement&quot;);
+        setSize(400, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        panel = new BallPanel();
+        add(panel, BorderLayout.CENTER);
+
+        b1 = new JButton(&quot;Start Ball&quot;);
+        b1.addActionListener(this);
+        add(b1, BorderLayout.SOUTH);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        if (e.getSource() == b1) {
+            // Create and start a new thread for the ball
+            Thread t = new Thread(panel);
+            t.start();
+            b1.setEnabled(false); // Disable button after starting
+        }
+    }
+
+    public static void main(String[] args) {
+        new VerticalBallMovement();
+    }
+}
+
+class BallPanel extends JPanel implements Runnable {
+    int y = 0; // Vertical position
+    int direction = 1; // 1 for down, -1 for up
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                y += (5 * direction);
+
+                // Reverse direction if ball hits top or bottom boundaries
+                if (y &lt;= 0 || y &gt;= getHeight() - 30) {
+                    direction *= -1;
+                }
+
+                repaint(); // Refresh the panel
+                Thread.sleep(30); // Control speed of animation
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.RED);
+        // Draw the ball at the center horizontally (width/2) and variable y
+        g.fillOval(getWidth() / 2 - 15, y, 30, 30);
+    }
+}</pre><div class="q-label">Question 2</div><pre>The Bean Class (MessageBean.java)
+package com.demo;
+
+public class MessageBean {
+    private String message;
+
+    // Setter method for Dependency Injection
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void display() {
+        System.out.println(&quot;Message: &quot; + message);
+    }
+}
+
+The Configuration File (applicationContext.xml)
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id=&quot;myMessage&quot; class=&quot;com.demo.MessageBean&quot;&gt;
+        &lt;property name=&quot;message&quot; value=&quot;If you can&#x27;t explain it simply, you don&#x27;t understand it well enough&quot; /&gt;
+    &lt;/bean&gt;
+
+&lt;/beans&gt;
+
+The Main Class (TestSpring.java)
+package com.demo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestSpring {
+    public static void main(String[] args) {
+        // Load the configuration file
+        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+
+        // Get the bean object from the Spring container
+        MessageBean bean = (MessageBean) context.getBean(&quot;myMessage&quot;);
+
+        // Call the method
+        bean.display();
+    }
+}</pre></div></div>
+<div class="slip" id="s10">
+  <div class="slip-header"><span class="slip-num">SLIP 10</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>The Bean Class (DateBean.java)
+package com.demo;
+
+import java.util.Date;
+
+public class DateBean {
+    public void displayDate() {
+        Date d = new Date();
+        System.out.println(&quot;Current Date and Time: &quot; + d.toString());
+    }
+}
+
+The Configuration File (applicationContext.xml)
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+
+    &lt;bean id=&quot;dateBtn&quot; class=&quot;com.demo.DateBean&quot; /&gt;
+
+&lt;/beans&gt;
+
+The Main Class (TestDate.java)
+package com.demo;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class TestDate {
+    public static void main(String[] args) {
+        // Initialize the IoC Container
+        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+
+        // Retrieve the bean from the container
+        DateBean bean = (DateBean) context.getBean(&quot;dateBtn&quot;);
+
+        // Execute the method
+        bean.displayDate();
+    }
+}</pre><div class="q-label">Question 2</div><pre>import java.awt.*;
+import java.awt.event.*;
+import javax.swing.*;
+import java.sql.*;
+
+class Slip10B extends JFrame implements ActionListener
+{
+    JLabel lblrno,lblname,lblper;
+    JTextField tfrno,tfname,tfper;
+    JButton btnclear,btnfind;
+    Slip10B()
+    {
+        setTitle(&quot;Studnet Table 1st Record&quot;);
+        setSize(400,400); setVisible(true);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new GridLayout(4,2));
+        
+        lblrno = new JLabel(&quot;Roll No&quot;);
+        lblname = new JLabel(&quot;Name&quot;);
+        lblper = new JLabel(&quot;Percentage&quot;);
+        
+        tfrno = new JTextField(20);  
+        tfname = new JTextField(20);
+        tfper = new JTextField(20);
+    
+        btnclear = new JButton(&quot;Clear&quot;);
+        
+        btnfind = new JButton(&quot;Get Record&quot;);
+        btnfind.addActionListener(this);
+        
+        add(lblrno); add(tfrno);
+        add(lblname);   add(tfname);
+        add(lblper);    add(tfper);
+        add(btnclear);  add(btnfind);
+    }
+    public void actionPerformed(ActionEvent ae)
+    {
+        if(ae.getSource()==btnfind)
+        {
+            jdbc();
+        }
+    }
+    void jdbc() 
+    {
+        try
+        {
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            Connection con = DriverManager.getConnection
+            (&quot;jdbc:postgresql://localhost/slips&quot;,&quot;postgres&quot;,&quot;&quot;);
+            JOptionPane.showMessageDialog
+            (this,&quot;Got Connection:-&quot;+con);
+            
+            Statement stmt = con.createStatement();
+            String query = &quot;select * from student&quot;;
+            ResultSet rs = stmt.executeQuery(query);
+            rs.next();
+            tfrno.setText(&quot;&quot;+rs.getInt(1));
+            tfname.setText(&quot;&quot;+rs.getString(2));
+            tfper.setText(&quot;&quot;+rs.getDouble(3));
+            
+        }
+        catch(Exception e) 
+        {
+        }
+    }
+    public static void main(String[] args)
+    {
+        new Slip10B();
+    }
+}</pre></div></div>
+<div class="slip" id="s11">
+  <div class="slip-header"><span class="slip-num">SLIP 11</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Html file
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip11A&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip11A&quot;&gt;
+        Enter Customer id to search :-
+        &lt;input type=&quot;text&quot; name=&quot;cid&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Search&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+Java file
+import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+import java.sql.*;
+
+public class Slip11A extends HttpServlet
+{
+    public void doGet(HttpServletRequest request,HttpServletResponse response) 
+    throws IOException, ServletException
+   {
+        response.setContentType(&quot;text/html&quot;);
+        PrintWriter pw = response.getWriter();
+        String cid = request.getParameter(&quot;cid&quot;); 
+        pw.println(&quot;Servlet - JDBC&quot;);
+        try
+        {
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            Connection con = DriverManager.getConnection
+            (&quot;jdbc:postgresql://localhost/slips&quot;,&quot;postgres&quot;,&quot;&quot;);
+            pw.println(&quot;&lt;br&gt;Got Connection:-&quot;+con);
+        
+            int id = Integer.parseInt(cid);
+            pw.println(&quot;&lt;br&gt;Searching for customer id: -&quot;+id);
+            String query = &quot;select * from cust where cid =&quot;+id;
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            if(rs.next())
+            {
+                pw.println(&quot;&lt;br&gt;Customer id :-&quot;+rs.getInt(1));
+                pw.println(&quot;&lt;br&gt;Customer name :-&quot;+rs.getString(2));
+                pw.println(&quot;&lt;br&gt;Customer address :-&quot;+rs.getString(3));
+            }
+            else
+            {
+                pw.println(&quot;Record with customer id:-&quot;+id+&quot; not found&quot;);
+            }
+            
+        }
+        catch(Exception e)
+        {
+            pw.println(&quot;&lt;br&gt;Exception: -&quot;+e);
+        }
+        pw.close();
+    }   
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+import java.sql.*;  
+class donar
+{
+  public static void main(String args[])
+  {
+	Connection con=null;
+	Statement stmt=null;
+	ResultSet rs=null;
+
+ 	try
+ 	{
+Class.forName(&quot;org.postgresql.Driver&quot;); 
+  System.out.println(&quot;Driver Loaded&quot;);  
+
+con=DriverManager.getConnection(&quot;jdbc:postgresql:TYBCS&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
+System.out.println(&quot;Connection established&quot;);
+
+stmt=con.createStatement();
+
+String str=&quot;select * from donar&quot;;
+
+rs=stmt.executeQuery(str);
+
+ResultSetMetaData rm=rs.getMetaData();
+
+int colcount=rm.getColumnCount();
+
+System.out.println(&quot;Number of Columns=&quot;+colcount);
+	
+	 for(int i=1;i&lt;=colcount;i++)
+	{
+	   System.out.println(&quot;Column No.: &quot;+i);
+	   System.out.println(&quot;Column Name: &quot;+rm.getColumnName(i));
+	   System.out.println(&quot;Column Type: &quot;+rm.getColumnTypeName(i));
+	   System.out.println(&quot;Column size: &quot;+rm.getColumnDisplaySize(i));
+	 }
+}
+
+	catch(Exception e)
+	 {
+    	  System.out.println(&quot;Error &quot;+e);
+    	 }
+  	
+  
+  }
+}</pre></div></div>
+<div class="slip" id="s12">
+  <div class="slip-header"><span class="slip-num">SLIP 12</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Html file
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip12B&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip12B.jsp&quot;&gt;
+        (Check Perfect or Not)Enter No :-
+        &lt;input type=&quot;text&quot; name=&quot;num&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Check Perfect&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+Jsp file
+&lt;html&gt;
+&lt;body&gt;
+&lt;%
+String number = request.getParameter(&quot;number&quot;);
+int num = Integer.parseInt(number);
+int sum = 0;
+for(int i = 1; i &lt; num; i++)
+{
+if(num % i == 0)
+{
+sum += i;
+}
+}
+out.println(&quot;Number: &quot; + num + &quot;&lt;br&gt;&quot;);
+if(sum == num)
+out.println(&quot;Perfect Number&quot;);
+else
+out.println(&quot;Not Perfect Number&quot;);
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><div class="q-label">Question 2</div><div class="file-label">Database</div><pre>CREATE TABLE PROJECT (
+    project_id INT PRIMARY KEY,
+    Project_name TEXT,
+    Project_description TEXT,
+    Project_Status TEXT
+);</pre><div class="file-label">Java file</div><pre>import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.sql.*;
+
+public class ProjectTableDisplay extends JFrame {
+    JTable table;
+    DefaultTableModel model;
+
+    public ProjectTableDisplay() {
+        setTitle(&quot;Project Details&quot;);
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        // Table Columns
+        String[] columns = {&quot;ID&quot;, &quot;Name&quot;, &quot;Description&quot;, &quot;Status&quot;};
+        model = new DefaultTableModel(columns, 0);
+        table = new JTable(model);
+
+        // Add table to a scroll pane
+        JScrollPane scrollPane = new JScrollPane(table);
+        add(scrollPane, BorderLayout.CENTER);
+
+        // Database operations
+        connectAndFetch();
+
+        setVisible(true);
+    }
+
+    public void connectAndFetch() {
+        try {
+            // Load PostgreSQL Driver
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            Connection conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
+
+            // 1. Insert sample values (Optional: can be commented out if data exists)
+            String insertSql = &quot;INSERT INTO PROJECT VALUES (?, ?, ?, ?) ON CONFLICT DO NOTHING&quot;;
+            PreparedStatement ps = conn.prepareStatement(insertSql);
+            
+            // Adding a sample record
+            ps.setInt(1, 101);
+            ps.setString(2, &quot;ShieldMe&quot;);
+            ps.setString(3, &quot;Personal Safety App&quot;);
+            ps.setString(4, &quot;Completed&quot;);
+            ps.executeUpdate();
+
+            // 2. Fetch data to display in JTable
+            Statement st = conn.createStatement();
+            ResultSet rs = st.executeQuery(&quot;SELECT * FROM PROJECT&quot;);
+
+            while (rs.next()) {
+                int id = rs.getInt(&quot;project_id&quot;);
+                String name = rs.getString(&quot;Project_name&quot;);
+                String desc = rs.getString(&quot;Project_description&quot;);
+                String status = rs.getString(&quot;Project_Status&quot;);
+
+                // Add row to the Swing Table Model
+                model.addRow(new Object[]{id, name, desc, status});
+            }
+
+            conn.close();
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, &quot;Error: &quot; + e.getMessage());
+        }
+    }
+
+    public static void main(String[] args) {
+        new ProjectTableDisplay();
+    }
+}</pre></div></div>
+<div class="slip" id="s13">
+  <div class="slip-header"><span class="slip-num">SLIP 13</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.sql.*;
+
+class Slip13A
+{
+    public static void main(String[] args)
+    throws Exception
+    {
+        Class.forName(&quot;org.postgresql.Driver&quot;);
+        Connection con = DriverManager.getConnection
+        (&quot;jdbc:postgresql://localhost:5432/slip&quot;,&quot;postgres&quot;,&quot;&quot;);
+        System.out.println(&quot;&quot;+con);
+        DatabaseMetaData dbmd = con.getMetaData();
+        System.out.println(&quot;&quot;+dbmd);
+        
+        System.out.println(&quot;Product Name :&quot;+dbmd.getDatabaseProductName());
+        System.out.println(&quot;Product version :&quot;+dbmd.getDatabaseProductVersion());
+        System.out.println(&quot;Driver Name :&quot;+dbmd.getDriverName());
+        System.out.println(&quot;Driver Version :&quot;+dbmd.getDriverVersion());
+
+//getTables(String catalog, String schemaPattern, String  tableNamePattern, String[] types) 
+
+    ResultSet rs = dbmd.getTables(null,null,null,new String[] {&quot;TABLE&quot;});
+    System.out.println(&quot;&quot;+rs);
+        while(rs.next())
+        {
+            System.out.println(&quot;Table Name : &quot;+rs.getString(&quot;TABLE_NAME&quot;));
+        }
+    }
+}
+
+OR
+
+import java.util.*;
+import java.sql.*;  
+class SetA2
+{
+  public static void main(String args[])
+  {
+	Connection con=null;
+	Statement st=null;
+
+ 	try
+ 	{
+Class.forName(&quot;org.postgresql.Driver&quot;); 
+System.out.println(&quot;Driver Loaded&quot;);
+
+con=DriverManager.getConnection(&quot;jdbc:postgresql:tybcs&quot;,&quot;postgres&quot;, &quot; &quot;);
+System.out.println(&quot;Connection established=&quot;);
+st=con.createStatement(); 
+
+DatabaseMetaData db=con.getMetaData();
+System.out.println(&quot;JDBC Driver Name: &quot;+db.getDriverName());
+	 System.out.println(&quot;JDBC Driver Name: &quot;+db.getDriverVersion());
+	 System.out.println(&quot;DB Version: &quot;+db.getDatabaseProductVersion());
+	 System.out.println(&quot;Product Name: &quot;+db.getDatabaseProductName());
+	 System.out.println(&quot;User Name: &quot;+db.getUserName());
+
+
+String table[]= { &quot;TABLE&quot;};
+
+ResultSet rs=db.getTables(null,null,null,table);
+
+   while(rs.next())
+{
+	System.out.println(rs.getString(3));
+}
+
+		 }
+	catch(Exception e)
+	 {
+    	  System.out.println(&quot;Error &quot;+e);
+    	 }
+  	
+  
+  }
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+ class deadthread extends Thread
+ {  
+     String s;
+     deadthread(String p)
+     {
+         s=p;
+     }
+    public void run()
+    {
+      try
+      {
+         	System.out.println(&quot;Thread started\n&quot;+getName());
+         	Random r=new Random();
+         	int p=r.nextInt(4999);
+         	Thread.sleep(p);
+		System.out.println(&quot;Thread ended\n&quot;+getName());
+      }
+      catch(Exception e)
+      {
+      }
+    }
+}
+class lifecycle
+{
+  public static void main(String[] arg)
+  {
+     deadthread t1=new deadthread(&quot;abc&quot;);
+     deadthread t2=new deadthread(&quot;xyz&quot;);             
+     t1.start();
+     t2.start();
+     
+     try
+     {
+        t1.join();
+        t2.join();
+     }
+     catch(Exception e)
+     {
+     }     
+ }
+}</pre></div></div>
+<div class="slip" id="s14">
+  <div class="slip-header"><span class="slip-num">SLIP 14</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.io.*;
+import java.util.*;
+
+class FileSearcher extends Thread {
+    private String fileName;
+    private String searchString;
+
+    public FileSearcher(String fileName, String searchString) {
+        this.fileName = fileName;
+        this.searchString = searchString;
+    }
+
+    @Override
+    public void run() {
+        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            int lineNumber = 1;
+            boolean found = false;
+
+            while ((line = br.readLine()) != null) {
+                if (line.contains(searchString)) {
+                    System.out.println(&quot;[FOUND] File: &quot; + fileName + &quot; | Line: &quot; + lineNumber + &quot; | Content: &quot; + line.trim());
+                    found = true;
+                }
+                lineNumber++;
+            }
+        } catch (IOException e) {
+            System.err.println(&quot;Error reading file &quot; + fileName + &quot;: &quot; + e.getMessage());
+        }
+    }
+}
+
+public class MultithreadedSearch {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.print(&quot;Enter the string to search: &quot;);
+        String searchString = sc.nextLine();
+
+        // Get the current directory
+        File currentDir = new File(&quot;.&quot;);
+        
+        // Filter for text files
+        File[] files = currentDir.listFiles((dir, name) -&gt; name.toLowerCase().endsWith(&quot;.txt&quot;));
+
+        if (files == null || files.length == 0) {
+            System.out.println(&quot;No text files found in the current directory.&quot;);
+            return;
+        }
+
+        System.out.println(&quot;Searching in &quot; + files.length + &quot; files...\n&quot;);
+
+        // Create and start a thread for each file
+        for (File file : files) {
+            FileSearcher thread = new FileSearcher(file.getName(), searchString);
+            thread.start();
+        }
+        
+        sc.close();
+    }
+}
+
+Steps to run above program:
+Create 2 or 3 simple text files (e.g., test1.txt, test2.txt) in the same folder where you save this Java file.
+Put some text inside them, including the word you want to search for.
+Compile and run the java program</pre><div class="q-label">Question 2</div><div class="file-label">Html file</div><pre>&lt;html&gt;
+	&lt;body&gt;
+		&lt;form method=&quot;get&quot; action=&quot;prog5.jsp&quot;&gt;
+			Number: &lt;input type=&quot;number&quot; name=&quot;number&quot;&gt;&lt;br&gt;&lt;br&gt;
+			&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;submit&quot;&gt;
+		&lt;/form&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Jsp file</div><pre>&lt;html&gt;
+    &lt;body&gt;
+        &lt;%
+            int n=Integer.parseInt(request.getParameter(&quot;number&quot;));
+            out.println(&quot;Number = &quot;+n);
+            int lastnumber=n%10;
+            while(n&gt;=10)
+            {
+                n=n/10;
+            }
+            int firstnumber=n;
+            int sum=lastnumber+firstnumber;
+        %&gt;
+        &lt;p style=&quot;color:red; font-size:18px;&quot;&gt;Sum=&lt;%=sum%&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
+<div class="slip" id="s15">
+  <div class="slip-header"><span class="slip-num">SLIP 15</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>class S15Q1 extends Thread
+{
+public void run()
+{
+setName(&quot;THREAD&quot;);
+setPriority(5);
+System.out.println(&quot;Thread name:&quot;+getName());
+System.out.println(&quot;Thread priority:&quot;+getPriority());
+}
+public static void main(String args[])
+{
+S15Q1 t=new S15Q1();
+t.start();
+}
+}</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+public class slip15 extends HttpServlet
+{
+	public void  service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+	{
+		PrintWriter out=null;
+		try{
+			res.setContentType(&quot;text/html&quot;);
+			out=res.getWriter();
+			Cookie c[]=req.getCookies();
+			if(c==null)
+			{
+				out.println(&quot;Welcome for cookie demo&quot;);
+				Cookie c1=new Cookie(&quot;count&quot;,&quot;1&quot;);
+				res.addCookie(c1);
+			}
+			else
+			{
+				for(int i=0;i&lt;c.length;i++)
+				{
+				String name=c[i].getName();
+				String val=c[i].getValue();
+				
+				out.println(&quot;Name=&quot;+name+&quot;val=&quot;+val);
+				if(name.equals(&quot;count&quot;))
+				{
+					int n=Integer.parseInt(val)+1;
+					c[i].setValue(Integer.toString(n));
+					
+				
+					out.println(&quot;Page acess for&quot;+n+&quot;times&quot;);
+					res.addCookie(c[i]);
+					}
+				}
+			}
+			}
+			
+			
+			catch(Exception e)
+        {
+            out.println(&quot;&lt;h3&gt;Error occurred&lt;/h3&gt;&quot;);
+            out.println(e.getMessage());
+        }
+    }
+}</pre></div></div>
+<div class="slip" id="s16">
+  <div class="slip-header"><span class="slip-num">SLIP 16</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class S16Q1
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+TreeSet ts=new TreeSet();
+System.out.println(&quot;Enter number of colors:&quot;);
+int n=sc.nextInt();
+sc.nextLine();
+System.out.println(&quot;Enter the color names:&quot;);
+for(int i=0;i&lt;n;i++)
+{
+ts.add(sc.nextLine());
+}
+System.out.println(&quot;colors in ascending order:&quot;);
+System.out.println(ts);
+}
+}</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+import java.sql.*;
+import java.util.*;
+
+public class Teacher
+{
+            Connection con=null;
+            Statement stmt=null;
+            PreparedStatement ps=null;
+            ResultSet rs=null;
+            public static void main(String args[])
+            {
+                        try
+                        {
+ 
+Class.forName(&quot;org.postgresql.Driver&quot;);
+System.out.println(&quot;Driver Loaded&quot;);
+con=DriverManager.getConnection(&quot;jdbc:/postgresql://localhost/tybcs&quot;,&quot;postgres&quot;,&quot; &quot;);
+System.out.println(&quot;Connection established&quot;);
+int tno;
+String subject,tname;
+Scanner sc=new Scanner(System.in);
+con.createStatement();                 
+System.out.println(&quot;\n How many Records you want to insert?&quot;);
+int n=sc.nextInt();
+           System.out.println(&quot;\nEnter Records \n&quot;);
+           for(int i=0;i&lt;n;i++)
+                                    {
+                                                System.out.println(&quot;\nEnter Teacher No.&quot;);
+                                                tno= sc.nextInt();
+                                                System.out.println(&quot;Enter Teacher name&quot;);
+                                                name= sc.next();
+                                                System.out.println(&quot;Enter subject&quot;);
+                                                sub= sc.next();
+
+
+                         ps=con.prepareStatement(&quot;insert into Teacher values(?,?,?)&quot;);
+                                                ps.setInt(1,tno);
+                                                ps.setString(2,tname);
+                                                ps.setString(3,sub);
+                                                ps.executeUpdate();
+                                    }
+                     System.out.println(&quot;\nAll Records are: \n&quot;);
+                     st=cn.createStatement();
+                     rs=st.executeQuery(&quot;select * from Teacher where subject=&#x27;java&#x27;&quot;);
+                     System.out.println(&quot;Teacher Information&quot;);
+
+                                    while(rs.next())
+                                    {
+System.out.println(rs.getInt(1));
+System.out.println(rs.getString(2));
+System.out.println(rs.getInt(3));           
+                                    }
+                                    cn.close();       
+                        }
+catch(Exception e)
+                        {
+                                    System.out.println(e);
+                        }
+            }
+}</pre></div></div>
+<div class="slip" id="s17">
+  <div class="slip-header"><span class="slip-num">SLIP 17</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class S17Q1
+{
+public static void main(String args[])
+{
+Scanner sc=new Scanner(System.in);
+TreeSet ts=new TreeSet();
+System.out.println(&quot;Enter number of elements:&quot;);
+int n=sc.nextInt();
+System.out.println(&quot;Enter&quot; + n + &quot;integer:&quot;);
+for(int i=0;i&lt;n;i++)
+{
+ts.add(sc.nextInt());
+}
+System.out.println(&quot;Sorted elements:&quot;+ts);
+}
+}</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class CounterThread extends JFrame implements ActionListener {
+    private JTextField t1;
+    private JButton b1;
+    private Thread countThread;
+    private boolean running = false;
+
+    public CounterThread() {
+        setTitle(&quot;Multithreaded Counter&quot;);
+        setSize(300, 150);
+        setLayout(new FlowLayout());
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+        t1 = new JTextField(15);
+        t1.setEditable(false);
+        t1.setFont(new Font(&quot;Arial&quot;, Font.BOLD, 20));
+        
+        b1 = new JButton(&quot;Start Counter&quot;);
+        b1.addActionListener(this);
+
+        add(t1);
+        add(b1);
+
+        setVisible(true);
+    }
+
+    public void actionPerformed(ActionEvent e) {
+        // Prevent starting multiple threads if one is already running
+        if (!running) {
+            running = true;
+            b1.setEnabled(false); // Disable button after start
+            
+            // Create the worker object
+            CounterWorker worker = new CounterWorker();
+            // Pass it to the Thread constructor (Runnable Interface)
+            countThread = new Thread(worker);
+            countThread.start();
+        }
+    }
+
+    // Inner class implementing Runnable
+    class CounterWorker implements Runnable {
+        @Override
+        public void run() {
+            try {
+                for (int i = 1; i &lt;= 100; i++) {
+                    final String val = String.valueOf(i);
+                    
+                    // Update the UI safely
+                    SwingUtilities.invokeLater(new Runnable() {
+                        public void run() {
+                            t1.setText(val);
+                        }
+                    });
+
+                    Thread.sleep(100); // Delay of 100ms
+                }
+                
+                // Reset button after finishing
+                SwingUtilities.invokeLater(() -&gt; {
+                    b1.setEnabled(true);
+                    running = false;
+                });
+                
+            } catch (InterruptedException ex) {
+                System.out.println(ex);
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        new CounterThread();
+    }
+}</pre></div></div>
 <div class="slip" id="s18">
-  <div class="slip-header"><span class="slip-num">SLIP 18</span><span class="slip-title">JS Fibonacci onclick + Word Cloud / Frequency Distribution</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — JavaScript Fibonacci on onclick [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;Fibonacci&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-N: &lt;input type="number" id="n" value="10"&gt;
-&lt;button onclick="fibonacci()"&gt;Generate&lt;/button&gt;
-&lt;p id="result"&gt;&lt;/p&gt;
-&lt;script&gt;
-function fibonacci() {
-    var n = parseInt(document.getElementById("n").value);
-    var a=0, b=1, seq=[a,b];
-    for(var i=2;i&lt;n;i++){var c=a+b;seq.push(c);a=b;b=c;}
-    document.getElementById("result").textContent = seq.slice(0,n).join(", ");
+  <div class="slip-header"><span class="slip-num">SLIP 18</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class vowels extends Thread
+{
+public void run()
+{
+try
+{
+Scanner sc = new Scanner(System.in);
+System.out.print(&quot;Enter a string: &quot;);
+String str = sc.nextLine();
+System.out.println(&quot;Vowels in the string:&quot;);
+for (int i = 0; i &lt; str.length(); i++)
+{
+char ch = str.charAt(i);
+if (ch == &#x27;A&#x27; || ch == &#x27;E&#x27; || ch == &#x27;I&#x27; || ch == &#x27;O&#x27; || ch == &#x27;U&#x27; ||
+ch == &#x27;a&#x27; || ch == &#x27;e&#x27; || ch == &#x27;i&#x27; || ch == &#x27;o&#x27; || ch == &#x27;u&#x27;)
+{
+System.out.print(ch + &quot; &quot;);
+// Delay of 3 seconds
+Thread.sleep(3000);
 }
-&lt;/script&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
+}
+}
+catch (Exception e)
+{
+System.out.println(e);
+}
+}
+public static void main(String args[])
+{
+vowels t = new vowels();
+t.start();
+}
+}</pre><div class="q-label">Question 2</div><div class="file-label">Html file</div><pre>&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip18B&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip18B&quot;&gt;
+        Enter Student Information :-
+        &lt;br&gt;Id              :- &lt;input type=&quot;text&quot; name=&quot;id&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;Name                :- &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;Class           :- &lt;input type=&quot;text&quot; name=&quot;cls&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;Marks Scored    :- &lt;input type=&quot;text&quot; name=&quot;ms&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;Marks Outof     :- &lt;input type=&quot;text&quot; name=&quot;mof&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Caluculate Grade&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Java file</div><pre>import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
 
-    <div class="q-label">Q.2 — Python: Stopword Removal, Tokenize, Word Frequency, WordCloud [15 Marks]</div>
-<pre><span class="kw">import</span> re, nltk, matplotlib.pyplot <span class="kw">as</span> plt
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize, sent_tokenize
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
-<span class="kw">from</span> collections <span class="kw">import</span> Counter
-<span class="kw">from</span> wordcloud <span class="kw">import</span> WordCloud
-
-nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
-
-text = <span class="str">"""Natural language processing enables machines to understand human language.
-Machine learning models help NLP tasks like sentiment analysis and summarization.
-Deep learning has greatly improved natural language understanding."""</span>
-
-sentences = sent_tokenize(text)
-words = word_tokenize(text.lower())
-stop = set(stopwords.words(<span class="str">'english'</span>))
-filtered = [w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w.isalpha() <span class="kw">and</span> w <span class="kw">not</span> <span class="kw">in</span> stop]
-freq = Counter(filtered)
-
-print(<span class="str">"Sentences:"</span>, sentences)
-print(<span class="str">"Top words:"</span>, freq.most_common(<span class="num">10</span>))
-
-plt.bar(*zip(*freq.most_common(<span class="num">10</span>)))
-plt.xticks(rotation=<span class="num">45</span>); plt.title(<span class="str">"Word Frequency"</span>); plt.tight_layout(); plt.show()
-
-wc = WordCloud(width=<span class="num">800</span>, height=<span class="num">400</span>).generate(<span class="str">' '</span>.join(filtered))
-plt.imshow(wc, interpolation=<span class="str">'bilinear'</span>); plt.axis(<span class="str">'off'</span>)
-plt.title(<span class="str">"Word Cloud"</span>); plt.show()</pre>
-    <div class="note">Install: <code>pip install wordcloud</code></div>
-  </div>
-</div>
-
-<!-- ===== SLIP 19 ===== -->
+public class Slip18B extends HttpServlet
+{
+    public void doGet(HttpServletRequest request,HttpServletResponse response) 
+    throws IOException, ServletException
+   {
+        response.setContentType(&quot;text/html&quot;);
+        PrintWriter pw = response.getWriter();
+        int id =Integer.parseInt(request.getParameter(&quot;id&quot;));
+        String name = request.getParameter(&quot;name&quot;);
+        String cls = request.getParameter(&quot;cls&quot;);
+        int ms = Integer.parseInt(request.getParameter(&quot;ms&quot;));
+        int mof = Integer.parseInt(request.getParameter(&quot;mof&quot;)); 
+        double per = ((double)ms/(double)mof)*100;
+        pw.println(&quot;Student Information&quot;);
+        pw.println(&quot;&lt;br&gt;Id :-&quot;+id);
+        pw.println(&quot;&lt;br&gt;Name :-&quot;+name);
+        pw.println(&quot;&lt;br&gt;Class :-&quot;+cls);
+        pw.println(&quot;&lt;br&gt;Marks-Score :-&quot;+ms);
+        pw.println(&quot;&lt;br&gt;Marks-OutOf :-&quot;+mof);
+        pw.println(&quot;&lt;br&gt;Percentage :-&quot;+per);
+        if(per&lt;40)
+        {   
+            pw.println(&quot;&lt;br&gt;Grade : - Fail&quot;);
+        }
+        else if (per&gt;=40 &amp;&amp; per&lt;60)
+        {
+            pw.println(&quot;&lt;br&gt;Grade : - Second Class&quot;);
+        }
+        else if (per&gt;=60 &amp;&amp; per&lt;70)
+        {
+            pw.println(&quot;&lt;br&gt;Grade : - First Class&quot;);
+        }
+        else if (per&gt;=70)
+        {
+            pw.println(&quot;&lt;br&gt;Grade : - Distinction Class&quot;);
+        }
+        pw.close();
+    }
+}</pre></div></div>
 <div class="slip" id="s19">
-  <div class="slip-header"><span class="slip-num">SLIP 19</span><span class="slip-title">JS Password Validation (onSubmit) + Movie Review Sentiment</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — JavaScript Validate Username &amp; Password on onSubmit [15 Marks]</div>
-<pre>&lt;!DOCTYPE html&gt;
-&lt;html&gt;&lt;head&gt;&lt;title&gt;Login&lt;/title&gt;&lt;/head&gt;
-&lt;body&gt;
-&lt;form onsubmit="return validate()"&gt;
-  User: &lt;input type="text"     id="u"&gt;&lt;br&gt;
-  Pass: &lt;input type="password" id="p"&gt;&lt;br&gt;
-  &lt;input type="submit" value="Login"&gt;
-&lt;/form&gt;
-&lt;p id="m" style="color:red"&gt;&lt;/p&gt;
-&lt;script&gt;
-function validate() {
-    var u=document.getElementById("u").value;
-    var p=document.getElementById("p").value;
-    var m=document.getElementById("m");
-    if(!u||!p){m.textContent="Fields required!";return false;}
-    if(u!=="admin"){m.textContent="Unknown user!";return false;}
-    if(p.length&lt;6){m.textContent="Password too short!";return false;}
-    m.style.color="green";m.textContent="Login successful!";return false;
+  <div class="slip-header"><span class="slip-num">SLIP 19</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class S19Q1
+{
+public static void main(String args[])
+{
+Scanner sc = new Scanner(System.in);
+LinkedList&lt;Integer&gt; ls = new LinkedList&lt;&gt;();
+System.out.println(&quot;Enter number of integers:&quot;);
+int n = sc.nextInt();
+System.out.println(&quot;Enter &quot; + n + &quot; integers:&quot;);
+for(int i = 0; i &lt; n; i++)
+{
+ls.add(sc.nextInt());
 }
-&lt;/script&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
+System.out.println(&quot;Negative integers are:&quot;);
+Iterator&lt;Integer&gt; it = ls.iterator();
+while(it.hasNext())
+{
+int
+num = it.next();
+if(num &lt; 0)
+{
+System.out.println(num);
+}
+}
+}
+}</pre><div class="q-label">Question 2</div><div class="file-label">Html file</div><pre>&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip18B&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip19B&quot;&gt;
+        Login :-
+        &lt;br&gt;USERNAME:- &lt;input type=&quot;text&quot; name=&quot;usrn&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;PASSWORD:- &lt;input type=&quot;password&quot; name=&quot;pswd&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;login&quot; value=&quot;LOGIN&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Java file</div><pre>import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+import java.sql.*;
 
-    <div class="q-label">Q.2 — Python: Movie Review Sentiment Analysis + WordCloud [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd, re, nltk
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
-<span class="kw">from</span> nltk.sentiment <span class="kw">import</span> SentimentIntensityAnalyzer
-<span class="kw">from</span> wordcloud <span class="kw">import</span> WordCloud
-<span class="kw">import</span> matplotlib.pyplot <span class="kw">as</span> plt
-
-nltk.download(<span class="str">'vader_lexicon'</span>); nltk.download(<span class="str">'stopwords'</span>)
-
-<span class="cmt"># Load dataset (sample if Kaggle file unavailable)</span>
-reviews = [<span class="str">"The movie was fantastic and thrilling!"</span>,
-           <span class="str">"Worst movie ever. Complete waste of time."</span>,
-           <span class="str">"It was okay, nothing special."</span>,
-           <span class="str">"Absolutely loved the performances."</span>,
-           <span class="str">"Boring and predictable plot."</span>]
-
-sia = SentimentIntensityAnalyzer()
-results = []
-<span class="kw">for</span> r <span class="kw">in</span> reviews:
-    s = sia.polarity_scores(r)
-    label = <span class="str">'positive'</span> <span class="kw">if</span> s[<span class="str">'compound'</span>]&gt;=<span class="num">0.05</span> <span class="kw">else</span> (<span class="str">'negative'</span> <span class="kw">if</span> s[<span class="str">'compound'</span>]&lt;=-<span class="num">0.05</span> <span class="kw">else</span> <span class="str">'neutral'</span>)
-    results.append((r, label))
-    print(r, <span class="str">"→"</span>, label)
-
-all_text = <span class="str">' '</span>.join(reviews)
-wc = WordCloud(width=<span class="num">800</span>, height=<span class="num">400</span>).generate(all_text)
-plt.imshow(wc, interpolation=<span class="str">'bilinear'</span>); plt.axis(<span class="str">'off'</span>); plt.show()</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 20 ===== -->
+public class Slip19B extends HttpServlet
+{
+    public void doGet(HttpServletRequest request,HttpServletResponse response) 
+    throws IOException, ServletException
+   {
+        response.setContentType(&quot;text/html&quot;);
+        PrintWriter pw = response.getWriter();
+        pw.println(&quot;Servlet - Login JDBC&quot;);
+        String usrn = request.getParameter(&quot;usrn&quot;);
+        String pswd = request.getParameter(&quot;pswd&quot;);
+        try
+        {
+            boolean flag = false ;
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            Connection con = DriverManager.getConnection
+            (&quot;jdbc:postgresql://localhost/slips&quot;,&quot;postgres&quot;,&quot;&quot;);
+            pw.println(&quot;&lt;br&gt;Got Connection:-&quot;+con);
+        
+            String query = &quot;select * from login&quot;;
+            Statement stmt = con.createStatement();
+            ResultSet rs = stmt.executeQuery(query);
+            while(rs.next())
+            {
+                String usr = rs.getString(1);
+                String pwd = rs.getString(2);
+            
+                if(usr.equals(usrn) &amp;&amp; pwd.equals(pswd))
+                {
+                    flag = true;
+                }
+            }
+            if(flag)
+            {
+                pw.println(&quot;&lt;br&gt;Login and password matched&quot;);
+            }
+            else
+            {
+                pw.println(&quot;&lt;br&gt;Login and password do not match&quot;);
+            }
+            
+        }
+        catch(Exception e)
+        {
+            pw.println(&quot;&lt;br&gt;Exception: -&quot;+e);
+        }
+        pw.close();
+    }   
+}</pre></div></div>
 <div class="slip" id="s20">
-  <div class="slip-header"><span class="slip-num">SLIP 20</span><span class="slip-title">Create student.xml + NLP Stopword Removal</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — Create student.xml with 5 students [15 Marks]</div>
-    <div class="file-label">student.xml</div>
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;students&gt;
-  &lt;student id="1"&gt;&lt;name&gt;Alice&lt;/name&gt;&lt;age&gt;20&lt;/age&gt;&lt;course&gt;CS&lt;/course&gt;&lt;/student&gt;
-  &lt;student id="2"&gt;&lt;name&gt;Bob&lt;/name&gt;&lt;age&gt;21&lt;/age&gt;&lt;course&gt;IT&lt;/course&gt;&lt;/student&gt;
-  &lt;student id="3"&gt;&lt;name&gt;Carol&lt;/name&gt;&lt;age&gt;22&lt;/age&gt;&lt;course&gt;CS&lt;/course&gt;&lt;/student&gt;
-  &lt;student id="4"&gt;&lt;name&gt;Dave&lt;/name&gt;&lt;age&gt;20&lt;/age&gt;&lt;course&gt;BCA&lt;/course&gt;&lt;/student&gt;
-  &lt;student id="5"&gt;&lt;name&gt;Eve&lt;/name&gt;&lt;age&gt;23&lt;/age&gt;&lt;course&gt;CS&lt;/course&gt;&lt;/student&gt;
-&lt;/students&gt;</pre>
+  <div class="slip-header"><span class="slip-num">SLIP 20</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>&#x27;
+Html file
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip20A&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip20A.jsp&quot;&gt;
+        Enter No :-
+        &lt;input type=&quot;text&quot; name=&quot;no&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Convert&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
 
-    <div class="q-label">Q.2 — Python: Remove Stopwords from Paragraph [15 Marks]</div>
-<pre><span class="kw">import</span> nltk
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
+Jsp file
+&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; %&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;%
+String num = request.getParameter(&quot;num&quot;);
+out.println(&quot;&lt;h2 style=&#x27;color:red;&#x27;&gt;&quot;);
+for(int i = 0; i &lt; num.length(); i++)
+{
+char ch = num.charAt(i);
+switch(ch)
+{
+case &#x27;0&#x27;: out.println(&quot;Zero &quot;); break;
+case &#x27;1&#x27;: out.println(&quot;One &quot;); break;
+case &#x27;2&#x27;: out.println(&quot;Two &quot;); break;
+case &#x27;3&#x27;: out.println(&quot;Three &quot;); break;
+case &#x27;4&#x27;: out.println(&quot;Four &quot;); break;
+case &#x27;5&#x27;: out.println(&quot;Five &quot;); break;
+case &#x27;6&#x27;: out.println(&quot;Six &quot;); break;
+case &#x27;7&#x27;: out.println(&quot;Seven &quot;); break;
+case &#x27;8&#x27;: out.println(&quot;Eight &quot;); break;
+case &#x27;9&#x27;: out.println(&quot;Nine &quot;); break;
+}
+}
+out.println(&quot;&lt;/h2&gt;&quot;);
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
+import java.awt.*;
 
-nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+public class TempleDrawing extends JFrame {
+    private TemplePanel panel;
 
-text = <span class="str">"""Hello all, Welcome to Python Programming Academy.
-Python Programming Academy is a nice platform to learn new programming skills.
-It is difficult to get enrolled in this Academy."""</span>
+    public TempleDrawing() {
+        setTitle(&quot;Multithreaded Temple Drawing&quot;);
+        setSize(500, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        
+        panel = new TemplePanel();
+        add(panel);
+        
+        setVisible(true);
+        
+        // Start the drawing threads
+        panel.startConstruction();
+    }
 
-words = word_tokenize(text)
-stop = set(stopwords.words(<span class="str">'english'</span>))
-filtered = [w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w.lower() <span class="kw">not</span> <span class="kw">in</span> stop <span class="kw">and</span> w.isalpha()]
-print(<span class="str">"Original:"</span>, words)
-print(<span class="str">"After stopword removal:"</span>, filtered)</pre>
-  </div>
-</div>
+    public static void main(String[] args) {
+        new TempleDrawing();
+    }
+}
 
-<!-- ===== SLIP 21 ===== -->
+class TemplePanel extends JPanel {
+    private boolean drawBase = false;
+    private boolean drawPillars = false;
+    private boolean drawTop = false;
+
+    public void startConstruction() {
+        // Thread 1: Construct the Base
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(1000);
+                drawBase = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
+
+        // Thread 2: Construct the Pillars
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(2500); // Waits for base
+                drawPillars = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
+
+        // Thread 3: Construct the Shikhara (Top)
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(4000); // Waits for pillars
+                drawTop = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(3));
+
+        // Draw Base
+        if (drawBase) {
+            g2.setColor(new Color(139, 69, 19)); // Brown
+            g2.fillRect(100, 350, 300, 50);
+            g2.setColor(Color.BLACK);
+            g2.drawRect(100, 350, 300, 50);
+        }
+
+        // Draw Pillars
+        if (drawPillars) {
+            g2.setColor(new Color(210, 180, 140)); // Tan
+            g2.fillRect(130, 200, 30, 150); // Left pillar
+            g2.fillRect(340, 200, 30, 150); // Right pillar
+            g2.setColor(Color.BLACK);
+            g2.drawRect(130, 200, 30, 150);
+            g2.drawRect(340, 200, 30, 150);
+        }
+
+        // Draw Top (Triangle/Dome)
+        if (drawTop) {
+            g2.setColor(Color.ORANGE);
+            int[] xPoints = {100, 250, 400};
+            int[] yPoints = {200, 50, 200};
+            g2.fillPolygon(xPoints, yPoints, 3);
+            g2.setColor(Color.BLACK);
+            g2.drawPolygon(xPoints, yPoints, 3);
+            
+            // Draw a small flag
+            g2.setColor(Color.RED);
+            g2.fillRect(250, 20, 30, 20);
+            g2.drawLine(250, 50, 250, 20);
+        }
+    }
+}</pre></div></div>
 <div class="slip" id="s21">
-  <div class="slip-header"><span class="slip-num">SLIP 21</span><span class="slip-title">CodeIgniter JS Positive/Negative + Linear Regression (User Data)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — CodeIgniter + JS Check Positive/Negative [15 Marks]</div>
-    <div class="file-label">assets/js/check.js</div>
-<pre>function checkNumber() {
-    var n = parseFloat(document.getElementById("num").value);
-    var msg = document.getElementById("msg");
-    if (isNaN(n))      msg.textContent = "Enter a valid number.";
-    else if (n &gt; 0)    msg.textContent = n + " is Positive.";
-    else if (n &lt; 0)    msg.textContent = n + " is Negative.";
-    else               msg.textContent = "Number is Zero.";
-}</pre>
-    <div class="file-label">application/views/check_view.php</div>
-<pre>&lt;!DOCTYPE html&gt;&lt;html&gt;&lt;head&gt;
-&lt;script src="&lt;?=base_url('assets/js/check.js')?&gt;"&gt;&lt;/script&gt;
-&lt;/head&gt;&lt;body&gt;
-  &lt;input type="number" id="num" placeholder="Enter number"&gt;
-  &lt;button onclick="checkNumber()"&gt;Check&lt;/button&gt;
-  &lt;p id="msg"&gt;&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;</pre>
-    <div class="file-label">application/controllers/Check.php</div>
-<pre>&lt;?php
-class Check extends CI_Controller {
-    public function index() { $this->load->view('check_view'); }
+  <div class="slip-header"><span class="slip-num">SLIP 21</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class s21_1 {
+public static void main(String args[])
+{
+Scanner sc = new Scanner(System.in);
+LinkedList&lt;String&gt; sub = new LinkedList&lt;&gt;();
+System.out.println(&quot;Enter number of subjects:&quot;);
+int n = sc.nextInt();
+sc.nextLine();
+for (int i = 0; i &lt; n; i++)
+{
+System.out.println(&quot;Enter subject:&quot;);
+String s = sc.nextLine();
+sub.add(s);
 }
-?&gt;</pre>
+System.out.println(&quot;List of Subjects:&quot;);
+Iterator iterator = sub.iterator();
+while (iterator.hasNext())
+{
+System.out.println(iterator.next());
+}
+}
+}</pre><div class="q-label">Question 2</div><pre>import java.util.Scanner;
 
-    <div class="q-label">Q.2 — Python: Linear Regression for User Data [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score, mean_squared_error
+// The Shared Resource class
+class Q {
+    int n;
+    boolean valueSet = false;
 
-data = {<span class="str">'Age'</span>:    [<span class="num">22</span>,<span class="num">25</span>,<span class="num">30</span>,<span class="num">35</span>,<span class="num">40</span>,<span class="num">45</span>,<span class="num">50</span>,<span class="num">55</span>,<span class="num">60</span>,<span class="num">65</span>],
-        <span class="str">'Salary'</span>: [<span class="num">25000</span>,<span class="num">30000</span>,<span class="num">40000</span>,<span class="num">50000</span>,<span class="num">60000</span>,
-                   <span class="num">70000</span>,<span class="num">80000</span>,<span class="num">90000</span>,<span class="num">100000</span>,<span class="num">110000</span>]}
-df = pd.DataFrame(data)
-X = df[[<span class="str">'Age'</span>]]; y = df[<span class="str">'Salary'</span>]
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">0</span>)
-model = LinearRegression().fit(X_train, y_train)
-y_pred = model.predict(X_test)
-print(<span class="str">"Predictions:"</span>, y_pred)
-print(<span class="str">"R²:"</span>, r2_score(y_test, y_pred))
-print(<span class="str">"MSE:"</span>, mean_squared_error(y_test, y_pred))</pre>
-  </div>
-</div>
+    // Method for Consumer
+    synchronized int get() {
+        while (!valueSet) {
+            try {
+                wait(); // Wait if producer hasn&#x27;t produced
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+        System.out.println(&quot;Consumed: &quot; + n);
+        valueSet = false;
+        notify(); // Tell producer to produce next
+        return n;
+    }
 
-<!-- ===== SLIP 22 ===== -->
+    // Method for Producer
+    synchronized void put(int n) {
+        while (valueSet) {
+            try {
+                wait(); // Wait if consumer hasn&#x27;t consumed yet
+            } catch (InterruptedException e) {
+                System.out.println(e);
+            }
+        }
+        this.n = n;
+        valueSet = true;
+        System.out.println(&quot;Produced: &quot; + n);
+        notify(); // Tell consumer value is ready
+    }
+}
+
+class Producer implements Runnable {
+    Q q;
+
+    Producer(Q q) {
+        this.q = q;
+        new Thread(this, &quot;Producer&quot;).start();
+    }
+
+    public void run() {
+        int i = 1;
+        while (i &lt;= 10) { // Produce 10 values
+            q.put(i++);
+            try { Thread.sleep(500); } catch (Exception e) {}
+        }
+    }
+}
+
+class Consumer implements Runnable {
+    Q q;
+
+    Consumer(Q q) {
+        this.q = q;
+        new Thread(this, &quot;Consumer&quot;).start();
+    }
+
+    public void run() {
+        while (true) {
+            int val = q.get();
+            if (val == 10) break; // Stop after 10th value
+            try { Thread.sleep(1000); } catch (Exception e) {}
+        }
+    }
+}
+
+public class ProducerConsumerTest {
+    public static void main(String[] args) {
+        Q q = new Q();
+        new Producer(q);
+        new Consumer(q);
+    }
+}</pre></div></div>
 <div class="slip" id="s22">
-  <div class="slip-header"><span class="slip-num">SLIP 22</span><span class="slip-title">CodeIgniter Insert Student + NLP Stopword Removal</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — CodeIgniter: Connect DB, Create Student Table, Insert 5 Records [15 Marks]</div>
-    <div class="file-label">application/config/database.php (key settings)</div>
-<pre>$db['default']['hostname'] = 'localhost';
-$db['default']['username'] = 'root';
-$db['default']['password'] = '';
-$db['default']['database'] = 'student_db';
-$db['default']['dbdriver'] = 'mysqli';</pre>
-    <div class="file-label">application/models/Student_model.php</div>
-<pre>&lt;?php
-class Student_model extends CI_Model {
-    public function insert_students() {
-        $students = [
-            ['rollno'=>1,'name'=>'Alice','class'=>'TY'],
-            ['rollno'=>2,'name'=>'Bob',  'class'=>'SY'],
-            ['rollno'=>3,'name'=>'Carol','class'=>'FY'],
-            ['rollno'=>4,'name'=>'Dave', 'class'=>'TY'],
-            ['rollno'=>5,'name'=>'Eve',  'class'=>'SY'],
-        ];
-        foreach ($students as $s) $this->db->insert('student', $s);
-        return "5 records inserted.";
+  <div class="slip-header"><span class="slip-num">SLIP 22</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Database
+CREATE TABLE Employee (
+    eno INT PRIMARY KEY,
+    ename TEXT,
+    salary REAL
+);
+
+Java file
+import java.sql.*;
+import java.util.Scanner;
+
+public class EmployeeMenu {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        Connection conn = null;
+        PreparedStatement ps = null;
+
+        try {
+            // Load Driver and Establish Connection
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
+
+            while (true) {
+                System.out.println(&quot;\n--- Employee Management System ---&quot;);
+                System.out.println(&quot;1. Insert&quot;);
+                System.out.println(&quot;2. Update&quot;);
+                System.out.println(&quot;3. Display All&quot;);
+                System.out.println(&quot;4. Exit&quot;);
+                System.out.print(&quot;Enter your choice: &quot;);
+                int choice = sc.nextInt();
+
+                switch (choice) {
+                    case 1:
+                        System.out.print(&quot;Enter Employee No: &quot;);
+                        int eno = sc.nextInt();
+                        System.out.print(&quot;Enter Name: &quot;);
+                        String name = sc.next();
+                        System.out.print(&quot;Enter Salary: &quot;);
+                        float salary = sc.nextFloat();
+
+                        ps = conn.prepareStatement(&quot;INSERT INTO Employee VALUES (?, ?, ?)&quot;);
+                        ps.setInt(1, eno);
+                        ps.setString(2, name);
+                        ps.setFloat(3, salary);
+                        ps.executeUpdate();
+                        System.out.println(&quot;Record Inserted Successfully!&quot;);
+                        break;
+
+                    case 2:
+                        System.out.print(&quot;Enter Employee No to update: &quot;);
+                        int updateId = sc.nextInt();
+                        System.out.print(&quot;Enter New Salary: &quot;);
+                        float newSalary = sc.nextFloat();
+
+                        ps = conn.prepareStatement(&quot;UPDATE Employee SET salary = ? WHERE eno = ?&quot;);
+                        ps.setFloat(1, newSalary);
+                        ps.setInt(2, updateId);
+                        int rows = ps.executeUpdate();
+                        if (rows &gt; 0) System.out.println(&quot;Record Updated Successfully!&quot;);
+                        else System.out.println(&quot;Employee ID not found.&quot;);
+                        break;
+
+                    case 3:
+                        Statement st = conn.createStatement();
+                        ResultSet rs = st.executeQuery(&quot;SELECT * FROM Employee&quot;);
+                        System.out.println(&quot;\nEno\tEName\tSalary&quot;);
+                        System.out.println(&quot;---------------------------&quot;);
+                        while (rs.next()) {
+                            System.out.println(rs.getInt(1) + &quot;\t&quot; + rs.getString(2) + &quot;\t&quot; + rs.getFloat(3));
+                        }
+                        break;
+
+                    case 4:
+                        System.out.println(&quot;Exiting...&quot;);
+                        conn.close();
+                        System.exit(0);
+
+                    default:
+                        System.out.println(&quot;Invalid Choice! Please try again.&quot;);
+                }
+            }
+        } catch (Exception e) {
+            System.out.println(&quot;Error: &quot; + e.getMessage());
+        } finally {
+            sc.close();
+        }
     }
+}</pre><div class="q-label">Question 2</div><div class="file-label">Html file</div><pre>&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip22B&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip22B.jsp&quot;&gt;
+        Enter No :-
+        &lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Jsp file</div><pre>&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; %&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;%
+Date d = new Date();
+int hr = d.getHours();
+if (hr &lt; 12)
+{
+out.println(&quot;Good Morning&quot;);
 }
-?&gt;</pre>
-    <div class="file-label">application/controllers/Students.php</div>
-<pre>&lt;?php
-class Students extends CI_Controller {
-    public function index() {
-        $this->load->model('Student_model');
-        $msg = $this->Student_model->insert_students();
-        echo $msg;
-    }
+else if (hr &gt;= 12 &amp;&amp; hr &lt;= 16)
+{
+out.println(&quot;Good Afternoon&quot;);
 }
-?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Stopword Removal [15 Marks]</div>
-<pre><span class="kw">import</span> nltk
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
-
-nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
-text = <span class="str">"This is a sample sentence and we will remove stopwords from it."</span>
-tokens = word_tokenize(text)
-stop = set(stopwords.words(<span class="str">'english'</span>))
-cleaned = [w <span class="kw">for</span> w <span class="kw">in</span> tokens <span class="kw">if</span> w.lower() <span class="kw">not</span> <span class="kw">in</span> stop]
-print(<span class="str">"Cleaned:"</span>, cleaned)</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 23 ===== -->
+else
+{
+out.println(&quot;Good Evening&quot;);
+}
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
 <div class="slip" id="s23">
-  <div class="slip-header"><span class="slip-num">SLIP 23</span><span class="slip-title">CodeIgniter Display Student Records + Text Preprocessing</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — CodeIgniter Display All Student Records [15 Marks]</div>
-    <div class="file-label">application/models/Student_model.php</div>
-<pre>&lt;?php
-class Student_model extends CI_Model {
-    public function get_all() {
-        return $this->db->get('student')->result_array();
-    }
+  <div class="slip-header"><span class="slip-num">SLIP 23</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+class vowels extends Thread
+{
+public void run()
+{
+try
+{
+Scanner sc = new Scanner(System.in);
+System.out.print(&quot;Enter a string: &quot;);
+String str = sc.nextLine();
+System.out.println(&quot;Vowels in the string:&quot;);
+for (int i = 0; i &lt; str.length(); i++)
+{
+char ch = str.charAt(i);
+if (ch == &#x27;A&#x27; || ch == &#x27;E&#x27; || ch == &#x27;I&#x27; || ch == &#x27;O&#x27; || ch == &#x27;U&#x27; ||
+ch == &#x27;a&#x27; || ch == &#x27;e&#x27; || ch == &#x27;i&#x27; || ch == &#x27;o&#x27; || ch == &#x27;u&#x27;)
+{
+System.out.print(ch + &quot; &quot;);
+// Delay of 3 seconds
+Thread.sleep(3000);
 }
-?&gt;</pre>
-    <div class="file-label">application/controllers/Students.php</div>
-<pre>&lt;?php
-class Students extends CI_Controller {
-    public function index() {
-        $this->load->model('Student_model');
-        $data['students'] = $this->Student_model->get_all();
-        $this->load->view('student_view', $data);
-    }
 }
-?&gt;</pre>
-    <div class="file-label">application/views/student_view.php</div>
-<pre>&lt;table border="1"&gt;
-  &lt;tr&gt;&lt;th&gt;Roll No&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Class&lt;/th&gt;&lt;/tr&gt;
-  &lt;?php foreach($students as $s): ?&gt;
-  &lt;tr&gt;&lt;td&gt;&lt;?=$s['rollno']?&gt;&lt;/td&gt;&lt;td&gt;&lt;?=$s['name']?&gt;&lt;/td&gt;&lt;td&gt;&lt;?=$s['class']?&gt;&lt;/td&gt;&lt;/tr&gt;
-  &lt;?php endforeach; ?&gt;
-&lt;/table&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Remove Special Characters &amp; Digits from Text [15 Marks]</div>
-<pre><span class="kw">import</span> re, nltk
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
-
-nltk.download(<span class="str">'punkt'</span>)
-text = <span class="str">"Hello! This is text123. Remove special@chars &amp; digits456 here."</span>
-clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>, <span class="str">''</span>, text)
-print(<span class="str">"Cleaned Text:"</span>, clean.strip())
-tokens = word_tokenize(clean)
-print(<span class="str">"Tokens:"</span>, tokens)</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 24 ===== -->
+}
+catch (Exception e)
+{
+System.out.println(e);
+}
+}
+public static void main(String args[])
+{
+vowels t = new vowels();
+t.start();
+}
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+class s23_2
+{
+public static void main(String args[])
+{
+ArrayList&lt;String&gt; sl = new ArrayList&lt;String&gt;();
+for(int i = 0; i &lt; args.length; i++)
+{
+sl.add(args[i]);
+}
+System.out.println(&quot;Student names using iterator:&quot;);
+Iterator&lt;String&gt; iterator = sl.iterator();
+while(iterator.hasNext())
+{
+System.out.println(iterator.next());
+}
+System.out.println(&quot;Student names using list iterator:&quot;);
+ListIterator&lt;String&gt; listiterator = sl.listIterator();
+while(listiterator.hasNext())
+{
+System.out.println(listiterator.next());
+}
+}
+}</pre></div></div>
 <div class="slip" id="s24">
-  <div class="slip-header"><span class="slip-num">SLIP 24</span><span class="slip-title">PHP student.xml Course Filter + YouTube Data Analysis</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Create student.xml, Filter by Course [15 Marks]</div>
-    <div class="file-label">create_student.php</div>
-<pre>&lt;?php
-$dom = new DOMDocument('1.0','UTF-8');
-$root = $dom->createElement('students');
-$students = [
-    ['roll'=>1,'name'=>'Alice','address'=>'Pune','college'=>'ABC','course'=>'CS'],
-    ['roll'=>2,'name'=>'Bob',  'address'=>'Mumbai','college'=>'XYZ','course'=>'IT'],
-    ['roll'=>3,'name'=>'Carol','address'=>'Nashik','college'=>'PQR','course'=>'CS'],
-    ['roll'=>4,'name'=>'Dave', 'address'=>'Nagpur','college'=>'LMN','course'=>'BCA'],
-    ['roll'=>5,'name'=>'Eve',  'address'=>'Pune','college'=>'ABC','course'=>'CS'],
-];
-foreach ($students as $s) {
-    $student = $dom->createElement('student');
-    foreach ($s as $k => $v) $student->appendChild($dom->createElement($k, $v));
-    $root->appendChild($student);
-}
-$dom->appendChild($root);
-$dom->save('student.xml');
-echo "student.xml created.";
-?&gt;</pre>
-    <div class="file-label">search.php</div>
-<pre>&lt;?php
-$xml = simplexml_load_file('student.xml');
-$course = $_GET['course'] ?? 'CS';
-echo "&lt;table border='1'&gt;&lt;tr&gt;&lt;th&gt;Roll&lt;/th&gt;&lt;th&gt;Name&lt;/th&gt;&lt;th&gt;Address&lt;/th&gt;&lt;th&gt;College&lt;/th&gt;&lt;/tr&gt;";
-foreach ($xml->student as $s) {
-    if ($s->course == $course)
-        echo "&lt;tr&gt;&lt;td&gt;{$s->roll}&lt;/td&gt;&lt;td&gt;{$s->name}&lt;/td&gt;&lt;td&gt;{$s->address}&lt;/td&gt;&lt;td&gt;{$s->college}&lt;/td&gt;&lt;/tr&gt;";
-}
-echo "&lt;/table&gt;";
-?&gt;</pre>
+  <div class="slip-header"><span class="slip-num">SLIP 24</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
+import java.awt.*;
 
-    <div class="q-label">Q.2 — Python: YouTube India Dataset Analysis [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
+public class ScrollingText extends JFrame implements Runnable {
+    private String message = &quot;Java Multithreading - Scrolling Text&quot;;
+    private int x = 0; // Starting x-position
+    private int y = 100; // Constant y-position
+    private Thread t;
 
-<span class="cmt"># Download from Kaggle: datasnaek/youtube-new → INvideos.csv</span>
-df = pd.read_csv(<span class="str">'INvideos.csv'</span>, encoding=<span class="str">'latin-1'</span>)
-print(df.head()); print(df.info())
+    public ScrollingText() {
+        setTitle(&quot;Scrolling Text Simulation&quot;);
+        setSize(500, 200);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
 
-<span class="cmt"># Data cleaning</span>
-df.dropna(inplace=<span class="num">True</span>)
-df.drop_duplicates(inplace=<span class="num">True</span>)
+        // Start the thread
+        t = new Thread(this);
+        t.start();
 
-<span class="cmt"># Analysis</span>
-print(<span class="str">"Total Views:"</span>,   df[<span class="str">'views'</span>].sum())
-print(<span class="str">"Total Likes:"</span>,   df[<span class="str">'likes'</span>].sum())
-print(<span class="str">"Total Dislikes:"</span>,df[<span class="str">'dislikes'</span>].sum())
-print(<span class="str">"Total Comments:"</span>,df[<span class="str">'comment_count'</span>].sum())</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 25 ===== -->
-<div class="slip" id="s25">
-  <div class="slip-header"><span class="slip-num">SLIP 25</span><span class="slip-title">Create cricket.xml + YouTube COVID Sentiment Analysis</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Create cricket.xml + Add India Team [15 Marks]</div>
-    <div class="file-label">create_cricket.php</div>
-<pre>&lt;?php
-$dom = new DOMDocument('1.0','UTF-8');
-$dom->formatOutput = true;
-$root = $dom->createElement('CricketTeam');
-
-function addTeam($dom, $root, $country, $players) {
-    $team = $dom->createElement('Team');
-    $team->setAttribute('country', $country);
-    foreach ($players as $p) {
-        $player = $dom->createElement('player', $p['name']);
-        $runs   = $dom->createElement('runs',   $p['runs']);
-        $wicket = $dom->createElement('wicket', $p['wicket']);
-        $team->appendChild($player);
-        $team->appendChild($runs);
-        $team->appendChild($wicket);
+        setVisible(true);
     }
-    $root->appendChild($team);
+
+    @Override
+    public void run() {
+        try {
+            while (true) {
+                // Increment X to move text from left to right
+                x += 5;
+
+                // Reset position if it goes beyond the frame width
+                if (x &gt; getWidth()) {
+                    x = -200; // Start slightly off-screen to the left for smooth entry
+                }
+
+                repaint(); // Refresh the screen
+                Thread.sleep(50); // Control the speed of scrolling
+            }
+        } catch (InterruptedException e) {
+            System.out.println(e);
+        }
+    }
+
+    @Override
+    public void paint(Graphics g) {
+        super.paint(g);
+        g.setFont(new Font(&quot;Arial&quot;, Font.BOLD, 20));
+        g.setColor(Color.BLUE);
+        
+        // Draw the string at the updated x position
+        g.drawString(message, x, y);
+    }
+
+    public static void main(String[] args) {
+        new ScrollingText();
+    }
+}</pre><div class="q-label">Question 2</div><div class="file-label">Login.html</div><pre>&lt;html&gt;
+&lt;body&gt;
+&lt;form method =&quot;post&quot; action=&quot;slip24.jsp&quot;&gt;
+Enter Username:&lt;input type=&quot;text&quot; name=&quot;user&quot;&gt;&lt;br&gt;&lt;br&gt;
+Enter Password:&lt;input type=&quot;text&quot; name=&quot;pass&quot;&gt;&lt;br&gt;&lt;br&gt;
+&lt;input type=&quot;submit&quot; value=&quot;RESULT&quot;/&gt;
+&lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+Slip24.jsp
+&lt;%@ page language=&quot;java&quot;%&gt;
+&lt;%
+String username= request.getParameter(&quot;user&quot;);
+String password= request.getParameter(&quot;pass&quot;);
+if(username.equals(password))
+{
+out.println(&quot;Login Sucessfully&quot;)
 }
+else
+{
+out.println(&quot;Error&quot;);
+}
+%&gt;</pre></div></div>
+<div class="slip" id="s25">
+  <div class="slip-header"><span class="slip-num">SLIP 25</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Html file
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip22B&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip22B.jsp&quot;&gt;
+        Enter No :-
+        &lt;input type=&quot;text&quot; name=&quot;username&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
 
-addTeam($dom, $root, 'Australia', [
-    ['name'=>'Smith', 'runs'=>3000, 'wicket'=>5],
-    ['name'=>'Warner','runs'=>4500, 'wicket'=>0]
-]);
-addTeam($dom, $root, 'India', [
-    ['name'=>'Kohli', 'runs'=>7000, 'wicket'=>4],
-    ['name'=>'Rohit', 'runs'=>5000, 'wicket'=>2]
-]);
+Jsp file
+&lt;html&gt;
+&lt;body&gt;
+&lt;%
+String name = request.getParameter(&quot;User&quot;);
+int age = Integer.parseInt(request.getParameter(&quot;Age&quot;));
+out.print(&quot;Name :- &quot; + name);
+out.print(&quot;&lt;br&gt;Age :- &quot; + age);
+if(age &lt; 18)
+{
+out.print(&quot;&lt;br&gt;Age not eligible for voting&quot;);
+}
+else
+{
+out.println(&quot;&lt;br&gt;Age eligible for voting&quot;);
+}
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><div class="q-label">Question 2</div><div class="file-label">Database</div><pre>CREATE TABLE Student (
+    rno INT PRIMARY KEY,
+    sname TEXT,
+    class TEXT
+);</pre><div class="file-label">HTML file</div><pre>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+    &lt;title&gt;Student Entry&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Enter Student Details&lt;/h2&gt;
+    &lt;form action=&quot;StudentServlet&quot; method=&quot;post&quot;&gt;
+        Roll No: &lt;input type=&quot;text&quot; name=&quot;rno&quot;&gt;&lt;br&gt;&lt;br&gt;
+        Name: &lt;input type=&quot;text&quot; name=&quot;sname&quot;&gt;&lt;br&gt;&lt;br&gt;
+        Class: &lt;input type=&quot;text&quot; name=&quot;class&quot;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Save Student&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Java File</div><pre>import java.io.*;
+import java.sql.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+import javax.servlet.annotation.WebServlet;
 
-$dom->appendChild($root);
-$dom->save('cricket.xml');
-echo "cricket.xml created!";
-?&gt;</pre>
+@WebServlet(&quot;/StudentServlet&quot;)
+public class StudentServlet extends HttpServlet {
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
+            throws ServletException, IOException {
+        
+        response.setContentType(&quot;text/html&quot;);
+        PrintWriter out = response.getWriter();
 
-    <div class="q-label">Q.2 — Python: YouTube COVID Comments Sentiment [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd, nltk, re
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> word_tokenize
-<span class="kw">from</span> nltk.sentiment <span class="kw">import</span> SentimentIntensityAnalyzer
+        // Get parameters from the form
+        int rno = Integer.parseInt(request.getParameter(&quot;rno&quot;));
+        String sname = request.getParameter(&quot;sname&quot;);
+        String sclass = request.getParameter(&quot;class&quot;);
 
-nltk.download(<span class="str">'vader_lexicon'</span>); nltk.download(<span class="str">'punkt'</span>)
+        try {
+            // Load PostgreSQL Driver
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            Connection conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
 
-<span class="cmt"># Load dataset (covid_2021_1.csv from Kaggle)</span>
-df = pd.read_csv(<span class="str">'covid_2021_1.csv'</span>, encoding=<span class="str">'latin-1'</span>)
-df.dropna(subset=[<span class="str">'comment'</span>], inplace=<span class="num">True</span>)
-df[<span class="str">'comment'</span>] = df[<span class="str">'comment'</span>].apply(<span class="kw">lambda</span> x: re.sub(r<span class="str">'[^a-zA-Z\s]'</span>,<span class="str">''</span>,str(x)))
+            // Prepare SQL query
+            String sql = &quot;INSERT INTO Student (rno, sname, class) VALUES (?, ?, ?)&quot;;
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, rno);
+            ps.setString(2, sname);
+            ps.setString(3, sclass);
 
-sia = SentimentIntensityAnalyzer()
-<span class="kw">def</span> sentiment(text):
-    s = sia.polarity_scores(text)[<span class="str">'compound'</span>]
-    <span class="kw">return</span> <span class="str">'positive'</span> <span class="kw">if</span> s&gt;=<span class="num">0.05</span> <span class="kw">else</span> (<span class="str">'negative'</span> <span class="kw">if</span> s&lt;=-<span class="num">0.05</span> <span class="kw">else</span> <span class="str">'neutral'</span>)
+            int result = ps.executeUpdate();
 
-df[<span class="str">'sentiment'</span>] = df[<span class="str">'comment'</span>].apply(sentiment)
-counts = df[<span class="str">'sentiment'</span>].value_counts(normalize=<span class="num">True</span>)*<span class="num">100</span>
-print(counts)</pre>
-  </div>
-</div>
+            out.println(&quot;&lt;html&gt;&lt;body&gt;&quot;);
+            if (result &gt; 0) {
+                out.println(&quot;&lt;h3&gt;Student record saved successfully!&lt;/h3&gt;&quot;);
+            } else {
+                out.println(&quot;&lt;h3&gt;Error saving record.&lt;/h3&gt;&quot;);
+            }
+            out.println(&quot;&lt;a href=&#x27;index.html&#x27;&gt;Back to Form&lt;/a&gt;&quot;);
+            out.println(&quot;&lt;/body&gt;&lt;/html&gt;&quot;);
 
-<!-- ===== SLIP 26 ===== -->
+            ps.close();
+            conn.close();
+        } catch (Exception e) {
+            out.println(&quot;Error: &quot; + e.getMessage());
+        }
+    }
+}</pre></div></div>
 <div class="slip" id="s26">
-  <div class="slip-header"><span class="slip-num">SLIP 26</span><span class="slip-title">AJAX Employee Table + Extractive Summarization</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — Create EMP Table + AJAX Select Employee [15 Marks]</div>
-    <div class="file-label">SQL</div>
-<pre>CREATE TABLE EMP (eno INT, ename VARCHAR(50), designation VARCHAR(30), salary DECIMAL(10,2));
-INSERT INTO EMP VALUES (1,'Alice','Manager',80000),(2,'Bob','Developer',60000),(3,'Carol','HR',50000);</pre>
-    <div class="file-label">index.html</div>
-<pre>&lt;select id="ename" onchange="getEmp(this.value)"&gt;
-  &lt;option&gt;-- Select --&lt;/option&gt;&lt;option&gt;Alice&lt;/option&gt;
-  &lt;option&gt;Bob&lt;/option&gt;&lt;option&gt;Carol&lt;/option&gt;
-&lt;/select&gt;
-&lt;div id="info"&gt;&lt;/div&gt;
-&lt;script&gt;
-function getEmp(name){
-    var x=new XMLHttpRequest();
-    x.open("GET","get_emp.php?name="+name,true);
-    x.onreadystatechange=function(){if(this.readyState==4)document.getElementById("info").innerHTML=this.responseText;};
-    x.send();
-}
-&lt;/script&gt;</pre>
-    <div class="file-label">get_emp.php</div>
-<pre>&lt;?php
-$c=mysqli_connect("localhost","root","","company");
-$n=mysqli_real_escape_string($c,$_GET['name']);
-$r=mysqli_query($c,"SELECT * FROM EMP WHERE ename='$n'");
-$row=mysqli_fetch_assoc($r);
-echo "Eno:{$row['eno']} | Desig:{$row['designation']} | Salary:{$row['salary']}";
-?&gt;</pre>
+  <div class="slip-header"><span class="slip-num">SLIP 26</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.sql.*;
+class Slip26A
+{
+    public static void main(String args[]) throws Exception
+    {
+        
+        Class.forName(&quot;org.postgresql.Driver&quot;);
+    System.out.println(&quot;Driver Loaded�);
+        Connection con = DriverManager.getConnection
+        (&quot;jdbc:postgresql://localhost/tybcs&quot;,&quot;postgres&quot;,&quot;&quot;);
+        System.out.println(&quot;Got Connection:-&quot;+con);
 
-    <div class="q-label">Q.2 — Python: Extractive Summarization (Python Academy text) [15 Marks]</div>
-<pre><span class="kw">import</span> re, nltk
-<span class="kw">from</span> nltk.tokenize <span class="kw">import</span> sent_tokenize, word_tokenize
-<span class="kw">from</span> nltk.corpus <span class="kw">import</span> stopwords
-<span class="kw">from</span> collections <span class="kw">import</span> Counter
+                int id = Integer.parseInt(args[0]);
 
-nltk.download(<span class="str">'punkt'</span>); nltk.download(<span class="str">'stopwords'</span>)
+        String query = &quot;delete from employee where eid = ?&quot;;
 
-text = <span class="str">"""Hello all, Welcome to Python Programming Academy.
-Python Programming Academy is a nice platform to learn new programming skills.
-It is difficult to get enrolled in this Academy."""</span>
+        PreparedStatement pstmt = con.prepareStatement(query);
 
-clean = re.sub(r<span class="str">'[^a-zA-Z\s]'</span>,<span class="str">''</span>,text).lower()
-words = word_tokenize(clean)
-stop = set(stopwords.words(<span class="str">'english'</span>))
-freq = Counter(w <span class="kw">for</span> w <span class="kw">in</span> words <span class="kw">if</span> w <span class="kw">not</span> <span class="kw">in</span> stop)
-sentences = sent_tokenize(text)
-scores = {s:sum(freq.get(w.lower(),<span class="num">0</span>) <span class="kw">for</span> w <span class="kw">in</span> word_tokenize(s)) <span class="kw">for</span> s <span class="kw">in</span> sentences}
-summary = sorted(scores, key=scores.get, reverse=<span class="num">True</span>)[:2]
-print(<span class="str">"Summary:"</span>, <span class="str">' '</span>.join(summary))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 27 ===== -->
+        pstmt.setInt(1,id);
+        pstmt.executeUpdate();
+        System.out.println(&quot;Record Deleted&quot;);
+    }
+}</pre><div class="q-label">Question 2</div><div class="file-label">Html file</div><pre>&lt;html&gt;
+	&lt;body&gt;
+		&lt;form method=&quot;get&quot; action=&quot;prog5.jsp&quot;&gt;
+			Number: &lt;input type=&quot;number&quot; name=&quot;number&quot;&gt;&lt;br&gt;&lt;br&gt;
+			&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;submit&quot;&gt;
+		&lt;/form&gt;
+	&lt;/body&gt;
+&lt;/html&gt;</pre><div class="file-label">Jsp file</div><pre>&lt;html&gt;
+    &lt;body&gt;
+        &lt;%
+            int n=Integer.parseInt(request.getParameter(&quot;number&quot;));
+            out.println(&quot;Number = &quot;+n);
+            int lastnumber=n%10;
+            while(n&gt;=10)
+            {
+                n=n/10;
+            }
+            int firstnumber=n;
+            int sum=lastnumber+firstnumber;
+        %&gt;
+        &lt;p style=&quot;color:red; font-size:18px;&quot;&gt;Sum=&lt;%=sum%&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
 <div class="slip" id="s27">
-  <div class="slip-header"><span class="slip-num">SLIP 27</span><span class="slip-title">HTML-AJAX-PHP Voters Validation + Own Transactions Apriori</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — Voter Validation: Name uppercase, Age ≥ 18, Nationality Indian [15 Marks]</div>
-    <div class="file-label">voter.html</div>
-<pre>&lt;form onsubmit="return validate()"&gt;
-  Name:        &lt;input id="vname"&gt;&lt;br&gt;
-  Age:         &lt;input id="vage" type="number"&gt;&lt;br&gt;
-  Nationality: &lt;input id="vnation"&gt;&lt;br&gt;
-  &lt;input type="submit" value="Validate"&gt;
-&lt;/form&gt;
-&lt;div id="res"&gt;&lt;/div&gt;
-&lt;script&gt;
-function validate() {
-    var n=document.getElementById("vname").value;
-    var a=parseInt(document.getElementById("vage").value);
-    var nat=document.getElementById("vnation").value;
-    var msg=document.getElementById("res");
-    if(!/^[A-Z\s]+$/.test(n)){msg.innerHTML="Name must be uppercase!";return false;}
-    if(a&lt;18){msg.innerHTML="Age must be 18 or above!";return false;}
-    if(nat.toLowerCase()!="indian"){msg.innerHTML="Nationality must be Indian!";return false;}
-    var xhr=new XMLHttpRequest();
-    xhr.open("POST","save_voter.php",true);
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    xhr.onreadystatechange=function(){if(this.readyState==4)msg.innerHTML=this.responseText;};
-    xhr.send("name="+n+"&amp;age="+a+"&amp;nat="+nat);
-    return false;
+  <div class="slip-header"><span class="slip-num">SLIP 27</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Database
+CREATE TABLE College (
+    CID INT PRIMARY KEY,
+    CName TEXT,
+    address TEXT,
+    Year INT
+);
+
+INSERT INTO College VALUES (1, &#x27;MIT ACSC&#x27;, &#x27;Alandi, Pune&#x27;, 2007);
+INSERT INTO College VALUES (2, &#x27;COEP&#x27;, &#x27;Shivajinagar, Pune&#x27;, 1854);
+
+Java File
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
+import java.awt.*;
+import java.sql.*;
+
+public class CollegeTableDisplay extends JFrame {
+    JTable table;
+    DefaultTableModel model;
+
+    public CollegeTableDisplay() {
+        setTitle(&quot;College Information System&quot;);
+        setSize(600, 400);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Define Column Names
+        String[] columns = {&quot;College ID&quot;, &quot;College Name&quot;, &quot;Address&quot;, &quot;Established Year&quot;};
+        
+        // Initialize Table Model (0 rows to start)
+        model = new DefaultTableModel(columns, 0);
+        table = new JTable(model);
+
+        // Add Table to ScrollPane (essential for headers and scrolling)
+        JScrollPane scrollPane = new JScrollPane(table);
+        add(scrollPane, BorderLayout.CENTER);
+
+        // Fetch and Display Data
+        fetchCollegeData();
+
+        setVisible(true);
+    }
+
+    public void fetchCollegeData() {
+        Connection conn = null;
+        Statement st = null;
+        ResultSet rs = null;
+
+        try {
+            // Load PostgreSQL Driver
+            Class.forName(&quot;org.postgresql.Driver&quot;);
+            
+            // Connect to Database
+            conn = DriverManager.getConnection(&quot;jdbc:postgresql://localhost/postgres&quot;, &quot;postgres&quot;, &quot;password&quot;);
+            
+            st = conn.createStatement();
+            rs = st.executeQuery(&quot;SELECT * FROM College&quot;);
+
+            // Process ResultSet and add rows to the model
+            while (rs.next()) {
+                int id = rs.getInt(&quot;CID&quot;);
+                String name = rs.getString(&quot;CName&quot;);
+                String addr = rs.getString(&quot;address&quot;);
+                int year = rs.getInt(&quot;Year&quot;);
+
+                // Add row to the model
+                model.addRow(new Object[]{id, name, addr, year});
+            }
+
+        } catch (Exception e) {
+            JOptionPane.showMessageDialog(this, &quot;Error: &quot; + e.getMessage());
+        } finally {
+            try {
+                if (rs != null) rs.close();
+                if (st != null) st.close();
+                if (conn != null) conn.close();
+            } catch (SQLException se) {
+                se.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        // Use invokeLater for thread-safe UI creation
+        SwingUtilities.invokeLater(() -&gt; new CollegeTableDisplay());
+    }
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+import java.io.*;
+import javax.servlet.*;
+import javax.servlet.http.*;
+
+public class Slip27B extends HttpServlet
+{
+    public void doGet(HttpServletRequest req, HttpServletResponse res)
+    throws ServletException, IOException
+    {
+        res.setContentType(&quot;text/html&quot;);
+        PrintWriter out = res.getWriter();
+        // Get the current session object, create one if necessary
+        HttpSession session = req.getSession();
+        out.println(&quot;Session Timer&lt;br&gt;&quot;);
+        // Display the previous timeout
+        out.println
+        (&quot;The previous timeout was &quot;+session.getMaxInactiveInterval());
+        out.println(&quot;&lt;br&gt;&quot;);
+        // Set the new timeout
+        session.setMaxInactiveInterval(2*60*60); // two hours
+        // Display the new timeout
+        out.println
+        (&quot;The newly assigned timeout is &quot; + session.getMaxInactiveInterval());
+        out.close();
 }
-&lt;/script&gt;</pre>
-    <div class="file-label">save_voter.php</div>
-<pre>&lt;?php echo "Voter registered: Name={$_POST['name']}, Age={$_POST['age']}, Nationality={$_POST['nat']}"; ?&gt;</pre>
-
-    <div class="q-label">Q.2 — Python: Own Transactions Apriori [15 Marks]</div>
-<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-<span class="kw">import</span> pandas <span class="kw">as</span> pd
-
-transactions = [
-    [<span class="str">'Phone'</span>,<span class="str">'Charger'</span>,<span class="str">'Case'</span>],
-    [<span class="str">'Phone'</span>,<span class="str">'Earphones'</span>],
-    [<span class="str">'Charger'</span>,<span class="str">'Case'</span>],
-    [<span class="str">'Phone'</span>,<span class="str">'Charger'</span>,<span class="str">'Earphones'</span>],
-    [<span class="str">'Phone'</span>,<span class="str">'Case'</span>,<span class="str">'Earphones'</span>]
-]
-te = TransactionEncoder()
-df = pd.DataFrame(te.fit_transform(transactions), columns=te.columns_)
-freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
-rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.6</span>)
-print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 28 ===== -->
+}</pre></div></div>
 <div class="slip" id="s28">
-  <div class="slip-header"><span class="slip-num">SLIP 28</span><span class="slip-title">PHP AJAX Login Validation + Car Dataset Linear Regression</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP AJAX Username/Password Validation with Database [15 Marks]</div>
-    <div class="file-label">index.html</div>
-<pre>&lt;input id="u" placeholder="Username"&gt;
-&lt;input id="p" type="password" placeholder="Password"&gt;
-&lt;button onclick="checkLogin()"&gt;Login&lt;/button&gt;
-&lt;p id="msg"&gt;&lt;/p&gt;
-&lt;script&gt;
-function checkLogin() {
-    var u=document.getElementById("u").value;
-    var p=document.getElementById("p").value;
-    var xhr=new XMLHttpRequest();
-    xhr.open("POST","validate.php",true);
-    xhr.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
-    xhr.onreadystatechange=function(){
-        if(this.readyState==4) document.getElementById("msg").innerHTML=this.responseText;
-    };
-    xhr.send("u="+u+"&amp;p="+p);
+  <div class="slip-header"><span class="slip-num">SLIP 28</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>Html file
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form name=&quot;Slip28A&quot; method=&quot;get&quot; action=&quot;http://localhost:8080/SLIPS/Slip28A.jsp&quot;&gt;
+        Enter String :-
+        &lt;input type=&quot;text&quot; name=&quot;name&quot; value=&quot;&quot;&gt;
+        &lt;br&gt;&lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;Convert&quot;&gt;
+        &lt;/form&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+Jsp file
+&lt;%@ page language=&quot;java&quot; import=&quot;java.util.*&quot; %&gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;%
+String input = request.getParameter(&quot;str&quot;);
+int len = input.length();
+for(int i = len-1; i &gt;= 0; i--)
+{
+out.print(input.charAt(i));
 }
-&lt;/script&gt;</pre>
-    <div class="file-label">validate.php</div>
-<pre>&lt;?php
-$conn = mysqli_connect("localhost","root","","users_db");
-$u = mysqli_real_escape_string($conn, $_POST['u']);
-$p = md5($_POST['p']);
-$r = mysqli_query($conn,"SELECT * FROM users WHERE username='$u' AND password='$p'");
-echo mysqli_num_rows($r)&gt;0 ? "Valid User! Welcome." : "Invalid username or password.";
-?&gt;</pre>
+%&gt;
+&lt;/body&gt;
+&lt;/html&gt;</pre><div class="q-label">Question 2</div><pre>public class ThreadNameDemo extends Thread {
+    
+    // This code is executed by the new threads we create
+    public void run() {
+        System.out.println(&quot;Child Thread Name: &quot; + Thread.currentThread().getName());
+    }
 
-    <div class="q-label">Q.2 — Python: Car Dataset Linear Regression [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LinearRegression
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.preprocessing <span class="kw">import</span> LabelEncoder
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> r2_score
+    public static void main(String[] args) {
+        // 1. Displaying the name of the Main thread
+        Thread mainThread = Thread.currentThread();
+        System.out.println(&quot;Currently executing thread: &quot; + mainThread.getName());
 
-data = {
-    <span class="str">'Make'</span>:   [<span class="str">'Toyota'</span>,<span class="str">'Honda'</span>,<span class="str">'Ford'</span>,<span class="str">'BMW'</span>,<span class="str">'Hyundai'</span>,<span class="str">'Toyota'</span>,<span class="str">'Honda'</span>,<span class="str">'Ford'</span>,<span class="str">'BMW'</span>,<span class="str">'Hyundai'</span>],
-    <span class="str">'Mileage'</span>:[<span class="num">15</span>,<span class="num">18</span>,<span class="num">12</span>,<span class="num">10</span>,<span class="num">20</span>,<span class="num">16</span>,<span class="num">17</span>,<span class="num">13</span>,<span class="num">11</span>,<span class="num">21</span>],
-    <span class="str">'Price'</span>:  [<span class="num">20000</span>,<span class="num">22000</span>,<span class="num">18000</span>,<span class="num">50000</span>,<span class="num">15000</span>,
-               <span class="num">21000</span>,<span class="num">23000</span>,<span class="num">19000</span>,<span class="num">52000</span>,<span class="num">16000</span>]
-}
-df = pd.DataFrame(data)
-le = LabelEncoder(); df[<span class="str">'Make'</span>] = le.fit_transform(df[<span class="str">'Make'</span>])
-X = df[[<span class="str">'Make'</span>,<span class="str">'Mileage'</span>]]; y = df[<span class="str">'Price'</span>]
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">0</span>)
-model = LinearRegression().fit(X_train, y_train)
-print(<span class="str">"R²:"</span>, r2_score(y_test, model.predict(X_test)))</pre>
-  </div>
-</div>
+        // 2. Creating and displaying names of new threads
+        ThreadNameDemo t1 = new ThreadNameDemo();
+        ThreadNameDemo t2 = new ThreadNameDemo();
 
-<!-- ===== SLIP 29 ===== -->
+        // Setting custom names for better identification
+        t1.setName(&quot;Database-Thread&quot;);
+        t2.setName(&quot;UI-Update-Thread&quot;);
+
+        t1.start(); // This will execute the run() method
+        t2.start();
+    }
+}</pre></div></div>
 <div class="slip" id="s29">
-  <div class="slip-header"><span class="slip-num">SLIP 29</span><span class="slip-title">PHP Fibonacci + Digit Sum (Self-processing) + Logistic (Student Score)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — PHP Self-Processing Page: Fibonacci Series &amp; Sum of Digits [15 Marks]</div>
-    <div class="file-label">self.php</div>
-<pre>&lt;?php
-$fib_result = ""; $sum_result = "";
-if (isset($_POST['submit'])) {
-    $n = (int)$_POST['num'];
-    <span class="cmt">// Fibonacci</span>
-    $a=0; $b=1; $fib=[$a,$b];
-    for ($i=2;$i&lt;$n;$i++) { $c=$a+$b; $fib[]=$c; $a=$b; $b=$c; }
-    $fib_result = implode(", ", array_slice($fib,0,$n));
-    <span class="cmt">// Sum of digits</span>
-    $sum = array_sum(str_split(abs($n)));
-    $sum_result = $sum;
+  <div class="slip-header"><span class="slip-num">SLIP 29</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
+import java.sql.*;  
+class donar
+{
+  public static void main(String args[])
+  {
+	Connection con=null;
+	Statement stmt=null;
+	ResultSet rs=null;
+
+ 	try
+ 	{
+Class.forName(&quot;org.postgresql.Driver&quot;); 
+  System.out.println(&quot;Driver Loaded&quot;);  
+
+con=DriverManager.getConnection(&quot;jdbc:postgresql:TYBCS&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
+System.out.println(&quot;Connection established&quot;);
+
+stmt=con.createStatement();
+
+String str=&quot;select * from donar&quot;;
+
+rs=stmt.executeQuery(str);
+
+ResultSetMetaData rm=rs.getMetaData();
+
+int colcount=rm.getColumnCount();
+
+System.out.println(&quot;Number of Columns=&quot;+colcount);
+	
+	 for(int i=1;i&lt;=colcount;i++)
+	{
+	   System.out.println(&quot;Column No.: &quot;+i);
+	   System.out.println(&quot;Column Name: &quot;+rm.getColumnName(i));
+	   System.out.println(&quot;Column Type: &quot;+rm.getColumnTypeName(i));
+	   System.out.println(&quot;Column size: &quot;+rm.getColumnDisplaySize(i));
+	 }
 }
-?&gt;
-&lt;form method="post"&gt;
-  Enter Number: &lt;input type="number" name="num" required&gt;
-  &lt;input type="submit" name="submit" value="Calculate"&gt;
-&lt;/form&gt;
-&lt;?php if($fib_result): ?&gt;
-  &lt;p&gt;Fibonacci Series: &lt;?= $fib_result ?&gt;&lt;/p&gt;
-  &lt;p&gt;Sum of Digits: &lt;?= $sum_result ?&gt;&lt;/p&gt;
-&lt;?php endif; ?&gt;</pre>
 
-    <div class="q-label">Q.2 — Python: Logistic Regression – Student Score Dataset [15 Marks]</div>
-<pre><span class="kw">import</span> pandas <span class="kw">as</span> pd
-<span class="kw">from</span> sklearn.linear_model <span class="kw">import</span> LogisticRegression
-<span class="kw">from</span> sklearn.model_selection <span class="kw">import</span> train_test_split
-<span class="kw">from</span> sklearn.metrics <span class="kw">import</span> accuracy_score, classification_report
-
-data = {
-    <span class="str">'Hours_Studied'</span>:[<span class="num">1</span>,<span class="num">2</span>,<span class="num">3</span>,<span class="num">4</span>,<span class="num">5</span>,<span class="num">6</span>,<span class="num">7</span>,<span class="num">8</span>,<span class="num">9</span>,<span class="num">10</span>],
-    <span class="str">'Score'</span>:        [<span class="num">20</span>,<span class="num">35</span>,<span class="num">45</span>,<span class="num">52</span>,<span class="num">60</span>,<span class="num">70</span>,<span class="num">75</span>,<span class="num">85</span>,<span class="num">92</span>,<span class="num">98</span>],
-    <span class="str">'Pass'</span>:         [<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">0</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>,<span class="num">1</span>]
+	catch(Exception e)
+	 {
+    	  System.out.println(&quot;Error &quot;+e);
+    	 }
+  	
+  
+  }
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+public class LinkedListOperations
+{
+public static void main(String[] args)
+{
+// Create LinkedList of Integer
+LinkedList&lt;Integer&gt; list = new LinkedList&lt;&gt;();
+// Add elements
+list.add(10);
+list.add(20);
+list.add(30);
+System.out.println(&quot;Original List: &quot; + list);
+// i. Add element at first position
+list.addFirst(5);
+System.out.println(&quot;After adding at first: &quot; + list);
+// ii. Delete last element
+list.removeLast();
+System.out.println(&quot;After deleting last element: &quot; + list);
+// iii. Display size of LinkedList
+int size = list.size();
+System.out.println(&quot;Size of LinkedList: &quot; + size);
 }
-df = pd.DataFrame(data)
-X = df[[<span class="str">'Hours_Studied'</span>,<span class="str">'Score'</span>]]; y = df[<span class="str">'Pass'</span>]
-X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=<span class="num">0.2</span>,random_state=<span class="num">42</span>)
-clf = LogisticRegression().fit(X_train, y_train)
-y_pred = clf.predict(X_test)
-print(<span class="str">"Accuracy:"</span>, accuracy_score(y_test, y_pred))
-print(classification_report(y_test, y_pred))</pre>
-  </div>
-</div>
-
-<!-- ===== SLIP 30 ===== -->
+}</pre></div></div>
 <div class="slip" id="s30">
-  <div class="slip-header"><span class="slip-num">SLIP 30</span><span class="slip-title">XML Bookstore (Bookcategory.xml) + Apriori (eggs/milk/apple/bread)</span></div>
-  <div class="slip-body">
-    <div class="q-label">Q.1 — Create Bookcategory.xml with 3 Categories [15 Marks]</div>
-    <div class="file-label">Bookcategory.xml</div>
-<pre>&lt;?xml version="1.0" encoding="UTF-8"?&gt;
-&lt;Bookstore&gt;
-  &lt;Category name="Yoga"&gt;
-    &lt;Book&gt;
-      &lt;Book_Title&gt;The Yoga Bible&lt;/Book_Title&gt;
-      &lt;Book_Author&gt;Christina Brown&lt;/Book_Author&gt;
-      &lt;Book_Price&gt;450&lt;/Book_Price&gt;
-    &lt;/Book&gt;
-    &lt;Book&gt;
-      &lt;Book_Title&gt;Yoga for Beginners&lt;/Book_Title&gt;
-      &lt;Book_Author&gt;Mark Stephens&lt;/Book_Author&gt;
-      &lt;Book_Price&gt;350&lt;/Book_Price&gt;
-    &lt;/Book&gt;
-  &lt;/Category&gt;
-  &lt;Category name="Story"&gt;
-    &lt;Book&gt;
-      &lt;Book_Title&gt;Harry Potter&lt;/Book_Title&gt;
-      &lt;Book_Author&gt;J.K. Rowling&lt;/Book_Author&gt;
-      &lt;Book_Price&gt;600&lt;/Book_Price&gt;
-    &lt;/Book&gt;
-    &lt;Book&gt;
-      &lt;Book_Title&gt;The Alchemist&lt;/Book_Title&gt;
-      &lt;Book_Author&gt;Paulo Coelho&lt;/Book_Author&gt;
-      &lt;Book_Price&gt;400&lt;/Book_Price&gt;
-    &lt;/Book&gt;
-  &lt;/Category&gt;
-  &lt;Category name="Technical"&gt;
-    &lt;Book&gt;
-      &lt;Book_Title&gt;Python Crash Course&lt;/Book_Title&gt;
-      &lt;Book_Author&gt;Eric Matthes&lt;/Book_Author&gt;
-      &lt;Book_Price&gt;700&lt;/Book_Price&gt;
-    &lt;/Book&gt;
-    &lt;Book&gt;
-      &lt;Book_Title&gt;Clean Code&lt;/Book_Title&gt;
-      &lt;Book_Author&gt;Robert Martin&lt;/Book_Author&gt;
-      &lt;Book_Price&gt;800&lt;/Book_Price&gt;
-    &lt;/Book&gt;
-  &lt;/Category&gt;
-&lt;/Bookstore&gt;</pre>
+  <div class="slip-header"><span class="slip-num">SLIP 30</span><span class="slip-title">Java Solutions</span></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
+import java.awt.*;
 
-    <div class="q-label">Q.2 — Python: Apriori (eggs, milk, apple, bread transactions) [15 Marks]</div>
-<pre><span class="kw">from</span> mlxtend.preprocessing <span class="kw">import</span> TransactionEncoder
-<span class="kw">from</span> mlxtend.frequent_patterns <span class="kw">import</span> apriori, association_rules
-<span class="kw">import</span> pandas <span class="kw">as</span> pd
+public class IndianFlagDrawing extends JFrame {
+    private FlagPanel panel;
 
-transactions = [
-    [<span class="str">'eggs'</span>,<span class="str">'milk'</span>,<span class="str">'bread'</span>],
-    [<span class="str">'eggs'</span>,<span class="str">'apple'</span>],
-    [<span class="str">'milk'</span>,<span class="str">'bread'</span>],
-    [<span class="str">'apple'</span>,<span class="str">'milk'</span>],
-    [<span class="str">'milk'</span>,<span class="str">'apple'</span>,<span class="str">'bread'</span>]
-]
-te = TransactionEncoder()
-te_array = te.fit_transform(transactions)
-df = pd.DataFrame(te_array, columns=te.columns_)
+    public IndianFlagDrawing() {
+        setTitle(&quot;Multithreaded Indian Flag Drawing&quot;);
+        setSize(600, 500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+        
+        panel = new FlagPanel();
+        add(panel);
+        
+        setVisible(true);
+        
+        // Start the construction process
+        panel.startDrawing();
+    }
 
-print(<span class="str">"=== Encoded Dataset ==="</span>)
-print(df)
+    public static void main(String[] args) {
+        new IndianFlagDrawing();
+    }
+}
 
-freq = apriori(df, min_support=<span class="num">0.4</span>, use_colnames=<span class="num">True</span>)
-print(<span class="str">"\n=== Frequent Itemsets ==="</span>)
-print(freq)
+class FlagPanel extends JPanel {
+    private boolean showSaffron = false;
+    private boolean showWhite = false;
+    private boolean showGreen = false;
+    private boolean showChakra = false;
 
-rules = association_rules(freq, metric=<span class="str">"confidence"</span>, min_threshold=<span class="num">0.5</span>)
-print(<span class="str">"\n=== Association Rules ==="</span>)
-print(rules[[<span class="str">'antecedents'</span>,<span class="str">'consequents'</span>,<span class="str">'support'</span>,<span class="str">'confidence'</span>,<span class="str">'lift'</span>]])</pre>
+    public void startDrawing() {
+        // Thread 1: Draw Saffron Band
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(1000);
+                showSaffron = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
 
-    <div class="note">💡 <strong>All Apriori programs require:</strong> <code>pip install mlxtend</code> &nbsp;|&nbsp; <strong>WordCloud programs require:</strong> <code>pip install wordcloud</code></div>
-  </div>
-</div>
+        // Thread 2: Draw White Band
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(2000);
+                showWhite = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
 
-</main>
-</body>
-</html>
+        // Thread 3: Draw Green Band
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(3000);
+                showGreen = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
+
+        // Thread 4: Draw Ashoka Chakra
+        new Thread(() -&gt; {
+            try {
+                Thread.sleep(4000);
+                showChakra = true;
+                repaint();
+            } catch (InterruptedException e) { e.printStackTrace(); }
+        }).start();
+    }
+
+    @Override
+    protected void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        Graphics2D g2 = (Graphics2D) g;
+        g2.setStroke(new BasicStroke(2));
+
+        // Draw Flag Pole
+        g2.setColor(Color.BLACK);
+        g2.fillRect(50, 50, 10, 400);
+
+        // Draw Saffron Band
+        if (showSaffron) {
+            g2.setColor(new Color(255, 153, 51)); // Saffron
+            g2.fillRect(60, 50, 300, 60);
+        }
+
+        // Draw White Band
+        if (showWhite) {
+            g2.setColor(Color.WHITE);
+            g2.fillRect(60, 110, 300, 60);
+            g2.setColor(Color.BLACK);
+            g2.drawRect(60, 110, 300, 60); // Border for white
+        }
+
+        // Draw Green Band
+        if (showGreen) {
+            g2.setColor(new Color(19, 136, 8)); // Green
+            g2.fillRect(60, 170, 300, 60);
+        }
+
+        // Draw Ashoka Chakra
+        if (showChakra) {
+            g2.setColor(new Color(0, 0, 128)); // Navy Blue
+            int cx = 210 - 25; // Center X
+            int cy = 140 - 25; // Center Y
+            g2.drawOval(185, 115, 50, 50); // Circle
+            
+            // Draw 24 spokes
+            for (int i = 0; i &lt; 24; i++) {
+                double angle = Math.toRadians(i * 15);
+                int x2 = (int) (210 + 25 * Math.cos(angle));
+                int y2 = (int) (140 + 25 * Math.sin(angle));
+                g2.drawLine(210, 140, x2, y2);
+            }
+        }
+    }
+}</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
+class Slip30B
+{
+    public static void main(String[] args) throws Exception
+    {
+        Class.forName(&quot;org.postgresql.Driver&quot;);
+        Connection con = DriverManager.getConnection
+        (&quot;jdbc:postgresql://localhost/slips&quot;,&quot;postgres&quot;,&quot;&quot;);
+        System.out.println(&quot;Got Connection:-&quot;+con);
+            
+        String query = &quot;select * from teacher1&quot;;
+        Statement stmt = con.createStatement
+        (ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        ResultSet rs = stmt.executeQuery(query);
+        System.out.println(&quot;ID\tName\tSALARY&quot;);
+        while(rs.next())
+        {
+            System.out.println
+            (rs.getInt(1)+&quot;\t&quot;+rs.getString(2)+&quot;\t&quot;+rs.getInt(3));
+        }
+    }
+}</pre></div></div></main></body></html>
