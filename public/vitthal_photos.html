@@ -66,7 +66,81 @@ class thread2 extends Thread
                                 thread2 t=new thread2();
                                 t.start();
                             }
-                        }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
+                        }
+                        2. Write a Java program to accept the details of Employee (Eno, EName, Designation, Salary) from a user and store it into
+                        the database. (Use Swing)
+                        import javax.swing.*;
+                        import java.awt.event.*;
+                        import java.sql.*;
+                        public class EmployeeForm extends JFrame implements ActionListener {
+                                JLabel l1, l2, l3, l4;
+                                JTextField t1, t2, t3, t4;
+                                JButton btn;
+                                public EmployeeForm() {
+                                        setTitle(&quot;Employee Form&quot;);
+                                        setLayout(null);
+                                        l1 = new JLabel(&quot;Employee No:&quot;);
+                                        l1.setBounds(50, 50, 120, 30);
+                                        add(l1);
+                                        t1 = new JTextField();
+                                        t1.setBounds(180, 50, 150, 30);
+                                        add(t1);
+                                        l2 = new JLabel(&quot;Employee Name:&quot;);
+                                        l2.setBounds(50, 100, 120, 30);
+                                        add(l2);
+                                        t2 = new JTextField();
+                                        t2.setBounds(180, 100, 150, 30);
+                                        add(t2);
+                                        l3 = new JLabel(&quot;Designation:&quot;);
+                                        l3.setBounds(50, 150, 120, 30);
+                                        add(l3);
+                                        t3 = new JTextField();
+                                        t3.setBounds(180, 150, 150, 30);
+                                        add(t3);
+                                        l4 = new JLabel(&quot;Salary:&quot;);
+                                        l4.setBounds(50, 200, 120, 30);
+                                        add(l4);
+                                        t4 = new JTextField();
+                                        t4.setBounds(180, 200, 150, 30);
+                                        add(t4);
+                                        btn = new JButton(&quot;Save&quot;);
+                                        btn.setBounds(120, 260, 100, 30);
+                                        add(btn);
+                                        btn.addActionListener(this);
+                                        setSize(400, 350);
+                                        setVisible(true);
+                                        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                    }
+                                    public void actionPerformed(ActionEvent e) {
+                                            try {
+                                                    int eno = Integer.parseInt(t1.getText());
+                                                    String ename = t2.getText();
+                                                    String designation = t3.getText();
+                                                    double salary = Double.parseDouble(t4.getText());
+                                                    Class.forName{“org.postgresql.Driver&quot;);
+                                                        Connection con = DriverManager.getConnection(
+                                                        &quot;jdbc:postgresql:tybcs&quot;, &quot;postgres&quot;, &quot;postgres&quot;);
+                                                        PreparedStatement ps = con.prepareStatement(
+                                                        &quot;INSERT INTO employee VALUES (?, ?, ?, ?)&quot;);
+                                                        ps.setInt(1, eno);
+                                                        ps.setString(2, ename);
+                                                        ps.setString(3, designation);
+                                                        ps.setDouble(4, salary);
+                                                        int i = ps.executeUpdate();
+                                                        if (i &gt; 0) {
+                                                                System.out.println(&quot;Record Saved Successfully!&quot;);
+                                                            } else {
+                                                                System.out.println(&quot;Error Saving Record!&quot;);
+                                                            }
+                                                            con.close();
+                                                        } catch (Exception ex) {
+                                                            System.out.println(&quot;Exception: &quot; + ex.getMessage());
+                                                        }
+                                                    }
+                                                    public static void main(String[] args) {
+                                                            new EmployeeForm();
+                                                        }
+                                                    }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
                         import java.awt.event.*;
                         import java.sql.*;
                         public class EmployeeForm extends JFrame implements ActionListener {
@@ -160,7 +234,31 @@ class seta11
                     System.out.println(&quot;Display name in Ascending order:&quot;);
                     System.out.println(ts);
                 }
-            }</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
+            }
+            2.Design a servlet that provides information about a HTTP request from a client, such as IP-Address and browser type. The
+            servlet also provides information about the server on which the servlet is running, such as the operating system type, and
+            the names of currently loaded servlets. [15M]
+            import javax.servlet.*;
+            import javax.servlet.http.*;
+            import java.io.*;
+            public class demo extends HttpServlet
+            {
+                    public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
+                    {
+                            res.setContentType(&quot;text/html&quot;);
+                            PrintWriter pw=res.getWriter();
+                            pw.println(&quot;&lt;br&gt;Remote Address=&quot;+req.getRemoteAddr());
+                            pw.println(&quot;&lt;br&gt;Remote Host=&quot;+req.getRemoteHost());
+                            pw.println(&quot;&lt;br&gt;Server Name=&quot;+req.getServerName());
+                            pw.println(&quot;&lt;br&gt;ServerPort=&quot;+req.getServerPort());
+                            pw.println(&quot;&lt;br&gt;Operating System: &quot; +System.getProperty(&quot;os.name&quot;));
+                            ServletContext context = getServletContext();
+                            out.println(&quot;&lt;h3&gt;Currently Loaded Servlets&lt;/h3&gt;&quot;);
+                            for (ServletRegistration reg : context.getServletRegistrations().values()) {
+                                    out.println(reg.getName() + &quot;&lt;br&gt;&quot;);
+                                }
+                            }
+                        }</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
 import javax.servlet.http.*;
 import java.io.*;
 public class demo extends HttpServlet
@@ -212,6 +310,23 @@ String disease = request.getParameter(&quot;disease&quot;);
 &lt;td&gt;&lt;%= disease %&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+Slip3.html
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;title&gt;Patient Form&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;h2&gt;Enter Patient Details&lt;/h2&gt;
+    &lt;form action=&quot;patient.jsp&quot; method=&quot;post&quot;&gt;
+    Patient No: &lt;input type=&quot;text&quot; name=&quot;pno&quot;&gt;&lt;br&gt;&lt;br&gt;
+    Patient Name: &lt;input type=&quot;text&quot; name=&quot;pname&quot;&gt;&lt;br&gt;&lt;br&gt;
+    Address: &lt;input type=&quot;text&quot; name=&quot;address&quot;&gt;&lt;br&gt;&lt;br&gt;
+    Age: &lt;input type=&quot;text&quot; name=&quot;age&quot;&gt;&lt;br&gt;&lt;br&gt;
+    Disease: &lt;input type=&quot;text&quot; name=&quot;disease&quot;&gt;&lt;br&gt;&lt;br&gt;
+    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
+&lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre><div class="q-label">Question 2</div><pre>import java.util.*;
 class slip32
@@ -284,7 +399,74 @@ class thread7 extends JFrame implements Runnable
                                     Thread t1=new Thread(t);
                                     t1.start();
                                 }
-                            }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+                            }
+                            2. Write a Java program to store city names and their STD codes using an appropriate collection and perform following
+                            operations:
+                            i.Add a new city and its code (No duplicates)
+                            ii.Remove a city from the collection
+                            import java.util.*;
+                            public class CitySTD {
+                                    public static void main(String[] args) {
+                                            HashMap&lt;String, Integer&gt; cityMap = new HashMap&lt;&gt;();
+                                            Scanner sc = new Scanner(System.in);
+                                            int choice;
+                                            do {
+                                                    System.out.println(&quot;\n1. Add City and STD Code&quot;);
+                                                    System.out.println(&quot;2. Remove City&quot;);
+                                                    System.out.println(&quot;3. Search City&quot;);
+                                                    System.out.println(&quot;4. Display All Cities&quot;);
+                                                    System.out.println(&quot;5. Exit&quot;);
+                                                    System.out.print(&quot;Enter your choice: &quot;);
+                                                    choice = sc.nextInt();
+                                                    sc.nextLine();
+                                                    switch (choice) {
+                                                            case 1:
+                                                            System.out.print(&quot;Enter City Name: &quot;);
+                                                            String city = sc.nextLine();
+                                                            if (cityMap.containsKey(city)) {
+                                                                    System.out.println(&quot;City already exists! Duplicate not allowed.&quot;);
+                                                                } else {
+                                                                    System.out.print(&quot;Enter STD Code: &quot;);
+                                                                    int code = sc.nextInt();
+                                                                    cityMap.put(city, code);
+                                                                    System.out.println(&quot;City added successfully.&quot;);
+                                                                }
+                                                                break;
+                                                                case 2:
+                                                                System.out.print(&quot;Enter City Name to remove: &quot;);
+                                                                city = sc.nextLine();
+                                                                if (cityMap.containsKey(city)) {
+                                                                        cityMap.remove(city);
+                                                                        System.out.println(&quot;City removed successfully.&quot;);
+                                                                    } else {
+                                                                        System.out.println(&quot;City not found.&quot;);
+                                                                    }
+                                                                    break;
+                                                                    case 3:
+                                                                    System.out.print(&quot;Enter City Name to search: &quot;);
+                                                                    city = sc.nextLine();
+                                                                    if (cityMap.containsKey(city)) {
+                                                                            System.out.println(&quot;STD Code of &quot; + city + &quot; is &quot; + cityMap.get(city));
+                                                                        } else {
+                                                                            System.out.println(&quot;City not found.&quot;);
+                                                                        }
+                                                                        break;
+                                                                        case 4:
+                                                                        System.out.println(&quot;\nCity and STD Codes:&quot;);
+                                                                        for (Map.Entry&lt;String, Integer&gt; entry : cityMap.entrySet()) {
+                                                                                System.out.println(entry.getKey() + &quot; : &quot; + entry.getValue());
+                                                                            }
+                                                                            break;
+                                                                            case 5:
+                                                                            System.out.println(&quot;Program Ended.&quot;);
+                                                                            break;
+                                                                            default:
+                                                                            System.out.println(&quot;Invalid Choice.&quot;);
+                                                                        }
+                                                                    } while (choice != 5);
+                                                                    sc.close();
+                                                                }
+                                                            }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
                             public class CitySTD {
                                     public static void main(String[] args) {
                                             HashMap&lt;String, Integer&gt; cityMap = new HashMap&lt;&gt;();
@@ -395,7 +577,10 @@ class slip61
                                 System.out.println(&quot;Given number is not present&quot;);
                             }
                         }
-                    }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
+                    }
+                    2. Write a java program using multithreading to simulate traffic signal (Use Swing).
+                    [15M]
+                    import javax.swing.*;
                     import java.awt.*;
                     class TrafficSignal extends JFrame implements Runnable {
                             JLabel red, yellow, green;
@@ -439,7 +624,90 @@ class slip61
                                             public static void main(String args[]) {
                                                     new TrafficSignal();
                                                 }
-                                            }</pre></div></div>
+                                            }</pre><div class="q-label">Question 2</div><pre>displayed on the screen. The choices are displayed using radio buttons. When the user clicks on next, the next question
+                will be displayed. When the user clicks on submit, display the total score on the screen.
+                [15 M]
+Database Table
+CREATE TABLE questions(
+id INT PRIMARY KEY,
+question VARCHAR(200),
+option1 VARCHAR(100),
+option2 VARCHAR(100),
+option3 VARCHAR(100),
+option4 VARCHAR(100),
+answer INT
+);
+Slip5.jsp
+&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+&lt;%
+Connection con = null;
+PreparedStatement ps = null;
+ResultSet rs = null;
+int score = 0;
+int qid = 1;
+String ans = request.getParameter(&quot;answer&quot;);
+if(ans != null)
+{
+        int correct = (Integer)session.getAttribute(&quot;correct&quot;);
+        if(Integer.parseInt(ans) == correct)
+        {
+                score = (Integer)session.getAttribute(&quot;score&quot;);
+                score++;
+                session.setAttribute(&quot;score&quot;, score);
+            }
+        }
+        if(session.getAttribute(&quot;qid&quot;) != null)
+        {
+                qid = (Integer)session.getAttribute(&quot;qid&quot;) + 1;
+            }
+            session.setAttribute(&quot;qid&quot;, qid);
+            try
+            {
+                    Class.forName{“org.postgresql.Driver&quot;);
+                        con = DriverManager.getConnection(
+                        &quot;jdbc:postgresql:tybcs”,”postgres&quot;,&quot;postgres&quot;);
+                        ps = con.prepareStatement(
+                        &quot;SELECT * FROM questions ORDER BY RAND() LIMIT 1&quot;);
+                        rs = ps.executeQuery();
+                        if(rs.next())
+                        {
+                                session.setAttribute(&quot;correct&quot;, rs.getInt(&quot;answer&quot;));
+                                %&gt;
+                                &lt;html&gt;
+                                    &lt;body&gt;
+                                        &lt;h2&gt;Online Test&lt;/h2&gt;
+                                        &lt;form method=&quot;post&quot; action=&quot;test.jsp&quot;&gt;
+                                        &lt;p&gt;&lt;%= rs.getString(&quot;question&quot;) %&gt;&lt;/p&gt;
+                                        &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;1&quot;&gt;
+                                        &lt;%= rs.getString(&quot;option1&quot;) %&gt;&lt;br&gt;
+                                        &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;2&quot;&gt;
+                                        &lt;%= rs.getString(&quot;option2&quot;) %&gt;&lt;br&gt;
+                                        &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;3&quot;&gt;
+                                        &lt;%= rs.getString(&quot;option3&quot;) %&gt;&lt;br&gt;
+                                        &lt;input type=&quot;radio&quot; name=&quot;answer&quot; value=&quot;4&quot;&gt;
+                                        &lt;%= rs.getString(&quot;option4&quot;) %&gt;&lt;br&gt;&lt;br&gt;
+                                        &lt;input type=&quot;submit&quot; value=&quot;Next&quot;&gt;
+                                    &lt;/form&gt;
+                                &lt;/body&gt;
+                            &lt;/html&gt;
+                            &lt;%
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                            out.println(e);
+                        }
+                        %&gt;
+                        Result.jsp
+                        &lt;%
+                        int score = (Integer)session.getAttribute(&quot;score&quot;);
+                        %&gt;
+                        &lt;html&gt;
+                            &lt;body&gt;
+                                &lt;h2&gt;Test Result&lt;/h2&gt;
+                                Your Total Score is: &lt;%= score %&gt;
+                            &lt;/body&gt;
+                        &lt;/html&gt;</pre></div></div>
 <div class="slip" id="s7">
   <div class="slip-header"><span class="slip-num">SLIP 07</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -496,7 +764,46 @@ class square extends Thread
                                                                 System.out.println(e);
                                                             }
                                                         }
-                                                    }</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
+                                                    }
+                                                    2. Write a java program for the following:
+                                                    i. To create a Product (Pid, Pname, Price) table.
+                                                    ii. Insert at least five records into the Product table.
+                                                    iii. Display all the records from a Product table. Assume Database is already created.
+                                                    import java.sql.*;
+                                                    public class ProductDB {
+                                                            public static void main(String[] args) {
+                                                                    try {
+                                                                            Class.forName{“org.postgresql.Driver&quot;);
+                                                                                Connection con = DriverManager.getConnection(
+                                                                                &quot;jdbc:postgresql:tybcs”,postgres”,”postgres”);
+                                                                                Statement stmt = con.createStatement();
+                                                                                String create = &quot;CREATE TABLE IF NOT EXISTS Product(&quot; +
+                                                                                &quot;Pid INT PRIMARY KEY,&quot; +
+                                                                                &quot;Pname VARCHAR(50),&quot; +
+                                                                                &quot;Price DOUBLE)&quot;;
+                                                                                stmt.executeUpdate(create);
+                                                                                System.out.println(&quot;Product Table Created&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (1,&#x27;Laptop&#x27;,55000)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (2,&#x27;Mobile&#x27;,20000)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (3,&#x27;Keyboard&#x27;,800)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (4,&#x27;Mouse&#x27;,500)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (5,&#x27;Monitor&#x27;,12000)&quot;);
+                                                                                System.out.println(&quot;5 Records Inserted&quot;);
+                                                                                ResultSet rs = stmt.executeQuery(&quot;SELECT * FROM Product&quot;);
+                                                                                System.out.println(&quot;\nProduct Details:&quot;);
+                                                                                System.out.println(&quot;Pid\tPname\tPrice&quot;);
+                                                                                while(rs.next()) {
+                                                                                        System.out.println(
+                                                                                        rs.getInt(1) + &quot;\t&quot; +
+                                                                                        rs.getString(2) + &quot;\t&quot; +
+                                                                                        rs.getDouble(3));
+                                                                                    }
+                                                                                    con.close();
+                                                                                } catch(Exception e) {
+                                                                                    System.out.println(e);
+                                                                                }
+                                                                            }
+                                                                        }</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
                                                     public class ProductDB {
                                                             public static void main(String[] args) {
                                                                     try {
@@ -562,7 +869,44 @@ class thread4 extends Thread
                             t3.start();
                             t3.setPriority(MAX_PRIORITY);
                         }
-                    }</pre><div class="q-label">Question 2</div></div></div>
+                    }
+                    2. Write a JSP program to check whether a given number is prime or not. Display the result in red color.
+                    [15M]
+Slip8.html
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form method=&quot;get&quot; action=&quot;slip8.jsp&quot;&gt;
+        Number:&lt;input type=&quot;number&quot; name=&quot;number&quot;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;submit&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+Slip8.jsp
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;%
+        int n=Integer.parseInt(request.getParameter(&quot;number&quot;));
+        out.println(&quot;Number=&quot;+n);
+        int i,flag=0;
+        for(i=2;i&lt;n;i++)
+        {
+                if(n%i==0)
+                {
+                        flag=1;
+                        break;
+                    }
+                }
+                if(flag==0)
+                {
+                        out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+n+&quot; is prime&quot;+&quot;&lt;/font&gt;&quot;);
+                    }
+                    else
+                    {
+                            out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+n+&quot; is not prime&quot;+&quot;&lt;/font&gt;&quot;);
+                        }
+                        %&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;</pre><div class="q-label">Question 2</div></div></div>
 <div class="slip" id="s11">
   <div class="slip-header"><span class="slip-num">SLIP 11</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div></div></div>
@@ -631,7 +975,56 @@ catch(Exception e)
         System.out.println(&quot;Error in connection=&quot;+e);
     }
 }
-}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+}
+2.Write a Java program to show lifecycle (creation, sleep, and dead) of a thread. Program should print randomly the name
+of thread and value of sleep time. The name of the thread should be hard coded through constructor. The sleep time of a
+import java.util.*;
+class tt extends Thread
+{
+        String p;
+        tt(String s)
+        {
+                p=s;
+
+            }
+            public void run()
+            {
+                    try
+                    {
+                            System.out.println(&quot;Thread Name=&quot; +getName());
+                            //System.out.print(this);
+                            Random r=new Random();
+                            int n=r.nextInt(4999);
+                            Thread.sleep(n);
+                            System.out.println(&quot;The thread is sleeping time &quot; +n);
+                        }
+                        catch(Exception e)
+                        {
+                                System.out.println(e);
+                            }
+                        }
+                    }
+                    class thread6
+                    {
+                            public static void main(String[] args)
+                            {
+                                    tt t1=new tt(&quot;Thread1&quot;);
+                                    tt t2=new tt(&quot;Thread2&quot;);
+                                    t1.start();
+                                    t2.start();
+
+                                    try{
+                                            t1.join();
+                                            t2.join();
+                                            System.out.println(t1.getName()+&quot; is dead&quot;);
+                                            System.out.println(t2.getName()+&quot; is dead&quot;);
+                                        }
+                                        catch(Exception e)
+                                        {
+                                                System.out.println(e);
+                                            }
+                                        }
+                                    }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
 class tt extends Thread
 {
         String p;
@@ -698,7 +1091,10 @@ class thread1 extends Thread
                     thread1 t=new thread1();
                     t.start();
                 }
-            }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+            }
+            2. Write a SERVLET program which counts how many times a user has visited a web page. If user is visiting the page for
+            the first time, display a welcome message. If the user is revisiting the page, display the number of times visited. (Use
+            import java.io.*;
             import javax.servlet.*;
             import javax.servlet.http.*;
             public class VisitCounterServlet extends HttpServlet {
@@ -730,7 +1126,33 @@ class thread1 extends Thread
                                             out.println(&quot;&lt;/body&gt;&quot;);
                                             out.println(&quot;&lt;/html&gt;&quot;);
                                         }
-                                    }</pre></div></div>
+                                    }</pre><div class="q-label">Question 2</div><pre>Slip14.html
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;form method=&quot;get&quot; action=&quot;slip26.jsp&quot;&gt;
+        Number:&lt;input type=&quot;number&quot; name=&quot;number&quot;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; name=&quot;submit&quot; value=&quot;submit&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+Slip14.jsp
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;%
+        int n=Integer.parseInt(request.getParameter(&quot;number&quot;));
+        out.println(&quot;Number=&quot;+n);
+        int lastnumber=n%10;
+        while(n&gt;=10)
+        {
+                n=n/10;
+            }
+            int firstnumber=n;
+            int sum=lastnumber+firstnumber;
+            %&gt;
+            &lt;p style=&quot;color:red; font-size:18px;&quot;&gt;Sum=&lt;%= sum %&gt;
+        &lt;/p&gt;
+    &lt;/body&gt;
+&lt;/html&gt;</pre></div></div>
 <div class="slip" id="s16">
   <div class="slip-header"><span class="slip-num">SLIP 16</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -747,7 +1169,62 @@ public class TreeSetColors {
                         System.out.println(c);
                     }
                 }
-            }</pre></div></div>
+            }
+            2.Write a Java program to accept the details of Teacher (TNo, TName, Subject). Insert at least 5 Records into Teacher Table
+            and display the details of Teacher who is teaching &quot;JAVA&quot; Subject (Use PreparedStatement Interface)
+            import java.sql.*;
+            public class TeacherPrepared {
+                    public static void main(String args[]) {
+                            try {
+                                    Class.forName(org.postgresql.Driver&quot;);
+                                    Connection con = DriverManager.getConnection(
+                                    &quot;jdbc:postgresql:tybcs,”postgres”,”postgres”);
+                                    Statement st = con.createStatement();
+                                    st.executeUpdate(&quot;CREATE TABLE IF NOT EXISTS Teacher(&quot; +
+                                    &quot;TNo INT PRIMARY KEY,&quot; +
+                                    &quot;TName VARCHAR(50),&quot; +
+                                    &quot;Subject VARCHAR(50))&quot;);
+                                    // Insert Records using PreparedStatement
+                                    PreparedStatement ps = con.prepareStatement(
+                                    &quot;INSERT INTO Teacher VALUES(?,?,?)&quot;);
+                                    ps.setInt(1,101);
+                                    ps.setString(2,&quot;Rahul&quot;);
+                                    ps.setString(3,&quot;JAVA&quot;);
+                                    ps.executeUpdate();
+                                    ps.setInt(1,102);
+                                    ps.setString(2,&quot;Sneha&quot;);
+                                    ps.setString(3,&quot;Python&quot;);
+                                    ps.executeUpdate();
+                                    ps.setInt(1,103);
+                                    ps.setString(2,&quot;Amit&quot;);
+                                    ps.setString(3,&quot;JAVA&quot;);
+                                    ps.executeUpdate();
+                                    ps.setInt(1,104);
+                                    ps.setString(2,&quot;Neha&quot;);
+                                    ps.setString(3,&quot;C++&quot;);
+                                    ps.executeUpdate();
+                                    ps.setInt(1,105);
+                                    ps.setString(2,&quot;Kiran&quot;);
+                                    ps.setString(3,&quot;JAVA&quot;);
+                                    ps.executeUpdate();
+                                    PreparedStatement ps2 = con.prepareStatement(
+                                    &quot;SELECT * FROM Teacher WHERE Subject=?&quot;);
+                                    ps2.setString(1,&quot;JAVA&quot;);
+                                    ResultSet rs = ps2.executeQuery();
+                                    System.out.println(&quot;Teachers teaching JAVA:&quot;);
+                                    System.out.println(&quot;TNo\tTName\tSubject&quot;);
+                                    while(rs.next()) {
+                                            System.out.println(
+                                            rs.getInt(1) + &quot;\t&quot; +
+                                            rs.getString(2) + &quot;\t&quot; +
+                                            rs.getString(3));
+                                        }
+                                        con.close();
+                                    } catch(Exception e) {
+                                        System.out.println(e);
+                                    }
+                                }
+                            }</pre></div></div>
 <div class="slip" id="s17">
   <div class="slip-header"><span class="slip-num">SLIP 17</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -768,7 +1245,50 @@ public class SortedIntegers {
                         }
                         sc.close();
                     }
-                }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
+                }
+                2. Write a java program using Multithreading to display the number&#x27;s between 1 to 100 continuously in a JTextField by
+                import javax.swing.*;
+                import java.awt.*;
+                import java.awt.event.*;
+                class NumberThread implements Runnable {
+                        JTextField text;
+                        NumberThread(JTextField text) {
+                                this.text = text;
+                            }
+                            public void run() {
+                                    try {
+                                            for(int i = 1; i &lt;= 100; i++) {
+                                                    text.setText(String.valueOf(i));
+                                                    Thread.sleep(100);
+                                                }
+                                            }
+                                            catch(Exception e) { }
+                                        }
+                                    }
+                                    public class NumberDisplay extends JFrame implements ActionListener {
+                                            JTextField tf;
+                                            JButton btn;
+                                            NumberDisplay() {
+                                                    setTitle(&quot;Number Display&quot;);
+                                                    setSize(300,200);
+                                                    setLayout(new FlowLayout());
+                                                    tf = new JTextField(10);
+                                                    btn = new JButton(&quot;Start&quot;);
+                                                    btn.addActionListener(this);
+                                                    add(tf);
+                                                    add(btn);
+                                                    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                                    setVisible(true);
+                                                }
+                                                public void actionPerformed(ActionEvent e) {
+                                                        NumberThread nt = new NumberThread(tf);
+                                                        Thread t = new Thread(nt);
+                                                        t.start();
+                                                    }
+                                                    public static void main(String args[]) {
+                                                            new NumberDisplay();
+                                                        }
+                                                    }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
                 import java.awt.*;
                 import java.awt.event.*;
                 class NumberThread implements Runnable {
@@ -843,7 +1363,52 @@ class thread3 extends Thread
                                     thread3 t=new thread3();
                                     t.start();
                                 }
-                            }</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
+                            }
+                            2. Write a SERVLET program in java to accept details of student (SeatNo, Stud Name, Class, Total Marks). Calculate
+                            percentage and grade obtained and display details on page.
+                            import javax.servlet.*;
+                            import javax.servlet.http.*;
+                            import java.io.*;
+                            public class slip18b extends HttpServlet
+                            {
+                                    public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
+                                    {
+                                            res.setContentType(&quot;text/html&quot;);
+                                            PrintWriter pw=res.getWriter();
+
+                                            int id=Integer.parseInt(req.getParameter(&quot;id&quot;));
+                                            String name=req.getParameter(&quot;name&quot;);
+                                            String Class=req.getParameter(&quot;class&quot;);
+                                            int ms=Integer.parseInt(req.getParameter(&quot;ms&quot;));
+                                            int mof=Integer.parseInt(req.getParameter(&quot;mof&quot;));
+
+                                            float per=(ms*100)/mof;
+
+                                            pw.println(&quot;&lt;h1&gt;Student Information&lt;/h1&gt;&quot;);
+                                            pw.println(&quot;&lt;br&gt;&lt;b&gt;ID=&lt;/b&gt;&quot;+id);
+                                            pw.println(&quot;&lt;br&gt;&lt;b&gt;Name=&lt;/b&gt;&quot;+name);
+                                            pw.println(&quot;&lt;br&gt;&lt;b&gt;Class=&lt;/b&gt;&quot;+Class);
+                                            pw.println(&quot;&lt;br&gt;&lt;b&gt;Marks Scored=&lt;/b&gt;&quot;+ms);
+                                            pw.println(&quot;&lt;br&gt;&lt;b&gt;Marks Out Of=&lt;/b&gt;&quot;+mof);
+                                            pw.println(&quot;&lt;br&gt;&quot;);
+                                            if(per&lt;=40)
+                                            {
+                                                    pw.println(&quot;&lt;b&gt;Grade = &lt;/b&gt;Fail&quot;);
+                                                }
+                                                else if(per&gt;40 &amp;&amp; per&lt;=60)
+                                                {
+                                                        pw.println(&quot;&lt;b&gt;Grade =&lt;/b&gt; Second Class&quot;);
+                                                    }
+                                                    else if(per&gt;60 &amp;&amp; per&lt;=80)
+                                                    {
+                                                            pw.println(&quot;&lt;b&gt;Grade =&lt;/b&gt; First Class&quot;);
+                                                        }
+                                                        else if(per&gt;80 &amp;&amp; per&lt;=100)
+                                                        {
+                                                                pw.println(&quot;&lt;b&gt;Grade =&lt;/b&gt; First Class with Distinction&quot;);
+                                                            }
+                                                        }
+                                                    }</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
                             import javax.servlet.http.*;
                             import java.io.*;
                             public class slip18b extends HttpServlet
@@ -918,7 +1483,41 @@ class slip191
                                 }
                             }
                         }
-                    }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+                    }
+                    2. Write a java program using SERVLET to accept username and password, search them into database, if found then
+                    import java.io.*;
+                    import javax.servlet.*;
+                    import javax.servlet.http.*;
+                    import java.sql.*;
+                    public class LoginServlet extends HttpServlet {
+                            public void doPost(HttpServletRequest request, HttpServletResponse response)
+                            throws ServletException, IOException {
+                                    response.setContentType(&quot;text/html&quot;);
+                                    PrintWriter out = response.getWriter();
+                                    String uname = request.getParameter(&quot;username&quot;);
+                                    String pass = request.getParameter(&quot;password&quot;);
+                                    try {
+                                            Class.forName(org.postgresql.Driver&quot;);
+                                            Connection con = DriverManager.getConnection(
+                                            &quot;jdbc:postgresql:tybcs”,”postgres”,”postgres”);
+                                            PreparedStatement ps = con.prepareStatement(
+                                            &quot;SELECT * FROM users WHERE username=? AND password=?&quot;);
+                                            ps.setString(1, uname);
+                                            ps.setString(2, pass);
+                                            ResultSet rs = ps.executeQuery();
+                                            if(rs.next()) {
+                                                    out.println(&quot;&lt;h2&gt;Login Successful! Welcome &quot; + uname + &quot;&lt;/h2&gt;&quot;);
+                                                }
+                                                else {
+                                                        out.println(&quot;&lt;h2&gt;Invalid Username or Password&lt;/h2&gt;&quot;);
+                                                    }
+                                                    con.close();
+                                                }
+                                                catch(Exception e) {
+                                                        out.println(e);
+                                                    }
+                                                }
+                                            }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
                     import javax.servlet.*;
                     import javax.servlet.http.*;
                     import java.sql.*;
@@ -976,7 +1575,63 @@ public class SubjectList {
                         }
                         sc.close();
                     }
-                }</pre><div class="q-label">Question 2</div><pre>class SharedResource {
+                }
+                2. Write a java program using Multithreading to solve producer consumer problem in which a producer produces a value
+                and consumer consume the value before producer generate the next value. (Hint: use thread synchronization)
+                class SharedResource {
+                        int value;
+                        boolean available = false;
+                        synchronized void produce(int v) {
+                                try {
+                                        while (available)
+                                        wait();
+                                        value = v;
+                                        System.out.println(&quot;Produced: &quot; + value);
+                                        available = true;
+                                        notify();
+                                    } catch (Exception e) { }
+                            }
+                            synchronized void consume() {
+                                    try {
+                                            while (!available)
+                                            wait();
+                                            System.out.println(&quot;Consumed: &quot; + value);
+                                            available = false;
+                                            notify();
+                                        } catch (Exception e) { }
+                                }
+                            }
+                            class Producer extends Thread {
+                                    SharedResource sr;
+                                    Producer(SharedResource sr) {
+                                            this.sr = sr;
+                                        }
+                                        public void run() {
+                                                for (int i = 1; i &lt;= 5; i++) {
+                                                        sr.produce(i);
+                                                    }
+                                                }
+                                            }
+                                            class Consumer extends Thread {
+                                                    SharedResource sr;
+                                                    Consumer(SharedResource sr) {
+                                                            this.sr = sr;
+                                                        }
+                                                        public void run() {
+                                                                for (int i = 1; i &lt;= 5; i++) {
+                                                                        sr.consume();
+                                                                    }
+                                                                }
+                                                            }
+                                                            public class ProducerConsumerDemo {
+                                                                    public static void main(String args[]) {
+                                                                            SharedResource sr = new SharedResource();
+                                                                            Producer p = new Producer(sr);
+                                                                            Consumer c = new Consumer(sr);
+                                                                            p.start();
+                                                                            c.start();
+                                                                        }
+                                                                    }</pre><div class="q-label">Question 2</div><pre>class SharedResource {
                         int value;
                         boolean available = false;
                         synchronized void produce(int v) {
@@ -1076,7 +1731,27 @@ class VowelThread extends Thread {
                                         t.start();
                                         sc.close();
                                     }
-                                }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+                                }
+                                2. Write a java program to accept &#x27;N&#x27; student names through command line, store them into the appropriate Collection and
+                                import java.util.*;
+                                public class StudentCollection {
+                                        public static void main(String args[]) {
+                                                ArrayList&lt;String&gt; students = new ArrayList&lt;&gt;();
+                                                for(String name : args) {
+                                                        students.add(name);
+                                                    }
+                                                    System.out.println(&quot;Student Names using Iterator:&quot;);
+                                                    Iterator&lt;String&gt; it = students.iterator();
+                                                    while(it.hasNext()) {
+                                                            System.out.println(it.next());
+                                                        }
+                                                        System.out.println(&quot;\nStudent Names using ListIterator:&quot;);
+                                                        ListIterator&lt;String&gt; lit = students.listIterator();
+                                                        while(lit.hasNext()) {
+                                                                System.out.println(lit.next());
+                                                            }
+                                                        }
+                                                    }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
                                 public class StudentCollection {
                                         public static void main(String args[]) {
                                                 ArrayList&lt;String&gt; students = new ArrayList&lt;&gt;();
@@ -1123,7 +1798,40 @@ class ScrollText extends JFrame implements Runnable {
                     public static void main(String args[]) {
                             new ScrollText();
                         }
-                    }</pre><div class="q-label">Question 2</div></div></div>
+                    }
+                    2. Write a JSP script to accept username and password from user, if they are same then. display &quot;Login Successfully&quot;
+Slip24.html
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;h2&gt;Login Form&lt;/h2&gt;
+        &lt;form action=&quot;login.jsp&quot; method=&quot;post&quot;&gt;
+        Username: &lt;input type=&quot;text&quot; name=&quot;uname&quot;&gt;&lt;br&gt;&lt;br&gt;
+        Password: &lt;input type=&quot;password&quot; name=&quot;pass&quot;&gt;&lt;br&gt;&lt;br&gt;
+        &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;
+    &lt;/form&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+Slip24.jsp
+&lt;html&gt;
+    &lt;body&gt;
+        &lt;%
+        String u = request.getParameter(&quot;uname&quot;);
+        String p = request.getParameter(&quot;pass&quot;);
+        if(u.equals(p))
+        {
+                %&gt;
+                &lt;h2&gt;Login Successfully&lt;/h2&gt;
+                &lt;%
+            }
+            else
+            {
+                    %&gt;
+                    &lt;h2&gt;Login Failed&lt;/h2&gt;
+                    &lt;%
+                }
+                %&gt;
+            &lt;/body&gt;
+        &lt;/html&gt;</pre><div class="q-label">Question 2</div></div></div>
 <div class="slip" id="s25">
   <div class="slip-header"><span class="slip-num">SLIP 25</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div></div></div>
@@ -1150,7 +1858,9 @@ public class DeleteEmployee {
                         System.out.println(e);
                     }
                 }
-            }</pre><div class="q-label">Question 2</div><div class="q-label">Question 3</div></div></div>
+            }
+            2. Write a JSP program to calculate sum of first and last digit of a given number. Display sum in Red Color with font size
+            Same for slip14</pre><div class="q-label">Question 2</div><div class="q-label">Question 3</div></div></div>
 <div class="slip" id="s27">
   <div class="slip-header"><span class="slip-num">SLIP 27</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
@@ -1189,7 +1899,25 @@ public class CollegeTable {
                             f.setSize(500,300);
                             f.setVisible(true);
                         }
-                    }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+                    }
+                    2. Write a SERVLET program to change inactive time interval of session.
+                    import java.io.*;
+                    import javax.servlet.*;
+                    import javax.servlet.http.*;
+                    public class SessionTimeServlet extends HttpServlet
+                    {
+                            public void doGet(HttpServletRequest request, HttpServletResponse response)
+                            throws ServletException, IOException
+                            {
+                                    response.setContentType(&quot;text/html&quot;);
+                                    PrintWriter out = response.getWriter();
+                                    HttpSession session = request.getSession(true);
+                                    session.setMaxInactiveInterval(60);
+                                    out.println(&quot;&lt;h2&gt;Session Inactive Time Changed&lt;/h2&gt;&quot;);
+                                    out.println(&quot;Session ID: &quot; + session.getId() + &quot;&lt;br&gt;&quot;);
+                                    out.println(&quot;Inactive Interval set to: 60 seconds&quot;);
+                                }
+                            }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
                     import javax.servlet.*;
                     import javax.servlet.http.*;
                     public class SessionTimeServlet extends HttpServlet
@@ -1235,24 +1963,45 @@ public class CollegeTable {
                     }</pre></div></div>
 <div class="slip" id="s29">
   <div class="slip-header"><span class="slip-num">SLIP 29</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.LinkedList;
-                    public class LinkedListDemo
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>&lt;%
+        String name=request.getParameter(&quot;name&quot;);
+        out.println(&quot;Original String=&quot;+name);
+        int len=name.length();
+        out.print(&quot;&lt;br&gt; Reverse String=&quot;);
+        for(int i=len-1;i&gt;=0;i--)
+        {
+                out.print(name.charAt(i));
+            }
+            %&gt;
+        &lt;/body&gt;
+    &lt;/html&gt;
+    2. Write a java program to display name of currently executing Thread in multithreading.
+    [15M]
+    class MyThread extends Thread
+    {
+            public void run()
+            {
+                    // Display name of currently executing thread
+                    System.out.println(&quot;Currently Executing Thread : &quot; + Thread.currentThread().getName());
+                }
+            }
+            public class ThreadNameDemo
+            {
+                    public static void main(String args[])
                     {
-                            public static void main(String args[])
-                            {
-                                    LinkedList&lt;Integer&gt; list = new LinkedList&lt;Integer&gt;();
-                                    list.add(10);
-                                    list.add(20);
-                                    list.add(30);
-                                    list.add(40);
-                                    System.out.println(&quot;Original LinkedList: &quot; + list);
-                                    list.addFirst(5);
-                                    System.out.println(&quot;After adding element at first position: &quot; + list);
-                                    list.removeLast();
-                                    System.out.println(&quot;After deleting last element: &quot; + list);
-                                    System.out.println(&quot;Size of LinkedList: &quot; + list.size());
-                                }
-                            }</pre></div></div>
+                            MyThread t1 = new MyThread();
+                            MyThread t2 = new MyThread();
+                            MyThread t3 = new MyThread();
+                            // Set thread names
+                            t1.setName(&quot;First Thread&quot;);
+                            t2.setName(&quot;Second Thread&quot;);
+                            t3.setName(&quot;Third Thread&quot;);
+                            // Start threads
+                            t1.start();
+                            t2.start();
+                            t3.start();
+                        }
+                    }</pre></div></div>
 <div class="slip" id="s30">
   <div class="slip-header"><span class="slip-num">SLIP 30</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
@@ -1309,7 +2058,9 @@ class Flag extends JPanel implements Runnable
                                                 f.add(new Flag(3));
                                                 f.setVisible(true);
                                             }
-                                        }</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
+                                        }
+                                        2. Write a Java Program for the implementation of scrollable ResultSet. Assume Teacher table with attributes (TID, TName,
+                                        import java.sql.*;
                                         import java.util.*;
                                         import java.io.*;
                                         class jdbc2
@@ -1375,7 +2126,27 @@ class Flag extends JPanel implements Runnable
                                                                                             System.out.println(&quot;Error in connection=&quot;+e);
                                                                                         }
                                                                                     }
-                                                                                }</pre></div></div>
+                                                                                }</pre><div class="q-label">Question 2</div><pre>i. Add element at first position
+                    ii. Delete last element
+                    iii. Display the size of link list [15 M]
+                    import java.util.LinkedList;
+                    public class LinkedListDemo
+                    {
+                            public static void main(String args[])
+                            {
+                                    LinkedList&lt;Integer&gt; list = new LinkedList&lt;Integer&gt;();
+                                    list.add(10);
+                                    list.add(20);
+                                    list.add(30);
+                                    list.add(40);
+                                    System.out.println(&quot;Original LinkedList: &quot; + list);
+                                    list.addFirst(5);
+                                    System.out.println(&quot;After adding element at first position: &quot; + list);
+                                    list.removeLast();
+                                    System.out.println(&quot;After deleting last element: &quot; + list);
+                                    System.out.println(&quot;Size of LinkedList: &quot; + list.size());
+                                }
+                            }</pre></div></div>
 </main>
 </body>
 </html>
