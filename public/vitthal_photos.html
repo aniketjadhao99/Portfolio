@@ -66,12 +66,78 @@ class thread2 extends Thread
                                 thread2 t=new thread2();
                                 t.start();
                             }
-                        }</pre><div class="q-label">Question 2</div><p>Write a Java program to accept the details of Employee (Eno, EName, Designation, Salary) from a user and store it into
-                        the database. (Use Swing)
-                        [15 M]
-                        import javax.swing.*;
+                        }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
                         import java.awt.event.*;
-     </p></div></div>
+                        import java.sql.*;
+                        public class EmployeeForm extends JFrame implements ActionListener {
+                                JLabel l1, l2, l3, l4;
+                                JTextField t1, t2, t3, t4;
+                                JButton btn;
+                                public EmployeeForm() {
+                                        setTitle(&quot;Employee Form&quot;);
+                                        setLayout(null);
+                                        l1 = new JLabel(&quot;Employee No:&quot;);
+                                        l1.setBounds(50, 50, 120, 30);
+                                        add(l1);
+                                        t1 = new JTextField();
+                                        t1.setBounds(180, 50, 150, 30);
+                                        add(t1);
+                                        l2 = new JLabel(&quot;Employee Name:&quot;);
+                                        l2.setBounds(50, 100, 120, 30);
+                                        add(l2);
+                                        t2 = new JTextField();
+                                        t2.setBounds(180, 100, 150, 30);
+                                        add(t2);
+                                        l3 = new JLabel(&quot;Designation:&quot;);
+                                        l3.setBounds(50, 150, 120, 30);
+                                        add(l3);
+                                        t3 = new JTextField();
+                                        t3.setBounds(180, 150, 150, 30);
+                                        add(t3);
+                                        l4 = new JLabel(&quot;Salary:&quot;);
+                                        l4.setBounds(50, 200, 120, 30);
+                                        add(l4);
+                                        t4 = new JTextField();
+                                        t4.setBounds(180, 200, 150, 30);
+                                        add(t4);
+                                        btn = new JButton(&quot;Save&quot;);
+                                        btn.setBounds(120, 260, 100, 30);
+                                        add(btn);
+                                        btn.addActionListener(this);
+                                        setSize(400, 350);
+                                        setVisible(true);
+                                        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                    }
+                                    public void actionPerformed(ActionEvent e) {
+                                            try {
+                                                    int eno = Integer.parseInt(t1.getText());
+                                                    String ename = t2.getText();
+                                                    String designation = t3.getText();
+                                                    double salary = Double.parseDouble(t4.getText());
+                                                    Class.forName{“org.postgresql.Driver&quot;);
+                                                        Connection con = DriverManager.getConnection(
+                                                        &quot;jdbc:postgresql:tybcs&quot;, &quot;postgres&quot;, &quot;postgres&quot;);
+                                                        PreparedStatement ps = con.prepareStatement(
+                                                        &quot;INSERT INTO employee VALUES (?, ?, ?, ?)&quot;);
+                                                        ps.setInt(1, eno);
+                                                        ps.setString(2, ename);
+                                                        ps.setString(3, designation);
+                                                        ps.setDouble(4, salary);
+                                                        int i = ps.executeUpdate();
+                                                        if (i &gt; 0) {
+                                                                System.out.println(&quot;Record Saved Successfully!&quot;);
+                                                            } else {
+                                                                System.out.println(&quot;Error Saving Record!&quot;);
+                                                            }
+                                                            con.close();
+                                                        } catch (Exception ex) {
+                                                            System.out.println(&quot;Exception: &quot; + ex.getMessage());
+                                                        }
+                                                    }
+                                                    public static void main(String[] args) {
+                                                            new EmployeeForm();
+                                                        }
+                                                    }</pre></div></div>
 <div class="slip" id="s2">
   <div class="slip-header"><span class="slip-num">SLIP 02</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -94,31 +160,7 @@ class seta11
                     System.out.println(&quot;Display name in Ascending order:&quot;);
                     System.out.println(ts);
                 }
-            }
-            2.Design a servlet that provides information about a HTTP request from a client, such as IP-Address and browser type. The
-            servlet also provides information about the server on which the servlet is running, such as the operating system type, and
-            the names of currently loaded servlets. [15M]
-            import javax.servlet.*;
-            import javax.servlet.http.*;
-            import java.io.*;
-            public class demo extends HttpServlet
-            {
-                    public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
-                    {
-                            res.setContentType(&quot;text/html&quot;);
-                            PrintWriter pw=res.getWriter();
-                            pw.println(&quot;&lt;br&gt;Remote Address=&quot;+req.getRemoteAddr());
-                            pw.println(&quot;&lt;br&gt;Remote Host=&quot;+req.getRemoteHost());
-                            pw.println(&quot;&lt;br&gt;Server Name=&quot;+req.getServerName());
-                            pw.println(&quot;&lt;br&gt;ServerPort=&quot;+req.getServerPort());
-                            pw.println(&quot;&lt;br&gt;Operating System: &quot; +System.getProperty(&quot;os.name&quot;));
-                            ServletContext context = getServletContext();
-                            out.println(&quot;&lt;h3&gt;Currently Loaded Servlets&lt;/h3&gt;&quot;);
-                            for (ServletRegistration reg : context.getServletRegistrations().values()) {
-                                    out.println(reg.getName() + &quot;&lt;br&gt;&quot;);
-                                }
-                            }
-                        }</pre></div></div>
+            }</pre></div></div>
 <div class="slip" id="s3">
   <div class="slip-header"><span class="slip-num">SLIP 03</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html&quot; %&gt;
@@ -150,23 +192,6 @@ String disease = request.getParameter(&quot;disease&quot;);
 &lt;td&gt;&lt;%= disease %&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/table&gt;
-&lt;/body&gt;
-&lt;/html&gt;
-Slip3.html
-&lt;html&gt;
-    &lt;head&gt;
-    &lt;title&gt;Patient Form&lt;/title&gt;
-&lt;/head&gt;
-&lt;body&gt;
-    &lt;h2&gt;Enter Patient Details&lt;/h2&gt;
-    &lt;form action=&quot;patient.jsp&quot; method=&quot;post&quot;&gt;
-    Patient No: &lt;input type=&quot;text&quot; name=&quot;pno&quot;&gt;&lt;br&gt;&lt;br&gt;
-    Patient Name: &lt;input type=&quot;text&quot; name=&quot;pname&quot;&gt;&lt;br&gt;&lt;br&gt;
-    Address: &lt;input type=&quot;text&quot; name=&quot;address&quot;&gt;&lt;br&gt;&lt;br&gt;
-    Age: &lt;input type=&quot;text&quot; name=&quot;age&quot;&gt;&lt;br&gt;&lt;br&gt;
-    Disease: &lt;input type=&quot;text&quot; name=&quot;disease&quot;&gt;&lt;br&gt;&lt;br&gt;
-    &lt;input type=&quot;submit&quot; value=&quot;Submit&quot;&gt;
-&lt;/form&gt;
 &lt;/body&gt;
 &lt;/html&gt;</pre><div class="q-label">Question 2</div><pre>import java.util.*;
 class slip32
@@ -239,47 +264,17 @@ class thread7 extends JFrame implements Runnable
                                     Thread t1=new Thread(t);
                                     t1.start();
                                 }
-                            }</pre><div class="q-label">Question 2</div><p>Write a Java program to store city names and their STD codes using an appropriate collection and perform following
-                            operations:
-                            i.Add a new city and its code (No duplicates)
-                            ii.Remove a city from the collection
-      </p><div class="q-label">Question 3</div><p>Add City and STD Code&quot;);
-                                                    System.out.println(&quot;</p><div class="q-label">Question 4</div><p>Remove City&quot;);
-                                                    System.out.println(&quot;</p><div class="q-label">Question 5</div><p>Search City&quot;);
-                                                    System.out.println(&quot;</p><div class="q-label">Question 6</div><p>Display All Cities&quot;);
-                                                    System.out.println(&quot;</p><div class="q-label">Question 7</div><p>Exit&quot;);
-                                                    System.out.print(&quot;Enter your choice: &quot;);
-                                                    choice = sc.nextInt();
-                                                    sc.nextLine();
-                                                    switc</p></div></div>
+                            }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+                            public class CitySTD {
+                                    public static void main(String[] args) {
+                                            HashMap&lt;String, Integer&gt; cityMap = new HashMap&lt;&gt;();
+                                            Scanner sc = new Scanner(System.in);
+                                            int choice;
+                                            do {
+                                                    System.out.println(&quot;\n</pre><div class="q-label">Question 3</div><div class="q-label">Question 4</div><div class="q-label">Question 5</div><div class="q-label">Question 6</div><div class="q-label">Question 7</div></div></div>
 <div class="slip" id="s5">
   <div class="slip-header"><span class="slip-num">SLIP 05</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
-public class StudentHashTable {
-        public static void main(String[] args) {
-                Hashtable&lt;String, String&gt; ht = new Hashtable&lt;&gt;();
-                Scanner sc = new Scanner(System.in);
-                int n;
-                System.out.print(&quot;Enter number of students: &quot;);
-                n = sc.nextInt();
-                sc.nextLine();
-                for (int i = 1; i &lt;= n; i++) {
-                        System.out.print(&quot;Enter Mobile Number: &quot;);
-                        String mobile = sc.nextLine();
-                        System.out.print(&quot;Enter Student Name: &quot;);
-                        String name = sc.nextLine();
-                        ht.put(mobile, name);
-                    }
-                    System.out.println(&quot;\nStudent Details:&quot;);
-                    Enumeration&lt;String&gt; e = ht.keys();
-                    while (e.hasMoreElements()) {
-                            String mobile = e.nextElement();
-                            String name = ht.get(mobile);
-                            System.out.println(&quot;Mobile Number: &quot; + mobile + &quot; Student Name: &quot; + name);
-                        }
-                        sc.close();
-                    }
-                }</pre><div class="q-label">Question 2</div><pre>&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>&lt;%@ page import=&quot;java.sql.*&quot; %&gt;
 &lt;%
 Connection con = null;
 PreparedStatement ps = null;
@@ -380,12 +375,51 @@ class slip61
                                 System.out.println(&quot;Given number is not present&quot;);
                             }
                         }
-                    }</pre><div class="q-label">Question 2</div><p>Write a java program using multithreading to simulate traffic signal (Use Swing).
-                    [15M]
-                    import javax.swing.*;
+                    }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
                     import java.awt.*;
                     class TrafficSignal extends JFrame implements Runnable {
-                            JLabel</p></div></div>
+                            JLabel red, yellow, green;
+                            TrafficSignal() {
+                                    setTitle(&quot;Traffic Signal Simulation&quot;);
+                                    setSize(200,300);
+                                    setLayout(new GridLayout(3,1));
+                                    red = new JLabel(&quot;RED&quot;, JLabel.CENTER);
+                                    yellow = new JLabel(&quot;YELLOW&quot;, JLabel.CENTER);
+                                    green = new JLabel(&quot;GREEN&quot;, JLabel.CENTER);
+                                    red.setOpaque(true);
+                                    yellow.setOpaque(true);
+                                    green.setOpaque(true);
+                                    add(red);
+                                    add(yellow);
+                                    add(green);
+                                    setVisible(true);
+                                    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                    Thread t = new Thread(this);
+                                    t.start();
+                                }
+                                public void run() {
+                                        try {
+                                                while(true) {
+                                                        red.setBackground(Color.RED);
+                                                        yellow.setBackground(Color.GRAY);
+                                                        green.setBackground(Color.GRAY);
+                                                        Thread.sleep(3000);
+                                                        red.setBackground(Color.GRAY);
+                                                        yellow.setBackground(Color.YELLOW);
+                                                        green.setBackground(Color.GRAY);
+                                                        Thread.sleep(2000);
+                                                        red.setBackground(Color.GRAY);
+                                                        yellow.setBackground(Color.GRAY);
+                                                        green.setBackground(Color.GREEN);
+                                                        Thread.sleep(3000);
+                                                    }
+                                                }
+                                                catch(Exception e) { }
+                                            }
+                                            public static void main(String args[]) {
+                                                    new TrafficSignal();
+                                                }
+                                            }</pre></div></div>
 <div class="slip" id="s7">
   <div class="slip-header"><span class="slip-num">SLIP 07</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -442,10 +476,41 @@ class square extends Thread
                                                                 System.out.println(e);
                                                             }
                                                         }
-                                                    }</pre><div class="q-label">Question 2</div><p>Write a java program for the following:
-                                                    i. To create a Product (Pid, Pname, Price) table.
-                                                    ii. Insert at least five records into the Product table.
-                                                 </p></div></div>
+                                                    }</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
+                                                    public class ProductDB {
+                                                            public static void main(String[] args) {
+                                                                    try {
+                                                                            Class.forName{“org.postgresql.Driver&quot;);
+                                                                                Connection con = DriverManager.getConnection(
+                                                                                &quot;jdbc:postgresql:tybcs”,postgres”,”postgres”);
+                                                                                Statement stmt = con.createStatement();
+                                                                                String create = &quot;CREATE TABLE IF NOT EXISTS Product(&quot; +
+                                                                                &quot;Pid INT PRIMARY KEY,&quot; +
+                                                                                &quot;Pname VARCHAR(50),&quot; +
+                                                                                &quot;Price DOUBLE)&quot;;
+                                                                                stmt.executeUpdate(create);
+                                                                                System.out.println(&quot;Product Table Created&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (1,&#x27;Laptop&#x27;,55000)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (2,&#x27;Mobile&#x27;,20000)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (3,&#x27;Keyboard&#x27;,800)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (4,&#x27;Mouse&#x27;,500)&quot;);
+                                                                                stmt.executeUpdate(&quot;INSERT INTO Product VALUES (5,&#x27;Monitor&#x27;,12000)&quot;);
+                                                                                System.out.println(&quot;5 Records Inserted&quot;);
+                                                                                ResultSet rs = stmt.executeQuery(&quot;SELECT * FROM Product&quot;);
+                                                                                System.out.println(&quot;\nProduct Details:&quot;);
+                                                                                System.out.println(&quot;Pid\tPname\tPrice&quot;);
+                                                                                while(rs.next()) {
+                                                                                        System.out.println(
+                                                                                        rs.getInt(1) + &quot;\t&quot; +
+                                                                                        rs.getString(2) + &quot;\t&quot; +
+                                                                                        rs.getDouble(3));
+                                                                                    }
+                                                                                    con.close();
+                                                                                } catch(Exception e) {
+                                                                                    System.out.println(e);
+                                                                                }
+                                                                            }
+                                                                        }</pre></div></div>
 <div class="slip" id="s8">
   <div class="slip-header"><span class="slip-num">SLIP 08</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -477,130 +542,41 @@ class thread4 extends Thread
                             t3.start();
                             t3.setPriority(MAX_PRIORITY);
                         }
-                    }</pre><div class="q-label">Question 2</div><pre>        {
-                if(n%i==0)
-                {
-                        flag=1;
-                        break;
-                    }
-                }
-                if(flag==0)
-                {
-                        out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+n+&quot; is prime&quot;+&quot;&lt;/font&gt;&quot;);
-                    }
-                    else
-                    {
-                            out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+n+&quot; is not prime&quot;+&quot;&lt;/font&gt;&quot;);
-                        }
-                        %&gt;
-                    &lt;/body&gt;
-                &lt;/html&gt;</pre></div></div>
+                    }</pre><div class="q-label">Question 2</div></div></div>
 <div class="slip" id="s11">
   <div class="slip-header"><span class="slip-num">SLIP 11</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
-import java.sql.*;
-public class demo1 extends HttpServlet
-{
-        public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
-        {
-                res.setContentType(&quot;text/html&quot;);
-                PrintWriter pw=res.getWriter();
-                int cid=Integer.parseInt(req.getParameter(&quot;id&quot;));
-                try
-                {
-                        Class.forName(&quot;org.postgresql.Driver&quot;);
-                        System.out.println(&quot;Driver loaded&quot;);
-                        Connection c=DriverManager.getConnection(&quot;jdbc:postgresql:tybcs&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
-                        pw.println(&quot;Got Connection &quot;+c);
-                        Statement s=c.createStatement();
-                        String query=&quot;Select * from customer where cid=cid&quot;;
-                        ResultSet rs=s.executeQuery(query);
-                        if(rs.next())
-                        {
-                                pw.println(&quot;Cid=&quot;+rs.getInt(1));
-                                pw.println(&quot;CName=&quot;+rs.getString(2));
-                                pw.println(&quot;Address=&quot;+rs.getString(3));
-                            }
-                            else
-                            {
-                                    pw.println(&quot;not found&quot;);
-                                }
-                            }
-                            catch(Exception e)
-                            {
-                                    pw.println(e);
-                                }
-                            }
-                        }
-                        2.Write a Java program to display information about all columns in the DONAR table using ResultSetMetaData. [15 M]
-                        import java.sql.*;
-                        class jdbc1
-                        {
-                                public static void main(String[] args)
-                                {
-                                        Connection c=null;
-                                        Statement s=null;
-                                        ResultSet rs=null;
-                                        try
-                                        {
-                                                Class.forName(&quot;org.postgresql.Driver&quot;);
-                                                System.out.println(&quot;Driver loaded&quot;);
-                                                c=DriverManager.getConnection(&quot;jdbc:postgresql:tybcs&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
-                                                System.out.println(&quot;Got Connection &quot;+c);
-                                                s=c.createStatement();
-                                                String query=&quot;Select * from donar&quot;;
-                                                rs=s.executeQuery(query);
-                                                ResultSetMetaData rsmd=rs.getMetaData();
-                                                int count=rsmd.getColumnCount();
-                                                for(int i=1;i&lt;=count;i++)
-                                                {
-                                                        System.out.println(&quot;Column No=&quot;+i);
-                                                        System.out.println(&quot;Column Name=&quot;+rsmd.getColumnName(i));
-                                                        System.out.println(&quot;Column Type=&quot;+rsmd.getColumnTypeName(i));
-                                                        System.out.println(&quot;Column Display Size=&quot;+rsmd.getColumnDisplaySize(i));
-                                                    }
-                                                }
-                                                catch(Exception e)
-                                                {
-                                                        System.out.println(&quot;Error in connection=&quot;+e);
-                                                    }
-                                                }
-                                            }</pre></div></div>
+  <div class="slip-body"><div class="q-label">Question 1</div></div></div>
 <div class="slip" id="s12">
   <div class="slip-header"><span class="slip-num">SLIP 12</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>        {
-                if(n%i==0)
-                {
-                        sum=sum+i;
-                    }
-                }
-                if(sum==n)
-                {
-                        out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+n+&quot; is perfect&quot;+&quot;&lt;/font&gt;&quot;);
-                    }
-                    else
-                    {
-                            out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+n+&quot; is not perfect&quot;+&quot;&lt;/font&gt;&quot;);
-                        }
-                        %&gt;
-                    &lt;/body&gt;
-                &lt;/html&gt;</pre><div class="q-label">Question 2</div><p>Write a Java Program to create a PROJECT table with field&#x27;s project_id, Project_name, Project_description,
-                Project_Status. Insert values in the table. Display all the details of the PROJECT table in a tabular format on the
-                screen.(using swing). [15 M]
-                </p><div class="q-label">Question 3</div><p>Create Table
-                                        stmt.executeUpdate(&quot;CREATE TABLE IF NOT EXISTS PROJECT(&quot; +
-                                        &quot;project_id INT PRIMARY KEY,&quot; +
-                                        &quot;project_name VARCHAR(50),&quot; +
-                                        &quot;proje</p><div class="q-label">Question 4</div><p>Insert Records
-                                        stmt.executeUpdate(&quot;INSERT INTO PROJECT VALUES(1,&#x27;Website&#x27;,&#x27;College Website&#x27;,&#x27;Completed&#x27;)&quot;);
-                                        stmt.executeUpdate(&quot;INSERT INTO PROJECT VALUES(2,&#x27;Library System&#x27;,&#x27;Library Management&#x27;,&#x27;In Progress&#x27;)&quot;);
-       </p><div class="q-label">Question 5</div><p>Fetch Records
-                                        ResultSet rs = stmt.executeQuery(&quot;SELECT * FROM PROJECT&quot;);
-                                        while(rs.next()) {
-                                                model.addRow(new Object[]{
-                                                     </p></div></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><div class="q-label">Question 2</div><pre>import javax.swing.*;
+                import javax.swing.table.DefaultTableModel;
+                import java.awt.*;
+                import java.sql.*;
+                public class ProjectTableSwing extends JFrame {
+                        JTable table;
+                        DefaultTableModel model;
+                        public ProjectTableSwing() {
+                                setTitle(&quot;Project Details&quot;);
+                                setSize(600,400);
+                                setLayout(new BorderLayout());
+                                model = new DefaultTableModel();
+                                table = new JTable(model);
+                                model.addColumn(&quot;Project ID&quot;);
+                                model.addColumn(&quot;Project Name&quot;);
+                                model.addColumn(&quot;Project Description&quot;);
+                                model.addColumn(&quot;Project Status&quot;);
+                                add(new JScrollPane(table), BorderLayout.CENTER);
+                                try {
+                                        // Load Driver
+                                        Class.forName(&quot;com.mysql.cj.jdbc.Driver&quot;);
+                                        // Connect Database
+                                        Connection con = DriverManager.getConnection(
+                                        &quot;jdbc:mysql://localhost:3306/testdb&quot;,&quot;root&quot;,&quot;&quot;);
+                                        Statement stmt = con.createStatement();
+                                        //</pre><div class="q-label">Question 3</div><div class="q-label">Question 4</div><div class="q-label">Question 5</div><pre>public static void main(String args[]) {
+                                                new ProjectTableSwing();
+                                            }
+                                        }</pre></div></div>
 <div class="slip" id="s13">
   <div class="slip-header"><span class="slip-num">SLIP 13</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.sql.*;
@@ -615,12 +591,14 @@ class jdbc4
                         System.out.println(&quot;Driver loaded&quot;);
                         c=DriverManager.getConnection(&quot;jdbc:postgresql:tybcs&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
                         System.out.println(&quot;Got Connection &quot;+c);
+
 DatabaseMetaData db=c.getMetaData();
 System.out.println(&quot;Database Product Name=&quot;+db.getDatabaseProductName());
 System.out.println(&quot;Database Product Version=&quot;+db.getDatabaseProductVersion());
 System.out.println(&quot;Driver Name=&quot;+db.getDriverName());
 System.out.println(&quot;Driver Version=&quot;+db.getDriverVersion());
 System.out.println(&quot;User Name=&quot;+db.getUserName());
+
 String table[]={&quot;TABLE&quot;};
 ResultSet rs=db.getTables(null,null,null,table);
 while(rs.next())
@@ -633,16 +611,14 @@ catch(Exception e)
         System.out.println(&quot;Error in connection=&quot;+e);
     }
 }
-}
-2.Write a Java program to show lifecycle (creation, sleep, and dead) of a thread. Program should print randomly the name
-of thread and value of sleep time. The name of the thread should be hard coded through constructor. The sleep time of a
-thread will be a random integer in the range 0 to</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+}</pre><div class="q-label">Question 2</div><pre>import java.util.*;
 class tt extends Thread
 {
         String p;
         tt(String s)
         {
                 p=s;
+
             }
             public void run()
             {
@@ -669,6 +645,7 @@ class tt extends Thread
                                     tt t2=new tt(&quot;Thread2&quot;);
                                     t1.start();
                                     t2.start();
+
                                     try{
                                             t1.join();
                                             t2.join();
@@ -683,58 +660,7 @@ class tt extends Thread
                                     }</pre></div></div>
 <div class="slip" id="s14">
   <div class="slip-header"><span class="slip-num">SLIP 14</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.io.*;
-import java.util.*;
-class SearchThread extends Thread {
-        File file;
-        String searchWord;
-        SearchThread(File file, String searchWord) {
-                this.file = file;
-                this.searchWord = searchWord;
-            }
-            public void run() {
-                    try {
-                            BufferedReader br = new BufferedReader(new FileReader(file));
-                            String line;
-                            int lineNo = 0;
-                            while ((line = br.readLine()) != null) {
-                                    lineNo++;
-                                    if (line.contains(searchWord)) {
-                                            System.out.println(&quot;Found in File: &quot; + file.getName() +
-                                            &quot; at Line: &quot; + lineNo);
-                                        }
-                                    }
-                                    br.close();
-                                } catch (Exception e) {
-                                    System.out.println(e);
-                                }
-                            }
-                        }
-                        public class SearchEngine {
-                                public static void main(String[] args) {
-                                        Scanner sc = new Scanner(System.in);
-                                        System.out.print(&quot;Enter word to search: &quot;);
-                                        String word = sc.nextLine();
-                                        File folder = new File(&quot;.&quot;);
-                                        File files[] = folder.listFiles();
-                                        for (File f : files) {
-                                                if (f.isFile() &amp;&amp; f.getName().endsWith(&quot;.txt&quot;)) {
-                                                        SearchThread t = new SearchThread(f, word);
-                                                        t.start();
-                                                    }
-                                                }
-                                                sc.close();
-                                            }
-                                        }</pre><div class="q-label">Question 2</div><p>Write a JSP program to calculate sum of first and last digit of a given number. Display sum in Red Color with font size</p><div class="q-label">Question 3</div><pre>        {
-                n=n/10;
-            }
-            int firstnumber=n;
-            int sum=lastnumber+firstnumber;
-            %&gt;
-            &lt;p style=&quot;color:red; font-size:18px;&quot;&gt;Sum=&lt;%= sum %&gt;
-        &lt;/p&gt;
-    &lt;/body&gt;
-&lt;/html&gt;</pre></div></div>
+  <div class="slip-body"><div class="q-label">Question 1</div><div class="q-label">Question 2</div></div></div>
 <div class="slip" id="s15">
   <div class="slip-header"><span class="slip-num">SLIP 15</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -752,10 +678,39 @@ class thread1 extends Thread
                     thread1 t=new thread1();
                     t.start();
                 }
-            }</pre><div class="q-label">Question 2</div><p>Write a SERVLET program which counts how many times a user has visited a web page. If user is visiting the page for
-            the first time, display a welcome message. If the user is revisiting the page, display the number of times visited. (Use
-            Cookie) [15 M]
-            import java.</p></div></div>
+            }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+            import javax.servlet.*;
+            import javax.servlet.http.*;
+            public class VisitCounterServlet extends HttpServlet {
+                    public void doGet(HttpServletRequest request, HttpServletResponse response)
+                    throws ServletException, IOException {
+                            response.setContentType(&quot;text/html&quot;);
+                            PrintWriter out = response.getWriter();
+                            int visitCount = 0;
+                            boolean newUser = true;
+                            Cookie cookies[] = request.getCookies();
+                            if (cookies != null) {
+                                    for (Cookie c : cookies) {
+                                            if (c.getName().equals(&quot;visitCount&quot;)) {
+                                                    visitCount = Integer.parseInt(c.getValue());
+                                                    newUser = false;
+                                                }
+                                            }
+                                        }
+                                        visitCount++;
+                                        Cookie visitCookie = new Cookie(&quot;visitCount&quot;, String.valueOf(visitCount));
+                                        response.addCookie(visitCookie);
+                                        out.println(&quot;&lt;html&gt;&quot;);
+                                        out.println(&quot;&lt;body&gt;&quot;);
+                                        if (newUser) {
+                                                out.println(&quot;&lt;h2&gt;Welcome! This is your first visit.&lt;/h2&gt;&quot;);
+                                            } else {
+                                                out.println(&quot;&lt;h2&gt;You have visited this page &quot; + visitCount + &quot; times.&lt;/h2&gt;&quot;);
+                                            }
+                                            out.println(&quot;&lt;/body&gt;&quot;);
+                                            out.println(&quot;&lt;/html&gt;&quot;);
+                                        }
+                                    }</pre></div></div>
 <div class="slip" id="s16">
   <div class="slip-header"><span class="slip-num">SLIP 16</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -772,63 +727,7 @@ public class TreeSetColors {
                         System.out.println(c);
                     }
                 }
-            }
-            2.Write a Java program to accept the details of Teacher (TNo, TName, Subject). Insert at least 5 Records into Teacher Table
-            and display the details of Teacher who is teaching &quot;JAVA&quot; Subject (Use PreparedStatement Interface)
-            [15 M]
-            import java.sql.*;
-            public class TeacherPrepared {
-                    public static void main(String args[]) {
-                            try {
-                                    Class.forName(org.postgresql.Driver&quot;);
-                                    Connection con = DriverManager.getConnection(
-                                    &quot;jdbc:postgresql:tybcs,”postgres”,”postgres”);
-                                    Statement st = con.createStatement();
-                                    st.executeUpdate(&quot;CREATE TABLE IF NOT EXISTS Teacher(&quot; +
-                                    &quot;TNo INT PRIMARY KEY,&quot; +
-                                    &quot;TName VARCHAR(50),&quot; +
-                                    &quot;Subject VARCHAR(50))&quot;);
-                                    // Insert Records using PreparedStatement
-                                    PreparedStatement ps = con.prepareStatement(
-                                    &quot;INSERT INTO Teacher VALUES(?,?,?)&quot;);
-                                    ps.setInt(1,101);
-                                    ps.setString(2,&quot;Rahul&quot;);
-                                    ps.setString(3,&quot;JAVA&quot;);
-                                    ps.executeUpdate();
-                                    ps.setInt(1,102);
-                                    ps.setString(2,&quot;Sneha&quot;);
-                                    ps.setString(3,&quot;Python&quot;);
-                                    ps.executeUpdate();
-                                    ps.setInt(1,103);
-                                    ps.setString(2,&quot;Amit&quot;);
-                                    ps.setString(3,&quot;JAVA&quot;);
-                                    ps.executeUpdate();
-                                    ps.setInt(1,104);
-                                    ps.setString(2,&quot;Neha&quot;);
-                                    ps.setString(3,&quot;C++&quot;);
-                                    ps.executeUpdate();
-                                    ps.setInt(1,105);
-                                    ps.setString(2,&quot;Kiran&quot;);
-                                    ps.setString(3,&quot;JAVA&quot;);
-                                    ps.executeUpdate();
-                                    PreparedStatement ps2 = con.prepareStatement(
-                                    &quot;SELECT * FROM Teacher WHERE Subject=?&quot;);
-                                    ps2.setString(1,&quot;JAVA&quot;);
-                                    ResultSet rs = ps2.executeQuery();
-                                    System.out.println(&quot;Teachers teaching JAVA:&quot;);
-                                    System.out.println(&quot;TNo\tTName\tSubject&quot;);
-                                    while(rs.next()) {
-                                            System.out.println(
-                                            rs.getInt(1) + &quot;\t&quot; +
-                                            rs.getString(2) + &quot;\t&quot; +
-                                            rs.getString(3));
-                                        }
-                                        con.close();
-                                    } catch(Exception e) {
-                                        System.out.println(e);
-                                    }
-                                }
-                            }</pre></div></div>
+            }</pre></div></div>
 <div class="slip" id="s17">
   <div class="slip-header"><span class="slip-num">SLIP 17</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -849,11 +748,48 @@ public class SortedIntegers {
                         }
                         sc.close();
                     }
-                }</pre><div class="q-label">Question 2</div><p>Write a java program using Multithreading to display the number&#x27;s between 1 to 100 continuously in a JTextField by
-                clicking on JButton. (Use Runnable Interface &amp; Swing). [15 M]
-                import javax.swing.*;
+                }</pre><div class="q-label">Question 2</div><pre>import javax.swing.*;
                 import java.awt.*;
-                import java.awt.ev</p></div></div>
+                import java.awt.event.*;
+                class NumberThread implements Runnable {
+                        JTextField text;
+                        NumberThread(JTextField text) {
+                                this.text = text;
+                            }
+                            public void run() {
+                                    try {
+                                            for(int i = 1; i &lt;= 100; i++) {
+                                                    text.setText(String.valueOf(i));
+                                                    Thread.sleep(100);
+                                                }
+                                            }
+                                            catch(Exception e) { }
+                                        }
+                                    }
+                                    public class NumberDisplay extends JFrame implements ActionListener {
+                                            JTextField tf;
+                                            JButton btn;
+                                            NumberDisplay() {
+                                                    setTitle(&quot;Number Display&quot;);
+                                                    setSize(300,200);
+                                                    setLayout(new FlowLayout());
+                                                    tf = new JTextField(10);
+                                                    btn = new JButton(&quot;Start&quot;);
+                                                    btn.addActionListener(this);
+                                                    add(tf);
+                                                    add(btn);
+                                                    setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                                    setVisible(true);
+                                                }
+                                                public void actionPerformed(ActionEvent e) {
+                                                        NumberThread nt = new NumberThread(tf);
+                                                        Thread t = new Thread(nt);
+                                                        t.start();
+                                                    }
+                                                    public static void main(String args[]) {
+                                                            new NumberDisplay();
+                                                        }
+                                                    }</pre></div></div>
 <div class="slip" id="s18">
   <div class="slip-header"><span class="slip-num">SLIP 18</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -887,17 +823,24 @@ class thread3 extends Thread
                                     thread3 t=new thread3();
                                     t.start();
                                 }
-                            }</pre><div class="q-label">Question 2</div><pre>                            {
+                            }</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
+                            import javax.servlet.http.*;
+                            import java.io.*;
+                            public class slip18b extends HttpServlet
+                            {
                                     public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
                                     {
                                             res.setContentType(&quot;text/html&quot;);
                                             PrintWriter pw=res.getWriter();
+
                                             int id=Integer.parseInt(req.getParameter(&quot;id&quot;));
                                             String name=req.getParameter(&quot;name&quot;);
                                             String Class=req.getParameter(&quot;class&quot;);
                                             int ms=Integer.parseInt(req.getParameter(&quot;ms&quot;));
                                             int mof=Integer.parseInt(req.getParameter(&quot;mof&quot;));
+
                                             float per=(ms*100)/mof;
+
                                             pw.println(&quot;&lt;h1&gt;Student Information&lt;/h1&gt;&quot;);
                                             pw.println(&quot;&lt;br&gt;&lt;b&gt;ID=&lt;/b&gt;&quot;+id);
                                             pw.println(&quot;&lt;br&gt;&lt;b&gt;Name=&lt;/b&gt;&quot;+name);
@@ -955,101 +898,42 @@ class slip191
                                 }
                             }
                         }
-                    }</pre><div class="q-label">Question 2</div><p>Write a java program using SERVLET to accept username and password, search them into database, if found then
-                    display appropriate message on the browser otherwise. display error message. [15 M]
-                    import java.io.*;
+                    }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
                     import javax.servlet.*;
-     </p></div></div>
+                    import javax.servlet.http.*;
+                    import java.sql.*;
+                    public class LoginServlet extends HttpServlet {
+                            public void doPost(HttpServletRequest request, HttpServletResponse response)
+                            throws ServletException, IOException {
+                                    response.setContentType(&quot;text/html&quot;);
+                                    PrintWriter out = response.getWriter();
+                                    String uname = request.getParameter(&quot;username&quot;);
+                                    String pass = request.getParameter(&quot;password&quot;);
+                                    try {
+                                            Class.forName(org.postgresql.Driver&quot;);
+                                            Connection con = DriverManager.getConnection(
+                                            &quot;jdbc:postgresql:tybcs”,”postgres”,”postgres”);
+                                            PreparedStatement ps = con.prepareStatement(
+                                            &quot;SELECT * FROM users WHERE username=? AND password=?&quot;);
+                                            ps.setString(1, uname);
+                                            ps.setString(2, pass);
+                                            ResultSet rs = ps.executeQuery();
+                                            if(rs.next()) {
+                                                    out.println(&quot;&lt;h2&gt;Login Successful! Welcome &quot; + uname + &quot;&lt;/h2&gt;&quot;);
+                                                }
+                                                else {
+                                                        out.println(&quot;&lt;h2&gt;Invalid Username or Password&lt;/h2&gt;&quot;);
+                                                    }
+                                                    con.close();
+                                                }
+                                                catch(Exception e) {
+                                                        out.println(e);
+                                                    }
+                                                }
+                                            }</pre></div></div>
 <div class="slip" id="s20">
   <div class="slip-header"><span class="slip-num">SLIP 20</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>        {
-                char ch=n.charAt(i);
-                switch(ch)
-                {
-                        case &#x27;1&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:One&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;2&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Two&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;3&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Three&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;4&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Four&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;5&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Five&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;6&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Six&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;7&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Seven&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;8&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Eight&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;9&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Nine&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                        case &#x27;0&#x27;:out.print(&quot;&lt;br&gt;&lt;font style=color:red&gt;&quot;+ch+&quot;:Zero&quot;+&quot;&lt;/font&gt;&quot;);
-                        break;
-                    }
-                }
-                %&gt;
-            &lt;/body&gt;
-        &lt;/html&gt;
-        2.Write a java program using Multithreading to demonstrate drawing temple (Use Swing). [15M]
-        import javax.swing.*;
-        import java.awt.*;
-        class TemplePanel extends JPanel implements Runnable {
-                int step = 0;
-                Thread t;
-                TemplePanel() {
-                        t = new Thread(this);
-                        t.start();
-                    }
-                    public void run() {
-                            try {
-                                    while (step &lt;= 5) {
-                                            step++;
-                                            repaint();
-                                            Thread.sleep(1000);
-                                        }
-                                    } catch(Exception e) {}
-                            }
-                            public void paintComponent(Graphics g) {
-                                    super.paintComponent(g);
-                                    // Step 1 : Base
-                                    if(step &gt;= 1) {
-                                            g.drawRect(120,200,160,80);
-                                        }
-                                        // Step 2 : Door
-                                        if(step &gt;= 2) {
-                                                g.drawRect(185,220,40,60);
-                                            }
-                                            // Step 3 : Roof
-                                            if(step &gt;= 3) {
-                                                    int x[] = {110,200,290};
-                                                    int y[] = {200,130,200};
-                                                    g.drawPolygon(x,y,3);
-                                                }
-                                                // Step 4 : Top Tower
-                                                if(step &gt;= 4) {
-                                                        g.drawRect(185,90,30,40);
-                                                    }
-                                                    // Step 5 : Flag
-                                                    if(step &gt;= 5) {
-                                                            g.drawLine(200,90,200,60);
-                                                            g.drawLine(200,60,220,70);
-                                                            g.drawLine(220,70,200,80);
-                                                        }
-                                                    }
-                                                }
-                                                public class TempleDrawing extends JFrame {
-                                                        TempleDrawing() {
-                                                                setTitle(&quot;Temple Drawing using Multithreading&quot;);
-                                                                setSize(400,400);
-                                                                add(new TemplePanel());
-                                                                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-                                                                setVisible(true);
-                                                            }
-                                                            public static void main(String args[]) {
-                                                                    new TempleDrawing();
-                                                                }
-                                                            }</pre></div></div>
+  <div class="slip-body"></div></div>
 <div class="slip" id="s21">
   <div class="slip-header"><span class="slip-num">SLIP 21</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -1072,15 +956,63 @@ public class SubjectList {
                         }
                         sc.close();
                     }
-                }</pre><div class="q-label">Question 2</div><p>Write a java program using Multithreading to solve producer consumer problem in which a producer produces a value
-                and consumer consume the value before producer generate the next value. (Hint: use thread synchronization)
-                [15 M]
-                class SharedResource {
- </p></div></div>
+                }</pre><div class="q-label">Question 2</div><pre>class SharedResource {
+                        int value;
+                        boolean available = false;
+                        synchronized void produce(int v) {
+                                try {
+                                        while (available)
+                                        wait();
+                                        value = v;
+                                        System.out.println(&quot;Produced: &quot; + value);
+                                        available = true;
+                                        notify();
+                                    } catch (Exception e) { }
+                            }
+                            synchronized void consume() {
+                                    try {
+                                            while (!available)
+                                            wait();
+                                            System.out.println(&quot;Consumed: &quot; + value);
+                                            available = false;
+                                            notify();
+                                        } catch (Exception e) { }
+                                }
+                            }
+                            class Producer extends Thread {
+                                    SharedResource sr;
+                                    Producer(SharedResource sr) {
+                                            this.sr = sr;
+                                        }
+                                        public void run() {
+                                                for (int i = 1; i &lt;= 5; i++) {
+                                                        sr.produce(i);
+                                                    }
+                                                }
+                                            }
+                                            class Consumer extends Thread {
+                                                    SharedResource sr;
+                                                    Consumer(SharedResource sr) {
+                                                            this.sr = sr;
+                                                        }
+                                                        public void run() {
+                                                                for (int i = 1; i &lt;= 5; i++) {
+                                                                        sr.consume();
+                                                                    }
+                                                                }
+                                                            }
+                                                            public class ProducerConsumerDemo {
+                                                                    public static void main(String args[]) {
+                                                                            SharedResource sr = new SharedResource();
+                                                                            Producer p = new Producer(sr);
+                                                                            Consumer c = new Consumer(sr);
+                                                                            p.start();
+                                                                            c.start();
+                                                                        }
+                                                                    }</pre></div></div>
 <div class="slip" id="s22">
   <div class="slip-header"><span class="slip-num">SLIP 22</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><p>Write a Menu Driven program in Java for the following: Assume Employee table with attributes (ENo, EName, Salary) is
-already created.</p><div class="q-label">Question 2</div><p>Insert</p><div class="q-label">Question 3</div><p>Update</p><div class="q-label">Question 4</div><p>Display</p><div class="q-label">Question 5</div><pre>import java.sql.*;
+  <div class="slip-body"><div class="q-label">Question 1</div><div class="q-label">Question 2</div><div class="q-label">Question 3</div><div class="q-label">Question 4</div><div class="q-label">Question 5</div><pre>import java.sql.*;
 import java.util.*;
 public class EmployeeMenu {
         public static void main(String args[]) {
@@ -1091,28 +1023,7 @@ public class EmployeeMenu {
                 try {
                         int choice;
                         do {
-                                System.out.println(&quot;\n</pre><div class="q-label">Question 6</div><p>Insert&quot;);
-                                System.out.println(&quot;</p><div class="q-label">Question 7</div><p>Update&quot;);
-                                System.out.println(&quot;</p><div class="q-label">Question 8</div><p>Display&quot;);
-                                System.out.println(&quot;</p><div class="q-label">Question 9</div><p>Exit&quot;);
-                                System.out.print(&quot;Enter your choice: &quot;);
-                                choice = sc.nextInt();
-                                switch(choice) {
-                                        case 1:
-                                        System.out.print(&quot;Enter Emp</p><div class="q-label">Question 10</div><pre>        {
-                out.print(&quot;Good Morning &quot;+name);
-            }
-            else if(h&gt;=12 &amp;&amp; h&lt;16)
-            {
-                    out.print(&quot;Good Afternoon &quot;+name);
-                }
-                else
-                {
-                        out.print(&quot;Good Evening &quot;+name);
-                    }
-                    %&gt;
-                &lt;/body&gt;
-            &lt;/html&gt;</pre></div></div>
+                                System.out.println(&quot;\n</pre><div class="q-label">Question 6</div><div class="q-label">Question 7</div><div class="q-label">Question 8</div><div class="q-label">Question 9</div><div class="q-label">Question 10</div></div></div>
 <div class="slip" id="s23">
   <div class="slip-header"><span class="slip-num">SLIP 23</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
@@ -1145,10 +1056,25 @@ class VowelThread extends Thread {
                                         t.start();
                                         sc.close();
                                     }
-                                }</pre><div class="q-label">Question 2</div><p>Write a java program to accept &#x27;N&#x27; student names through command line, store them into the appropriate Collection and
-                                display them by using Iterator and ListIterator interface. [15 M]
-                                import java.util.*;
-                                </p></div></div>
+                                }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
+                                public class StudentCollection {
+                                        public static void main(String args[]) {
+                                                ArrayList&lt;String&gt; students = new ArrayList&lt;&gt;();
+                                                for(String name : args) {
+                                                        students.add(name);
+                                                    }
+                                                    System.out.println(&quot;Student Names using Iterator:&quot;);
+                                                    Iterator&lt;String&gt; it = students.iterator();
+                                                    while(it.hasNext()) {
+                                                            System.out.println(it.next());
+                                                        }
+                                                        System.out.println(&quot;\nStudent Names using ListIterator:&quot;);
+                                                        ListIterator&lt;String&gt; lit = students.listIterator();
+                                                        while(lit.hasNext()) {
+                                                                System.out.println(lit.next());
+                                                            }
+                                                        }
+                                                    }</pre></div></div>
 <div class="slip" id="s24">
   <div class="slip-header"><span class="slip-num">SLIP 24</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
@@ -1177,32 +1103,10 @@ class ScrollText extends JFrame implements Runnable {
                     public static void main(String args[]) {
                             new ScrollText();
                         }
-                    }</pre><div class="q-label">Question 2</div><pre>        {
-                %&gt;
-                &lt;h2&gt;Login Successfully&lt;/h2&gt;
-                &lt;%
-            }
-            else
-            {
-                    %&gt;
-                    &lt;h2&gt;Login Failed&lt;/h2&gt;
-                    &lt;%
-                }
-                %&gt;
-            &lt;/body&gt;
-        &lt;/html&gt;</pre></div></div>
+                    }</pre><div class="q-label">Question 2</div></div></div>
 <div class="slip" id="s25">
   <div class="slip-header"><span class="slip-num">SLIP 25</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>        {
-                out.print(&quot;&lt;br&gt;Person is eligible for voting&quot;);
-            }
-            else
-            {
-                    out.print(&quot;&lt;br&gt;Person is not eligible for voting&quot;);
-                }
-                %&gt;
-            &lt;/body&gt;
-        &lt;/html&gt;</pre></div></div>
+  <div class="slip-body"><div class="q-label">Question 1</div></div></div>
 <div class="slip" id="s26">
   <div class="slip-header"><span class="slip-num">SLIP 26</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.sql.*;
@@ -1226,8 +1130,7 @@ public class DeleteEmployee {
                         System.out.println(e);
                     }
                 }
-            }</pre><div class="q-label">Question 2</div><p>Write a JSP program to calculate sum of first and last digit of a given number. Display sum in Red Color with font size</p><div class="q-label">Question 3</div><p>[15 M]
-            Same for slip14</p></div></div>
+            }</pre><div class="q-label">Question 2</div><div class="q-label">Question 3</div></div></div>
 <div class="slip" id="s27">
   <div class="slip-header"><span class="slip-num">SLIP 27</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import javax.swing.*;
@@ -1266,7 +1169,11 @@ public class CollegeTable {
                             f.setSize(500,300);
                             f.setVisible(true);
                         }
-                    }</pre><div class="q-label">Question 2</div><pre>                    {
+                    }</pre><div class="q-label">Question 2</div><pre>import java.io.*;
+                    import javax.servlet.*;
+                    import javax.servlet.http.*;
+                    public class SessionTimeServlet extends HttpServlet
+                    {
                             public void doGet(HttpServletRequest request, HttpServletResponse response)
                             throws ServletException, IOException
                             {
@@ -1281,12 +1188,8 @@ public class CollegeTable {
                             }</pre></div></div>
 <div class="slip" id="s28">
   <div class="slip-header"><span class="slip-num">SLIP 28</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>        {
-                out.print(name.charAt(i));
-            }
-            %&gt;
-        &lt;/body&gt;
-    &lt;/html&gt;</pre><div class="q-label">Question 2</div><pre>    {
+  <div class="slip-body"><div class="q-label">Question 1</div><div class="q-label">Question 2</div><pre>class MyThread extends Thread
+    {
             public void run()
             {
                     // Display name of currently executing thread
@@ -1312,39 +1215,9 @@ public class CollegeTable {
                     }</pre></div></div>
 <div class="slip" id="s29">
   <div class="slip-header"><span class="slip-num">SLIP 29</span><span class="slip-title">Java Solutions</span></div>
-  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.sql.*;
-class jdbc1
-{
-        public static void main(String[] args)
-        {
-                Connection c=null;
-                Statement s=null;
-                ResultSet rs=null;
-                try
-                {
-                        Class.forName(&quot;org.postgresql.Driver&quot;);
-                        System.out.println(&quot;Driver loaded&quot;);
-                        c=DriverManager.getConnection(&quot;jdbc:postgresql:tybcs&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
-                        System.out.println(&quot;Got Connection &quot;+c);
-                        s=c.createStatement();
-                        String query=&quot;Select * from donar&quot;;
-                        rs=s.executeQuery(query);
-                        ResultSetMetaData rsmd=rs.getMetaData();
-                        int count=rsmd.getColumnCount();
-                        for(int i=1;i&lt;=count;i++)
-                        {
-                                System.out.println(&quot;Column No=&quot;+i);
-                                System.out.println(&quot;Column Name=&quot;+rsmd.getColumnName(i));
-                                System.out.println(&quot;Column Type=&quot;+rsmd.getColumnTypeName(i));
-                                System.out.println(&quot;Column Display Size=&quot;+rsmd.getColumnDisplaySize(i));
-                            }
-                        }
-                        catch(Exception e)
-                        {
-                                System.out.println(&quot;Error in connection=&quot;+e);
-                            }
-                        }
-                    }</pre><div class="q-label">Question 2</div><pre>                    {
+  <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.LinkedList;
+                    public class LinkedListDemo
+                    {
                             public static void main(String args[])
                             {
                                     LinkedList&lt;Integer&gt; list = new LinkedList&lt;Integer&gt;();
@@ -1416,7 +1289,11 @@ class Flag extends JPanel implements Runnable
                                                 f.add(new Flag(3));
                                                 f.setVisible(true);
                                             }
-                                        }</pre><div class="q-label">Question 2</div><pre>                                        {
+                                        }</pre><div class="q-label">Question 2</div><pre>import java.sql.*;
+                                        import java.util.*;
+                                        import java.io.*;
+                                        class jdbc2
+                                        {
                                                 public static void main(String[] args)
                                                 {
                                                         Connection c=null;
@@ -1428,9 +1305,11 @@ class Flag extends JPanel implements Runnable
                                                                 System.out.println(&quot;Driver loaded&quot;);
                                                                 c=DriverManager.getConnection(&quot;jdbc:postgresql:tybcs&quot;,&quot;postgres&quot;,&quot;postgres&quot;);
                                                                 System.out.println(&quot;Got Connection &quot;+c);
+
                                                                 s=c.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_UPDATABLE);
                                                                 String query=&quot;Select * from teacher&quot;;
                                                                 rs=s.executeQuery(query);
+
                                                                 Scanner sc=new Scanner(System.in);
                                                                 int ch;
                                                                 do
@@ -1476,6 +1355,7 @@ class Flag extends JPanel implements Runnable
                                                                                             System.out.println(&quot;Error in connection=&quot;+e);
                                                                                         }
                                                                                     }
-                                                                                }</pre></div></div></main>
+                                                                                }</pre></div></div>
+</main>
 </body>
 </html>
