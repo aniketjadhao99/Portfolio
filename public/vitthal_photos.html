@@ -324,70 +324,78 @@ public class example
 }</pre><div class="q-label">Question 2</div><pre>import java.util.*;
 class S4Q2
 {
-public static void main(String[] args)
-{
-Scanner sc=new Scanner(System.in);
-HashMap&lt;String,Integer&gt; hm=new HashMap&lt;String,integer&gt;();
-hm.put(&quot;Mumbai&quot;,22);
-hm.put(&quot;Pune&quot;,20);
-hm.put(&quot;Nagpur&quot;,712);
-hm.put(&quot;Delhi&quot;,11);
-System.out.println(&quot;Enter city name to add:&quot;);
-String city=sc.next();
-if(!hm.contains(city))
-{
-System.out.println(&quot;Enter STD code:&quot;);
-int n=sc.nextInt();
-hm.put(city,code);
-System.out.println(&quot;Added Successfully&quot;);
-}
-else
-{
-}
-System.out.println(&quot;city does not exist&quot;);
-System.out.println(&quot;Enter city name to remove:&quot;);
-String city1=sc.next();
-if(!hm.contains(city1))
-{
-System.out.println(&quot;City does not exist&quot;);
-}
-else
-{
-}
-hm.remove(city1);
-System.out.println(&quot;Enter city name to search:&quot;);
-String city2=sc.next();
-if(hm.contains(city2))
-{
-System.out.println(&quot;Code of&quot;+city2+&quot;is:&quot;+hm.get(city2));
-}
-else
-{
-System.out.println(&quot;City does not exist&quot;);
-}
-}
+  public static void main(String[] args)
+  {
+    Scanner sc = new Scanner(System.in);
+    HashMap&lt;String,Integer&gt; hm = new HashMap&lt;String,Integer&gt;();
+    hm.put(&quot;Mumbai&quot;, 22);
+    hm.put(&quot;Pune&quot;, 20);
+    hm.put(&quot;Nagpur&quot;, 712);
+    hm.put(&quot;Delhi&quot;, 11);
+
+    // Add city
+    System.out.println(&quot;Enter city name to add:&quot;);
+    String city = sc.next();
+    if(!hm.containsKey(city))
+    {
+      System.out.println(&quot;Enter STD code:&quot;);
+      int n = sc.nextInt();
+      hm.put(city, n);
+      System.out.println(&quot;Added Successfully&quot;);
+    }
+    else
+    {
+      System.out.println(&quot;City already exists&quot;);
+    }
+
+    // Remove city
+    System.out.println(&quot;Enter city name to remove:&quot;);
+    String city1 = sc.next();
+    if(hm.containsKey(city1))
+    {
+      hm.remove(city1);
+      System.out.println(&quot;Removed Successfully&quot;);
+    }
+    else
+    {
+      System.out.println(&quot;City does not exist&quot;);
+    }
+
+    // Search city
+    System.out.println(&quot;Enter city name to search:&quot;);
+    String city2 = sc.next();
+    if(hm.containsKey(city2))
+    {
+      System.out.println(&quot;Code of &quot; + city2 + &quot; is: &quot; + hm.get(city2));
+    }
+    else
+    {
+      System.out.println(&quot;City does not exist&quot;);
+    }
+  }
 }</pre></div></div>
 <div class="slip" id="s5">
   <div class="slip-header"><span class="slip-num">SLIP 05</span><span class="slip-title">Java Solutions</span></div>
   <div class="slip-body"><div class="q-label">Question 1</div><pre>import java.util.*;
 class s5_1
 {
-System.out.println(&quot;City does not exist&quot;);
-public static void main(String args[])
-{
-Hashtable&lt;Long, String&gt; ht = new Hashtable&lt;&gt;();
-ht.put(8000000020L, &quot;Asawari&quot;);
-ht.put(8020007788L, &quot;Vaishali&quot;);
-ht.put(7780000020L, &quot;Bhakti&quot;);
-Enumeration&lt;Long&gt; keys = ht.keys();
-System.out.println(&quot;Student details:&quot;);
-while (keys.hasMoreElements())
-{
-Long mobile = keys.nextElement();
-String name = ht.get(mobile);
-System.out.println(&quot;Mobile no: &quot; + mobile + &quot; Name: &quot; + name);
-}
-}
+  public static void main(String args[])
+  {
+    Hashtable&lt;Long, String&gt; ht = new Hashtable&lt;&gt;();
+    ht.put(8000000020L, &quot;Asawari&quot;);
+    ht.put(8020007788L, &quot;Vaishali&quot;);
+    ht.put(7780000020L, &quot;Bhakti&quot;);
+    
+    Enumeration&lt;Long&gt; keys = ht.keys();
+    System.out.println(&quot;Student details:&quot;);
+    
+    while (keys.hasMoreElements())
+    {
+      Long mobile = keys.nextElement();
+      String name = ht.get(mobile);
+      System.out.println(&quot;Mobile no: &quot; + mobile + &quot; Name: &quot; + name);
+    }
+  }
 }</pre><div class="q-label">Question 2</div><div class="file-label">Database</div><pre>CREATE TABLE Questions (
     qid SERIAL PRIMARY KEY,
     question TEXT,

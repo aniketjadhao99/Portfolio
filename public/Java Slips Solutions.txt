@@ -1,29 +1,23 @@
-﻿Slip 1
+Slip 1
 
-class S1Q1 extends Thread
-{
-public void run()
-{
-try
-{
-char ch;
-for (ch = 'A'; ch <= 'Z'; ch++)
-{
-System.out.println(ch);
-Thread.sleep(1000);
-}
-}
-catch (Exception e)
-{
-System.out.println(e);
-}
-}
-public static void main(String[] args)
-{
-S1Q1 t = new S1Q1();
-t.start();
-}
-}
+class S1Q1 extends Thread {
+        public void run() {
+                try {
+                        char ch;
+                        for (ch = 'A'; ch <= 'Z'; ch++) {
+                                System.out.println(ch);
+                                Thread.sleep(1000);
+                            }
+                        } catch (Exception e) {
+                            System.out.println(e);
+                        }
+                    }
+
+                    public static void main(String[] args) {
+                            S1Q1 t = new S1Q1();
+                            t.start();
+                        }
+                    }
 
 
 
@@ -31,10 +25,10 @@ t.start();
 
 Database
 CREATE TABLE Employee (
-    eno INT PRIMARY KEY,
-    ename TEXT,
-    designation TEXT,
-    salary REAL
+eno INT PRIMARY KEY,
+ename TEXT,
+designation TEXT,
+salary REAL
 );
 
 Java file
@@ -44,83 +38,83 @@ import java.awt.event.*;
 import java.sql.*;
 
 public class EmployeeDetails extends JFrame implements ActionListener {
-    // UI Components
-    JLabel l1, l2, l3, l4;
-    JTextField t1, t2, t3, t4;
-    JButton b1, b2;
-    Connection conn;
-    PreparedStatement ps;
+        // UI Components
+        JLabel l1, l2, l3, l4;
+        JTextField t1, t2, t3, t4;
+        JButton b1, b2;
+        Connection conn;
+        PreparedStatement ps;
 
-    public EmployeeDetails() {
-        setTitle("Employee Information");
-        setSize(400, 300);
-        setLayout(new GridLayout(5, 2, 10, 10));
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        public EmployeeDetails() {
+                setTitle("Employee Information");
+                setSize(400, 300);
+                setLayout(new GridLayout(5, 2, 10, 10));
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Initializing components
-        l1 = new JLabel("Employee No:");
-        l2 = new JLabel("Employee Name:");
-        l3 = new JLabel("Designation:");
-        l4 = new JLabel("Salary:");
+                // Initializing components
+                l1 = new JLabel("Employee No:");
+                l2 = new JLabel("Employee Name:");
+                l3 = new JLabel("Designation:");
+                l4 = new JLabel("Salary:");
 
-        t1 = new JTextField();
-        t2 = new JTextField();
-        t3 = new JTextField();
-        t4 = new JTextField();
+                t1 = new JTextField();
+                t2 = new JTextField();
+                t3 = new JTextField();
+                t4 = new JTextField();
 
-        b1 = new JButton("Save");
-        b2 = new JButton("Clear");
+                b1 = new JButton("Save");
+                b2 = new JButton("Clear");
 
-        // Adding components to frame
-        add(l1); add(t1);
-        add(l2); add(t2);
-        add(l3); add(t3);
-        add(l4); add(t4);
-        add(b1); add(b2);
+                // Adding components to frame
+                add(l1); add(t1);
+                add(l2); add(t2);
+                add(l3); add(t3);
+                add(l4); add(t4);
+                add(b1); add(b2);
 
-        b1.addActionListener(this);
-        b2.addActionListener(this);
+                b1.addActionListener(this);
+                b2.addActionListener(this);
 
-        setVisible(true);
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == b1) {
-            try {
-                // Database connection
-                Class.forName("org.postgresql.Driver");
-                conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
-
-                // Prepare SQL statement
-                String query = "INSERT INTO Employee VALUES (?, ?, ?, ?)";
-                ps = conn.prepareStatement(query);
-                
-                ps.setInt(1, Integer.parseInt(t1.getText()));
-                ps.setString(2, t2.getText());
-                ps.setString(3, t3.getText());
-                ps.setFloat(4, Float.parseFloat(t4.getText()));
-
-                int result = ps.executeUpdate();
-                if (result > 0) {
-                    JOptionPane.showMessageDialog(this, "Record Saved Successfully!");
-                }
-
-                conn.close();
-            } catch (Exception ex) {
-                JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+                setVisible(true);
             }
-        } else if (e.getSource() == b2) {
-            t1.setText("");
-            t2.setText("");
-            t3.setText("");
-            t4.setText("");
-        }
-    }
 
-    public static void main(String[] args) {
-        new EmployeeDetails();
-    }
-}
+            public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == b1) {
+                            try {
+                                    // Database connection
+                                    Class.forName("org.postgresql.Driver");
+                                    conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
+
+                                    // Prepare SQL statement
+                                    String query = "INSERT INTO Employee VALUES (?, ?, ?, ?)";
+                                    ps = conn.prepareStatement(query);
+
+                                    ps.setInt(1, Integer.parseInt(t1.getText()));
+                                    ps.setString(2, t2.getText());
+                                    ps.setString(3, t3.getText());
+                                    ps.setFloat(4, Float.parseFloat(t4.getText()));
+
+                                    int result = ps.executeUpdate();
+                                    if (result > 0) {
+                                            JOptionPane.showMessageDialog(this, "Record Saved Successfully!");
+                                        }
+
+                                        conn.close();
+                                    } catch (Exception ex) {
+                                        JOptionPane.showMessageDialog(this, "Error: " + ex.getMessage());
+                                    }
+                                } else if (e.getSource() == b2) {
+                                    t1.setText("");
+                                    t2.setText("");
+                                    t3.setText("");
+                                    t4.setText("");
+                                }
+                            }
+
+                            public static void main(String[] args) {
+                                    new EmployeeDetails();
+                                }
+                            }
 
 
 
@@ -133,71 +127,68 @@ Slip 2
 
 
 import java.util.*;
-class S2Q1
-{
-public static void main(String[] args)
-{
-Scanner sc=new Scanner(System.in);
-System.out.println("Enter the no of Friends:");
-int n=sc.nextInt();
-HashSet<String> hs=new HashSet<String>();
-System.out.println("Enter the names of Friends:");
-for(int i=0;i<n;i++)
-{
-}
-String name=sc.next();
-hs.add(name);
-System.out.println("Names of Friends:\n"+hs);
-TreeSet<String> ts=new TreeSet<String>(hs);
-System.out.println("Sorted names of Friends:\n"+ts);
-}
-}
+class S2Q1 {
+        public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                System.out.println("Enter the no of Friends:");
+                int n = sc.nextInt();
+                HashSet<String> hs = new HashSet<String>();
+                System.out.println("Enter the names of Friends:");
+                for (int i = 0; i < n; i++) {
+                        String name = sc.next();
+                        hs.add(name);
+                    }
+                    System.out.println("Names of Friends:\n" + hs);
+                    TreeSet<String> ts = new TreeSet<String>(hs);
+                    System.out.println("Sorted names of Friends:\n" + ts);
+                }
+            }
 
 
 
 
 
 
-import javax.servlet.*;
-import javax.servlet.http.*;
-import java.io.*;
+            import javax.servlet.*;
+            import javax.servlet.http.*;
+            import java.io.*;
 
-public class Slip2B extends HttpServlet
-{
-  public void doGet(HttpServletRequest request,HttpServletResponse response) 
-  throws IOException, ServletException
-    {
-      response.setContentType("text/html");
-      PrintWriter pw = response.getWriter();
-      pw.println("Servelt - Client Information");
-      pw.println("<br>Information about Http Request");
-      pw.println("<br>Server Name: "+request.getServerName());
-      pw.println("<br>Server Port: "+request.getServerPort());
-      pw.println("<br>Ip Address: "+request.getRemoteAddr());
-    pw.println("<br>Client Browser: "+request.getHeader("User-Agent"));
-    }
-}
+            public class Slip2B extends HttpServlet
+            {
+                    public void doGet(HttpServletRequest request,HttpServletResponse response)
+                    throws IOException, ServletException
+                    {
+                            response.setContentType("text/html");
+                            PrintWriter pw = response.getWriter();
+                            pw.println("Servelt - Client Information");
+                            pw.println("<br>Information about Http Request");
+                            pw.println("<br>Server Name: "+request.getServerName());
+                            pw.println("<br>Server Port: "+request.getServerPort());
+                            pw.println("<br>Ip Address: "+request.getRemoteAddr());
+                            pw.println("<br>Client Browser: "+request.getHeader("User-Agent"));
+                        }
+                    }
 
-OR
+                    OR
 
-import java.io.*;
-import java.util.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-public class slip2 extends HttpServlet {
-public void service(HttpServletRequest req,HttpServletResponse res)
-throws ServletException,IOException {
-res.setContentType("text/plain");
-PrintWriter out = res.getWriter();
-ServletConfig config=getServletConfig();
-out.println("Server Name"+req.getServerName());
-out.println("Server Port():"+req.getServerPort());
-out.println("Client IP address:"+req.getRemoteAddr());
-out.println("Client Host:"+req.getRemoteHost());
-out.println("Header Info:"+req.getHeader("user-Agent"));
-out.println("context.getServerInfo():"+config.getServletName());
-}
-}
+                    import java.io.*;
+                    import java.util.*;
+                    import javax.servlet.*;
+                    import javax.servlet.http.*;
+                    public class slip2 extends HttpServlet {
+                            public void service(HttpServletRequest req,HttpServletResponse res)
+                            throws ServletException,IOException {
+                                    res.setContentType("text/plain");
+                                    PrintWriter out = res.getWriter();
+                                    ServletConfig config=getServletConfig();
+                                    out.println("Server Name"+req.getServerName());
+                                    out.println("Server Port():"+req.getServerPort());
+                                    out.println("Client IP address:"+req.getRemoteAddr());
+                                    out.println("Client Host:"+req.getRemoteHost());
+                                    out.println("Header Info:"+req.getHeader("user-Agent"));
+                                    out.println("context.getServerInfo():"+config.getServletName());
+                                }
+                            }
 
 
 
@@ -230,35 +221,35 @@ Slip 3
 
 Patient.html
 <html>
-<head>
-<title> Patient </title>
+    <head>
+    <title> Patient </title>
 </head>
 <body>
-<form method = "post" action = "patient.jsp">
-Enter Number: <input type = "text" name = "num"> <br>
-Enter Name: <input type = "text" name = "name"> <br>
-Enter Age: <input type = "text" name = "age"> <br>
-Enter Address: <input type = "text" name = "address"> <br>
-<input type = "submit" name = "submit" value = "submit">
+    <form method = "post" action = "patient.jsp">
+    Enter Number: <input type = "text" name = "num"> <br>
+    Enter Name: <input type = "text" name = "name"> <br>
+    Enter Age: <input type = "text" name = "age"> <br>
+    Enter Address: <input type = "text" name = "address"> <br>
+    <input type = "submit" name = "submit" value = "submit">
 </form>
 </body>
 </html>
 
 Patient.jsp
 <html>
-<head>
-<title> Hello User </title>
+    <head>
+    <title> Hello User </title>
 </head>
 <body>
-<% String num = request.getParameter("num");
-String name = request.getParameter("name");
-String age = request.getParameter("age");
-String address = request.getParameter("address");
-%>
-<table border = "1">
-<tr>
-<th> No. </th>
-<td> <% out.print(num); %> </td>
+    <% String num = request.getParameter("num");
+    String name = request.getParameter("name");
+    String age = request.getParameter("age");
+    String address = request.getParameter("address");
+    %>
+    <table border = "1">
+    <tr>
+    <th> No. </th>
+    <td> <% out.print(num); %> </td>
 </tr>
 <tr>
 <th> Name </th>
@@ -286,24 +277,24 @@ String address = request.getParameter("address");
 import java.util.*;
 class S3Q2
 {
-public static void main(String[] args)
-{
-LinkedList<String> ls=new LinkedList<String>();
-ls.add("Apple");
-ls.add("Banana");
-ls.add("Orange");
-ls.add("Grapes");
-ls.add("Coconut");
-System.out.println("Original Linkedlist:\n" +ls);
-ls.removeFirst();
-System.out.println("After Deleting first element:\n"+ls);
-Iterator iterator=ls.descendingIterator();
-while(iterator.hasNext())
-{
-System.out.println(iterator.next());
-}
-}
-}
+        public static void main(String[] args)
+        {
+                LinkedList<String> ls=new LinkedList<String>();
+                ls.add("Apple");
+                ls.add("Banana");
+                ls.add("Orange");
+                ls.add("Grapes");
+                ls.add("Coconut");
+                System.out.println("Original Linkedlist:\n" +ls);
+                ls.removeFirst();
+                System.out.println("After Deleting first element:\n"+ls);
+                Iterator iterator=ls.descendingIterator();
+                while(iterator.hasNext())
+                {
+                        System.out.println(iterator.next());
+                    }
+                }
+            }
 
 
 
@@ -327,93 +318,93 @@ Slip 4
 import javax.swing.*;
 import java.awt.*;
 
-public class example 
+public class example
 {
 
-    public static void main(String[] args) 
-    {
-        JFrame f = new JFrame("Blink Text");
-        JLabel l = new JLabel("HELLO WORLD");
-        f.add(l);
-        f.setSize(400, 200);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setVisible(true);
-
-        Runnable r = new Runnable() 
+        public static void main(String[] args)
         {
-            public void run() 
-            {
-                try 
+                JFrame f = new JFrame("Blink Text");
+                JLabel l = new JLabel("HELLO WORLD");
+                f.add(l);
+                f.setSize(400, 200);
+                f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                f.setVisible(true);
+
+                Runnable r = new Runnable()
                 {
-                    while (true) 
-                    {
-                        
-                        l.setVisible(!l.isVisible());
-                        Thread.sleep(500);
-                    }
-                } 
-                catch (Exception e) 
-                {
-                }
-            }
-        };
+                        public void run()
+                        {
+                                try
+                                {
+                                        while (true)
+                                        {
 
-        Thread t = new Thread(r);
-        t.start();
-    }
-}
+                                                l.setVisible(!l.isVisible());
+                                                Thread.sleep(500);
+                                            }
+                                        }
+                                        catch (Exception e)
+                                        {
+                                            }
+                                        }
+                                    };
+
+                                    Thread t = new Thread(r);
+                                    t.start();
+                                }
+                            }
 
 
 
 
 
 
-import java.util.*;
-class S4Q2
-{
-public static void main(String[] args)
-{
-Scanner sc=new Scanner(System.in);
-HashMap<String,Integer> hm=new HashMap<String,integer>();
-hm.put("Mumbai",22);
-hm.put("Pune",20);
-hm.put("Nagpur",712);
-hm.put("Delhi",11);
-System.out.println("Enter city name to add:");
-String city=sc.next();
-if(!hm.contains(city))
-{
-System.out.println("Enter STD code:");
-int n=sc.nextInt();
-hm.put(city,code);
-System.out.println("Added Successfully");
-}
-else
-{
-}
-System.out.println("city does not exist");
-System.out.println("Enter city name to remove:");
-String city1=sc.next();
-if(!hm.contains(city1))
-{
-System.out.println("City does not exist");
-}
-else
-{
-}
-hm.remove(city1);
-System.out.println("Enter city name to search:");
-String city2=sc.next();
-if(hm.contains(city2))
-{
-System.out.println("Code of"+city2+"is:"+hm.get(city2));
-}
-else
-{
-System.out.println("City does not exist");
-}
-}
-}
+                            import java.util.*;
+                            class S4Q2
+                            {
+                                    public static void main(String[] args)
+                                    {
+                                            Scanner sc=new Scanner(System.in);
+                                            HashMap<String,Integer> hm=new HashMap<String,Integer>();
+                                            hm.put("Mumbai",22);
+                                            hm.put("Pune",20);
+                                            hm.put("Nagpur",712);
+                                            hm.put("Delhi",11);
+                                            System.out.println("Enter city name to add:");
+                                            String city=sc.next();
+                                            if(!hm.containsKey(city))
+                                            {
+                                                    System.out.println("Enter STD code:");
+                                                    int n=sc.nextInt();
+                                                    hm.put(city,n);
+                                                    System.out.println("Added Successfully");
+                                                }
+                                                else
+                                                {
+                                                    }
+                                                    System.out.println("city does not exist");
+                                                    System.out.println("Enter city name to remove:");
+                                                    String city1=sc.next();
+                                                    if(!hm.containsKey(city1))
+                                                    {
+                                                            System.out.println("City does not exist");
+                                                        }
+                                                        else
+                                                        {
+                                                            }
+                                                            hm.remove(city1);
+                                                            System.out.println("Enter city name to search:");
+                                                            String city2=sc.next();
+                                                            if(hm.containsKey(city2))
+                                                            {
+                                                                    System.out.println("Code of"+city2+"is:"+hm.get(city2));
+                                                                }
+                                                                else
+                                                                {
+                                                                        System.out.println("City does not exist");
+                                                                    }
+                                                                }
+                                                            }
 
 
 Slip 5
@@ -421,23 +412,22 @@ Slip 5
 import java.util.*;
 class s5_1
 {
-System.out.println("City does not exist");
-public static void main(String args[])
-{
-Hashtable<Long, String> ht = new Hashtable<>();
-ht.put(8000000020L, "Asawari");
-ht.put(8020007788L, "Vaishali");
-ht.put(7780000020L, "Bhakti");
-Enumeration<Long> keys = ht.keys();
-System.out.println("Student details:");
-while (keys.hasMoreElements())
-{
-Long mobile = keys.nextElement();
-String name = ht.get(mobile);
-System.out.println("Mobile no: " + mobile + " Name: " + name);
-}
-}
-}
+        public static void main(String args[])
+        {
+                Hashtable<Long, String> ht = new Hashtable<>();
+                ht.put(8000000020L, "Asawari");
+                ht.put(8020007788L, "Vaishali");
+                ht.put(7780000020L, "Bhakti");
+                Enumeration<Long> keys = ht.keys();
+                System.out.println("Student details:");
+                while (keys.hasMoreElements())
+                {
+                        Long mobile = keys.nextElement();
+                        String name = ht.get(mobile);
+                        System.out.println("Mobile no: " + mobile + " Name: " + name);
+                    }
+                }
+            }
 
 
 
@@ -446,13 +436,13 @@ System.out.println("Mobile no: " + mobile + " Name: " + name);
 
 Database
 CREATE TABLE Questions (
-    qid SERIAL PRIMARY KEY,
-    question TEXT,
-    option1 TEXT,
-    option2 TEXT,
-    option3 TEXT,
-    option4 TEXT,
-    answer TEXT
+qid SERIAL PRIMARY KEY,
+question TEXT,
+option1 TEXT,
+option2 TEXT,
+option3 TEXT,
+option4 TEXT,
+answer TEXT
 );
 
 INSERT INTO Questions (question, option1, option2, option3, option4, answer) VALUES
@@ -465,98 +455,98 @@ Jsp file
 <%@ page import="java.sql.*, java.util.*" %>
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
     <title>Online MCQ Test</title>
 </head>
 <body>
     <div style="margin: 50px auto; width: 50%; border: 1px solid #000; padding: 20px;">
-        <h2>Multiple Choice Test</h2>
-        <hr>
-        <%
-            // Initialize session variables
-            Integer count = (Integer) session.getAttribute("count");
-            Integer score = (Integer) session.getAttribute("score");
-            List<Integer> qIds = (List<Integer>) session.getAttribute("qIds");
+    <h2>Multiple Choice Test</h2>
+    <hr>
+    <%
+    // Initialize session variables
+    Integer count = (Integer) session.getAttribute("count");
+    Integer score = (Integer) session.getAttribute("score");
+    List<Integer> qIds = (List<Integer>) session.getAttribute("qIds");
 
-            // First time loading the test
-            if (count == null) {
-                count = 0;
-                score = 0;
-                qIds = new ArrayList<>();
-                
-                try {
+    // First time loading the test
+    if (count == null) {
+            count = 0;
+            score = 0;
+            qIds = new ArrayList<>();
+
+            try {
                     Class.forName("org.postgresql.Driver");
                     Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
                     Statement st = conn.createStatement();
                     // Get all IDs and shuffle them for randomness
                     ResultSet rs = st.executeQuery("SELECT qid FROM Questions");
                     while(rs.next()) {
-                        qIds.add(rs.getInt("qid"));
-                    }
-                    Collections.shuffle(qIds);
-                    session.setAttribute("qIds", qIds);
-                    conn.close();
-                } catch(Exception e) { out.print(e); }
+                            qIds.add(rs.getInt("qid"));
+                        }
+                        Collections.shuffle(qIds);
+                        session.setAttribute("qIds", qIds);
+                        conn.close();
+                    } catch(Exception e) { out.print(e); }
             }
 
             // Logic for handling 'Next' or 'Submit'
             String action = request.getParameter("action");
             if (action != null) {
-                String selectedAns = request.getParameter("ans");
-                String correctAns = request.getParameter("correctAns");
-                
-                if (selectedAns != null && selectedAns.equals(correctAns)) {
-                    score++;
-                }
-                
-                if (action.equals("Next")) {
-                    count++;
-                } else if (action.equals("Submit")) {
-                    out.println("<h3>Test Completed!</h3>");
-                    out.println("<h3>Your Total Score: " + score + " / " + qIds.size() + "</h3>");
-                    out.println("<a href='OnlineTest.jsp'>Restart Test</a>");
-                    session.invalidate(); // Clear session to restart
-                    return;
-                }
-            }
+                    String selectedAns = request.getParameter("ans");
+                    String correctAns = request.getParameter("correctAns");
 
-            session.setAttribute("count", count);
-            session.setAttribute("score", score);
+                    if (selectedAns != null && selectedAns.equals(correctAns)) {
+                            score++;
+                        }
 
-            // Fetch current question details
-            if (qIds != null && count < qIds.size()) {
-                try {
-                    Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
-                    PreparedStatement ps = conn.prepareStatement("SELECT * FROM Questions WHERE qid=?");
-                    ps.setInt(1, qIds.get(count));
-                    ResultSet rs = ps.executeQuery();
-                    
-                    if (rs.next()) {
-        %>
-                        <form action="OnlineTest.jsp" method="post">
-                            <p><b>Question <%= count + 1 %>:</b> <%= rs.getString("question") %></p>
-                            <input type="hidden" name="correctAns" value="<%= rs.getString("answer") %>">
-                            
-                            <input type="radio" name="ans" value="<%= rs.getString("option1") %>"> <%= rs.getString("option1") %><br>
-                            <input type="radio" name="ans" value="<%= rs.getString("option2") %>"> <%= rs.getString("option2") %><br>
-                            <input type="radio" name="ans" value="<%= rs.getString("option3") %>"> <%= rs.getString("option3") %><br>
-                            <input type="radio" name="ans" value="<%= rs.getString("option4") %>"> <%= rs.getString("option4") %><br><br>
+                        if (action.equals("Next")) {
+                                count++;
+                            } else if (action.equals("Submit")) {
+                                out.println("<h3>Test Completed!</h3>");
+                                out.println("<h3>Your Total Score: " + score + " / " + qIds.size() + "</h3>");
+                                out.println("<a href='OnlineTest.jsp'>Restart Test</a>");
+                                session.invalidate(); // Clear session to restart
+                                return;
+                            }
+                        }
 
-                            <% if (count < qIds.size() - 1) { %>
-                                <input type="submit" name="action" value="Next">
-                            <% } else { %>
-                                <input type="submit" name="action" value="Submit">
-                            <% } %>
-                        </form>
-        <%
-                    }
-                    conn.close();
-                } catch(Exception e) { out.print(e); }
-            }
-        %>
-    </div>
-</body>
-</html>
+                        session.setAttribute("count", count);
+                        session.setAttribute("score", score);
+
+                        // Fetch current question details
+                        if (qIds != null && count < qIds.size()) {
+                                try {
+                                        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
+                                        PreparedStatement ps = conn.prepareStatement("SELECT * FROM Questions WHERE qid=?");
+                                        ps.setInt(1, qIds.get(count));
+                                        ResultSet rs = ps.executeQuery();
+
+                                        if (rs.next()) {
+                                                %>
+                                                <form action="OnlineTest.jsp" method="post">
+                                                <p><b>Question <%= count + 1 %>:</b> <%= rs.getString("question") %></p>
+                                                <input type="hidden" name="correctAns" value="<%= rs.getString("answer") %>">
+
+                                                <input type="radio" name="ans" value="<%= rs.getString("option1") %>"> <%= rs.getString("option1") %><br>
+                                                <input type="radio" name="ans" value="<%= rs.getString("option2") %>"> <%= rs.getString("option2") %><br>
+                                                <input type="radio" name="ans" value="<%= rs.getString("option3") %>"> <%= rs.getString("option3") %><br>
+                                                <input type="radio" name="ans" value="<%= rs.getString("option4") %>"> <%= rs.getString("option4") %><br><br>
+
+                                                <% if (count < qIds.size() - 1) { %>
+                                                    <input type="submit" name="action" value="Next">
+                                                    <% } else { %>
+                                                    <input type="submit" name="action" value="Submit">
+                                                    <% } %>
+                                            </form>
+                                            <%
+                                        }
+                                        conn.close();
+                                    } catch(Exception e) { out.print(e); }
+                            }
+                            %>
+                        </div>
+                    </body>
+                </html>
 
 
 
@@ -580,102 +570,102 @@ Slip 6
 import java.util.*;
 class S6Q1
 {
-public static void main(String args[])
-{
-Scanner sc=new Scanner(System.in);
-TreeSet ts=new TreeSet();
-System.out.println("Enter number of elements:");
-int n=sc.nextInt();
-System.out.println("Enter" + n + "integer:");
-for(int i=0;i<n;i++)
-{
-ts.add(sc.nextInt());
-}
-System.out.println("Sorted elements:"+ts);
-System.out.println("Enter the elements for search:");
-int search=sc.nextInt();
-if(ts.contains(search))
-{
-System.out.println("element found in collection");
-}
-else
-{
-System.out.println("element not found in collection");
-} } }
+        public static void main(String args[])
+        {
+                Scanner sc=new Scanner(System.in);
+                TreeSet ts=new TreeSet();
+                System.out.println("Enter number of elements:");
+                int n=sc.nextInt();
+                System.out.println("Enter" + n + "integer:");
+                for(int i=0;i<n;i++)
+                {
+                        ts.add(sc.nextInt());
+                    }
+                    System.out.println("Sorted elements:"+ts);
+                    System.out.println("Enter the elements for search:");
+                    int search=sc.nextInt();
+                    if(ts.contains(search))
+                    {
+                            System.out.println("element found in collection");
+                        }
+                        else
+                        {
+                                System.out.println("element not found in collection");
+                            } } }
 
 
 
 
 
-import javax.swing.*;
-import java.awt.*;
+                import javax.swing.*;
+                import java.awt.*;
 
-public class TrafficSignal extends JFrame implements Runnable {
-    private String color = "RED"; // Initial state
-    private Thread t;
+                public class TrafficSignal extends JFrame implements Runnable {
+                        private String color = "RED"; // Initial state
+                        private Thread t;
 
-    public TrafficSignal() {
-        setTitle("Traffic Signal Simulation");
-        setSize(200, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        
-        // Start the thread
-        t = new Thread(this);
-        t.start();
-        
-        setVisible(true);
-    }
+                        public TrafficSignal() {
+                                setTitle("Traffic Signal Simulation");
+                                setSize(200, 500);
+                                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                                setLocationRelativeTo(null);
 
-    @Override
-    public void run() {
-        try {
-            while (true) {
-                // RED State
-                color = "RED";
-                repaint();
-                Thread.sleep(5000); // Wait 5 seconds
+                                // Start the thread
+                                t = new Thread(this);
+                                t.start();
 
-                // GREEN State
-                color = "GREEN";
-                repaint();
-                Thread.sleep(5000); // Wait 5 seconds
+                                setVisible(true);
+                            }
 
-                // YELLOW State
-                color = "YELLOW";
-                repaint();
-                Thread.sleep(2000); // Wait 2 seconds
-            }
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-    }
+                            @Override
+                            public void run() {
+                                    try {
+                                            while (true) {
+                                                    // RED State
+                                                    color = "RED";
+                                                    repaint();
+                                                    Thread.sleep(5000); // Wait 5 seconds
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        
-        // Draw the signal box
-        g.setColor(Color.BLACK);
-        g.fillRect(50, 50, 100, 300);
+                                                    // GREEN State
+                                                    color = "GREEN";
+                                                    repaint();
+                                                    Thread.sleep(5000); // Wait 5 seconds
 
-        // Draw Red Light
-        g.setColor(color.equals("RED") ? Color.RED : Color.DARK_GRAY);
-        g.fillOval(70, 70, 60, 60);
+                                                    // YELLOW State
+                                                    color = "YELLOW";
+                                                    repaint();
+                                                    Thread.sleep(2000); // Wait 2 seconds
+                                                }
+                                            } catch (InterruptedException e) {
+                                                System.out.println(e);
+                                            }
+                                        }
 
-        // Draw Yellow Light
-        g.setColor(color.equals("YELLOW") ? Color.YELLOW : Color.DARK_GRAY);
-        g.fillOval(70, 170, 60, 60);
+                                        @Override
+                                        public void paint(Graphics g) {
+                                                super.paint(g);
 
-        // Draw Green Light
-        g.setColor(color.equals("GREEN") ? Color.GREEN : Color.DARK_GRAY);
-        g.fillOval(70, 270, 60, 60);
-    }
+                                                // Draw the signal box
+                                                g.setColor(Color.BLACK);
+                                                g.fillRect(50, 50, 100, 300);
 
-    public static void main(String[] args) {
-        new TrafficSignal();
-    }
-}
+                                                // Draw Red Light
+                                                g.setColor(color.equals("RED") ? Color.RED : Color.DARK_GRAY);
+                                                g.fillOval(70, 70, 60, 60);
+
+                                                // Draw Yellow Light
+                                                g.setColor(color.equals("YELLOW") ? Color.YELLOW : Color.DARK_GRAY);
+                                                g.fillOval(70, 170, 60, 60);
+
+                                                // Draw Green Light
+                                                g.setColor(color.equals("GREEN") ? Color.GREEN : Color.DARK_GRAY);
+                                                g.fillOval(70, 270, 60, 60);
+                                            }
+
+                                            public static void main(String[] args) {
+                                                    new TrafficSignal();
+                                                }
+                                            }
 
 
 
@@ -686,120 +676,120 @@ Slip 7
 import java.util.Random;
 class Square extends Thread
 {
-int x;
-Square(int n)
-{
-x = n;
-}
-public void run()
-{
-System.out.println("Square: " + (x * x));
-}
-}
-class Cube extends Thread
-{
-int x;
-Cube(int n)
-{
-x = n;
-}
-public void run()
-{
-System.out.println("Cube: " + (x * x * x));
-}
-}
-class S7Q1 extends Thread
-{
-public void run()
-{
-try
-{
-Random r = new Random();
-int num = r.nextInt(10); // 0-9
-System.out.println("Random number generated is: " + num);
-Thread.sleep(1000);
-if (num % 2 == 0)
-{
-Square s = new Square(num);
-s.start();
-}
-else
-{
-Cube c = new Cube(num);
-c.start();
-}
-}
-catch (Exception e)
-{
-System.out.println(e);
-}
-}
-public static void main(String args[])
-{
-S7Q1 t = new S7Q1();
-t.start();
-}
-}
-
-
-
-
-import java.sql.*;
-import java.util.*;
-class Slip7B
-{
-    public static void main(String[] args) throws Exception
-    {
-        Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection
-        ("jdbc:postgresql://localhost/tybcs","postgres","");
-        System.out.println("Got Connection:"+con);
-        
-        
-        Statement stmt1 = con.createStatement();
-        
-String query1 ="create table product(pid integer, pname text, price integer)";
-        stmt1.executeUpdate(query1);
-        System.out.println("Table Created");
-        
-        
-        
-        String query2 ="insert into product values(?,?,?)";
-
-        PreparedStatement pstmt = con.prepareStatement(query2);
-        Scanner sc=new Scanner(System.in);
-        int n=5;
-        System.out.println("Enter Product Information to Insert "); 
-        for(int i = 0 ;i<n;i++)
+        int x;
+        Square(int n)
         {
-            System.out.println("Enter Pid:-");
-            int id = sr.nextInt(); 
-            System.out.println("Enter Pname:-");
-            String name = sr.next(); 
-            System.out.println("Enter Pprice:-");
-            int price = sr.nextInt();
-            pstmt.setInt(1,id);
-            pstmt.setString(2,name);
-            pstmt.setInt(3,price);
-            pstmt.executeUpdate();
+                x = n;
+            }
+            public void run()
+            {
+                    System.out.println("Square: " + (x * x));
+                }
+            }
+            class Cube extends Thread
+            {
+                    int x;
+                    Cube(int n)
+                    {
+                            x = n;
+                        }
+                        public void run()
+                        {
+                                System.out.println("Cube: " + (x * x * x));
+                            }
+                        }
+                        class S7Q1 extends Thread
+                        {
+                                public void run()
+                                {
+                                        try
+                                        {
+                                                Random r = new Random();
+                                                int num = r.nextInt(10); // 0-9
+                                                System.out.println("Random number generated is: " + num);
+                                                Thread.sleep(1000);
+                                                if (num % 2 == 0)
+                                                {
+                                                        Square s = new Square(num);
+                                                        s.start();
+                                                    }
+                                                    else
+                                                    {
+                                                            Cube c = new Cube(num);
+                                                            c.start();
+                                                        }
+                                                    }
+                                                    catch (Exception e)
+                                                    {
+                                                            System.out.println(e);
+                                                        }
+                                                    }
+                                                    public static void main(String args[])
+                                                    {
+                                                            S7Q1 t = new S7Q1();
+                                                            t.start();
+                                                        }
+                                                    }
 
-            System.out.println(c+"  Record Updated"); 
-        }
-         
-        System.out.println("Display Product Details ");
-        Statement stmt2 = con.createStatement();
-        String query3="select * from product";
-        ResultSet rs = stmt2.executeQuery(query3);
-        System.out.println(rs);
-        System.out.println("Pid \t Pname \t Pprice");
-        while(rs.next())
-        {
-System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getInt(3));
-        }
-        rs.close(); 
-        con.close();
-    }
-}
+
+
+
+                                                    import java.sql.*;
+                                                    import java.util.*;
+                                                    class Slip7B
+                                                    {
+                                                            public static void main(String[] args) throws Exception
+                                                            {
+                                                                    Class.forName("org.postgresql.Driver");
+                                                                    Connection con = DriverManager.getConnection
+                                                                    ("jdbc:postgresql://localhost/tybcs","postgres","");
+                                                                    System.out.println("Got Connection:"+con);
+
+
+                                                                    Statement stmt1 = con.createStatement();
+
+                                                                    String query1 ="create table product(pid integer, pname text, price integer)";
+                                                                    stmt1.executeUpdate(query1);
+                                                                    System.out.println("Table Created");
+
+
+
+                                                                    String query2 ="insert into product values(?,?,?)";
+
+                                                                    PreparedStatement pstmt = con.prepareStatement(query2);
+                                                                    Scanner sc=new Scanner(System.in);
+                                                                    int n=5;
+                                                                    System.out.println("Enter Product Information to Insert ");
+                                                                    for(int i = 0 ;i<n;i++)
+                                                                    {
+                                                                            System.out.println("Enter Pid:-");
+                                                                            int id = sc.nextInt();
+                                                                            System.out.println("Enter Pname:-");
+                                                                            String name = sc.next();
+                                                                            System.out.println("Enter Pprice:-");
+                                                                            int price = sc.nextInt();
+                                                                            pstmt.setInt(1,id);
+                                                                            pstmt.setString(2,name);
+                                                                            pstmt.setInt(3,price);
+                                                                            pstmt.executeUpdate();
+
+                                                                            System.out.println("Record Updated");
+                                                                        }
+
+                                                                        System.out.println("Display Product Details ");
+                                                                        Statement stmt2 = con.createStatement();
+                                                                        String query3="select * from product";
+                                                                        ResultSet rs = stmt2.executeQuery(query3);
+                                                                        System.out.println(rs);
+                                                                        System.out.println("Pid \t Pname \t Pprice");
+                                                                        while(rs.next())
+                                                                        {
+                                                                                System.out.println(rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getInt(3));
+                                                                            }
+                                                                            rs.close();
+                                                                            con.close();
+                                                                        }
+                                                                    }
 
 
 
@@ -809,43 +799,43 @@ Slip 8
 
 class demo extends Thread
 {
-String text;
-int n;
-demo(String p, int q)
-{
-text = p;
-n = q;
-}
-public void run()
-{
-try
-{
-for (int i = 1; i <= n; i++)
-{
-System.out.println(text);
-}
-}
-catch (Exception e)
-{
-System.out.println(e);
-}
-}
-}
-class S8Q1
-{
-public static void main(String args[])
-{
-demo t1 = new demo("COVID19", 10);
-demo t2 = new demo("LOCKDOWN", 20);
-demo t3 = new demo("VACCINATED", 30);
-t1.setPriority(1);
-t2.setPriority(5);
-t3.setPriority(10);
-t1.start();
-t2.start();
-t3.start();
-}
-}
+        String text;
+        int n;
+        demo(String p, int q)
+        {
+                text = p;
+                n = q;
+            }
+            public void run()
+            {
+                    try
+                    {
+                            for (int i = 1; i <= n; i++)
+                            {
+                                    System.out.println(text);
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                    System.out.println(e);
+                                }
+                            }
+                        }
+                        class S8Q1
+                        {
+                                public static void main(String args[])
+                                {
+                                        demo t1 = new demo("COVID19", 10);
+                                        demo t2 = new demo("LOCKDOWN", 20);
+                                        demo t3 = new demo("VACCINATED", 30);
+                                        t1.setPriority(1);
+                                        t2.setPriority(5);
+                                        t3.setPriority(10);
+                                        t1.start();
+                                        t2.start();
+                                        t3.start();
+                                    }
+                                }
 
 
 
@@ -860,33 +850,33 @@ Html file
         Enter No :-
         <input type="text" name="no" value="">
         <br><input type="submit" name="submit" value="Check Prime">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Jsp file
 <html>
-<body>
-<%
-String number = request.getParameter("number");
-int num = Integer.parseInt(number);
-boolean prime = true;
-for(int i = 2; i < num; i++)
-{
-if(num % i == 0)
-{
-prime = false;
-break;
-}
-}
-out.println("Number: " + num + "<br>");
-if(prime)
-out.println("Prime Number");
-else
-out.println("Not Prime Number");
-%>
-</body>
-</html>
+    <body>
+        <%
+        String number = request.getParameter("number");
+        int num = Integer.parseInt(number);
+        boolean prime = true;
+        for(int i = 2; i < num; i++)
+        {
+                if(num % i == 0)
+                {
+                        prime = false;
+                        break;
+                    }
+                }
+                out.println("Number: " + num + "<br>");
+                if(prime)
+                out.println("Prime Number");
+                else
+                out.println("Not Prime Number");
+                %>
+            </body>
+        </html>
 
 
 
@@ -902,70 +892,70 @@ import java.awt.*;
 import java.awt.event.*;
 
 public class VerticalBallMovement extends JFrame implements ActionListener {
-    JButton b1;
-    BallPanel panel;
+        JButton b1;
+        BallPanel panel;
 
-    public VerticalBallMovement() {
-        setTitle("Vertical Ball Movement");
-        setSize(400, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        public VerticalBallMovement() {
+                setTitle("Vertical Ball Movement");
+                setSize(400, 500);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setLayout(new BorderLayout());
 
-        panel = new BallPanel();
-        add(panel, BorderLayout.CENTER);
+                panel = new BallPanel();
+                add(panel, BorderLayout.CENTER);
 
-        b1 = new JButton("Start Ball");
-        b1.addActionListener(this);
-        add(b1, BorderLayout.SOUTH);
+                b1 = new JButton("Start Ball");
+                b1.addActionListener(this);
+                add(b1, BorderLayout.SOUTH);
 
-        setVisible(true);
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        if (e.getSource() == b1) {
-            // Create and start a new thread for the ball
-            Thread t = new Thread(panel);
-            t.start();
-            b1.setEnabled(false); // Disable button after starting
-        }
-    }
-
-    public static void main(String[] args) {
-        new VerticalBallMovement();
-    }
-}
-
-class BallPanel extends JPanel implements Runnable {
-    int y = 0; // Vertical position
-    int direction = 1; // 1 for down, -1 for up
-
-    @Override
-    public void run() {
-        try {
-            while (true) {
-                y += (5 * direction);
-
-                // Reverse direction if ball hits top or bottom boundaries
-                if (y <= 0 || y >= getHeight() - 30) {
-                    direction *= -1;
-                }
-
-                repaint(); // Refresh the panel
-                Thread.sleep(30); // Control speed of animation
+                setVisible(true);
             }
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-    }
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        g.setColor(Color.RED);
-        // Draw the ball at the center horizontally (width/2) and variable y
-        g.fillOval(getWidth() / 2 - 15, y, 30, 30);
-    }
-}
+            public void actionPerformed(ActionEvent e) {
+                    if (e.getSource() == b1) {
+                            // Create and start a new thread for the ball
+                            Thread t = new Thread(panel);
+                            t.start();
+                            b1.setEnabled(false); // Disable button after starting
+                        }
+                    }
+
+                    public static void main(String[] args) {
+                            new VerticalBallMovement();
+                        }
+                    }
+
+                    class BallPanel extends JPanel implements Runnable {
+                            int y = 0; // Vertical position
+                            int direction = 1; // 1 for down, -1 for up
+
+                            @Override
+                            public void run() {
+                                    try {
+                                            while (true) {
+                                                    y += (5 * direction);
+
+                                                    // Reverse direction if ball hits top or bottom boundaries
+                                                    if (y <= 0 || y >= getHeight() - 30) {
+                                                            direction *= -1;
+                                                        }
+
+                                                        repaint(); // Refresh the panel
+                                                        Thread.sleep(30); // Control speed of animation
+                                                    }
+                                                } catch (InterruptedException e) {
+                                                    System.out.println(e);
+                                                }
+                                            }
+
+                                            @Override
+                                            protected void paintComponent(Graphics g) {
+                                                    super.paintComponent(g);
+                                                    g.setColor(Color.RED);
+                                                    // Draw the ball at the center horizontally (width/2) and variable y
+                                                    g.fillOval(getWidth() / 2 - 15, y, 30, 30);
+                                                }
+                                            }
 
 
 
@@ -974,28 +964,28 @@ The Bean Class (MessageBean.java)
 package com.demo;
 
 public class MessageBean {
-    private String message;
+        private String message;
 
-    // Setter method for Dependency Injection
-    public void setMessage(String message) {
-        this.message = message;
-    }
+        // Setter method for Dependency Injection
+        public void setMessage(String message) {
+                this.message = message;
+            }
 
-    public void display() {
-        System.out.println("Message: " + message);
-    }
-}
+            public void display() {
+                    System.out.println("Message: " + message);
+                }
+            }
 
 The Configuration File (applicationContext.xml)
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="myMessage" class="com.demo.MessageBean">
-        <property name="message" value="If you can't explain it simply, you don't understand it well enough" />
-    </bean>
+<bean id="myMessage" class="com.demo.MessageBean">
+<property name="message" value="If you can't explain it simply, you don't understand it well enough" />
+</bean>
 
 </beans>
 
@@ -1006,17 +996,17 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestSpring {
-    public static void main(String[] args) {
-        // Load the configuration file
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        public static void main(String[] args) {
+                // Load the configuration file
+                ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        // Get the bean object from the Spring container
-        MessageBean bean = (MessageBean) context.getBean("myMessage");
+                // Get the bean object from the Spring container
+                MessageBean bean = (MessageBean) context.getBean("myMessage");
 
-        // Call the method
-        bean.display();
-    }
-}
+                // Call the method
+                bean.display();
+            }
+        }
 
 
 
@@ -1036,20 +1026,20 @@ package com.demo;
 import java.util.Date;
 
 public class DateBean {
-    public void displayDate() {
-        Date d = new Date();
-        System.out.println("Current Date and Time: " + d.toString());
-    }
-}
+        public void displayDate() {
+                Date d = new Date();
+                System.out.println("Current Date and Time: " + d.toString());
+            }
+        }
 
 The Configuration File (applicationContext.xml)
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans
-       http://www.springframework.org/schema/beans/spring-beans.xsd">
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="dateBtn" class="com.demo.DateBean" />
+<bean id="dateBtn" class="com.demo.DateBean" />
 
 </beans>
 
@@ -1060,50 +1050,50 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class TestDate {
-    public static void main(String[] args) {
-        // Initialize the IoC Container
-        ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+        public static void main(String[] args) {
+                // Initialize the IoC Container
+                ApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
 
-        // Retrieve the bean from the container
-        DateBean bean = (DateBean) context.getBean("dateBtn");
+                // Retrieve the bean from the container
+                DateBean bean = (DateBean) context.getBean("dateBtn");
 
-        // Execute the method
-        bean.displayDate();
-    }
-}
+                // Execute the method
+                bean.displayDate();
+            }
+        }
 
 
 
-import java.awt.*;
-import java.awt.event.*;
-import javax.swing.*;
-import java.sql.*;
+        import java.awt.*;
+        import java.awt.event.*;
+        import javax.swing.*;
+        import java.sql.*;
 
-class Slip10B extends JFrame implements ActionListener
+        class Slip10B extends JFrame implements ActionListener
+        {
+                JLabel lblrno,lblname,lblper;
+                JTextField tfrno,tfname,tfper;
+                JButton btnclear,btnfind;
+Slip10B()
 {
-    JLabel lblrno,lblname,lblper;
-    JTextField tfrno,tfname,tfper;
-    JButton btnclear,btnfind;
-    Slip10B()
-    {
         setTitle("Studnet Table 1st Record");
         setSize(400,400); setVisible(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(new GridLayout(4,2));
-        
+
         lblrno = new JLabel("Roll No");
         lblname = new JLabel("Name");
         lblper = new JLabel("Percentage");
-        
-        tfrno = new JTextField(20);  
+
+        tfrno = new JTextField(20);
         tfname = new JTextField(20);
         tfper = new JTextField(20);
-    
+
         btnclear = new JButton("Clear");
-        
+
         btnfind = new JButton("Get Record");
         btnfind.addActionListener(this);
-        
+
         add(lblrno); add(tfrno);
         add(lblname);   add(tfname);
         add(lblper);    add(tfper);
@@ -1111,39 +1101,39 @@ class Slip10B extends JFrame implements ActionListener
     }
     public void actionPerformed(ActionEvent ae)
     {
-        if(ae.getSource()==btnfind)
-        {
-            jdbc();
-        }
-    }
-    void jdbc() 
-    {
-        try
-        {
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection
-            ("jdbc:postgresql://localhost/slips","postgres","");
-            JOptionPane.showMessageDialog
-            (this,"Got Connection:-"+con);
-            
-            Statement stmt = con.createStatement();
-            String query = "select * from student";
-            ResultSet rs = stmt.executeQuery(query);
-            rs.next();
-            tfrno.setText(""+rs.getInt(1));
-            tfname.setText(""+rs.getString(2));
-            tfper.setText(""+rs.getDouble(3));
-            
-        }
-        catch(Exception e) 
-        {
-        }
-    }
-    public static void main(String[] args)
-    {
-        new Slip10B();
-    }
-}
+            if(ae.getSource()==btnfind)
+            {
+                    jdbc();
+                }
+            }
+            void jdbc()
+            {
+                    try
+                    {
+                            Class.forName("org.postgresql.Driver");
+                            Connection con = DriverManager.getConnection
+                            ("jdbc:postgresql://localhost/slips","postgres","");
+                            JOptionPane.showMessageDialog
+                            (this,"Got Connection:-"+con);
+
+                            Statement stmt = con.createStatement();
+                            String query = "select * from student";
+                            ResultSet rs = stmt.executeQuery(query);
+                            rs.next();
+                            tfrno.setText(""+rs.getInt(1));
+                            tfname.setText(""+rs.getString(2));
+                            tfper.setText(""+rs.getDouble(3));
+
+                        }
+                        catch(Exception e)
+                        {
+                            }
+                        }
+                        public static void main(String[] args)
+                        {
+                                new Slip10B();
+                            }
+                        }
 
 
 
@@ -1167,8 +1157,8 @@ Html file
         Enter Customer id to search :-
         <input type="text" name="cid" value="">
         <br><input type="submit" name="submit" value="Search">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Java file
@@ -1179,44 +1169,44 @@ import java.sql.*;
 
 public class Slip11A extends HttpServlet
 {
-    public void doGet(HttpServletRequest request,HttpServletResponse response) 
-    throws IOException, ServletException
-   {
-        response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
-        String cid = request.getParameter("cid"); 
-        pw.println("Servlet - JDBC");
-        try
+        public void doGet(HttpServletRequest request,HttpServletResponse response)
+        throws IOException, ServletException
         {
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection
-            ("jdbc:postgresql://localhost/slips","postgres","");
-            pw.println("<br>Got Connection:-"+con);
-        
-            int id = Integer.parseInt(cid);
-            pw.println("<br>Searching for customer id: -"+id);
-            String query = "select * from cust where cid ="+id;
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            if(rs.next())
-            {
-                pw.println("<br>Customer id :-"+rs.getInt(1));
-                pw.println("<br>Customer name :-"+rs.getString(2));
-                pw.println("<br>Customer address :-"+rs.getString(3));
-            }
-            else
-            {
-                pw.println("Record with customer id:-"+id+" not found");
-            }
-            
-        }
-        catch(Exception e)
-        {
-            pw.println("<br>Exception: -"+e);
-        }
-        pw.close();
-    }   
-}
+                response.setContentType("text/html");
+                PrintWriter pw = response.getWriter();
+                String cid = request.getParameter("cid");
+                pw.println("Servlet - JDBC");
+                try
+                {
+                        Class.forName("org.postgresql.Driver");
+                        Connection con = DriverManager.getConnection
+                        ("jdbc:postgresql://localhost/slips","postgres","");
+                        pw.println("<br>Got Connection:-"+con);
+
+                        int id = Integer.parseInt(cid);
+                        pw.println("<br>Searching for customer id: -"+id);
+                        String query = "select * from cust where cid ="+id;
+                        Statement stmt = con.createStatement();
+                        ResultSet rs = stmt.executeQuery(query);
+                        if(rs.next())
+                        {
+                                pw.println("<br>Customer id :-"+rs.getInt(1));
+                                pw.println("<br>Customer name :-"+rs.getString(2));
+                                pw.println("<br>Customer address :-"+rs.getString(3));
+                            }
+                            else
+                            {
+                                    pw.println("Record with customer id:-"+id+" not found");
+                                }
+
+                            }
+                            catch(Exception e)
+                            {
+                                    pw.println("<br>Exception: -"+e);
+                                }
+                                pw.close();
+                            }
+                        }
 
 
 
@@ -1225,53 +1215,53 @@ public class Slip11A extends HttpServlet
 
 
 
-import java.util.*;
-import java.sql.*;  
-class donar
-{
-  public static void main(String args[])
-  {
-	Connection con=null;
-	Statement stmt=null;
-	ResultSet rs=null;
+                        import java.util.*;
+                        import java.sql.*;
+                        class donar
+                        {
+                                public static void main(String args[])
+                                {
+                                        Connection con=null;
+                                        Statement stmt=null;
+                                        ResultSet rs=null;
 
- 	try
- 	{
-Class.forName("org.postgresql.Driver"); 
-  System.out.println("Driver Loaded");  
+                                        try
+                                        {
+                                                Class.forName("org.postgresql.Driver");
+                                                System.out.println("Driver Loaded");
 
-con=DriverManager.getConnection("jdbc:postgresql:TYBCS","postgres","postgres");
-System.out.println("Connection established");
+                                                con=DriverManager.getConnection("jdbc:postgresql:TYBCS","postgres","postgres");
+                                                System.out.println("Connection established");
 
-stmt=con.createStatement();
+                                                stmt=con.createStatement();
 
-String str="select * from donar";
+                                                String str="select * from donar";
 
-rs=stmt.executeQuery(str);
+                                                rs=stmt.executeQuery(str);
 
-ResultSetMetaData rm=rs.getMetaData();
+                                                ResultSetMetaData rm=rs.getMetaData();
 
-int colcount=rm.getColumnCount();
+                                                int colcount=rm.getColumnCount();
 
-System.out.println("Number of Columns="+colcount);
-	
-	 for(int i=1;i<=colcount;i++)
-	{
-	   System.out.println("Column No.: "+i);
-	   System.out.println("Column Name: "+rm.getColumnName(i));
-	   System.out.println("Column Type: "+rm.getColumnTypeName(i));
-	   System.out.println("Column size: "+rm.getColumnDisplaySize(i));
-	 }
-}
+                                                System.out.println("Number of Columns="+colcount);
 
-	catch(Exception e)
-	 {
-    	  System.out.println("Error "+e);
-    	 }
-  	
-  
-  }
-}
+                                                for(int i=1;i<=colcount;i++)
+                                                {
+                                                        System.out.println("Column No.: "+i);
+                                                        System.out.println("Column Name: "+rm.getColumnName(i));
+                                                        System.out.println("Column Type: "+rm.getColumnTypeName(i));
+                                                        System.out.println("Column size: "+rm.getColumnDisplaySize(i));
+                                                    }
+                                                }
+
+                                                catch(Exception e)
+                                                {
+                                                        System.out.println("Error "+e);
+                                                    }
+
+
+                                                }
+                                            }
 
 
 
@@ -1298,32 +1288,32 @@ Html file
         (Check Perfect or Not)Enter No :-
         <input type="text" name="num" value="">
         <br><input type="submit" name="submit" value="Check Perfect">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Jsp file
 <html>
-<body>
-<%
-String number = request.getParameter("number");
-int num = Integer.parseInt(number);
-int sum = 0;
-for(int i = 1; i < num; i++)
-{
-if(num % i == 0)
-{
-sum += i;
-}
-}
-out.println("Number: " + num + "<br>");
-if(sum == num)
-out.println("Perfect Number");
-else
-out.println("Not Perfect Number");
-%>
-</body>
-</html>
+    <body>
+        <%
+        String number = request.getParameter("num");
+        int num = Integer.parseInt(number);
+        int sum = 0;
+        for(int i = 1; i < num; i++)
+        {
+                if(num % i == 0)
+                {
+                        sum += i;
+                    }
+                }
+                out.println("Number: " + num + "<br>");
+                if(sum == num)
+                out.println("Perfect Number");
+                else
+                out.println("Not Perfect Number");
+                %>
+            </body>
+        </html>
 
 
 
@@ -1333,10 +1323,10 @@ out.println("Not Perfect Number");
 
 Database
 CREATE TABLE PROJECT (
-    project_id INT PRIMARY KEY,
-    Project_name TEXT,
-    Project_description TEXT,
-    Project_Status TEXT
+project_id INT PRIMARY KEY,
+Project_name TEXT,
+Project_description TEXT,
+Project_Status TEXT
 );
 
 Java file
@@ -1346,71 +1336,71 @@ import java.awt.*;
 import java.sql.*;
 
 public class ProjectTableDisplay extends JFrame {
-    JTable table;
-    DefaultTableModel model;
+        JTable table;
+        DefaultTableModel model;
 
-    public ProjectTableDisplay() {
-        setTitle("Project Details");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLayout(new BorderLayout());
+        public ProjectTableDisplay() {
+                setTitle("Project Details");
+                setSize(600, 400);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setLayout(new BorderLayout());
 
-        // Table Columns
-        String[] columns = {"ID", "Name", "Description", "Status"};
-        model = new DefaultTableModel(columns, 0);
-        table = new JTable(model);
+                // Table Columns
+                String[] columns = {"ID", "Name", "Description", "Status"};
+                model = new DefaultTableModel(columns, 0);
+                table = new JTable(model);
 
-        // Add table to a scroll pane
-        JScrollPane scrollPane = new JScrollPane(table);
-        add(scrollPane, BorderLayout.CENTER);
+                // Add table to a scroll pane
+                JScrollPane scrollPane = new JScrollPane(table);
+                add(scrollPane, BorderLayout.CENTER);
 
-        // Database operations
-        connectAndFetch();
+                // Database operations
+                connectAndFetch();
 
-        setVisible(true);
-    }
-
-    public void connectAndFetch() {
-        try {
-            // Load PostgreSQL Driver
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
-
-            // 1. Insert sample values (Optional: can be commented out if data exists)
-            String insertSql = "INSERT INTO PROJECT VALUES (?, ?, ?, ?) ON CONFLICT DO NOTHING";
-            PreparedStatement ps = conn.prepareStatement(insertSql);
-            
-            // Adding a sample record
-            ps.setInt(1, 101);
-            ps.setString(2, "ShieldMe");
-            ps.setString(3, "Personal Safety App");
-            ps.setString(4, "Completed");
-            ps.executeUpdate();
-
-            // 2. Fetch data to display in JTable
-            Statement st = conn.createStatement();
-            ResultSet rs = st.executeQuery("SELECT * FROM PROJECT");
-
-            while (rs.next()) {
-                int id = rs.getInt("project_id");
-                String name = rs.getString("Project_name");
-                String desc = rs.getString("Project_description");
-                String status = rs.getString("Project_Status");
-
-                // Add row to the Swing Table Model
-                model.addRow(new Object[]{id, name, desc, status});
+                setVisible(true);
             }
 
-            conn.close();
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-        }
-    }
+            public void connectAndFetch() {
+                    try {
+                            // Load PostgreSQL Driver
+                            Class.forName("org.postgresql.Driver");
+                            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
 
-    public static void main(String[] args) {
-        new ProjectTableDisplay();
-    }
-}
+                            // 1. Insert sample values (Optional: can be commented out if data exists)
+                            String insertSql = "INSERT INTO PROJECT VALUES (?, ?, ?, ?) ON CONFLICT DO NOTHING";
+                            PreparedStatement ps = conn.prepareStatement(insertSql);
+
+                            // Adding a sample record
+                            ps.setInt(1, 101);
+                            ps.setString(2, "ShieldMe");
+                            ps.setString(3, "Personal Safety App");
+                            ps.setString(4, "Completed");
+                            ps.executeUpdate();
+
+                            // 2. Fetch data to display in JTable
+                            Statement st = conn.createStatement();
+                            ResultSet rs = st.executeQuery("SELECT * FROM PROJECT");
+
+                            while (rs.next()) {
+                                    int id = rs.getInt("project_id");
+                                    String name = rs.getString("Project_name");
+                                    String desc = rs.getString("Project_description");
+                                    String status = rs.getString("Project_Status");
+
+                                    // Add row to the Swing Table Model
+                                    model.addRow(new Object[]{id, name, desc, status});
+                                }
+
+                                conn.close();
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+                            }
+                        }
+
+                        public static void main(String[] args) {
+                                new ProjectTableDisplay();
+                            }
+                        }
 
 
 
@@ -1427,77 +1417,77 @@ import java.sql.*;
 
 class Slip13A
 {
-    public static void main(String[] args)
-    throws Exception
-    {
-        Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection
-        ("jdbc:postgresql://localhost:5432/slip","postgres","");
-        System.out.println(""+con);
-        DatabaseMetaData dbmd = con.getMetaData();
-        System.out.println(""+dbmd);
-        
-        System.out.println("Product Name :"+dbmd.getDatabaseProductName());
-        System.out.println("Product version :"+dbmd.getDatabaseProductVersion());
-        System.out.println("Driver Name :"+dbmd.getDriverName());
-        System.out.println("Driver Version :"+dbmd.getDriverVersion());
-
-//getTables(String catalog, String schemaPattern, String  tableNamePattern, String[] types) 
-
-    ResultSet rs = dbmd.getTables(null,null,null,new String[] {"TABLE"});
-    System.out.println(""+rs);
-        while(rs.next())
+        public static void main(String[] args)
+        throws Exception
         {
-            System.out.println("Table Name : "+rs.getString("TABLE_NAME"));
-        }
+                Class.forName("org.postgresql.Driver");
+                Connection con = DriverManager.getConnection
+                ("jdbc:postgresql://localhost:5432/slip","postgres","");
+                System.out.println(""+con);
+DatabaseMetaData dbmd = con.getMetaData();
+System.out.println(""+dbmd);
+
+System.out.println("Product Name :"+dbmd.getDatabaseProductName());
+System.out.println("Product version :"+dbmd.getDatabaseProductVersion());
+System.out.println("Driver Name :"+dbmd.getDriverName());
+System.out.println("Driver Version :"+dbmd.getDriverVersion());
+
+//getTables(String catalog, String schemaPattern, String  tableNamePattern, String[] types)
+
+ResultSet rs = dbmd.getTables(null,null,null,new String[] {"TABLE"});
+System.out.println(""+rs);
+while(rs.next())
+{
+        System.out.println("Table Name : "+rs.getString("TABLE_NAME"));
     }
+}
 }
 
 OR
 
 import java.util.*;
-import java.sql.*;  
+import java.sql.*;
 class SetA2
 {
-  public static void main(String args[])
-  {
-	Connection con=null;
-	Statement st=null;
+        public static void main(String args[])
+        {
+                Connection con=null;
+                Statement st=null;
 
- 	try
- 	{
-Class.forName("org.postgresql.Driver"); 
-System.out.println("Driver Loaded");
+                try
+                {
+                        Class.forName("org.postgresql.Driver");
+                        System.out.println("Driver Loaded");
 
-con=DriverManager.getConnection("jdbc:postgresql:tybcs","postgres", " ");
-System.out.println("Connection established=");
-st=con.createStatement(); 
+                        con=DriverManager.getConnection("jdbc:postgresql:tybcs","postgres", " ");
+                        System.out.println("Connection established=");
+                        st=con.createStatement();
 
 DatabaseMetaData db=con.getMetaData();
 System.out.println("JDBC Driver Name: "+db.getDriverName());
-	 System.out.println("JDBC Driver Name: "+db.getDriverVersion());
-	 System.out.println("DB Version: "+db.getDatabaseProductVersion());
-	 System.out.println("Product Name: "+db.getDatabaseProductName());
-	 System.out.println("User Name: "+db.getUserName());
+System.out.println("JDBC Driver Name: "+db.getDriverVersion());
+System.out.println("DB Version: "+db.getDatabaseProductVersion());
+System.out.println("Product Name: "+db.getDatabaseProductName());
+System.out.println("User Name: "+db.getUserName());
 
 
 String table[]= { "TABLE"};
 
 ResultSet rs=db.getTables(null,null,null,table);
 
-   while(rs.next())
+while(rs.next())
 {
-	System.out.println(rs.getString(3));
-}
+        System.out.println(rs.getString(3));
+    }
 
-		 }
-	catch(Exception e)
-	 {
-    	  System.out.println("Error "+e);
-    	 }
-  	
-  
-  }
+}
+catch(Exception e)
+{
+        System.out.println("Error "+e);
+    }
+
+
+}
 }
 
 
@@ -1511,47 +1501,47 @@ ResultSet rs=db.getTables(null,null,null,table);
 
 
 import java.util.*;
- class deadthread extends Thread
- {  
-     String s;
-     deadthread(String p)
-     {
-         s=p;
-     }
-    public void run()
-    {
-      try
-      {
-         	System.out.println("Thread started\n"+getName());
-         	Random r=new Random();
-         	int p=r.nextInt(4999);
-         	Thread.sleep(p);
-		System.out.println("Thread ended\n"+getName());
-      }
-      catch(Exception e)
-      {
-      }
-    }
-}
-class lifecycle
+class deadthread extends Thread
 {
-  public static void main(String[] arg)
-  {
-     deadthread t1=new deadthread("abc");
-     deadthread t2=new deadthread("xyz");             
-     t1.start();
-     t2.start();
-     
-     try
-     {
-        t1.join();
-        t2.join();
-     }
-     catch(Exception e)
-     {
-     }     
- }
-}
+        String s;
+        deadthread(String p)
+        {
+                s=p;
+            }
+            public void run()
+            {
+                    try
+                    {
+                            System.out.println("Thread started\n"+getName());
+                            Random r=new Random();
+                            int p=r.nextInt(4999);
+                            Thread.sleep(p);
+                            System.out.println("Thread ended\n"+getName());
+                        }
+                        catch(Exception e)
+                        {
+                            }
+                        }
+                    }
+                    class lifecycle
+                    {
+                            public static void main(String[] arg)
+                            {
+                                    deadthread t1=new deadthread("abc");
+                                    deadthread t2=new deadthread("xyz");
+                                    t1.start();
+                                    t2.start();
+
+                                    try
+                                    {
+                                            t1.join();
+                                            t2.join();
+                                        }
+                                        catch(Exception e)
+                                        {
+                                            }
+                                        }
+                                    }
 
 
 
@@ -1561,62 +1551,62 @@ import java.io.*;
 import java.util.*;
 
 class FileSearcher extends Thread {
-    private String fileName;
-    private String searchString;
+        private String fileName;
+        private String searchString;
 
-    public FileSearcher(String fileName, String searchString) {
-        this.fileName = fileName;
-        this.searchString = searchString;
-    }
-
-    @Override
-    public void run() {
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            int lineNumber = 1;
-            boolean found = false;
-
-            while ((line = br.readLine()) != null) {
-                if (line.contains(searchString)) {
-                    System.out.println("[FOUND] File: " + fileName + " | Line: " + lineNumber + " | Content: " + line.trim());
-                    found = true;
-                }
-                lineNumber++;
+        public FileSearcher(String fileName, String searchString) {
+                this.fileName = fileName;
+                this.searchString = searchString;
             }
-        } catch (IOException e) {
-            System.err.println("Error reading file " + fileName + ": " + e.getMessage());
-        }
-    }
-}
 
-public class MultithreadedSearch {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("Enter the string to search: ");
-        String searchString = sc.nextLine();
+            @Override
+            public void run() {
+                    try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+                            String line;
+                            int lineNumber = 1;
+                            boolean found = false;
 
-        // Get the current directory
-        File currentDir = new File(".");
-        
-        // Filter for text files
-        File[] files = currentDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
+                            while ((line = br.readLine()) != null) {
+                                    if (line.contains(searchString)) {
+                                            System.out.println("[FOUND] File: " + fileName + " | Line: " + lineNumber + " | Content: " + line.trim());
+                                            found = true;
+                                        }
+                                        lineNumber++;
+                                    }
+                                } catch (IOException e) {
+                                    System.err.println("Error reading file " + fileName + ": " + e.getMessage());
+                                }
+                            }
+                        }
 
-        if (files == null || files.length == 0) {
-            System.out.println("No text files found in the current directory.");
-            return;
-        }
+                        public class MultithreadedSearch {
+                                public static void main(String[] args) {
+                                        Scanner sc = new Scanner(System.in);
+                                        System.out.print("Enter the string to search: ");
+                                        String searchString = sc.nextLine();
 
-        System.out.println("Searching in " + files.length + " files...\n");
+                                        // Get the current directory
+                                        File currentDir = new File(".");
 
-        // Create and start a thread for each file
-        for (File file : files) {
-            FileSearcher thread = new FileSearcher(file.getName(), searchString);
-            thread.start();
-        }
-        
-        sc.close();
-    }
-}
+                                        // Filter for text files
+                                        File[] files = currentDir.listFiles((dir, name) -> name.toLowerCase().endsWith(".txt"));
+
+                                        if (files == null || files.length == 0) {
+                                                System.out.println("No text files found in the current directory.");
+                                                return;
+                                            }
+
+                                            System.out.println("Searching in " + files.length + " files...\n");
+
+                                            // Create and start a thread for each file
+                                            for (File file : files) {
+                                                    FileSearcher thread = new FileSearcher(file.getName(), searchString);
+                                                    thread.start();
+                                                }
+
+                                                sc.close();
+                                            }
+                                        }
 
 Steps to run above program:
 Create 2 or 3 simple text files (e.g., test1.txt, test2.txt) in the same folder where you save this Java file.
@@ -1628,29 +1618,29 @@ Compile and run the java program
 
 Html file
 <html>
-	<body>
-		<form method="get" action="prog5.jsp">
-			Number: <input type="number" name="number"><br><br>
-			<input type="submit" name="submit" value="submit">
-		</form>
-	</body>
+    <body>
+        <form method="get" action="prog5.jsp">
+        Number: <input type="number" name="number"><br><br>
+        <input type="submit" name="submit" value="submit">
+    </form>
+</body>
 </html>
 
 Jsp file
 <html>
     <body>
         <%
-            int n=Integer.parseInt(request.getParameter("number"));
-            out.println("Number = "+n);
-            int lastnumber=n%10;
-            while(n>=10)
-            {
+        int n=Integer.parseInt(request.getParameter("number"));
+        out.println("Number = "+n);
+        int lastnumber=n%10;
+        while(n>=10)
+        {
                 n=n/10;
             }
             int firstnumber=n;
             int sum=lastnumber+firstnumber;
-        %>
-        <p style="color:red; font-size:18px;">Sum=<%=sum%>
+            %>
+            <p style="color:red; font-size:18px;">Sum=<%=sum%>
         </p>
     </body>
 </html>
@@ -1664,73 +1654,73 @@ Slip 15
 
 class S15Q1 extends Thread
 {
-public void run()
-{
-setName("THREAD");
-setPriority(5);
-System.out.println("Thread name:"+getName());
-System.out.println("Thread priority:"+getPriority());
-}
-public static void main(String args[])
-{
-S15Q1 t=new S15Q1();
-t.start();
-}
-}
-
-
-
-
-
-
-
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
-public class slip15 extends HttpServlet
-{
-	public void  service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
-	{
-		PrintWriter out=null;
-		try{
-			res.setContentType("text/html");
-			out=res.getWriter();
-			Cookie c[]=req.getCookies();
-			if(c==null)
-			{
-				out.println("Welcome for cookie demo");
-				Cookie c1=new Cookie("count","1");
-				res.addCookie(c1);
-			}
-			else
-			{
-				for(int i=0;i<c.length;i++)
-				{
-				String name=c[i].getName();
-				String val=c[i].getValue();
-				
-				out.println("Name="+name+"val="+val);
-				if(name.equals("count"))
-				{
-					int n=Integer.parseInt(val)+1;
-					c[i].setValue(Integer.toString(n));
-					
-				
-					out.println("Page acess for"+n+"times");
-					res.addCookie(c[i]);
-					}
-				}
-			}
-			}
-			
-			
-			catch(Exception e)
+        public void run()
         {
-            out.println("<h3>Error occurred</h3>");
-            out.println(e.getMessage());
-        }
-    }
-}
+                setName("THREAD");
+                setPriority(5);
+                System.out.println("Thread name:"+getName());
+                System.out.println("Thread priority:"+getPriority());
+            }
+            public static void main(String args[])
+            {
+                    S15Q1 t=new S15Q1();
+                    t.start();
+                }
+            }
+
+
+
+
+
+
+
+            import java.io.*;
+            import javax.servlet.*;
+            import javax.servlet.http.*;
+            public class slip15 extends HttpServlet
+            {
+                    public void  service(HttpServletRequest req,HttpServletResponse res) throws ServletException,IOException
+                    {
+                            PrintWriter out=null;
+                            try{
+                                    res.setContentType("text/html");
+                                    out=res.getWriter();
+                                    Cookie c[]=req.getCookies();
+                                    if(c==null)
+                                    {
+                                            out.println("Welcome for cookie demo");
+                                            Cookie c1=new Cookie("count","1");
+                                            res.addCookie(c1);
+                                        }
+                                        else
+                                        {
+                                                for(int i=0;i<c.length;i++)
+                                                {
+                                                        String name=c[i].getName();
+                                                        String val=c[i].getValue();
+
+                                                        out.println("Name="+name+"val="+val);
+                                                        if(name.equals("count"))
+                                                        {
+                                                                int n=Integer.parseInt(val)+1;
+                                                                c[i].setValue(Integer.toString(n));
+
+
+                                                                out.println("Page acess for"+n+"times");
+                                                                res.addCookie(c[i]);
+                                                            }
+                                                        }
+                                                    }
+                                                }
+
+
+                                                catch(Exception e)
+                                                {
+                                                        out.println("<h3>Error occurred</h3>");
+                                                        out.println(e.getMessage());
+                                                    }
+                                                }
+                                            }
 
 
 
@@ -1749,87 +1739,87 @@ Slip 16
 import java.util.*;
 class S16Q1
 {
-public static void main(String args[])
-{
-Scanner sc=new Scanner(System.in);
-TreeSet ts=new TreeSet();
-System.out.println("Enter number of colors:");
-int n=sc.nextInt();
-sc.nextLine();
-System.out.println("Enter the color names:");
-for(int i=0;i<n;i++)
-{
-ts.add(sc.nextLine());
-}
-System.out.println("colors in ascending order:");
-System.out.println(ts);
-}
-}
-
-
-
-
-import java.io.*;
-import java.sql.*;
-import java.util.*;
-
-public class Teacher
-{
-            Connection con=null;
-            Statement stmt=null;
-            PreparedStatement ps=null;
-            ResultSet rs=null;
-            public static void main(String args[])
-            {
-                        try
-                        {
- 
-Class.forName("org.postgresql.Driver");
-System.out.println("Driver Loaded");
-con=DriverManager.getConnection("jdbc:/postgresql://localhost/tybcs","postgres"," ");
-System.out.println("Connection established");
-int tno;
-String subject,tname;
-Scanner sc=new Scanner(System.in);
-con.createStatement();                 
-System.out.println("\n How many Records you want to insert?");
-int n=sc.nextInt();
-           System.out.println("\nEnter Records \n");
-           for(int i=0;i<n;i++)
-                                    {
-                                                System.out.println("\nEnter Teacher No.");
-                                                tno= sc.nextInt();
-                                                System.out.println("Enter Teacher name");
-                                                name= sc.next();
-                                                System.out.println("Enter subject");
-                                                sub= sc.next();
-
-
-                         ps=con.prepareStatement("insert into Teacher values(?,?,?)");
-                                                ps.setInt(1,tno);
-                                                ps.setString(2,tname);
-                                                ps.setString(3,sub);
-                                                ps.executeUpdate();
-                                    }
-                     System.out.println("\nAll Records are: \n");
-                     st=cn.createStatement();
-                     rs=st.executeQuery("select * from Teacher where subject='java'");
-                     System.out.println("Teacher Information");
-
-                                    while(rs.next())
-                                    {
-System.out.println(rs.getInt(1));
-System.out.println(rs.getString(2));
-System.out.println(rs.getInt(3));           
-                                    }
-                                    cn.close();       
-                        }
-catch(Exception e)
-                        {
-                                    System.out.println(e);
-                        }
+        public static void main(String args[])
+        {
+                Scanner sc=new Scanner(System.in);
+                TreeSet ts=new TreeSet();
+                System.out.println("Enter number of colors:");
+                int n=sc.nextInt();
+                sc.nextLine();
+                System.out.println("Enter the color names:");
+                for(int i=0;i<n;i++)
+                {
+                        ts.add(sc.nextLine());
+                    }
+                    System.out.println("colors in ascending order:");
+                    System.out.println(ts);
+                }
             }
-}
+
+
+
+
+            import java.io.*;
+            import java.sql.*;
+            import java.util.*;
+
+            public class Teacher
+            {
+                    Connection con=null;
+                    Statement stmt=null;
+                    PreparedStatement ps=null;
+                    ResultSet rs=null;
+                    public static void main(String args[])
+                    {
+                            try
+                            {
+
+                                    Class.forName("org.postgresql.Driver");
+                                    System.out.println("Driver Loaded");
+                                    con=DriverManager.getConnection("jdbc:/postgresql://localhost/tybcs","postgres"," ");
+                                    System.out.println("Connection established");
+                                    int tno;
+                                    String subject,tname;
+                                    Scanner sc=new Scanner(System.in);
+                                    con.createStatement();
+                                    System.out.println("\n How many Records you want to insert?");
+                                    int n=sc.nextInt();
+                                    System.out.println("\nEnter Records \n");
+                                    for(int i=0;i<n;i++)
+                                    {
+                                            System.out.println("\nEnter Teacher No.");
+                                            tno= sc.nextInt();
+                                            System.out.println("Enter Teacher name");
+                                            tname= sc.next();
+                                            System.out.println("Enter subject");
+                                            subject= sc.next();
+
+
+                                            ps=con.prepareStatement("insert into Teacher values(?,?,?)");
+                                            ps.setInt(1,tno);
+                                            ps.setString(2,tname);
+                                            ps.setString(3,subject);
+                                            ps.executeUpdate();
+                                        }
+                                        System.out.println("\nAll Records are: \n");
+                                        stmt=con.createStatement();
+                                        rs=stmt.executeQuery("select * from Teacher where subject='java'");
+                                        System.out.println("Teacher Information");
+
+                                        while(rs.next())
+                                        {
+                                                System.out.println(rs.getInt(1));
+                                                System.out.println(rs.getString(2));
+                                                System.out.println(rs.getString(3));
+                                            }
+                                            con.close();
+                                        }
+                                        catch(Exception e)
+                                        {
+                                                System.out.println(e);
+                                            }
+                                        }
+                                    }
 
 
 
@@ -1846,101 +1836,101 @@ Slip 17
 import java.util.*;
 class S17Q1
 {
-public static void main(String args[])
-{
-Scanner sc=new Scanner(System.in);
-TreeSet ts=new TreeSet();
-System.out.println("Enter number of elements:");
-int n=sc.nextInt();
-System.out.println("Enter" + n + "integer:");
-for(int i=0;i<n;i++)
-{
-ts.add(sc.nextInt());
-}
-System.out.println("Sorted elements:"+ts);
-}
-}
-
-
-
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.*;
-
-public class CounterThread extends JFrame implements ActionListener {
-    private JTextField t1;
-    private JButton b1;
-    private Thread countThread;
-    private boolean running = false;
-
-    public CounterThread() {
-        setTitle("Multithreaded Counter");
-        setSize(300, 150);
-        setLayout(new FlowLayout());
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-
-        t1 = new JTextField(15);
-        t1.setEditable(false);
-        t1.setFont(new Font("Arial", Font.BOLD, 20));
-        
-        b1 = new JButton("Start Counter");
-        b1.addActionListener(this);
-
-        add(t1);
-        add(b1);
-
-        setVisible(true);
-    }
-
-    public void actionPerformed(ActionEvent e) {
-        // Prevent starting multiple threads if one is already running
-        if (!running) {
-            running = true;
-            b1.setEnabled(false); // Disable button after start
-            
-            // Create the worker object
-            CounterWorker worker = new CounterWorker();
-            // Pass it to the Thread constructor (Runnable Interface)
-            countThread = new Thread(worker);
-            countThread.start();
-        }
-    }
-
-    // Inner class implementing Runnable
-    class CounterWorker implements Runnable {
-        @Override
-        public void run() {
-            try {
-                for (int i = 1; i <= 100; i++) {
-                    final String val = String.valueOf(i);
-                    
-                    // Update the UI safely
-                    SwingUtilities.invokeLater(new Runnable() {
-                        public void run() {
-                            t1.setText(val);
-                        }
-                    });
-
-                    Thread.sleep(100); // Delay of 100ms
+        public static void main(String args[])
+        {
+                Scanner sc=new Scanner(System.in);
+                TreeSet ts=new TreeSet();
+                System.out.println("Enter number of elements:");
+                int n=sc.nextInt();
+                System.out.println("Enter" + n + "integer:");
+                for(int i=0;i<n;i++)
+                {
+                        ts.add(sc.nextInt());
+                    }
+                    System.out.println("Sorted elements:"+ts);
                 }
-                
-                // Reset button after finishing
-                SwingUtilities.invokeLater(() -> {
-                    b1.setEnabled(true);
-                    running = false;
-                });
-                
-            } catch (InterruptedException ex) {
-                System.out.println(ex);
             }
-        }
-    }
 
-    public static void main(String[] args) {
-        new CounterThread();
-    }
-}
+
+
+
+            import javax.swing.*;
+            import java.awt.*;
+            import java.awt.event.*;
+
+            public class CounterThread extends JFrame implements ActionListener {
+                    private JTextField t1;
+                    private JButton b1;
+                    private Thread countThread;
+                    private boolean running = false;
+
+                    public CounterThread() {
+                            setTitle("Multithreaded Counter");
+                            setSize(300, 150);
+                            setLayout(new FlowLayout());
+                            setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
+                            t1 = new JTextField(15);
+                            t1.setEditable(false);
+                            t1.setFont(new Font("Arial", Font.BOLD, 20));
+
+                            b1 = new JButton("Start Counter");
+                            b1.addActionListener(this);
+
+                            add(t1);
+                            add(b1);
+
+                            setVisible(true);
+                        }
+
+                        public void actionPerformed(ActionEvent e) {
+                                // Prevent starting multiple threads if one is already running
+                                if (!running) {
+                                        running = true;
+                                        b1.setEnabled(false); // Disable button after start
+
+                                        // Create the worker object
+                                        CounterWorker worker = new CounterWorker();
+                                        // Pass it to the Thread constructor (Runnable Interface)
+                                        countThread = new Thread(worker);
+                                        countThread.start();
+                                    }
+                                }
+
+                                // Inner class implementing Runnable
+                                class CounterWorker implements Runnable {
+                                        @Override
+                                        public void run() {
+                                                try {
+                                                        for (int i = 1; i <= 100; i++) {
+                                                                final String val = String.valueOf(i);
+
+                                                                // Update the UI safely
+                                                                SwingUtilities.invokeLater(new Runnable() {
+                                                                        public void run() {
+                                                                                t1.setText(val);
+                                                                            }
+                                                                        });
+
+                                                                        Thread.sleep(100); // Delay of 100ms
+                                                                    }
+
+                                                                    // Reset button after finishing
+                                                                    SwingUtilities.invokeLater(() -> {
+                                                                            b1.setEnabled(true);
+                                                                            running = false;
+                                                                        });
+
+                                                                    } catch (InterruptedException ex) {
+                                                                        System.out.println(ex);
+                                                                    }
+                                                                }
+                                                            }
+
+                                                            public static void main(String[] args) {
+                                                                    new CounterThread();
+                                                                }
+                                                            }
 
 
 
@@ -1951,37 +1941,37 @@ Slip 18
 import java.util.*;
 class vowels extends Thread
 {
-public void run()
-{
-try
-{
-Scanner sc = new Scanner(System.in);
-System.out.print("Enter a string: ");
-String str = sc.nextLine();
-System.out.println("Vowels in the string:");
-for (int i = 0; i < str.length(); i++)
-{
-char ch = str.charAt(i);
-if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
-ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-{
-System.out.print(ch + " ");
-// Delay of 3 seconds
-Thread.sleep(3000);
-}
-}
-}
-catch (Exception e)
-{
-System.out.println(e);
-}
-}
-public static void main(String args[])
-{
-vowels t = new vowels();
-t.start();
-}
-}
+        public void run()
+        {
+                try
+                {
+                        Scanner sc = new Scanner(System.in);
+                        System.out.print("Enter a string: ");
+                        String str = sc.nextLine();
+                        System.out.println("Vowels in the string:");
+                        for (int i = 0; i < str.length(); i++)
+                        {
+                                char ch = str.charAt(i);
+                                if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
+                                ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                                {
+                                        System.out.print(ch + " ");
+                                        // Delay of 3 seconds
+                                        Thread.sleep(3000);
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                    System.out.println(e);
+                                }
+                            }
+                            public static void main(String args[])
+                            {
+                                    vowels t = new vowels();
+                                    t.start();
+                                }
+                            }
 
 
 
@@ -1999,8 +1989,8 @@ Html file
         <br>Marks Scored    :- <input type="text" name="ms" value="">
         <br>Marks Outof     :- <input type="text" name="mof" value="">
         <br><input type="submit" name="submit" value="Caluculate Grade">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Java file
@@ -2010,43 +2000,43 @@ import java.io.*;
 
 public class Slip18B extends HttpServlet
 {
-    public void doGet(HttpServletRequest request,HttpServletResponse response) 
-    throws IOException, ServletException
-   {
-        response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
-        int id =Integer.parseInt(request.getParameter("id"));
-        String name = request.getParameter("name");
-        String cls = request.getParameter("cls");
-        int ms = Integer.parseInt(request.getParameter("ms"));
-        int mof = Integer.parseInt(request.getParameter("mof")); 
-        double per = ((double)ms/(double)mof)*100;
-        pw.println("Student Information");
-        pw.println("<br>Id :-"+id);
-        pw.println("<br>Name :-"+name);
-        pw.println("<br>Class :-"+cls);
-        pw.println("<br>Marks-Score :-"+ms);
-        pw.println("<br>Marks-OutOf :-"+mof);
-        pw.println("<br>Percentage :-"+per);
-        if(per<40)
-        {   
-            pw.println("<br>Grade : - Fail");
-        }
-        else if (per>=40 && per<60)
+        public void doGet(HttpServletRequest request,HttpServletResponse response)
+        throws IOException, ServletException
         {
-            pw.println("<br>Grade : - Second Class");
-        }
-        else if (per>=60 && per<70)
-        {
-            pw.println("<br>Grade : - First Class");
-        }
-        else if (per>=70)
-        {
-            pw.println("<br>Grade : - Distinction Class");
-        }
-        pw.close();
-    }
-}
+                response.setContentType("text/html");
+                PrintWriter pw = response.getWriter();
+                int id =Integer.parseInt(request.getParameter("id"));
+                String name = request.getParameter("name");
+                String cls = request.getParameter("cls");
+                int ms = Integer.parseInt(request.getParameter("ms"));
+                int mof = Integer.parseInt(request.getParameter("mof"));
+                double per = ((double)ms/(double)mof)*100;
+                pw.println("Student Information");
+                pw.println("<br>Id :-"+id);
+                pw.println("<br>Name :-"+name);
+                pw.println("<br>Class :-"+cls);
+                pw.println("<br>Marks-Score :-"+ms);
+                pw.println("<br>Marks-OutOf :-"+mof);
+                pw.println("<br>Percentage :-"+per);
+                if(per<40)
+                {
+                        pw.println("<br>Grade : - Fail");
+                    }
+                    else if (per>=40 && per<60)
+                    {
+                            pw.println("<br>Grade : - Second Class");
+                        }
+                        else if (per>=60 && per<70)
+                        {
+                                pw.println("<br>Grade : - First Class");
+                            }
+                            else if (per>=70)
+                            {
+                                    pw.println("<br>Grade : - Distinction Class");
+                                }
+                                pw.close();
+                            }
+                        }
 
 
 
@@ -2073,30 +2063,29 @@ Slip 19
 import java.util.*;
 class S19Q1
 {
-public static void main(String args[])
-{
-Scanner sc = new Scanner(System.in);
-LinkedList<Integer> ls = new LinkedList<>();
-System.out.println("Enter number of integers:");
-int n = sc.nextInt();
-System.out.println("Enter " + n + " integers:");
-for(int i = 0; i < n; i++)
-{
-ls.add(sc.nextInt());
-}
-System.out.println("Negative integers are:");
-Iterator<Integer> it = ls.iterator();
-while(it.hasNext())
-{
-int
-num = it.next();
-if(num < 0)
-{
-System.out.println(num);
-}
-}
-}
-}
+        public static void main(String args[])
+        {
+                Scanner sc = new Scanner(System.in);
+                LinkedList<Integer> ls = new LinkedList<>();
+                System.out.println("Enter number of integers:");
+                int n = sc.nextInt();
+                System.out.println("Enter " + n + " integers:");
+                for(int i = 0; i < n; i++)
+                {
+                        ls.add(sc.nextInt());
+                    }
+                    System.out.println("Negative integers are:");
+                    Iterator<Integer> it = ls.iterator();
+                    while(it.hasNext())
+                    {
+                            int num = it.next();
+                            if(num < 0)
+                            {
+                                    System.out.println(num);
+                                }
+                            }
+                        }
+                    }
 
 
 
@@ -2112,8 +2101,8 @@ Html file
         <br>USERNAME:- <input type="text" name="usrn" value="">
         <br>PASSWORD:- <input type="password" name="pswd" value="">
         <br><input type="submit" name="login" value="LOGIN">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Java file
@@ -2124,52 +2113,52 @@ import java.sql.*;
 
 public class Slip19B extends HttpServlet
 {
-    public void doGet(HttpServletRequest request,HttpServletResponse response) 
-    throws IOException, ServletException
-   {
-        response.setContentType("text/html");
-        PrintWriter pw = response.getWriter();
-        pw.println("Servlet - Login JDBC");
-        String usrn = request.getParameter("usrn");
-        String pswd = request.getParameter("pswd");
-        try
+        public void doGet(HttpServletRequest request,HttpServletResponse response)
+        throws IOException, ServletException
         {
-            boolean flag = false ;
-            Class.forName("org.postgresql.Driver");
-            Connection con = DriverManager.getConnection
-            ("jdbc:postgresql://localhost/slips","postgres","");
-            pw.println("<br>Got Connection:-"+con);
-        
-            String query = "select * from login";
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery(query);
-            while(rs.next())
-            {
-                String usr = rs.getString(1);
-                String pwd = rs.getString(2);
-            
-                if(usr.equals(usrn) && pwd.equals(pswd))
+                response.setContentType("text/html");
+                PrintWriter pw = response.getWriter();
+                pw.println("Servlet - Login JDBC");
+                String usrn = request.getParameter("usrn");
+                String pswd = request.getParameter("pswd");
+                try
                 {
-                    flag = true;
-                }
-            }
-            if(flag)
-            {
-                pw.println("<br>Login and password matched");
-            }
-            else
-            {
-                pw.println("<br>Login and password do not match");
-            }
-            
-        }
-        catch(Exception e)
-        {
-            pw.println("<br>Exception: -"+e);
-        }
-        pw.close();
-    }   
-}
+                        boolean flag = false ;
+                        Class.forName("org.postgresql.Driver");
+                        Connection con = DriverManager.getConnection
+                        ("jdbc:postgresql://localhost/slips","postgres","");
+                        pw.println("<br>Got Connection:-"+con);
+
+                        String query = "select * from login";
+                        Statement stmt = con.createStatement();
+                        ResultSet rs = stmt.executeQuery(query);
+                        while(rs.next())
+                        {
+                                String usr = rs.getString(1);
+                                String pwd = rs.getString(2);
+
+                                if(usr.equals(usrn) && pwd.equals(pswd))
+                                {
+                                        flag = true;
+                                    }
+                                }
+                                if(flag)
+                                {
+                                        pw.println("<br>Login and password matched");
+                                    }
+                                    else
+                                    {
+                                            pw.println("<br>Login and password do not match");
+                                        }
+
+                                    }
+                                    catch(Exception e)
+                                    {
+                                            pw.println("<br>Exception: -"+e);
+                                        }
+                                        pw.close();
+                                    }
+                                }
 
 
 
@@ -2208,38 +2197,38 @@ Html file
         Enter No :-
         <input type="text" name="no" value="">
         <br><input type="submit" name="submit" value="Convert">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Jsp file
 <%@ page language="java" import="java.util.*" %>
 <html>
-<body>
-<%
-String num = request.getParameter("num");
-out.println("<h2 style='color:red;'>");
-for(int i = 0; i < num.length(); i++)
-{
-char ch = num.charAt(i);
-switch(ch)
-{
-case '0': out.println("Zero "); break;
-case '1': out.println("One "); break;
-case '2': out.println("Two "); break;
-case '3': out.println("Three "); break;
-case '4': out.println("Four "); break;
-case '5': out.println("Five "); break;
-case '6': out.println("Six "); break;
-case '7': out.println("Seven "); break;
-case '8': out.println("Eight "); break;
-case '9': out.println("Nine "); break;
-}
-}
-out.println("</h2>");
-%>
-</body>
-</html>
+    <body>
+        <%
+        String num = request.getParameter("num");
+        out.println("<h2 style='color:red;'>");
+        for(int i = 0; i < num.length(); i++)
+        {
+                char ch = num.charAt(i);
+                switch(ch)
+                {
+                        case '0': out.println("Zero "); break;
+                        case '1': out.println("One "); break;
+                        case '2': out.println("Two "); break;
+                        case '3': out.println("Three "); break;
+                        case '4': out.println("Four "); break;
+                        case '5': out.println("Five "); break;
+                        case '6': out.println("Six "); break;
+                        case '7': out.println("Seven "); break;
+                        case '8': out.println("Eight "); break;
+                        case '9': out.println("Nine "); break;
+                    }
+                }
+                out.println("</h2>");
+                %>
+            </body>
+        </html>
 
 
 
@@ -2248,105 +2237,105 @@ out.println("</h2>");
 
 
 
-import javax.swing.*;
-import java.awt.*;
+        import javax.swing.*;
+        import java.awt.*;
 
-public class TempleDrawing extends JFrame {
-    private TemplePanel panel;
+        public class TempleDrawing extends JFrame {
+                private TemplePanel panel;
 
-    public TempleDrawing() {
-        setTitle("Multithreaded Temple Drawing");
-        setSize(500, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        
-        panel = new TemplePanel();
-        add(panel);
-        
-        setVisible(true);
-        
-        // Start the drawing threads
-        panel.startConstruction();
-    }
+                public TempleDrawing() {
+                        setTitle("Multithreaded Temple Drawing");
+                        setSize(500, 500);
+                        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-    public static void main(String[] args) {
-        new TempleDrawing();
-    }
-}
+                        panel = new TemplePanel();
+                        add(panel);
 
-class TemplePanel extends JPanel {
-    private boolean drawBase = false;
-    private boolean drawPillars = false;
-    private boolean drawTop = false;
+                        setVisible(true);
 
-    public void startConstruction() {
-        // Thread 1: Construct the Base
-        new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-                drawBase = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
+                        // Start the drawing threads
+                        panel.startConstruction();
+                    }
 
-        // Thread 2: Construct the Pillars
-        new Thread(() -> {
-            try {
-                Thread.sleep(2500); // Waits for base
-                drawPillars = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
+                    public static void main(String[] args) {
+                            new TempleDrawing();
+                        }
+                    }
 
-        // Thread 3: Construct the Shikhara (Top)
-        new Thread(() -> {
-            try {
-                Thread.sleep(4000); // Waits for pillars
-                drawTop = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
-    }
+                    class TemplePanel extends JPanel {
+                            private boolean drawBase = false;
+                            private boolean drawPillars = false;
+                            private boolean drawTop = false;
 
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setStroke(new BasicStroke(3));
+                            public void startConstruction() {
+                                    // Thread 1: Construct the Base
+                                    new Thread(() -> {
+                                            try {
+                                                    Thread.sleep(1000);
+                                                    drawBase = true;
+                                                    repaint();
+                                                } catch (InterruptedException e) { e.printStackTrace(); }
+                                        }).start();
 
-        // Draw Base
-        if (drawBase) {
-            g2.setColor(new Color(139, 69, 19)); // Brown
-            g2.fillRect(100, 350, 300, 50);
-            g2.setColor(Color.BLACK);
-            g2.drawRect(100, 350, 300, 50);
-        }
+                                        // Thread 2: Construct the Pillars
+                                        new Thread(() -> {
+                                                try {
+                                                        Thread.sleep(2500); // Waits for base
+                                                        drawPillars = true;
+                                                        repaint();
+                                                    } catch (InterruptedException e) { e.printStackTrace(); }
+                                            }).start();
 
-        // Draw Pillars
-        if (drawPillars) {
-            g2.setColor(new Color(210, 180, 140)); // Tan
-            g2.fillRect(130, 200, 30, 150); // Left pillar
-            g2.fillRect(340, 200, 30, 150); // Right pillar
-            g2.setColor(Color.BLACK);
-            g2.drawRect(130, 200, 30, 150);
-            g2.drawRect(340, 200, 30, 150);
-        }
+                                            // Thread 3: Construct the Shikhara (Top)
+                                            new Thread(() -> {
+                                                    try {
+                                                            Thread.sleep(4000); // Waits for pillars
+                                                            drawTop = true;
+                                                            repaint();
+                                                        } catch (InterruptedException e) { e.printStackTrace(); }
+                                                }).start();
+                                            }
 
-        // Draw Top (Triangle/Dome)
-        if (drawTop) {
-            g2.setColor(Color.ORANGE);
-            int[] xPoints = {100, 250, 400};
-            int[] yPoints = {200, 50, 200};
-            g2.fillPolygon(xPoints, yPoints, 3);
-            g2.setColor(Color.BLACK);
-            g2.drawPolygon(xPoints, yPoints, 3);
-            
-            // Draw a small flag
-            g2.setColor(Color.RED);
-            g2.fillRect(250, 20, 30, 20);
-            g2.drawLine(250, 50, 250, 20);
-        }
-    }
-}
+                                            @Override
+                                            protected void paintComponent(Graphics g) {
+                                                    super.paintComponent(g);
+                                                    Graphics2D g2 = (Graphics2D) g;
+                                                    g2.setStroke(new BasicStroke(3));
+
+                                                    // Draw Base
+                                                    if (drawBase) {
+                                                            g2.setColor(new Color(139, 69, 19)); // Brown
+                                                            g2.fillRect(100, 350, 300, 50);
+                                                            g2.setColor(Color.BLACK);
+                                                            g2.drawRect(100, 350, 300, 50);
+                                                        }
+
+                                                        // Draw Pillars
+                                                        if (drawPillars) {
+                                                                g2.setColor(new Color(210, 180, 140)); // Tan
+                                                                g2.fillRect(130, 200, 30, 150); // Left pillar
+                                                                g2.fillRect(340, 200, 30, 150); // Right pillar
+                                                                g2.setColor(Color.BLACK);
+                                                                g2.drawRect(130, 200, 30, 150);
+                                                                g2.drawRect(340, 200, 30, 150);
+                                                            }
+
+                                                            // Draw Top (Triangle/Dome)
+                                                            if (drawTop) {
+                                                                    g2.setColor(Color.ORANGE);
+                                                                    int[] xPoints = {100, 250, 400};
+                                                                    int[] yPoints = {200, 50, 200};
+                                                                    g2.fillPolygon(xPoints, yPoints, 3);
+                                                                    g2.setColor(Color.BLACK);
+                                                                    g2.drawPolygon(xPoints, yPoints, 3);
+
+                                                                    // Draw a small flag
+                                                                    g2.setColor(Color.RED);
+                                                                    g2.fillRect(250, 20, 30, 20);
+                                                                    g2.drawLine(250, 50, 250, 20);
+                                                                }
+                                                            }
+                                                        }
 
 
 
@@ -2369,27 +2358,27 @@ Slip 21
 
 import java.util.*;
 class s21_1 {
-public static void main(String args[])
-{
-Scanner sc = new Scanner(System.in);
-LinkedList<String> sub = new LinkedList<>();
-System.out.println("Enter number of subjects:");
-int n = sc.nextInt();
-sc.nextLine();
-for (int i = 0; i < n; i++)
-{
-System.out.println("Enter subject:");
-String s = sc.nextLine();
-sub.add(s);
-}
-System.out.println("List of Subjects:");
-Iterator iterator = sub.iterator();
-while (iterator.hasNext())
-{
-System.out.println(iterator.next());
-}
-}
-}
+        public static void main(String args[])
+        {
+                Scanner sc = new Scanner(System.in);
+                LinkedList<String> sub = new LinkedList<>();
+                System.out.println("Enter number of subjects:");
+                int n = sc.nextInt();
+                sc.nextLine();
+                for (int i = 0; i < n; i++)
+                {
+                        System.out.println("Enter subject:");
+                        String s = sc.nextLine();
+                        sub.add(s);
+                    }
+                    System.out.println("List of Subjects:");
+                    Iterator iterator = sub.iterator();
+                    while (iterator.hasNext())
+                    {
+                            System.out.println(iterator.next());
+                        }
+                    }
+                }
 
 
 
@@ -2397,85 +2386,85 @@ System.out.println(iterator.next());
 
 
 
-import java.util.Scanner;
+                import java.util.Scanner;
 
-// The Shared Resource class
-class Q {
-    int n;
-    boolean valueSet = false;
+                // The Shared Resource class
+                class Q {
+                        int n;
+                        boolean valueSet = false;
 
-    // Method for Consumer
-    synchronized int get() {
-        while (!valueSet) {
-            try {
-                wait(); // Wait if producer hasn't produced
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
-        }
-        System.out.println("Consumed: " + n);
-        valueSet = false;
-        notify(); // Tell producer to produce next
-        return n;
-    }
+                        // Method for Consumer
+                        synchronized int get() {
+                                while (!valueSet) {
+                                        try {
+                                                wait(); // Wait if producer hasn't produced
+                                            } catch (InterruptedException e) {
+                                                System.out.println(e);
+                                            }
+                                        }
+                                        System.out.println("Consumed: " + n);
+                                        valueSet = false;
+                                        notify(); // Tell producer to produce next
+                                        return n;
+                                    }
 
-    // Method for Producer
-    synchronized void put(int n) {
-        while (valueSet) {
-            try {
-                wait(); // Wait if consumer hasn't consumed yet
-            } catch (InterruptedException e) {
-                System.out.println(e);
-            }
-        }
-        this.n = n;
-        valueSet = true;
-        System.out.println("Produced: " + n);
-        notify(); // Tell consumer value is ready
-    }
-}
+                                    // Method for Producer
+                                    synchronized void put(int n) {
+                                            while (valueSet) {
+                                                    try {
+                                                            wait(); // Wait if consumer hasn't consumed yet
+                                                        } catch (InterruptedException e) {
+                                                            System.out.println(e);
+                                                        }
+                                                    }
+                                                    this.n = n;
+                                                    valueSet = true;
+                                                    System.out.println("Produced: " + n);
+                                                    notify(); // Tell consumer value is ready
+                                                }
+                                            }
 
-class Producer implements Runnable {
-    Q q;
+                                            class Producer implements Runnable {
+                                                    Q q;
 
-    Producer(Q q) {
-        this.q = q;
-        new Thread(this, "Producer").start();
-    }
+                                                    Producer(Q q) {
+                                                            this.q = q;
+                                                            new Thread(this, "Producer").start();
+                                                        }
 
-    public void run() {
-        int i = 1;
-        while (i <= 10) { // Produce 10 values
-            q.put(i++);
-            try { Thread.sleep(500); } catch (Exception e) {}
-        }
-    }
-}
+                                                        public void run() {
+                                                                int i = 1;
+                                                                while (i <= 10) { // Produce 10 values
+                                                                    q.put(i++);
+                                                                    try { Thread.sleep(500); } catch (Exception e) {}
+                                                                }
+                                                            }
+                                                        }
 
-class Consumer implements Runnable {
-    Q q;
+                                                        class Consumer implements Runnable {
+                                                                Q q;
 
-    Consumer(Q q) {
-        this.q = q;
-        new Thread(this, "Consumer").start();
-    }
+                                                                Consumer(Q q) {
+                                                                        this.q = q;
+                                                                        new Thread(this, "Consumer").start();
+                                                                    }
 
-    public void run() {
-        while (true) {
-            int val = q.get();
-            if (val == 10) break; // Stop after 10th value
-            try { Thread.sleep(1000); } catch (Exception e) {}
-        }
-    }
-}
+                                                                    public void run() {
+                                                                            while (true) {
+                                                                                    int val = q.get();
+                                                                                    if (val == 10) break; // Stop after 10th value
+                                                                                    try { Thread.sleep(1000); } catch (Exception e) {}
+                                                                                }
+                                                                            }
+                                                                        }
 
-public class ProducerConsumerTest {
-    public static void main(String[] args) {
-        Q q = new Q();
-        new Producer(q);
-        new Consumer(q);
-    }
-}
+                                                                        public class ProducerConsumerTest {
+                                                                                public static void main(String[] args) {
+                                                                                        Q q = new Q();
+                                                                                        new Producer(q);
+                                                                                        new Consumer(q);
+                                                                                    }
+                                                                                }
 
 
 
@@ -2502,9 +2491,9 @@ Slip 22
 
 Database
 CREATE TABLE Employee (
-    eno INT PRIMARY KEY,
-    ename TEXT,
-    salary REAL
+eno INT PRIMARY KEY,
+ename TEXT,
+salary REAL
 );
 
 Java file
@@ -2512,82 +2501,82 @@ import java.sql.*;
 import java.util.Scanner;
 
 public class EmployeeMenu {
-    public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-        Connection conn = null;
-        PreparedStatement ps = null;
+        public static void main(String[] args) {
+                Scanner sc = new Scanner(System.in);
+                Connection conn = null;
+                PreparedStatement ps = null;
 
-        try {
-            // Load Driver and Establish Connection
-            Class.forName("org.postgresql.Driver");
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
+                try {
+                        // Load Driver and Establish Connection
+                        Class.forName("org.postgresql.Driver");
+                        conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
 
-            while (true) {
-                System.out.println("\n--- Employee Management System ---");
-                System.out.println("1. Insert");
-                System.out.println("2. Update");
-                System.out.println("3. Display All");
-                System.out.println("4. Exit");
-                System.out.print("Enter your choice: ");
-                int choice = sc.nextInt();
+                        while (true) {
+                                System.out.println("\n--- Employee Management System ---");
+                                System.out.println("1. Insert");
+                                System.out.println("2. Update");
+                                System.out.println("3. Display All");
+                                System.out.println("4. Exit");
+                                System.out.print("Enter your choice: ");
+                                int choice = sc.nextInt();
 
-                switch (choice) {
-                    case 1:
-                        System.out.print("Enter Employee No: ");
-                        int eno = sc.nextInt();
-                        System.out.print("Enter Name: ");
-                        String name = sc.next();
-                        System.out.print("Enter Salary: ");
-                        float salary = sc.nextFloat();
+                                switch (choice) {
+                                        case 1:
+                                        System.out.print("Enter Employee No: ");
+                                        int eno = sc.nextInt();
+                                        System.out.print("Enter Name: ");
+                                        String name = sc.next();
+                                        System.out.print("Enter Salary: ");
+                                        float salary = sc.nextFloat();
 
-                        ps = conn.prepareStatement("INSERT INTO Employee VALUES (?, ?, ?)");
-                        ps.setInt(1, eno);
-                        ps.setString(2, name);
-                        ps.setFloat(3, salary);
-                        ps.executeUpdate();
-                        System.out.println("Record Inserted Successfully!");
-                        break;
+                                        ps = conn.prepareStatement("INSERT INTO Employee VALUES (?, ?, ?)");
+                                        ps.setInt(1, eno);
+                                        ps.setString(2, name);
+                                        ps.setFloat(3, salary);
+                                        ps.executeUpdate();
+                                        System.out.println("Record Inserted Successfully!");
+                                        break;
 
-                    case 2:
-                        System.out.print("Enter Employee No to update: ");
-                        int updateId = sc.nextInt();
-                        System.out.print("Enter New Salary: ");
-                        float newSalary = sc.nextFloat();
+                                        case 2:
+                                        System.out.print("Enter Employee No to update: ");
+                                        int updateId = sc.nextInt();
+                                        System.out.print("Enter New Salary: ");
+                                        float newSalary = sc.nextFloat();
 
-                        ps = conn.prepareStatement("UPDATE Employee SET salary = ? WHERE eno = ?");
-                        ps.setFloat(1, newSalary);
-                        ps.setInt(2, updateId);
-                        int rows = ps.executeUpdate();
-                        if (rows > 0) System.out.println("Record Updated Successfully!");
-                        else System.out.println("Employee ID not found.");
-                        break;
+                                        ps = conn.prepareStatement("UPDATE Employee SET salary = ? WHERE eno = ?");
+                                        ps.setFloat(1, newSalary);
+                                        ps.setInt(2, updateId);
+                                        int rows = ps.executeUpdate();
+                                        if (rows > 0) System.out.println("Record Updated Successfully!");
+                                        else System.out.println("Employee ID not found.");
+                                        break;
 
-                    case 3:
-                        Statement st = conn.createStatement();
-                        ResultSet rs = st.executeQuery("SELECT * FROM Employee");
-                        System.out.println("\nEno\tEName\tSalary");
-                        System.out.println("---------------------------");
-                        while (rs.next()) {
-                            System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getFloat(3));
+                                        case 3:
+                                        Statement st = conn.createStatement();
+                                        ResultSet rs = st.executeQuery("SELECT * FROM Employee");
+                                        System.out.println("\nEno\tEName\tSalary");
+                                        System.out.println("---------------------------");
+                                        while (rs.next()) {
+                                                System.out.println(rs.getInt(1) + "\t" + rs.getString(2) + "\t" + rs.getFloat(3));
+                                            }
+                                            break;
+
+                                            case 4:
+                                            System.out.println("Exiting...");
+                                            conn.close();
+                                            System.exit(0);
+
+                                            default:
+                                            System.out.println("Invalid Choice! Please try again.");
+                                        }
+                                    }
+                                } catch (Exception e) {
+                                    System.out.println("Error: " + e.getMessage());
+                                } finally {
+                                    sc.close();
+                                }
+                            }
                         }
-                        break;
-
-                    case 4:
-                        System.out.println("Exiting...");
-                        conn.close();
-                        System.exit(0);
-
-                    default:
-                        System.out.println("Invalid Choice! Please try again.");
-                }
-            }
-        } catch (Exception e) {
-            System.out.println("Error: " + e.getMessage());
-        } finally {
-            sc.close();
-        }
-    }
-}
 
 
 
@@ -2600,32 +2589,32 @@ Html file
         Enter No :-
         <input type="text" name="username" value="">
         <br><input type="submit" name="submit" value="Submit">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Jsp file
 <%@ page language="java" import="java.util.*" %>
 <html>
-<body>
-<%
-Date d = new Date();
-int hr = d.getHours();
-if (hr < 12)
-{
-out.println("Good Morning");
-}
-else if (hr >= 12 && hr <= 16)
-{
-out.println("Good Afternoon");
-}
-else
-{
-out.println("Good Evening");
-}
-%>
-</body>
-</html>
+    <body>
+        <%
+        Date d = new Date();
+        int hr = d.getHours();
+        if (hr < 12)
+        {
+                out.println("Good Morning");
+            }
+            else if (hr >= 12 && hr <= 16)
+            {
+                    out.println("Good Afternoon");
+                }
+                else
+                {
+                        out.println("Good Evening");
+                    }
+                    %>
+                </body>
+            </html>
 
 
 
@@ -2635,66 +2624,66 @@ Slip 23
 import java.util.*;
 class vowels extends Thread
 {
-public void run()
-{
-try
-{
-Scanner sc = new Scanner(System.in);
-System.out.print("Enter a string: ");
-String str = sc.nextLine();
-System.out.println("Vowels in the string:");
-for (int i = 0; i < str.length(); i++)
-{
-char ch = str.charAt(i);
-if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
-ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
-{
-System.out.print(ch + " ");
-// Delay of 3 seconds
-Thread.sleep(3000);
-}
-}
-}
-catch (Exception e)
-{
-System.out.println(e);
-}
-}
-public static void main(String args[])
-{
-vowels t = new vowels();
-t.start();
-}
-}
+        public void run()
+        {
+                try
+                {
+                        Scanner sc = new Scanner(System.in);
+                        System.out.print("Enter a string: ");
+                        String str = sc.nextLine();
+                        System.out.println("Vowels in the string:");
+                        for (int i = 0; i < str.length(); i++)
+                        {
+                                char ch = str.charAt(i);
+                                if (ch == 'A' || ch == 'E' || ch == 'I' || ch == 'O' || ch == 'U' ||
+                                ch == 'a' || ch == 'e' || ch == 'i' || ch == 'o' || ch == 'u')
+                                {
+                                        System.out.print(ch + " ");
+                                        // Delay of 3 seconds
+                                        Thread.sleep(3000);
+                                    }
+                                }
+                            }
+                            catch (Exception e)
+                            {
+                                    System.out.println(e);
+                                }
+                            }
+                            public static void main(String args[])
+                            {
+                                    vowels t = new vowels();
+                                    t.start();
+                                }
+                            }
 
 
 
 
 
-import java.util.*;
-class s23_2
-{
-public static void main(String args[])
-{
-ArrayList<String> sl = new ArrayList<String>();
-for(int i = 0; i < args.length; i++)
-{
-sl.add(args[i]);
-}
-System.out.println("Student names using iterator:");
-Iterator<String> iterator = sl.iterator();
-while(iterator.hasNext())
-{
-System.out.println(iterator.next());
-}
-System.out.println("Student names using list iterator:");
-ListIterator<String> listiterator = sl.listIterator();
-while(listiterator.hasNext())
-{
-System.out.println(listiterator.next());
-}
-}
-}
+                            import java.util.*;
+                            class s23_2
+                            {
+                                    public static void main(String args[])
+                                    {
+                                            ArrayList<String> sl = new ArrayList<String>();
+                                            for(int i = 0; i < args.length; i++)
+                                            {
+                                                    sl.add(args[i]);
+                                                }
+                                                System.out.println("Student names using iterator:");
+                                                Iterator<String> iterator = sl.iterator();
+                                                while(iterator.hasNext())
+                                                {
+                                                        System.out.println(iterator.next());
+                                                    }
+                                                    System.out.println("Student names using list iterator:");
+                                                    ListIterator<String> listiterator = sl.listIterator();
+                                                    while(listiterator.hasNext())
+                                                    {
+                                                            System.out.println(listiterator.next());
+                                                        }
+                                                    }
+                                                }
 
 
 
@@ -2706,71 +2695,71 @@ import javax.swing.*;
 import java.awt.*;
 
 public class ScrollingText extends JFrame implements Runnable {
-    private String message = "Java Multithreading - Scrolling Text";
-    private int x = 0; // Starting x-position
-    private int y = 100; // Constant y-position
-    private Thread t;
+        private String message = "Java Multithreading - Scrolling Text";
+        private int x = 0; // Starting x-position
+        private int y = 100; // Constant y-position
+        private Thread t;
 
-    public ScrollingText() {
-        setTitle("Scrolling Text Simulation");
-        setSize(500, 200);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        public ScrollingText() {
+                setTitle("Scrolling Text Simulation");
+                setSize(500, 200);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setLocationRelativeTo(null);
 
-        // Start the thread
-        t = new Thread(this);
-        t.start();
+                // Start the thread
+                t = new Thread(this);
+                t.start();
 
-        setVisible(true);
-    }
-
-    @Override
-    public void run() {
-        try {
-            while (true) {
-                // Increment X to move text from left to right
-                x += 5;
-
-                // Reset position if it goes beyond the frame width
-                if (x > getWidth()) {
-                    x = -200; // Start slightly off-screen to the left for smooth entry
-                }
-
-                repaint(); // Refresh the screen
-                Thread.sleep(50); // Control the speed of scrolling
+                setVisible(true);
             }
-        } catch (InterruptedException e) {
-            System.out.println(e);
-        }
-    }
 
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.setColor(Color.BLUE);
-        
-        // Draw the string at the updated x position
-        g.drawString(message, x, y);
-    }
+            @Override
+            public void run() {
+                    try {
+                            while (true) {
+                                    // Increment X to move text from left to right
+                                    x += 5;
 
-    public static void main(String[] args) {
-        new ScrollingText();
-    }
-}
+                                    // Reset position if it goes beyond the frame width
+                                    if (x > getWidth()) {
+                                            x = -200; // Start slightly off-screen to the left for smooth entry
+                                        }
+
+                                        repaint(); // Refresh the screen
+                                        Thread.sleep(50); // Control the speed of scrolling
+                                    }
+                                } catch (InterruptedException e) {
+                                    System.out.println(e);
+                                }
+                            }
+
+                            @Override
+                            public void paint(Graphics g) {
+                                    super.paint(g);
+                                    g.setFont(new Font("Arial", Font.BOLD, 20));
+                                    g.setColor(Color.BLUE);
+
+                                    // Draw the string at the updated x position
+                                    g.drawString(message, x, y);
+                                }
+
+                                public static void main(String[] args) {
+                                        new ScrollingText();
+                                    }
+                                }
 
 
 
-Login.html
-<html>
-<body>
-<form method ="post" action="slip24.jsp">
-Enter Username:<input type="text" name="user"><br><br>
-Enter Password:<input type="text" name="pass"><br><br>
-<input type="submit" value="RESULT"/>
-</form>
-</body>
-</html>
+                                Login.html
+                                <html>
+                                    <body>
+                                        <form method ="post" action="slip24.jsp">
+                                        Enter Username:<input type="text" name="user"><br><br>
+                                        Enter Password:<input type="text" name="pass"><br><br>
+                                        <input type="submit" value="RESULT"/>
+                                    </form>
+                                </body>
+                            </html>
 
 Slip24.jsp
 <%@ page language="java"%>
@@ -2779,13 +2768,13 @@ String username= request.getParameter("user");
 String password= request.getParameter("pass");
 if(username.equals(password))
 {
-out.println("Login Sucessfully")
-}
-else
-{
-out.println("Error");
-}
-%>
+        out.println("Login Sucessfully");
+    }
+    else
+    {
+            out.println("Error");
+        }
+        %>
 
 Slip 25
 
@@ -2797,29 +2786,29 @@ Html file
         Enter No :-
         <input type="text" name="username" value="">
         <br><input type="submit" name="submit" value="Submit">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Jsp file
 <html>
-<body>
-<%
-String name = request.getParameter("User");
-int age = Integer.parseInt(request.getParameter("Age"));
-out.print("Name :- " + name);
-out.print("<br>Age :- " + age);
-if(age < 18)
-{
-out.print("<br>Age not eligible for voting");
-}
-else
-{
-out.println("<br>Age eligible for voting");
-}
-%>
-</body>
-</html>
+    <body>
+        <%
+        String name = request.getParameter("User");
+        int age = Integer.parseInt(request.getParameter("Age"));
+        out.print("Name :- " + name);
+        out.print("<br>Age :- " + age);
+        if(age < 18)
+        {
+                out.print("<br>Age not eligible for voting");
+            }
+            else
+            {
+                    out.println("<br>Age eligible for voting");
+                }
+                %>
+            </body>
+        </html>
 
 
 
@@ -2828,25 +2817,25 @@ out.println("<br>Age eligible for voting");
 
 Database
 CREATE TABLE Student (
-    rno INT PRIMARY KEY,
-    sname TEXT,
-    class TEXT
+rno INT PRIMARY KEY,
+sname TEXT,
+class TEXT
 );
 
 HTML file
 <!DOCTYPE html>
 <html>
-<head>
+    <head>
     <title>Student Entry</title>
 </head>
 <body>
     <h2>Enter Student Details</h2>
     <form action="StudentServlet" method="post">
-        Roll No: <input type="text" name="rno"><br><br>
-        Name: <input type="text" name="sname"><br><br>
-        Class: <input type="text" name="class"><br><br>
-        <input type="submit" value="Save Student">
-    </form>
+    Roll No: <input type="text" name="rno"><br><br>
+    Name: <input type="text" name="sname"><br><br>
+    Class: <input type="text" name="class"><br><br>
+    <input type="submit" value="Save Student">
+</form>
 </body>
 </html>
 
@@ -2859,47 +2848,47 @@ import javax.servlet.annotation.WebServlet;
 
 @WebServlet("/StudentServlet")
 public class StudentServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-            throws ServletException, IOException {
-        
-        response.setContentType("text/html");
-        PrintWriter out = response.getWriter();
+        protected void doPost(HttpServletRequest request, HttpServletResponse response)
+        throws ServletException, IOException {
 
-        // Get parameters from the form
-        int rno = Integer.parseInt(request.getParameter("rno"));
-        String sname = request.getParameter("sname");
-        String sclass = request.getParameter("class");
+                response.setContentType("text/html");
+                PrintWriter out = response.getWriter();
 
-        try {
-            // Load PostgreSQL Driver
-            Class.forName("org.postgresql.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
+                // Get parameters from the form
+                int rno = Integer.parseInt(request.getParameter("rno"));
+                String sname = request.getParameter("sname");
+                String sclass = request.getParameter("class");
 
-            // Prepare SQL query
-            String sql = "INSERT INTO Student (rno, sname, class) VALUES (?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(sql);
-            ps.setInt(1, rno);
-            ps.setString(2, sname);
-            ps.setString(3, sclass);
+                try {
+                        // Load PostgreSQL Driver
+                        Class.forName("org.postgresql.Driver");
+                        Connection conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
 
-            int result = ps.executeUpdate();
+                        // Prepare SQL query
+                        String sql = "INSERT INTO Student (rno, sname, class) VALUES (?, ?, ?)";
+                        PreparedStatement ps = conn.prepareStatement(sql);
+                        ps.setInt(1, rno);
+                        ps.setString(2, sname);
+                        ps.setString(3, sclass);
 
-            out.println("<html><body>");
-            if (result > 0) {
-                out.println("<h3>Student record saved successfully!</h3>");
-            } else {
-                out.println("<h3>Error saving record.</h3>");
-            }
-            out.println("<a href='index.html'>Back to Form</a>");
-            out.println("</body></html>");
+                        int result = ps.executeUpdate();
 
-            ps.close();
-            conn.close();
-        } catch (Exception e) {
-            out.println("Error: " + e.getMessage());
-        }
-    }
-}
+                        out.println("<html><body>");
+                        if (result > 0) {
+                                out.println("<h3>Student record saved successfully!</h3>");
+                            } else {
+                                out.println("<h3>Error saving record.</h3>");
+                            }
+                            out.println("<a href='index.html'>Back to Form</a>");
+                            out.println("</body></html>");
+
+                            ps.close();
+                            conn.close();
+                        } catch (Exception e) {
+                            out.println("Error: " + e.getMessage());
+                        }
+                    }
+                }
 
 
 
@@ -2918,26 +2907,26 @@ Slip 26
 import java.sql.*;
 class Slip26A
 {
-    public static void main(String args[]) throws Exception
-    {
-        
-        Class.forName("org.postgresql.Driver");
-    System.out.println("Driver Loaded�);
-        Connection con = DriverManager.getConnection
-        ("jdbc:postgresql://localhost/tybcs","postgres","");
-        System.out.println("Got Connection:-"+con);
+        public static void main(String args[]) throws Exception
+        {
+
+                Class.forName("org.postgresql.Driver");
+                System.out.println("Driver Loaded");
+                Connection con = DriverManager.getConnection
+                ("jdbc:postgresql://localhost/tybcs","postgres","");
+                System.out.println("Got Connection:-"+con);
 
                 int id = Integer.parseInt(args[0]);
 
-        String query = "delete from employee where eid = ?";
+                String query = "delete from employee where eid = ?";
 
-        PreparedStatement pstmt = con.prepareStatement(query);
+                PreparedStatement pstmt = con.prepareStatement(query);
 
-        pstmt.setInt(1,id);
-        pstmt.executeUpdate();
-        System.out.println("Record Deleted");
-    }
-}
+                pstmt.setInt(1,id);
+                pstmt.executeUpdate();
+                System.out.println("Record Deleted");
+            }
+        }
 
 
 
@@ -2948,12 +2937,12 @@ class Slip26A
 
 Html file
 <html>
-	<body>
-		<form method="get" action="prog5.jsp">
-			Number: <input type="number" name="number"><br><br>
-			<input type="submit" name="submit" value="submit">
-		</form>
-	</body>
+    <body>
+        <form method="get" action="prog5.jsp">
+        Number: <input type="number" name="number"><br><br>
+        <input type="submit" name="submit" value="submit">
+    </form>
+</body>
 </html>
 
 
@@ -2961,17 +2950,17 @@ Jsp file
 <html>
     <body>
         <%
-            int n=Integer.parseInt(request.getParameter("number"));
-            out.println("Number = "+n);
-            int lastnumber=n%10;
-            while(n>=10)
-            {
+        int n=Integer.parseInt(request.getParameter("number"));
+        out.println("Number = "+n);
+        int lastnumber=n%10;
+        while(n>=10)
+        {
                 n=n/10;
             }
             int firstnumber=n;
             int sum=lastnumber+firstnumber;
-        %>
-        <p style="color:red; font-size:18px;">Sum=<%=sum%>
+            %>
+            <p style="color:red; font-size:18px;">Sum=<%=sum%>
         </p>
     </body>
 </html>
@@ -2982,10 +2971,10 @@ Slip 27
 
 Database
 CREATE TABLE College (
-    CID INT PRIMARY KEY,
-    CName TEXT,
-    address TEXT,
-    Year INT
+CID INT PRIMARY KEY,
+CName TEXT,
+address TEXT,
+Year INT
 );
 
 INSERT INTO College VALUES (1, 'MIT ACSC', 'Alandi, Pune', 2007);
@@ -2998,108 +2987,108 @@ import java.awt.*;
 import java.sql.*;
 
 public class CollegeTableDisplay extends JFrame {
-    JTable table;
-    DefaultTableModel model;
+        JTable table;
+        DefaultTableModel model;
 
-    public CollegeTableDisplay() {
-        setTitle("College Information System");
-        setSize(600, 400);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
+        public CollegeTableDisplay() {
+                setTitle("College Information System");
+                setSize(600, 400);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setLocationRelativeTo(null);
 
-        // Define Column Names
-        String[] columns = {"College ID", "College Name", "Address", "Established Year"};
-        
-        // Initialize Table Model (0 rows to start)
-        model = new DefaultTableModel(columns, 0);
-        table = new JTable(model);
+                // Define Column Names
+                String[] columns = {"College ID", "College Name", "Address", "Established Year"};
 
-        // Add Table to ScrollPane (essential for headers and scrolling)
-        JScrollPane scrollPane = new JScrollPane(table);
-        add(scrollPane, BorderLayout.CENTER);
+                // Initialize Table Model (0 rows to start)
+                model = new DefaultTableModel(columns, 0);
+                table = new JTable(model);
 
-        // Fetch and Display Data
-        fetchCollegeData();
+                // Add Table to ScrollPane (essential for headers and scrolling)
+                JScrollPane scrollPane = new JScrollPane(table);
+                add(scrollPane, BorderLayout.CENTER);
 
-        setVisible(true);
-    }
+                // Fetch and Display Data
+                fetchCollegeData();
 
-    public void fetchCollegeData() {
-        Connection conn = null;
-        Statement st = null;
-        ResultSet rs = null;
-
-        try {
-            // Load PostgreSQL Driver
-            Class.forName("org.postgresql.Driver");
-            
-            // Connect to Database
-            conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
-            
-            st = conn.createStatement();
-            rs = st.executeQuery("SELECT * FROM College");
-
-            // Process ResultSet and add rows to the model
-            while (rs.next()) {
-                int id = rs.getInt("CID");
-                String name = rs.getString("CName");
-                String addr = rs.getString("address");
-                int year = rs.getInt("Year");
-
-                // Add row to the model
-                model.addRow(new Object[]{id, name, addr, year});
+                setVisible(true);
             }
 
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
-        } finally {
-            try {
-                if (rs != null) rs.close();
-                if (st != null) st.close();
-                if (conn != null) conn.close();
-            } catch (SQLException se) {
-                se.printStackTrace();
-            }
-        }
-    }
+            public void fetchCollegeData() {
+                    Connection conn = null;
+                    Statement st = null;
+                    ResultSet rs = null;
 
-    public static void main(String[] args) {
-        // Use invokeLater for thread-safe UI creation
-        SwingUtilities.invokeLater(() -> new CollegeTableDisplay());
-    }
-}
+                    try {
+                            // Load PostgreSQL Driver
+                            Class.forName("org.postgresql.Driver");
+
+                            // Connect to Database
+                            conn = DriverManager.getConnection("jdbc:postgresql://localhost/postgres", "postgres", "password");
+
+                            st = conn.createStatement();
+                            rs = st.executeQuery("SELECT * FROM College");
+
+                            // Process ResultSet and add rows to the model
+                            while (rs.next()) {
+                                    int id = rs.getInt("CID");
+                                    String name = rs.getString("CName");
+                                    String addr = rs.getString("address");
+                                    int year = rs.getInt("Year");
+
+                                    // Add row to the model
+                                    model.addRow(new Object[]{id, name, addr, year});
+                                }
+
+                            } catch (Exception e) {
+                                JOptionPane.showMessageDialog(this, "Error: " + e.getMessage());
+                            } finally {
+                                try {
+                                        if (rs != null) rs.close();
+                                        if (st != null) st.close();
+                                        if (conn != null) conn.close();
+                                    } catch (SQLException se) {
+                                        se.printStackTrace();
+                                    }
+                                }
+                            }
+
+                            public static void main(String[] args) {
+                                    // Use invokeLater for thread-safe UI creation
+                                    SwingUtilities.invokeLater(() -> new CollegeTableDisplay());
+                                }
+                            }
 
 
 
 
 
-import java.util.*;
-import java.io.*;
-import javax.servlet.*;
-import javax.servlet.http.*;
+                            import java.util.*;
+                            import java.io.*;
+                            import javax.servlet.*;
+                            import javax.servlet.http.*;
 
-public class Slip27B extends HttpServlet
-{
-    public void doGet(HttpServletRequest req, HttpServletResponse res)
-    throws ServletException, IOException
-    {
-        res.setContentType("text/html");
-        PrintWriter out = res.getWriter();
-        // Get the current session object, create one if necessary
-        HttpSession session = req.getSession();
-        out.println("Session Timer<br>");
-        // Display the previous timeout
-        out.println
-        ("The previous timeout was "+session.getMaxInactiveInterval());
-        out.println("<br>");
-        // Set the new timeout
-        session.setMaxInactiveInterval(2*60*60); // two hours
-        // Display the new timeout
-        out.println
-        ("The newly assigned timeout is " + session.getMaxInactiveInterval());
-        out.close();
-}
-}
+                            public class Slip27B extends HttpServlet
+                            {
+                                    public void doGet(HttpServletRequest req, HttpServletResponse res)
+                                    throws ServletException, IOException
+                                    {
+                                            res.setContentType("text/html");
+                                            PrintWriter out = res.getWriter();
+                                            // Get the current session object, create one if necessary
+                                            HttpSession session = req.getSession();
+                                            out.println("Session Timer<br>");
+                                            // Display the previous timeout
+                                            out.println
+                                            ("The previous timeout was "+session.getMaxInactiveInterval());
+                                            out.println("<br>");
+                                            // Set the new timeout
+                                            session.setMaxInactiveInterval(2*60*60); // two hours
+                                            // Display the new timeout
+                                            out.println
+                                            ("The newly assigned timeout is " + session.getMaxInactiveInterval());
+                                            out.close();
+                                        }
+                                    }
 
 
 
@@ -3119,53 +3108,53 @@ Html file
         Enter String :-
         <input type="text" name="name" value="">
         <br><input type="submit" name="submit" value="Convert">
-        </form>
-    </body>
+    </form>
+</body>
 </html>
 
 Jsp file
 <%@ page language="java" import="java.util.*" %>
 <html>
-<body>
-<%
-String input = request.getParameter("str");
-int len = input.length();
-for(int i = len-1; i >= 0; i--)
-{
-out.print(input.charAt(i));
-}
-%>
-</body>
-</html>
+    <body>
+        <%
+        String input = request.getParameter("name");
+        int len = input.length();
+        for(int i = len-1; i >= 0; i--)
+        {
+                out.print(input.charAt(i));
+            }
+            %>
+        </body>
+    </html>
 
 
 
 
 
-public class ThreadNameDemo extends Thread {
-    
-    // This code is executed by the new threads we create
-    public void run() {
-        System.out.println("Child Thread Name: " + Thread.currentThread().getName());
-    }
+    public class ThreadNameDemo extends Thread {
 
-    public static void main(String[] args) {
-        // 1. Displaying the name of the Main thread
-        Thread mainThread = Thread.currentThread();
-        System.out.println("Currently executing thread: " + mainThread.getName());
+            // This code is executed by the new threads we create
+            public void run() {
+                    System.out.println("Child Thread Name: " + Thread.currentThread().getName());
+                }
 
-        // 2. Creating and displaying names of new threads
-        ThreadNameDemo t1 = new ThreadNameDemo();
-        ThreadNameDemo t2 = new ThreadNameDemo();
+                public static void main(String[] args) {
+                        // 1. Displaying the name of the Main thread
+                        Thread mainThread = Thread.currentThread();
+                        System.out.println("Currently executing thread: " + mainThread.getName());
 
-        // Setting custom names for better identification
-        t1.setName("Database-Thread");
-        t2.setName("UI-Update-Thread");
+                        // 2. Creating and displaying names of new threads
+                        ThreadNameDemo t1 = new ThreadNameDemo();
+                        ThreadNameDemo t2 = new ThreadNameDemo();
 
-        t1.start(); // This will execute the run() method
-        t2.start();
-    }
-}
+                        // Setting custom names for better identification
+                        t1.setName("Database-Thread");
+                        t2.setName("UI-Update-Thread");
+
+                        t1.start(); // This will execute the run() method
+                        t2.start();
+                    }
+                }
 
 
 
@@ -3177,83 +3166,83 @@ Slip 29
 
 
 import java.util.*;
-import java.sql.*;  
+import java.sql.*;
 class donar
 {
-  public static void main(String args[])
-  {
-	Connection con=null;
-	Statement stmt=null;
-	ResultSet rs=null;
+        public static void main(String args[])
+        {
+                Connection con=null;
+                Statement stmt=null;
+                ResultSet rs=null;
 
- 	try
- 	{
-Class.forName("org.postgresql.Driver"); 
-  System.out.println("Driver Loaded");  
+                try
+                {
+                        Class.forName("org.postgresql.Driver");
+                        System.out.println("Driver Loaded");
 
-con=DriverManager.getConnection("jdbc:postgresql:TYBCS","postgres","postgres");
-System.out.println("Connection established");
+                        con=DriverManager.getConnection("jdbc:postgresql:TYBCS","postgres","postgres");
+                        System.out.println("Connection established");
 
-stmt=con.createStatement();
+                        stmt=con.createStatement();
 
-String str="select * from donar";
+                        String str="select * from donar";
 
-rs=stmt.executeQuery(str);
+                        rs=stmt.executeQuery(str);
 
-ResultSetMetaData rm=rs.getMetaData();
+                        ResultSetMetaData rm=rs.getMetaData();
 
-int colcount=rm.getColumnCount();
+                        int colcount=rm.getColumnCount();
 
-System.out.println("Number of Columns="+colcount);
-	
-	 for(int i=1;i<=colcount;i++)
-	{
-	   System.out.println("Column No.: "+i);
-	   System.out.println("Column Name: "+rm.getColumnName(i));
-	   System.out.println("Column Type: "+rm.getColumnTypeName(i));
-	   System.out.println("Column size: "+rm.getColumnDisplaySize(i));
-	 }
-}
+                        System.out.println("Number of Columns="+colcount);
 
-	catch(Exception e)
-	 {
-    	  System.out.println("Error "+e);
-    	 }
-  	
-  
-  }
-}
+                        for(int i=1;i<=colcount;i++)
+                        {
+                                System.out.println("Column No.: "+i);
+                                System.out.println("Column Name: "+rm.getColumnName(i));
+                                System.out.println("Column Type: "+rm.getColumnTypeName(i));
+                                System.out.println("Column size: "+rm.getColumnDisplaySize(i));
+                            }
+                        }
+
+                        catch(Exception e)
+                        {
+                                System.out.println("Error "+e);
+                            }
 
 
+                        }
+                    }
 
 
 
 
 
 
-import java.util.*;
-public class LinkedListOperations
-{
-public static void main(String[] args)
-{
-// Create LinkedList of Integer
-LinkedList<Integer> list = new LinkedList<>();
-// Add elements
-list.add(10);
-list.add(20);
-list.add(30);
-System.out.println("Original List: " + list);
-// i. Add element at first position
-list.addFirst(5);
-System.out.println("After adding at first: " + list);
-// ii. Delete last element
-list.removeLast();
-System.out.println("After deleting last element: " + list);
-// iii. Display size of LinkedList
-int size = list.size();
-System.out.println("Size of LinkedList: " + size);
-}
-}
+
+
+                    import java.util.*;
+                    public class LinkedListOperations
+                    {
+                            public static void main(String[] args)
+                            {
+                                    // Create LinkedList of Integer
+                                    LinkedList<Integer> list = new LinkedList<>();
+                                    // Add elements
+                                    list.add(10);
+                                    list.add(20);
+                                    list.add(30);
+                                    System.out.println("Original List: " + list);
+                                    // i. Add element at first position
+                                    list.addFirst(5);
+                                    System.out.println("After adding at first: " + list);
+                                    // ii. Delete last element
+                                    list.removeLast();
+                                    System.out.println("After deleting last element: " + list);
+                                    // iii. Display size of LinkedList
+                                    int size = list.size();
+                                    System.out.println("Size of LinkedList: " + size);
+                                }
+                            }
 
 
 
@@ -3275,146 +3264,146 @@ import javax.swing.*;
 import java.awt.*;
 
 public class IndianFlagDrawing extends JFrame {
-    private FlagPanel panel;
+        private FlagPanel panel;
 
-    public IndianFlagDrawing() {
-        setTitle("Multithreaded Indian Flag Drawing");
-        setSize(600, 500);
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setLocationRelativeTo(null);
-        
-        panel = new FlagPanel();
-        add(panel);
-        
-        setVisible(true);
-        
-        // Start the construction process
-        panel.startDrawing();
-    }
+        public IndianFlagDrawing() {
+                setTitle("Multithreaded Indian Flag Drawing");
+                setSize(600, 500);
+                setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                setLocationRelativeTo(null);
 
-    public static void main(String[] args) {
-        new IndianFlagDrawing();
-    }
-}
+                panel = new FlagPanel();
+                add(panel);
 
-class FlagPanel extends JPanel {
-    private boolean showSaffron = false;
-    private boolean showWhite = false;
-    private boolean showGreen = false;
-    private boolean showChakra = false;
+                setVisible(true);
 
-    public void startDrawing() {
-        // Thread 1: Draw Saffron Band
-        new Thread(() -> {
-            try {
-                Thread.sleep(1000);
-                showSaffron = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
-
-        // Thread 2: Draw White Band
-        new Thread(() -> {
-            try {
-                Thread.sleep(2000);
-                showWhite = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
-
-        // Thread 3: Draw Green Band
-        new Thread(() -> {
-            try {
-                Thread.sleep(3000);
-                showGreen = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
-
-        // Thread 4: Draw Ashoka Chakra
-        new Thread(() -> {
-            try {
-                Thread.sleep(4000);
-                showChakra = true;
-                repaint();
-            } catch (InterruptedException e) { e.printStackTrace(); }
-        }).start();
-    }
-
-    @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
-        Graphics2D g2 = (Graphics2D) g;
-        g2.setStroke(new BasicStroke(2));
-
-        // Draw Flag Pole
-        g2.setColor(Color.BLACK);
-        g2.fillRect(50, 50, 10, 400);
-
-        // Draw Saffron Band
-        if (showSaffron) {
-            g2.setColor(new Color(255, 153, 51)); // Saffron
-            g2.fillRect(60, 50, 300, 60);
-        }
-
-        // Draw White Band
-        if (showWhite) {
-            g2.setColor(Color.WHITE);
-            g2.fillRect(60, 110, 300, 60);
-            g2.setColor(Color.BLACK);
-            g2.drawRect(60, 110, 300, 60); // Border for white
-        }
-
-        // Draw Green Band
-        if (showGreen) {
-            g2.setColor(new Color(19, 136, 8)); // Green
-            g2.fillRect(60, 170, 300, 60);
-        }
-
-        // Draw Ashoka Chakra
-        if (showChakra) {
-            g2.setColor(new Color(0, 0, 128)); // Navy Blue
-            int cx = 210 - 25; // Center X
-            int cy = 140 - 25; // Center Y
-            g2.drawOval(185, 115, 50, 50); // Circle
-            
-            // Draw 24 spokes
-            for (int i = 0; i < 24; i++) {
-                double angle = Math.toRadians(i * 15);
-                int x2 = (int) (210 + 25 * Math.cos(angle));
-                int y2 = (int) (140 + 25 * Math.sin(angle));
-                g2.drawLine(210, 140, x2, y2);
+                // Start the construction process
+                panel.startDrawing();
             }
-        }
-    }
-}
+
+            public static void main(String[] args) {
+                    new IndianFlagDrawing();
+                }
+            }
+
+            class FlagPanel extends JPanel {
+                    private boolean showSaffron = false;
+                    private boolean showWhite = false;
+                    private boolean showGreen = false;
+                    private boolean showChakra = false;
+
+                    public void startDrawing() {
+                            // Thread 1: Draw Saffron Band
+                            new Thread(() -> {
+                                    try {
+                                            Thread.sleep(1000);
+                                            showSaffron = true;
+                                            repaint();
+                                        } catch (InterruptedException e) { e.printStackTrace(); }
+                                }).start();
+
+                                // Thread 2: Draw White Band
+                                new Thread(() -> {
+                                        try {
+                                                Thread.sleep(2000);
+                                                showWhite = true;
+                                                repaint();
+                                            } catch (InterruptedException e) { e.printStackTrace(); }
+                                    }).start();
+
+                                    // Thread 3: Draw Green Band
+                                    new Thread(() -> {
+                                            try {
+                                                    Thread.sleep(3000);
+                                                    showGreen = true;
+                                                    repaint();
+                                                } catch (InterruptedException e) { e.printStackTrace(); }
+                                        }).start();
+
+                                        // Thread 4: Draw Ashoka Chakra
+                                        new Thread(() -> {
+                                                try {
+                                                        Thread.sleep(4000);
+                                                        showChakra = true;
+                                                        repaint();
+                                                    } catch (InterruptedException e) { e.printStackTrace(); }
+                                            }).start();
+                                        }
+
+                                        @Override
+                                        protected void paintComponent(Graphics g) {
+                                                super.paintComponent(g);
+                                                Graphics2D g2 = (Graphics2D) g;
+                                                g2.setStroke(new BasicStroke(2));
+
+                                                // Draw Flag Pole
+                                                g2.setColor(Color.BLACK);
+                                                g2.fillRect(50, 50, 10, 400);
+
+                                                // Draw Saffron Band
+                                                if (showSaffron) {
+                                                        g2.setColor(new Color(255, 153, 51)); // Saffron
+                                                        g2.fillRect(60, 50, 300, 60);
+                                                    }
+
+                                                    // Draw White Band
+                                                    if (showWhite) {
+                                                            g2.setColor(Color.WHITE);
+                                                            g2.fillRect(60, 110, 300, 60);
+                                                            g2.setColor(Color.BLACK);
+                                                            g2.drawRect(60, 110, 300, 60); // Border for white
+                                                        }
+
+                                                        // Draw Green Band
+                                                        if (showGreen) {
+                                                                g2.setColor(new Color(19, 136, 8)); // Green
+                                                                g2.fillRect(60, 170, 300, 60);
+                                                            }
+
+                                                            // Draw Ashoka Chakra
+                                                            if (showChakra) {
+                                                                    g2.setColor(new Color(0, 0, 128)); // Navy Blue
+                                                                    int cx = 210 - 25; // Center X
+                                                                    int cy = 140 - 25; // Center Y
+                                                                    g2.drawOval(185, 115, 50, 50); // Circle
+
+                                                                    // Draw 24 spokes
+                                                                    for (int i = 0; i < 24; i++) {
+                                                                            double angle = Math.toRadians(i * 15);
+                                                                            int x2 = (int) (210 + 25 * Math.cos(angle));
+                                                                            int y2 = (int) (140 + 25 * Math.sin(angle));
+                                                                            g2.drawLine(210, 140, x2, y2);
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
 
 
 
 
 
 
-import java.sql.*;
-class Slip30B
-{
-    public static void main(String[] args) throws Exception
-    {
-        Class.forName("org.postgresql.Driver");
-        Connection con = DriverManager.getConnection
-        ("jdbc:postgresql://localhost/slips","postgres","");
-        System.out.println("Got Connection:-"+con);
-            
-        String query = "select * from teacher1";
-        Statement stmt = con.createStatement
-        (ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
-        ResultSet rs = stmt.executeQuery(query);
-        System.out.println("ID\tName\tSALARY");
-        while(rs.next())
-        {
-            System.out.println
-            (rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getInt(3));
-        }
-    }
-}
+                                                            import java.sql.*;
+                                                            class Slip30B
+                                                            {
+                                                                    public static void main(String[] args) throws Exception
+                                                                    {
+                                                                            Class.forName("org.postgresql.Driver");
+                                                                            Connection con = DriverManager.getConnection
+                                                                            ("jdbc:postgresql://localhost/slips","postgres","");
+                                                                            System.out.println("Got Connection:-"+con);
+
+                                                                            String query = "select * from teacher1";
+                                                                            Statement stmt = con.createStatement
+                                                                            (ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+                                                                            ResultSet rs = stmt.executeQuery(query);
+                                                                            System.out.println("ID\tName\tSALARY");
+                                                                            while(rs.next())
+                                                                            {
+                                                                                    System.out.println
+                                                                                    (rs.getInt(1)+"\t"+rs.getString(2)+"\t"+rs.getInt(3));
+                                                                                }
+                                                                            }
+                                                                        }
 
 
