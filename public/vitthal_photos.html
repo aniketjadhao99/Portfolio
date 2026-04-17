@@ -160,6 +160,26 @@ class seta11
                     System.out.println(&quot;Display name in Ascending order:&quot;);
                     System.out.println(ts);
                 }
+            }</pre><div class="q-label">Question 2</div><pre>import javax.servlet.*;
+import javax.servlet.http.*;
+import java.io.*;
+public class demo extends HttpServlet
+{
+        public void doGet(HttpServletRequest req,HttpServletResponse res)throws IOException,ServletException
+        {
+                res.setContentType(&quot;text/html&quot;);
+                PrintWriter pw=res.getWriter();
+                pw.println(&quot;&lt;br&gt;Remote Address=&quot;+req.getRemoteAddr());
+                pw.println(&quot;&lt;br&gt;Remote Host=&quot;+req.getRemoteHost());
+                pw.println(&quot;&lt;br&gt;Server Name=&quot;+req.getServerName());
+                pw.println(&quot;&lt;br&gt;ServerPort=&quot;+req.getServerPort());
+                pw.println(&quot;&lt;br&gt;Operating System: &quot; +System.getProperty(&quot;os.name&quot;));
+                ServletContext context = getServletContext();
+                out.println(&quot;&lt;h3&gt;Currently Loaded Servlets&lt;/h3&gt;&quot;);
+                for (ServletRegistration reg : context.getServletRegistrations().values()) {
+                        out.println(reg.getName() + &quot;&lt;br&gt;&quot;);
+                    }
+                }
             }</pre></div></div>
 <div class="slip" id="s3">
   <div class="slip-header"><span class="slip-num">SLIP 03</span><span class="slip-title">Java Solutions</span></div>
