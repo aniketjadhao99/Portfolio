@@ -2,6 +2,36 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { ExternalLink, Github, CodeSquare, ArrowUpRight } from 'lucide-react';
 
+// Add mobile responsive styles
+const projectsGridStyles = `
+  .projects-grid {
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 1fr;
+  }
+  
+  @media (min-width: 640px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+  }
+  
+  @media (min-width: 1024px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 60px;
+    }
+  }
+  
+  @media (min-width: 1280px) {
+    .projects-grid {
+      grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+      gap: 80px;
+    }
+  }
+`;
+
 const ProjectCard = ({ title, category, github, live, index }) => (
   <motion.div 
     initial={{ opacity: 0, scale: 0.9, y: 50 }}
@@ -122,14 +152,27 @@ const Projects = () => {
     },
     {
       title: "VITTHAL PHOTOS",
-      category: "PHP | PostgreSQL | JavaScript | Tailwind CSS",
+      category: "Premium Photo Frames & Heritage",
       github: "#",
-      live: "/vitthal_photos.html"
+      live: "https://vitthalphotos.com/"
+    },
+    {
+      title: "PORTFOLIO PROJECT",
+      category: "React.js | Framer Motion | Responsive Design",
+      github: "#",
+      live: "https://aryash0412.github.io/portfolio/"
+    },
+    {
+      title: "CYBERZTALK",
+      category: "Web Platform | Features & Services",
+      github: "#",
+      live: "https://palegreen-llama-259442.hostingersite.com/features.html"
     }
   ];
 
   return (
     <section id="work" style={{ paddingTop: '160px', paddingBottom: '200px' }}>
+       <style>{projectsGridStyles}</style>
        <div className="container">
           <motion.div 
             initial={{ opacity: 0, x: -50 }}
@@ -148,11 +191,7 @@ const Projects = () => {
              }}></div>
           </motion.div>
 
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fit, minmax(450px, 1fr))', 
-            gap: '80px' 
-          }}>
+          <div className="projects-grid">
             {projects.map((p, i) => (
               <ProjectCard key={i} index={i} {...p} />
             ))}
