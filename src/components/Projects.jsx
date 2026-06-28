@@ -44,6 +44,7 @@ const ProjectCard = ({ title, category, github, live, index }) => (
         rotateX: -5,
         transition: { duration: 0.3 }
     }}
+    onClick={() => window.open(live, '_blank')}
     className="glass"
     style={{
       padding: '24px',
@@ -113,14 +114,20 @@ const ProjectCard = ({ title, category, github, live, index }) => (
       <div style={{ display: 'flex', gap: '15px' }}>
         <motion.a 
             whileHover={{ scale: 1.2, color: 'var(--accent-pink)' }}
-            href={github} 
+            href={github}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }}
         >
             <Github size={22} />
         </motion.a>
         <motion.a 
             whileHover={{ scale: 1.2, color: 'var(--accent-cyan)' }}
-            href={live} 
+            href={live}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
             style={{ color: 'var(--text-secondary)', transition: 'color 0.3s' }}
         >
             <ArrowUpRight size={22} />
@@ -135,25 +142,25 @@ const Projects = () => {
     {
       title: "CYBERZSEC",
       category: "React.js | Node.js | Tailwind CSS | GSAP",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/CyberZsec.git",
       live: "https://cyberzsec.com/"
     },
     {
       title: "PRIYA CHAVAN MAKEUP",
       category: "HTML5 | CSS3 | JavaScript | GSAP | Framer Motion",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/Priya-Makeup-Artist.git",
       live: "https://priyachavanmakeupartist.in/"
     },
     {
       title: "CYBERZCOP",
       category: "React.js | Node.js | Tailwind CSS | GSAP | Web Security Protocols",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/CyberZcop.git",
       live: "https://cyberzsec.com/cyberzcop.html"
     },
     {
       title: "VITTHAL PHOTOS",
       category: "Premium Photo Frames & Heritage",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/Vitthal-Photos.git",
       live: "https://vitthalphotos.com/"
     },
     {
@@ -165,7 +172,7 @@ const Projects = () => {
     {
       title: "CYBERZTALK",
       category: "Web Platform | Features & Services",
-      github: "#",
+      github: "https://github.com/aniketjadhao99/CYBERZTALK.git",
       live: "https://palegreen-llama-259442.hostingersite.com/features.html"
     }
   ];
