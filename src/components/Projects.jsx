@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Github, CodeSquare, ArrowUpRight } from 'lucide-react';
+import { ExternalLink, Github, CodeSquare, ArrowUpRight, Shield, Camera, Zap, MessageCircle, Palette } from 'lucide-react';
 
 // Add mobile responsive styles
 const projectsGridStyles = `
@@ -32,7 +32,66 @@ const projectsGridStyles = `
   }
 `;
 
-const ProjectCard = ({ title, category, github, live, index }) => (
+// Project Image Component
+const ProjectImage = ({ title, icon: Icon, gradientStart, gradientEnd }) => (
+  <div style={{
+    width: '100%',
+    height: '100%',
+    background: `linear-gradient(135deg, ${gradientStart} 0%, ${gradientEnd} 100%)`,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    position: 'relative',
+    overflow: 'hidden'
+  }}>
+    {/* Animated background */}
+    <motion.div 
+      animate={{ rotate: 360 }}
+      transition={{ duration: 20, repeat: Infinity, ease: 'linear' }}
+      style={{
+        position: 'absolute',
+        width: '150%',
+        height: '150%',
+        background: 'radial-gradient(circle, rgba(255,255,255,0.1) 1px, transparent 1px)',
+        backgroundSize: '30px 30px',
+        opacity: 0.3
+      }}
+    />
+    
+    {/* Icon */}
+    <motion.div
+      whileHover={{ scale: 1.1, rotate: 5 }}
+      style={{ position: 'relative', zIndex: 1 }}
+    >
+      <Icon size={80} color="rgba(255, 255, 255, 0.9)" strokeWidth={1.5} />
+    </motion.div>
+
+    {/* Scan line effect */}
+    <motion.div 
+      animate={{ top: ['-10%', '110%'] }}
+      transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
+      style={{
+        position: 'absolute',
+        left: 0,
+        width: '100%',
+        height: '2px',
+        background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.5), transparent)',
+        opacity: 0.4,
+        zIndex: 2
+      }}
+    />
+
+    {/* Overlay gradient */}
+    <div style={{
+      position: 'absolute',
+      inset: 0,
+      background: 'linear-gradient(to bottom, transparent 40%, rgba(5, 5, 5, 0.5))',
+      zIndex: 3
+    }}></div>
+  </div>
+);
+
+const ProjectCard = ({ title, category, github, live, index, image }) => (
   <motion.div 
     initial={{ opacity: 0, scale: 0.9, y: 50 }}
     whileInView={{ opacity: 1, scale: 1, y: 0 }}
@@ -68,33 +127,7 @@ const ProjectCard = ({ title, category, github, live, index }) => (
       position: 'relative',
       overflow: 'hidden'
     }}>
-      <motion.div
-        whileHover={{ scale: 1.2, rotate: 5 }}
-        style={{ position: 'relative', zIndex: 1 }}
-      >
-        <CodeSquare size={60} className="glow-text" style={{ opacity: 0.4 }} />
-      </motion.div>
-      
-      {/* Decorative scanning line animation */}
-      <motion.div 
-        animate={{ top: ['-10%', '110%'] }}
-        transition={{ duration: 3, repeat: Infinity, ease: 'linear' }}
-        style={{
-          position: 'absolute',
-          left: 0,
-          width: '100%',
-          height: '2px',
-          background: 'linear-gradient(90deg, transparent, var(--accent-cyan), transparent)',
-          opacity: 0.3,
-          zIndex: 2
-        }}
-      />
-
-      <div style={{
-          position: 'absolute',
-          inset: 0,
-          background: 'linear-gradient(to bottom, transparent 40%, rgba(5, 5, 5, 0.9))'
-      }}></div>
+      <ProjectImage {...image} />
     </div>
     
     <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-end' }}>
@@ -143,37 +176,73 @@ const Projects = () => {
       title: "CYBERZSEC",
       category: "React.js | Node.js | Tailwind CSS | GSAP",
       github: "https://github.com/aniketjadhao99/CyberZsec.git",
-      live: "https://cyberzsec.com/"
+      live: "https://cyberzsec.com/",
+      image: {
+        title: "CYBERZSEC",
+        icon: Shield,
+        gradientStart: "#1a3a52",
+        gradientEnd: "#0f1f3a"
+      }
     },
     {
       title: "PRIYA CHAVAN MAKEUP",
       category: "HTML5 | CSS3 | JavaScript | GSAP | Framer Motion",
       github: "https://github.com/aniketjadhao99/Priya-Makeup-Artist.git",
-      live: "https://priyachavanmakeupartist.in/"
+      live: "https://priyachavanmakeupartist.in/",
+      image: {
+        title: "PRIYA CHAVAN MAKEUP",
+        icon: Palette,
+        gradientStart: "#3d1a2a",
+        gradientEnd: "#1a0f17"
+      }
     },
     {
       title: "CYBERZCOP",
       category: "React.js | Node.js | Tailwind CSS | GSAP | Web Security Protocols",
       github: "https://github.com/aniketjadhao99/CyberZcop.git",
-      live: "https://cyberzsec.com/cyberzcop.html"
+      live: "https://cyberzsec.com/cyberzcop.html",
+      image: {
+        title: "CYBERZCOP",
+        icon: Shield,
+        gradientStart: "#2a1a3a",
+        gradientEnd: "#0f0a1a"
+      }
     },
     {
       title: "VITTHAL PHOTOS",
       category: "Premium Photo Frames & Heritage",
       github: "https://github.com/aniketjadhao99/Vitthal-Photos.git",
-      live: "https://vitthalphotos.com/"
+      live: "https://vitthalphotos.com/",
+      image: {
+        title: "VITTHAL PHOTOS",
+        icon: Camera,
+        gradientStart: "#1a2a3a",
+        gradientEnd: "#0f151f"
+      }
     },
     {
       title: "PORTFOLIO PROJECT",
       category: "React.js | Framer Motion | Responsive Design",
       github: "#",
-      live: "https://aryash0412.github.io/portfolio/"
+      live: "https://aryash0412.github.io/portfolio/",
+      image: {
+        title: "PORTFOLIO PROJECT",
+        icon: CodeSquare,
+        gradientStart: "#2a1a3a",
+        gradientEnd: "#1a0f2a"
+      }
     },
     {
       title: "CYBERZTALK",
       category: "Web Platform | Features & Services",
       github: "https://github.com/aniketjadhao99/CYBERZTALK.git",
-      live: "https://palegreen-llama-259442.hostingersite.com/features.html"
+      live: "https://palegreen-llama-259442.hostingersite.com/features.html",
+      image: {
+        title: "CYBERZTALK",
+        icon: MessageCircle,
+        gradientStart: "#1a3a2a",
+        gradientEnd: "#0f1a15"
+      }
     }
   ];
 
